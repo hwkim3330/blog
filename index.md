@@ -1,12 +1,11 @@
-# 글 목록
+---
+layout: default
+---
+
+# 전체 글 목록
 
 <ul>
-{% for file in site.static_files %}
-  {% if file.path contains '/posts/' and file.extname == '.md' %}
-    {% assign post_url = file.path | remove_first: '/' | replace: '.md', '.html' %}
-    <li>
-      <a href="{{ post_url | relative_url }}">{{ file.basename }}</a>
-    </li>
-  {% endif %}
+{% for doc in site.posts %}
+  <li><a href="{{ doc.url | relative_url }}">{{ doc.basename }}</a></li>
 {% endfor %}
 </ul>
