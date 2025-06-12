@@ -1,7 +1,2 @@
-# 테마를 가장 기본적이고 문제가 없는 'minimal'로 변경합니다.
+title: hwkim3330의 블로그
 theme: jekyll-theme-minimal
-
-# '_articles' 폴더를 컬렉션으로 인식시킵니다.
-collections:
-  articles:
-    output: true
