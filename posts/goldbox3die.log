@@ -5523,333 +5523,6 @@ elr: 00000000fff32530 lr : 00000000fff32518
 "Synchronous Abort" handler, esr 0x86000210
 elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
 elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
-"Synchronous Abort" handler, esr 0x86000210
-elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
-elr: 00000000fff32530 lr : 00000000fff32518
 "Synchronous Abort" handler, esr 0x8fff32518
 "Synchronous Abort" handler, esr 0x86000210
 elr: 00000000340a6530 lr : 00000000340a6518 (reloc)
@@ -9922,6 +9595,333 @@ U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
 
 CPU: NXP S32G399A rev. 1.1.0
 Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 0000000
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 00000
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Bo�
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: Power-On Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
+Model: NXP S32G3XX
+Board:  NXP S32G399A-RDB3
+DRAM:  Error 3 on ddr_init
+initcall sequence 000000003410be40 failed at call 00000000340a2f18 (err=3)
+### ERROR ### Please RESET the board ###
+
+
+U-Boot 2020.04+g6286902c94 (Nov 17 2021 - 08:47:30 +0000)
+
+CPU: NXP S32G399A rev. 1.1.0
+Reset cause: External Reset
 Model: NXP S32G3XX
 Board:  NXP S32G399A-RDB3
 DRAM:  Error 3 on ddr_init
