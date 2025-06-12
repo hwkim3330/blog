@@ -1,14 +1,12 @@
----
-layout: default
----
-
-# 전체 글 목록
+# 글 목록
 
 <ul>
-{% for doc in site.articles %}
-  <li><a href="{{ doc.url | relative_url }}">{{ doc.basename }}</a></li>
+{% for file in site.static_files %}
+  {% if file.path contains '/posts/' and file.extname == '.md' %}
+    {% assign post_url = file.path | remove_first: '/' | replace: '.md', '.html' %}
+    <li>
+      <a href="{{ post_url | relative_url }}">{{ file.basename }}</a>
+    </li>
+  {% endif %}
 {% endfor %}
 </ul>
-
-<hr>
-<p><b>[디버깅 정보]</b> articles 컬렉션에 포함된 문서 개수: {{ site.articles.size }}</p>
