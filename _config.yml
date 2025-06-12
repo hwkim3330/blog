@@ -1,19 +1,7 @@
-# 테마 설정
-remote_theme: just-the-docs/just-the-docs
+# 테마를 가장 기본적이고 문제가 없는 'minimal'로 변경합니다.
+theme: jekyll-theme-minimal
 
-# 검색 기능
-search_enabled: true
-
-# --- 'articles'라는 이름의 컬렉션을 새로 정의 ---
+# '_articles' 폴더를 컬렉션으로 인식시킵니다.
 collections:
   articles:
     output: true
-
-# --- ★★★ 진짜 마법의 핵심 ★★★ ---
-# '_articles' 폴더 안의 모든 파일에 'default' 레이아웃을 강제로 적용
-defaults:
-  - scope:
-      path: ""
-      type: "articles" # 'articles' 컬션에 속하는 파일들을 대상으로 함
-    values:
-      layout: "default"
