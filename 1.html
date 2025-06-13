@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXP GoldBox 2 (S32G2) 이더넷 스위치 문제 분석 보고서</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        h1, h2, h3 {
+            color: #003366;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid #003366;
+            font-size: 2em;
+        }
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .summary-table th, .summary-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .summary-table th {
+            background-color: #e9eff5;
+            font-weight: 700;
+            width: 30%;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .highlight {
+            color: #ff6347; /* Tomato Red */
+            font-weight: bold;
+        }
+        .todo-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .todo-list li {
+            background-color: #fffbe6;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>NXP GoldBox 2 (S32G2) 이더넷 스위치 문제 분석</h1>
+
+        <h2>1. 개요</h2>
+        <p>
+            NXP GoldBox 2 (S32G274A) 보드에서 TSN(Time-Sensitive Networking) 기능 검증을 위해 이더넷 연결을 시도하였으나, PFE(Packet Forwarding Engine)에 연결된 <strong>SJA1110 이더넷 스위치</strong>가 정상적으로 초기화되지 않는 문제를 확인했습니다. 이 문서는 해당 문제의 원인을 분석하고 해결 방안을 제시합니다.
+        </p>
+
+        <h2>2. 장비 정보</h2>
+        <table class="summary-table">
+            <tr>
+                <th>항목</th>
+                <th>사양</th>
+            </tr>
+            <tr>
+                <td>보드 모델</td>
+                <td>NXP GoldBox 2 (S32G274ARDB2)</td>
+            </tr>
+            <tr>
+                <td>프로세서(SoC)</td>
+                <td>Freescale S32G274A</td>
+            </tr>
+            <tr>
+                <td>OS / BSP</td>
+                <td>Auto Linux BSP 35.0</td>
+            </tr>
+            <tr>
+                <td>Kernel 버전</td>
+                <td>5.10.145-rt74+g1594b25154a2 (Real-Time)</td>
+            </tr>
+             <tr>
+                <td>메모리(RAM)</td>
+                <td>약 3.5 GB</td>
+            </tr>
+        </table>
+
+        <h2>3. 문제 현상</h2>
+        <p>
+            정상적인 GoldBox 3 (S32G3) 보드와 달리, GoldBox 2 보드의 PFE 포트에 이더넷 케이블을 연결해도 <strong>'Link is Up' 상태가 되지 않으며</strong> 네트워크 연결이 전혀 이루어지지 않습니다.
+        </p>
+        <p>
+            TSN의 핵심 기능인 하드웨어 트래픽 제어(TC) 오프로드 기능 또한 비활성화된 상태로 확인되었습니다.
+        </p>
+        <div class="code-block">
+$ ethtool -k pfe0
+Features for pfe0:
+...
+<span class="highlight">hw-tc-offload: off [fixed]</span>
+...
+        </div>
+        <p>
+            <code>hw-tc-offload</code>가 <code>off [fixed]</code>로 표시되는 것은 하드웨어 스케줄링(TAS/CBS 등) 가속 기능을 사용할 수 없음을 의미하며, 이는 스위치 드라이버가 제대로 동작하지 않기 때문입니다.
+        </p>
+        
+        <h2>4. 원인 분석: 펌웨어 로딩 실패</h2>
+        <p>
+            부팅 로그(dmesg)를 분석한 결과, 커널이 SJA1110 이더넷 스위치를 초기화하는 과정에서 필요한 펌웨어 파일 <strong><code>sja1110_switch.bin</code></strong>을 찾지 못해 오류가 발생하는 것을 확인했습니다.
+        </p>
+        <div class="code-block">
+# dmesg | grep sja1110
+sja1110 spi0.0: sja1110_switch_probe: Probing spi0.0
+sja1110 spi0.0: sja1110_switch_probe: Firmware file <span class="highlight">'sja1110_switch.bin' not found</span>
+sja1110 spi0.0: sja1110_load_firmware: <span class="highlight">Direct firmware load for sja1110_switch.bin failed with error -2</span>
+sja1110 spi0.0: sja1110_reset: Could not load firmware, will use static config
+        </div>
+        <p>
+            오류 코드 <code>-2</code>는 '파일 없음(No such file or directory)'을 의미합니다. 이로 인해 스위치가 기본(Static) 설정으로만 동작하거나 혹은 완전히 초기화에 실패하여 PFE 포트가 활성화되지 않는 것으로 판단됩니다.
+        </p>
+
+        <h2>5. 시스템 다이어그램 및 문제 지점</h2>
+        <div class="diagram-container">
+            <svg width="100%" height="250" viewBox="0 0 700 250">
+                <defs>
+                    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"></path>
+                    </marker>
+                    <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="red"></path>
+                    </marker>
+                </defs>
+
+                <!-- Boxes -->
+                <rect x="50" y="80" width="150" height="80" rx="5" fill="#e9eff5" stroke="#003366" stroke-width="2"></rect>
+                <text x="125" y="125" text-anchor="middle" font-weight="bold">S32G2 SoC</text>
+
+                <rect x="280" y="80" width="150" height="80" rx="5" fill="#e9eff5" stroke="#003366" stroke-width="2"></rect>
+                <text x="355" y="115" text-anchor="middle">Packet Forwarding</text>
+                <text x="355" y="135" text-anchor="middle">Engine (PFE)</text>
+
+                <rect x="500" y="80" width="150" height="80" rx="5" fill="#e9eff5" stroke="#003366" stroke-width="2"></rect>
+                <text x="575" y="115" text-anchor="middle">SJA1110</text>
+                <text x="575" y="135" text-anchor="middle">Ethernet Switch</text>
+                
+                <rect x="280" y="20" width="150" height="40" rx="5" fill="#fffbe6" stroke="#ffc107" stroke-width="2"></rect>
+                <text x="355" y="45" text-anchor="middle" font-size="0.9em">/lib/firmware</text>
+
+                <!-- Connectors -->
+                <line x1="200" y1="120" x2="280" y2="120" stroke="#333" stroke-width="2" marker-end="url(#arrow)"></line>
+                <line x1="430" y1="120" x2="500" y2="120" stroke="#333" stroke-width="2" marker-end="url(#arrow)"></line>
+                <text x="465" y="110" text-anchor="middle" font-size="0.8em">SPI</text>
+                
+                <!-- Problem Arrow -->
+                <path d="M 355 60 Q 420 70 495 90" stroke="red" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow-red)"></path>
+                <text x="450" y="60" fill="red" font-weight="bold">펌웨어 로딩 실패!</text>
+                <text x="450" y="80" fill="red" font-size="0.8em">(sja1110_switch.bin)</text>
+
+            </svg>
+        </div>
+
+        <h2>6. 해결 방안 (To-Do)</h2>
+        <p>
+            문제를 해결하기 위해 S32G274A 보드 및 BSP 버전에 맞는 <strong><code>sja1110_switch.bin</code></strong> 펌웨어 파일을 확보하여 보드의 파일 시스템에 복사해야 합니다.
+        </p>
+        <ul class="todo-list">
+            <li>
+                <strong>1. 펌웨어 파일 확보:</strong> NXP 공식 채널 또는 Yocto 빌드 산출물에서 S32G274A용 <code>sja1110_switch.bin</code> 펌웨어 파일을 찾습니다. (필요 시 NXP 기술 지원 요청)
+            </li>
+            <li>
+                <strong>2. 펌웨어 파일 복사:</strong> 확보한 펌웨어 파일을 GoldBox 2 보드의 <code>/lib/firmware/</code> 디렉터리에 복사합니다.
+            </li>
+            <li>
+                <strong>3. 시스템 재부팅 및 검증:</strong> 보드를 재부팅한 후, 아래 명령어를 통해 스위치가 정상적으로 초기화되고 PFE 포트가 활성화되는지 확인합니다.
+                <div class="code-block" style="background-color: #3e3e3e; margin-top: 10px;">
+# dmesg | grep sja1110              # 펌웨어 로딩 성공 메시지 확인
+# ip addr show pfe0                # IP 주소 및 Link 상태 확인
+# ethtool -k pfe0                    # hw-tc-offload 기능이 'on'으로 변경되었는지 확인
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
