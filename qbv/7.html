@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체 스케줄링 절차 및 슬롯 탐색 알고리즘</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+        .slide {
+            width: 1280px;
+            height: 720px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .flowchart-box {
+            border: 2px solid #ccc;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        .flowchart-arrow {
+            font-size: 2.5rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide bg-white p-12 flex flex-col">
+        <!-- Slide Header -->
+        <header class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">전체 스케줄링 절차 및 핵심 로직</h1>
+            <div class="w-24 h-1 bg-purple-600 mt-2"></div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="grid grid-cols-2 gap-10 flex-grow">
+            <!-- Column 1: Overall Scheduling Procedure -->
+            <div class="bg-purple-50 p-6 rounded-lg border border-purple-200 flex flex-col">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-project-diagram text-3xl text-purple-600"></i>
+                    <h2 class="text-2xl font-semibold ml-3 text-purple-800">전체 스케줄링 절차 (Fig. 8)</h2>
+                </div>
+                <p class="text-gray-600 mb-6 text-lg">최적의 스케줄을 찾고 적용하는 과정은 다음과 같은 체계적인 단계를 거칩니다.</p>
+                <div class="space-y-4 flex flex-col items-center">
+                    <div class="flowchart-box bg-purple-100 border-purple-400 w-3/4">1. 알고리즘 조합 선택<br><span class="text-sm font-normal">(예: H_GCD_Sorted_ALT_GA)</span></div>
+                    <div class="flowchart-arrow">↓</div>
+                    <div class="flowchart-box bg-purple-100 border-purple-400 w-3/4">2. 슬롯 탐색 적용<br><span class="text-sm font-normal">(모든 스트림에 대해 최적 위치 탐색)</span></div>
+                    <div class="flowchart-arrow">↓</div>
+                    <div class="flowchart-box border-gray-400 w-3/4 relative">
+                        <div class="absolute -right-16 top-1/2 -translate-y-1/2 text-red-500 font-bold">NO ↘</div>
+                        <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-green-500 font-bold">YES ↓</div>
+                        3. 스케줄링 성공?
+                    </div>
+                    <div class="flex w-full justify-between items-start mt-12">
+                        <div class="flex flex-col items-center w-1/2">
+                            <div class="flowchart-box bg-yellow-100 border-yellow-400 w-full">4. GCL 설정<br><span class="text-sm font-normal">(스케줄 결과를 하드웨어 규칙으로 변환)</span></div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box bg-green-100 border-green-400 w-full">5. GCL 압축 (선택)<br><span class="text-sm font-normal">(규칙 수를 줄여 효율성 증대)</span></div>
+                        </div>
+                        <div class="w-1/2 flex justify-end items-center h-full pt-10">
+                            <div class="flowchart-box bg-red-100 border-red-400 w-1/2">종료</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: Slot Search Algorithm -->
+            <div class="bg-gray-50 p-6 rounded-lg border flex flex-col">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-search-location text-3xl text-gray-600"></i>
+                    <h2 class="text-2xl font-semibold ml-3 text-gray-800">핵심 로직: 슬롯 탐색 알고리즘</h2>
+                </div>
+                <p class="text-gray-600 mb-4 text-lg">모든 알고리즘 조합의 심장부에는 '슬롯 탐색' 로직이 있습니다. 이 로직의 목표는 다음과 같습니다.</p>
+                <ul class="space-y-4 text-lg text-gray-700 flex-grow">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-signs text-gray-500 mt-1.5 mr-3"></i>
+                        <div><strong class="font-semibold">No-Wait 경로 탐색:</strong> 스트림이 경로상에서 다른 트래픽과 충돌하지 않고, 대기 없이 통과할 수 있는 '빈 슬롯'을 찾습니다.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-sync-alt text-gray-500 mt-1.5 mr-3"></i>
+                        <div><strong class="font-semibold">등거리(Equidistant) 배치:</strong> 스트림이 주기적으로 반복될 때, 매번 동일한 간격으로 배치하여 지연 변동(Jitter)을 최소화합니다.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-shoe-prints text-gray-500 mt-1.5 mr-3"></i>
+                        <div><strong class="font-semibold">단계적 오프셋 조정:</strong> 만약 초기 출발 시간(φ)에 적절한 슬롯이 없다면, 찾을 때까지 출발 시간을 점진적으로 뒤로 미룹니다(φ*).</div>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-double text-gray-500 mt-1.5 mr-3"></i>
+                        <div><strong class="font-semibold">최종 목표:</strong> 모든 스트림이 자신의 경로와 주기에 맞는 No-Wait 슬롯을 성공적으로 할당받는 것입니다.</div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
