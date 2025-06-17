@@ -31,7 +31,35 @@
             border-left: 5px solid #4f46e5;
             padding: 1rem;
             border-radius: 0.5rem;
-            font-family: 'Noto Sans KR', monospace;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+        .timeline {
+            position: relative;
+            width: 100%;
+            height: 40px;
+            background-color: #e5e7eb;
+            border-radius: 0.25rem;
+        }
+        .stream-box {
+            position: absolute;
+            height: 100%;
+            border: 2px dashed #3b82f6;
+            background-color: #bfdbfe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1e40af;
+        }
+        .occupied-box {
+            position: absolute;
+            height: 100%;
+            background-color: #9ca3af;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
         }
     </style>
 </head>
@@ -53,31 +81,35 @@
                 </div>
                 <p class="text-gray-600 mb-4 text-lg">스트림은 출발부터 도착까지, 경로상에서 다른 트래픽으로 인해 <strong class="text-indigo-700">절대 대기해서는 안 됩니다.</strong></p>
                 
-                <!-- Before Shift -->
-                <div class="mb-2">
-                    <h3 class="font-semibold text-red-600"><i class="fas fa-times-circle mr-2"></i>문제 상황: 충돌 발생</h3>
-                    <div class="w-full bg-gray-100 p-3 rounded-md border flex items-center space-x-2">
-                        <div class="border-2 border-dashed border-blue-500 bg-blue-100 text-blue-800 p-2 font-bold">S1</div>
-                        <div class="flex-grow h-10"></div>
-                        <div class="bg-gray-400 text-white p-2">점유됨</div>
-                        <div class="text-red-500 text-2xl font-bold">→ 💥</div>
+                <!-- Detailed Diagram -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-semibold text-red-600"><i class="fas fa-times-circle mr-2"></i>문제 상황: 충돌 발생 (φ₁ = 0)</h3>
+                        <div class="space-y-2 mt-2">
+                            <div class="timeline"><div class="stream-box" style="left: 0%; width: 20%;">S₁</div><span class="absolute -left-12 top-1/2 -translate-y-1/2 font-mono">lᵢ,ⱼ</span></div>
+                            <div class="timeline"><div class="occupied-box" style="left: 45%; width: 25%;">점유됨</div><span class="absolute -left-12 top-1/2 -translate-y-1/2 font-mono">lⱼ,ₘ</span></div>
+                            <div class="absolute w-px h-8 bg-red-500 border-l border-dashed" style="left: 20%; top: 29%;"></div>
+                            <div class="absolute w-px h-8 bg-red-500 border-l border-dashed" style="left: 45%; top: 33%;"></div>
+                            <div class="absolute h-px w-1/4 bg-red-500 border-t border-dashed" style="left: 20%; top: 33%;">
+                                <span class="text-xs text-red-500 -mt-5 absolute left-1/2 -translate-x-1/2">D<sub>trans</sub>+D<sub>prop</sub>+D<sub>proc</sub></span>
+                                <span class="text-red-500 text-2xl absolute right-0 -mt-3">💥</span>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-500 mt-1">S1을 즉시 출발시키니, 다음 링크(l j,m)에서 이미 점유된 슬롯과 충돌하여 대기 발생</p>
-                </div>
-
-                <div class="text-center my-3"><i class="fas fa-arrow-down-long text-3xl text-indigo-500"></i> <span class="text-lg font-semibold ml-2">"스트림 시프트" 적용</span></div>
-
-                <!-- After Shift -->
-                <div>
-                    <h3 class="font-semibold text-green-600"><i class="fas fa-check-circle mr-2"></i>해결: No-Wait 충족</h3>
-                    <div class="w-full bg-gray-100 p-3 rounded-md border flex items-center space-x-2">
-                        <div class="w-16 h-10"></div>
-                        <div class="border-2 border-dashed border-blue-500 bg-blue-100 text-blue-800 p-2 font-bold">S1</div>
-                        <div class="flex-grow h-10"></div>
-                        <div class="bg-gray-200 p-2">비어있음</div>
-                        <div class="text-green-500 text-2xl font-bold">→ ✅</div>
+                    <div class="text-center my-3"><i class="fas fa-arrow-down-long text-3xl text-indigo-500"></i> <span class="text-lg font-semibold ml-2">"스트림 시프트" 적용</span></div>
+                    <div>
+                        <h3 class="font-semibold text-green-600"><i class="fas fa-check-circle mr-2"></i>해결: No-Wait 충족 (φ*₁ > 0)</h3>
+                        <div class="space-y-2 mt-2">
+                            <div class="timeline"><div class="stream-box" style="left: 15%; width: 20%;">S₁</div><span class="absolute -left-12 top-1/2 -translate-y-1/2 font-mono">lᵢ,ⱼ</span></div>
+                            <div class="timeline"><div class="stream-box" style="left: 60%; width: 20%;">S₁</div><span class="absolute -left-12 top-1/2 -translate-y-1/2 font-mono">lⱼ,ₘ</span></div>
+                            <div class="absolute w-px h-8 bg-green-500 border-l border-dashed" style="left: 35%; top: 62%;"></div>
+                            <div class="absolute w-px h-8 bg-green-500 border-l border-dashed" style="left: 60%; top: 66%;"></div>
+                            <div class="absolute h-px w-1/4 bg-green-500 border-t border-dashed" style="left: 35%; top: 66%;">
+                                <span class="text-xs text-green-600 -mt-5 absolute left-1/2 -translate-x-1/2">지연 시간</span>
+                                <span class="text-green-500 text-2xl absolute right-0 -mt-3">✅</span>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-500 mt-1">충돌을 피하도록 S1의 출발 시간(φ* > 0)을 뒤로 미뤄, 경로상에서 막힘 없이 전송</p>
                 </div>
             </div>
 
@@ -93,17 +125,17 @@
                     <div>
                         <h3 class="font-semibold text-lg text-gray-800 mb-2">Step 1: 총 이동 시간 계산 (수식 1)</h3>
                         <div class="formula-box text-xl">
-                            <span class="font-bold text-indigo-800">e2e<sub>k</sub> = Σ ( D<sub>proc</sub> + D<sub>trans</sub> + D<sub>prop</sub> )</span>
+                            e2e<sub>k</sub> = Σ ( D<sub>proc</sub> + D<sub>trans,k</sub> + D<sub>prop</sub> )
                         </div>
-                        <p class="text-gray-600 mt-2">스트림의 순수 이동 시간(e2e)은 경로상 모든 노드의 <strong class="font-semibold">처리+전송+전파 지연</strong>의 합입니다.</p>
+                        <p class="text-gray-600 mt-2">스트림의 순수 이동 시간(<strong class="font-semibold text-indigo-700"><em>e2e<sub>k</sub></em></strong>)은 경로상 모든 노드의 <strong class="font-semibold">처리+전송+전파 지연</strong>의 합입니다.</p>
                     </div>
                     
                     <div>
                         <h3 class="font-semibold text-lg text-gray-800 mb-2">Step 2: 최종 마감 시간 검증 (수식 2)</h3>
                         <div class="formula-box text-xl">
-                            <span class="font-bold text-green-800">φ*<sub>k</sub> + e2e<sub>k</sub> ≤ d<sub>k</sub></span>
+                            φ*<sub>k</sub> + e2e<sub>k</sub> ≤ d<sub>k</sub>
                         </div>
-                        <p class="text-gray-600 mt-2">조정된 <strong class="font-semibold">최종 출발 시간(φ*)</strong>과 <strong class="font-semibold">총 이동 시간(e2e)</strong>의 합이 <strong class="font-semibold">마감 시간(d)</strong> 이내여야 합니다.</p>
+                        <p class="text-gray-600 mt-2">조정된 <strong class="font-semibold text-indigo-700"><em>φ*<sub>k</sub></em></strong> (최종 출발 시간)과 <strong class="font-semibold text-indigo-700"><em>e2e<sub>k</sub></em></strong> (총 이동 시간)의 합이 마감 시간(<strong class="font-semibold text-indigo-700"><em>d<sub>k</sub></em></strong>) 이내여야 합니다.</p>
                     </div>
                 </div>
                 <div class="mt-auto bg-indigo-100 text-indigo-800 p-4 rounded-lg text-center text-lg font-semibold">
