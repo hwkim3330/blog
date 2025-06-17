@@ -25,9 +25,10 @@
             display: flex;
             flex-direction: column;
         }
-        .code-block .comment { color: #8a93a2; }
-        .code-block .keyword { color: #569cd6; }
-        .code-block .value { color: #b5cea8; }
+        /* 코드 블록 구문 강조 스타일 */
+        .code-block .comment { color: #8a93a2; } /* 회색 주석 */
+        .code-block .keyword { color: #c586c0; } /* 보라색 키워드 */
+        .code-block .value { color: #569cd6; }   /* 파란색 값 */
     </style>
 </head>
 <body>
@@ -78,11 +79,14 @@
                         <div><strong class="font-semibold text-gray-800">핵심 메커니즘 (GCL):</strong> 아래와 같이 GCL을 최적화하여 게이트를 정밀 제어합니다.</div>
                     </li>
                 </ul>
+                <!-- Improved Code Block -->
                 <div class="code-block bg-gray-800 text-white p-4 rounded-md mt-2 text-base">
-<pre><code><span class="comment"># GCL: 각 트래픽 큐(0-7)의 게이트를 제어하는 시간표</span>
+<pre><code class="font-mono">
+<span class="comment"># GCL: 각 트래픽 큐(0-7)의 게이트를 제어하는 시간표</span>
 <span class="keyword">[T0 ~ T1]:</span> <span class="value">10000000</span>  <span class="comment"># 우선순위 7 트래픽만 통과</span>
 <span class="keyword">[T1 ~ T2]:</span> <span class="value">00110000</span>  <span class="comment"># 우선순위 5, 4 트래픽 동시 통과 가능</span>
-<span class="keyword">[T2 ~ T3]:</span> <span class="value">11111111</span>  <span class="comment"># 모든 게이트 개방 (Strict Priority 경쟁)</span></code></pre>
+<span class="keyword">[T2 ~ T3]:</span> <span class="value">11111111</span>  <span class="comment"># 모든 게이트 개방 (Strict Priority 경쟁)</span>
+</code></pre>
                 </div>
                  <ul class="space-y-4 text-gray-700 text-lg mt-4">
                     <li class="flex items-start">
