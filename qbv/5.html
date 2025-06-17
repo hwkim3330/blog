@@ -33,34 +33,6 @@
             border-radius: 0.5rem;
             font-family: 'Consolas', 'Monaco', monospace;
         }
-        .timeline {
-            position: relative;
-            width: 100%;
-            height: 40px;
-            background-color: #e5e7eb;
-            border-radius: 0.25rem;
-        }
-        .stream-box {
-            position: absolute;
-            height: 100%;
-            border: 2px dashed #3b82f6;
-            background-color: #bfdbfe;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #1e40af;
-        }
-        .occupied-box {
-            position: absolute;
-            height: 100%;
-            background-color: #9ca3af;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-        }
     </style>
 </head>
 <body>
@@ -73,7 +45,7 @@
 
         <!-- Main Content Grid -->
         <main class="grid grid-cols-2 gap-10 flex-grow">
-            <!-- Column 1: No-Wait Scheduling Principle -->
+            <!-- Column 1: No-Wait Scheduling Principle (Redesigned Diagram) -->
             <div class="flex flex-col">
                 <div class="flex items-center mb-4">
                     <i class="fas fa-route text-3xl text-indigo-600"></i>
@@ -81,32 +53,45 @@
                 </div>
                 <p class="text-gray-600 mb-4 text-lg">스트림은 출발부터 도착까지, 경로상에서 다른 트래픽으로 인해 <strong class="text-indigo-700">절대 대기해서는 안 됩니다.</strong></p>
                 
-                <!-- Detailed Diagram -->
-                <div class="space-y-8">
+                <div class="space-y-10 flex-grow flex flex-col justify-center">
+                    <!-- Problem Scenario -->
                     <div>
-                        <h3 class="font-semibold text-red-600"><i class="fas fa-times-circle mr-2"></i>문제 상황: 충돌 발생 (φ₁ = 0)</h3>
-                        <div class="space-y-2 mt-2">
-                            <div class="timeline"><div class="stream-box" style="left: 0%; width: 20%;">S₁</div><span class="absolute -left-12 top-1/2 -translate-y-1/2 font-mono">lᵢ,ⱼ</span></div>
-                            <div class="timeline"><div class="occupied-box" style="left: 45%; width: 25%;">점유됨</div><span class="absolute -left-12 top-1/2 -translate-y-1/2 font-mono">lⱼ,ₘ</span></div>
-                            <div class="absolute w-px h-8 bg-red-500 border-l border-dashed" style="left: 20%; top: 29%;"></div>
-                            <div class="absolute w-px h-8 bg-red-500 border-l border-dashed" style="left: 45%; top: 33%;"></div>
-                            <div class="absolute h-px w-1/4 bg-red-500 border-t border-dashed" style="left: 20%; top: 33%;">
-                                <span class="text-xs text-red-500 -mt-5 absolute left-1/2 -translate-x-1/2">D<sub>trans</sub>+D<sub>prop</sub>+D<sub>proc</sub></span>
-                                <span class="text-red-500 text-2xl absolute right-0 -mt-3">💥</span>
+                        <h3 class="font-semibold text-red-600 mb-2"><i class="fas fa-times-circle mr-2"></i>문제 상황: 충돌 발생 (φ₁ = 0)</h3>
+                        <div class="space-y-2 font-mono text-sm">
+                            <div class="flex items-center gap-4">
+                                <span class="w-12 text-right">lᵢ,ⱼ:</span>
+                                <div class="flex-1 h-10 bg-gray-200 rounded relative"><div class="absolute h-full w-1/4 bg-blue-200 border-2 border-blue-500 flex items-center justify-center font-bold" style="left: 5%;">S₁</div></div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="w-12 text-right">lⱼ,ₘ:</span>
+                                <div class="flex-1 h-10 bg-gray-200 rounded relative">
+                                    <div class="absolute h-full w-1/4 bg-gray-500 text-white flex items-center justify-center font-bold" style="left: 50%;">점유됨</div>
+                                    <div class="absolute h-full w-1/4 bg-red-500 opacity-70 border-2 border-red-700 flex items-center justify-center font-bold text-white" style="left: 50%;">충돌!</div>
+                                </div>
+                            </div>
+                            <div class="relative h-4">
+                                <div class="absolute border-l-2 border-r-2 border-b-2 border-red-500 border-dashed h-4" style="left: 19%; width: 36%;"></div>
+                                <div class="absolute -top-1 left-1/2 -translate-x-1/2 bg-white px-1 text-red-500">D<sub>trans</sub>+D<sub>prop</sub>+D<sub>proc</sub></div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center my-3"><i class="fas fa-arrow-down-long text-3xl text-indigo-500"></i> <span class="text-lg font-semibold ml-2">"스트림 시프트" 적용</span></div>
+
+                    <div class="text-center"><i class="fas fa-arrow-down-long text-3xl text-indigo-500"></i> <span class="text-lg font-semibold ml-2">"스트림 시프트" 적용</span></div>
+
+                    <!-- Solution Scenario -->
                     <div>
-                        <h3 class="font-semibold text-green-600"><i class="fas fa-check-circle mr-2"></i>해결: No-Wait 충족 (φ*₁ > 0)</h3>
-                        <div class="space-y-2 mt-2">
-                            <div class="timeline"><div class="stream-box" style="left: 15%; width: 20%;">S₁</div><span class="absolute -left-12 top-1/2 -translate-y-1/2 font-mono">lᵢ,ⱼ</span></div>
-                            <div class="timeline"><div class="stream-box" style="left: 60%; width: 20%;">S₁</div><span class="absolute -left-12 top-1/2 -translate-y-1/2 font-mono">lⱼ,ₘ</span></div>
-                            <div class="absolute w-px h-8 bg-green-500 border-l border-dashed" style="left: 35%; top: 62%;"></div>
-                            <div class="absolute w-px h-8 bg-green-500 border-l border-dashed" style="left: 60%; top: 66%;"></div>
-                            <div class="absolute h-px w-1/4 bg-green-500 border-t border-dashed" style="left: 35%; top: 66%;">
-                                <span class="text-xs text-green-600 -mt-5 absolute left-1/2 -translate-x-1/2">지연 시간</span>
-                                <span class="text-green-500 text-2xl absolute right-0 -mt-3">✅</span>
+                        <h3 class="font-semibold text-green-600 mb-2"><i class="fas fa-check-circle mr-2"></i>해결: No-Wait 충족 (φ*₁ > 0)</h3>
+                        <div class="space-y-2 font-mono text-sm">
+                            <div class="flex items-center gap-4">
+                                <span class="w-12 text-right">lᵢ,ⱼ:</span>
+                                <div class="flex-1 h-10 bg-gray-200 rounded relative"><div class="absolute h-full w-1/4 bg-blue-200 border-2 border-blue-500 flex items-center justify-center font-bold" style="left: 20%;">S₁</div></div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="w-12 text-right">lⱼ,ₘ:</span>
+                                <div class="flex-1 h-10 bg-gray-200 rounded relative"><div class="absolute h-full w-1/4 bg-blue-200 border-2 border-blue-500 flex items-center justify-center font-bold" style="left: 60%;">S₁</div></div>
+                            </div>
+                            <div class="relative h-4">
+                                <div class="absolute border-l-2 border-r-2 border-b-2 border-green-500 border-dashed h-4" style="left: 34%; width: 31%;"></div>
                             </div>
                         </div>
                     </div>
