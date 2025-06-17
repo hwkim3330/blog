@@ -25,6 +25,33 @@
             display: flex;
             flex-direction: column;
         }
+        .chromosome { display: flex; gap: 4px; }
+        .gene {
+            width: 50px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid #9ca3af;
+            font-weight: 600;
+        }
+        .highlight-gene { border-color: #f59e0b; background-color: #fef3c7; }
+        .node {
+            width: 100px; height: 60px;
+            border: 2px solid #4b5563;
+            border-radius: 9999px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 600;
+        }
+        .link {
+            flex-grow: 1;
+            height: 2px;
+            background-color: #4b5563;
+            position: relative;
+        }
+        .link::after { /* Arrowhead for link */
+            content: ''; position: absolute; right: -1px; top: -4px;
+            border: solid #4b5563; border-width: 0 2px 2px 0;
+            display: inline-block; padding: 4px;
+            transform: rotate(-45deg);
+        }
     </style>
 </head>
 <body>
@@ -51,7 +78,7 @@
                 </ul>
             </div>
 
-            <!-- Column 2: Core Mechanisms -->
+            <!-- Column 2: Core Mechanisms (Diagrams drawn with HTML/CSS) -->
             <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 flex flex-col">
                 <div class="flex items-center mb-4">
                     <i class="fas fa-microscope text-3xl text-blue-600"></i>
@@ -62,14 +89,57 @@
                 <div class="mb-6">
                     <h3 class="font-semibold text-lg text-gray-800 mb-2">1. 유전 알고리즘 교차 연산 (PBX Operator - Fig. 3)</h3>
                     <div class="text-sm text-gray-600 mb-2">우수한 두 부모 스케줄의 장점을 조합하여 더 나은 자식 스케줄을 생성합니다.</div>
-                    <img src="https://i.imgur.com/83u68oG.png" alt="PBX Operator Diagram" class="w-full rounded-md border">
+                    <div class="bg-white p-3 rounded-md border space-y-3 font-mono text-sm">
+                        <div class="text-center font-sans font-semibold">Selected indexes: {1, 4}</div>
+                        <div class="flex items-center gap-4">
+                            <span class="w-24">Individual 1:</span>
+                            <div class="chromosome"><div class="gene">S1</div><div class="gene highlight-gene">S2</div><div class="gene">S3</div><div class="gene">S4</div><div class="gene highlight-gene">S5</div><div class="gene">S6</div></div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="w-24">Individual 2:</span>
+                            <div class="chromosome"><div class="gene">S2</div><div class="gene highlight-gene">S3</div><div class="gene">S5</div><div class="gene">S4</div><div class="gene highlight-gene">S6</div><div class="gene">S1</div></div>
+                        </div>
+                        <div class="text-center text-xl text-blue-500"><i class="fas fa-arrow-down"></i></div>
+                        <div class="flex items-center gap-4">
+                            <span class="w-24">Offspring 1:</span>
+                            <div class="chromosome"><div class="gene">S3</div><div class="gene highlight-gene">S2</div><div class="gene">S4</div><div class="gene">S6</div><div class="gene highlight-gene">S5</div><div class="gene">S1</div></div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="w-24">Offspring 2:</span>
+                            <div class="chromosome"><div class="gene">S1</div><div class="gene highlight-gene">S3</div><div class="gene">S2</div><div class="gene">S4</div><div class="gene highlight-gene">S6</div><div class="gene">S5</div></div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- System Model Diagram -->
                 <div>
                     <h3 class="font-semibold text-lg text-gray-800 mb-2">2. 스트림 지연 요소 모델링 (System Model - Fig. 4)</h3>
                     <div class="text-sm text-gray-600 mb-2">스트림의 End-to-End 지연을 정밀하게 계산하기 위한 수학적 모델입니다.</div>
-                    <img src="https://i.imgur.com/3932H0k.png" alt="Stream and Delay Characteristics" class="w-full rounded-md border">
+                    <div class="bg-white p-4 rounded-md border h-36 relative font-mono text-sm">
+                        <!-- Path Arrow -->
+                        <div class="absolute top-2 left-12 right-12 h-0.5 bg-gray-700 flex items-center justify-between">
+                            <span class="bg-white px-1 -mt-6">pt₁</span>
+                            <i class="fas fa-caret-right text-gray-700 text-xl -mr-2"></i>
+                        </div>
+                        <!-- Nodes and Links -->
+                        <div class="flex items-center justify-between h-full pt-6">
+                            <div class="node">talk(S₁)</div>
+                            <div class="link"><span class="absolute -top-5 left-1/2 -translate-x-1/2 bg-white px-1">lᵢ,ⱼ</span></div>
+                            <div class="node">Nⱼ</div>
+                            <div class="link"><span class="absolute -top-5 left-1/2 -translate-x-1/2 bg-white px-1">lⱼ,ₘ</span></div>
+                            <div class="node">list(S₁)</div>
+                        </div>
+                        <!-- Delay Labels -->
+                        <div class="absolute" style="left: 18%; bottom: 20%;">
+                            <i class="fas fa-arrow-down"></i> D<sup>lᵢ,ⱼ</sup><sub>trans,1</sub>
+                        </div>
+                        <div class="absolute" style="left: 30%; bottom: 45%;">
+                            <i class="fas fa-arrow-down"></i> D<sup>lᵢ,ⱼ</sup><sub>prop</sub>
+                        </div>
+                         <div class="absolute" style="left: 48%; bottom: 20%;">
+                            <i class="fas fa-arrow-down"></i> D<sup>j</sup><sub>proc</sub>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
