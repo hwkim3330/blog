@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최종 성능 분석: 대역폭 활용도 및 궁극의 트레이드오프</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+        .slide {
+            width: 1280px;
+            height: 720px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .formula-box {
+            background-color: #f3f4f6;
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Noto Sans KR', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide bg-white p-12 flex flex-col">
+        <!-- Slide Header -->
+        <header class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">최종 성능 분석: 대역폭 활용도 및 궁극의 트레이드오프</h1>
+            <div class="w-24 h-1 bg-green-600 mt-2"></div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="grid grid-cols-2 gap-10 flex-grow">
+            <!-- Column 1: Wasted Bandwidth & Compression -->
+            <div class="bg-orange-50 p-6 rounded-lg border border-orange-200 flex flex-col">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-trash-alt text-3xl text-orange-600"></i>
+                    <h2 class="text-2xl font-semibold ml-3 text-orange-800">낭비된 대역폭(Wasted) 분석 (Fig. 19)</h2>
+                </div>
+                <p class="text-gray-600 mb-4 text-lg">GCL 병합 시 발생하는 '내부 낭비'를 측정한 결과입니다.</p>
+                <ul class="space-y-3 text-lg text-gray-700 flex-grow">
+                    <li class="flex items-start"><i class="fas fa-chart-line text-orange-500 mt-1.5 mr-3"></i><div><strong class="font-semibold">결과:</strong> HYPO 방식이 GCD 방식보다 내부 낭비가 적었습니다.</div></li>
+                    <li class="flex items-start"><i class="fas fa-compress-arrows-alt text-orange-500 mt-1.5 mr-3"></i><div><strong class="font-semibold">압축 효과:</strong> '스케줄 압축'을 통해 GCD 방식의 낭비를 <strong class="text-orange-700">최대 7%까지 개선</strong>했지만, HYPO에는 큰 효과가 없었습니다.</div></li>
+                </ul>
+                <div class="formula-box text-center text-lg mt-4">
+                    impWasted% = ( wastedWC - wastedC ) / wastedWC * 100%
+                </div>
+            </div>
+
+            <!-- Column 2: Left-over Bandwidth Analysis -->
+            <div class="bg-green-50 p-6 rounded-lg border border-green-200 flex flex-col">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-gift text-3xl text-green-600"></i>
+                    <h2 class="text-2xl font-semibold ml-3 text-green-800">활용 가능 대역폭(Left-over) 분석 (Fig. 20)</h2>
+                </div>
+                <p class="text-gray-600 mb-4 text-lg">"그래서, 일반 트래픽이 쓸 수 있는 공간은 누가 더 많이 남겨주는가?"</p>
+                <div class="flex-grow flex flex-col justify-center space-y-6">
+                    <div class="text-center">
+                        <h3 class="font-semibold text-gray-700">HYPO & GCD+Alternating 방식</h3>
+                        <div class="h-16 bg-green-500 rounded-md flex items-center justify-center text-white font-bold text-xl">높음</div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="font-semibold text-gray-700">단순 GCD 방식 (Non-alternating)</h3>
+                        <div class="h-16 bg-red-500 rounded-md flex items-center justify-center text-white font-bold text-xl">낮음</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer Conclusion -->
+        <footer class="mt-8 bg-gray-800 text-white p-6 rounded-lg text-center">
+            <h3 class="text-2xl font-bold mb-2"><i class="fas fa-trophy mr-3"></i>최종 결론 및 최적의 절충안</h3>
+            <p class="text-lg mt-2">하드웨어 비용(GCL)과 대역폭 효율성 사이의 <strong class="font-semibold text-yellow-300">궁극적인 트레이드오프</strong>가 존재합니다.<br>두 마리 토끼를 모두 잡는 가장 균형 잡힌 최적의 솔루션은 바로 <strong class="font-bold text-green-300 text-xl">GCD + Alternating</strong> 조합입니다.</p>
+        </footer>
+    </div>
+</body>
+</html>
