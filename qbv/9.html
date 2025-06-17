@@ -48,10 +48,10 @@
                 <!-- HYPO Variant -->
                 <div class="mb-6">
                     <h3 class="font-semibold text-lg text-gray-800 mb-2">a) HYPO 방식 결과</h3>
-                    <div class="w-full bg-white p-3 rounded-md border relative h-12 flex items-center">
-                        <div class="absolute bg-gray-400 h-full" style="left: 20%; width: 15%;">S3</div>
-                        <div class="absolute bg-red-400 h-full" style="left: 60%; width: 8%;">S1</div>
-                        <div class="absolute bg-red-400 h-full" style="left: 70%; width: 8%;">S2</div>
+                    <div class="w-full bg-gray-200 p-3 rounded-md border relative h-12 flex items-center">
+                        <div class="absolute bg-gray-500 text-white h-full flex items-center justify-center px-2" style="left: 20%; width: 15%;">S3</div>
+                        <div class="absolute bg-gray-500 text-white h-full flex items-center justify-center px-2" style="left: 60%; width: 8%;">S1</div>
+                        <div class="absolute bg-gray-500 text-white h-full flex items-center justify-center px-2" style="left: 70%; width: 8%;">S2</div>
                     </div>
                     <div class="text-center mt-2 text-lg font-bold text-red-600">필요 GCL 엔트리 수: 9개 (비효율적)</div>
                 </div>
@@ -59,8 +59,8 @@
                 <!-- GCD Variant -->
                 <div>
                     <h3 class="font-semibold text-lg text-gray-800 mb-2">b) GCD 방식 결과 (정규화 및 병합 후)</h3>
-                    <div class="w-full bg-white p-3 rounded-md border relative h-12 flex items-center">
-                        <div class="absolute bg-teal-500 text-white h-full flex items-center justify-center" style="left: 10%; width: 80%;">
+                    <div class="w-full bg-gray-200 p-3 rounded-md border relative h-12 flex items-center">
+                        <div class="absolute bg-green-600 text-white h-full flex items-center justify-center" style="left: 10%; width: 80%;">
                             병합된 슬롯 (S1, S2, S3 등)
                         </div>
                     </div>
@@ -81,12 +81,12 @@
                     <!-- Before Compression -->
                     <div class="w-full text-center mb-2">
                         <h3 class="font-semibold text-gray-700">압축 전: 낭비되는 대역폭 존재</h3>
-                        <div class="flex items-center justify-center h-16 bg-white p-2 rounded border mt-2">
-                            <div class="bg-gray-400 h-full w-1/4"></div>
-                            <div class="bg-blue-400 h-full w-1/6 flex items-center justify-center text-white">S1</div>
-                            <div class="bg-green-200 h-full w-1/6"></div>
-                            <div class="bg-blue-400 h-full w-1/6 flex items-center justify-center text-white">S2</div>
-                            <div class="bg-gray-400 h-full w-1/4"></div>
+                        <div class="flex items-center justify-center h-16 bg-gray-200 p-2 rounded border mt-2">
+                            <div class="bg-gray-300 h-full w-1/4"></div>
+                            <div class="bg-blue-400 text-white h-full w-1/6 flex items-center justify-center font-bold">S1</div>
+                            <div class="bg-yellow-100 h-full w-1/6" title="Wasted Bandwidth"></div>
+                            <div class="bg-blue-400 text-white h-full w-1/6 flex items-center justify-center font-bold">S2</div>
+                            <div class="bg-gray-300 h-full w-1/4"></div>
                         </div>
                     </div>
 
@@ -95,10 +95,10 @@
                     <!-- After Compression -->
                     <div class="w-full text-center">
                         <h3 class="font-semibold text-teal-700">압축 후: 낭비 공간 제거</h3>
-                        <div class="flex items-center justify-center h-16 bg-white p-2 rounded border mt-2">
-                            <div class="bg-gray-400 h-full w-1/4"></div>
-                            <div class="bg-blue-500 h-full w-1/3 flex items-center justify-center text-white">S1+S2</div>
-                            <div class="bg-gray-400 h-full w-1/4"></div>
+                        <div class="flex items-center justify-center h-16 bg-gray-200 p-2 rounded border mt-2">
+                            <div class="bg-gray-300 h-full w-1/4"></div>
+                            <div class="bg-blue-600 text-white h-full w-1/3 flex items-center justify-center font-bold">S1 + S2</div>
+                            <div class="bg-gray-300 h-full w-1/4"></div>
                         </div>
                     </div>
                 </div>
