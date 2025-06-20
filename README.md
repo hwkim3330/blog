@@ -1,6 +1,6 @@
 2025 06 시작
 
-https://hwkim3330.github.io/blog/논문
+https://hwkim3330.github.io/blog/qbv
 
 https://hwkim3330.github.io/blog/
 https://hwkim3330.github.io/blog/1
