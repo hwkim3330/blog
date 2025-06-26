@@ -1,0 +1,9988 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:40
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:41
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:42
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:43
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:44
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:45
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:46
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:47
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:48
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:49
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:50
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:51
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:52
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:53
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:54
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:55
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:56
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:57
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:47:58
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:00
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:01
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:02
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:03
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:04
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:05
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:06
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:07
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:08
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:09
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:10
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:11
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:12
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:13
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:14
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:15
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:16
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:17
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:18
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:19
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:20
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:21
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:22
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:23
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:24
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:25
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:26
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:27
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:28
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:29
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:30
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:31
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:32
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:33
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:34
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:35
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:36
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:37
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:38
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:39
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:40
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:41
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:42
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:43
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:44
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:45
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:46
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:47
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:48
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:49
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:50
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:51
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:52
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:53
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:54
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:55
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:56
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:57
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:58
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:48:59
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:00
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:01
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:02
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:03
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:04
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:05
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:06
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:07
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:08
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:09
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:10
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:11
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:12
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:13
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:14
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:15
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:16
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:17
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:18
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:19
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:21
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:22
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:23
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:24
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:25
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:26
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:27
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:28
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:29
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:30
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:31
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:32
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:33
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:34
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:35
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:36
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:37
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:38
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:39
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:40
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:41
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:42
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:43
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every 1.0s: ip link show pfe0                                                                    2025-06-26 04:49:44
+
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+^C
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c3 -I pfe1 192.168.10.2
+PING 192.168.10.2 (192.168.10.2) from 192.168.10.1 pfe1: 56(84) bytes of data.
+^C
+--- 192.168.10.2 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1023ms
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c3 -I pfe1 192.168.10.2
+PING 192.168.10.2 (192.168.10.2) from 192.168.10.1 pfe1: 56(84) bytes of data.
+From 192.168.10.1 icmp_seq=1 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=2 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=3 Destination Host Unreachable
+
+--- 192.168.10.2 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2035ms
+pipe 3
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # pfe0 에 192.168.10.1/24 할당
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr flush dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr add 192.168.10.1/24 dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 up
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # S32G → MC
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c3 -I pfe0 192.168.10.2
+PING 192.168.10.2 (192.168.10.2) from 192.168.10.1 pfe0: 56(84) bytes of data.
+� S32G
+ping -c3 -I eth0 192.168.10.1
+
+
+--- 192.168.10.2 ping statistics ---
+3 packets transmitted, 0 received, 100% packet loss, time 2042ms
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # MC → S32G
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c3 -I eth0 192.168.10.1
+ping: SO_BINDTODEVICE eth0: No such device
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool pfe0
+Settings for pfe0:
+        Supported ports: [ MII ]
+        Supported link modes:   Not reported
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  Not reported
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: 2500Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: MII
+        PHYAD: 0
+        Transceiver: internal
+        Link detected: yes
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr flush dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr add 192.168.10.1/24 dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 up
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 링크 확인
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link show pfe0
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool pfe0
+Settings for pfe0:
+        Supported ports: [ MII ]
+        Supported link modes:   Not reported
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  Not reported
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: 2500Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: MII
+        PHYAD: 0
+        Transceiver: internal
+        Link detected: yes
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c3 192.168.10.2
+PING 192.168.10.2 (192.168.10.2) 56(84) bytes of data.
+64 bytes from 192.168.10.2: icmp_seq=1 ttl=64 time=0.095 ms
+64 bytes from 192.168.10.2: icmp_seq=2 ttl=64 time=0.057 ms
+64 bytes from 192.168.10.2: icmp_seq=3 ttl=64 time=0.047 ms
+
+--- 192.168.10.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2048ms
+rtt min/avg/max/mdev = 0.047/0.066/0.095/0.020 ms
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 down
+[10173.128972] pfeng 46000000.pfe pfe0: Link is Down
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool -s pfe0 speed 1000 duplex full autoneg on
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set[10173.151169] pfeng 46000000.pfe pfe0: configuring for fixed/sgmii link mode
+ dev pf[10173.158671] pfeng 46000000.pfe pfe0: Link is Up - 2.5Gbps/Full - flow control off
+e0 up
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool pfe0   # Speed: 1000Mb/s, Link detected: yes
+Settings for pfe0:
+        Supported ports: [ MII ]
+        Supported link modes:   Not reported
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  Not reported
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: 2500Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: MII
+        PHYAD: 0
+        Transceiver: internal
+        Link detected: yes
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link show pfe0  # <…UP,LOWER_UP…>
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c3 192.168.10.2
+PING 192.168.10.2 (192.168.10.2) 56(84) bytes of data.
+64 bytes from 192.168.10.2: icmp_seq=1 ttl=64 time=0.096 ms
+64 bytes from 192.168.10.2: icmp_seq=2 ttl=64 time=0.058 ms
+64 bytes from 192.168.10.2: icmp_seq=3 ttl=64 time=0.044 ms
+
+--- 192.168.10.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2044ms
+rtt min/avg/max/mdev = 0.044/0.066/0.096/0.021 ms
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # pfe0를 내리고
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 down
+[10229.246708] pfeng 46000000.pfe pfe0: Link is Down
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # Auto-negotiation 끄고 1 Gbps/Full-duplex로 강제
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool -s pfe0 autoneg off speed 1000 duplex full
+netlink error: link settings update failed
+netlink error: Invalid argument
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 다시 올립니다
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 up
+[10229.338461] pfeng 46000000.pfe pfe0: configuring for fixed/sgmii link mode
+[10229.346308] pfeng 46000000.pfe pfe0: Link is Up - 2.5Gbps/Full - flow control off
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 올바로 걸렸는지 확인
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool pfe0    # Speed: 1000Mb/s, Auto-negotiation: off, L
+ink detected: yes
+Settings for pfe0:
+        Supported ports: [ MII ]
+        Supported link modes:   Not reported
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  Not reported
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: 2500Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: MII
+        PHYAD: 0
+        Transceiver: internal
+        Link detected: yes
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link show pfe0  # UP, LOWER_UP 확인
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # pfe2 내리고
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe2 down
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # Auto-negotiation 끄고 1Gbps/Full로 강제
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool -s pfe2 autoneg off speed 1000 duplex full
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 다시 올리고
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe2 up
+# 제대로 적용됐는지 확인
+ethtool pfe2    # → Speed: 1000Mb/s, Auto-negotiation: off, Link detected: yes
+ip link show pfe2  # → <…UP, LOWER_UP…>
+[10268.657349] pfeng 46000000.pfe pfe2: PHY [pfeng-emac-2:04] driver [Micrel KSZ9031 Gigabit PHY] (irq=POLL)
+[10268.666544] pfeng 46000000.pfe pfe2: configuring for phy/rgmii-id link mode
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 제대로 적용됐는지 확인
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool pfe2    # → Speed: 1000Mb/s, Auto-negotiation: of
+f, Link detected: yes
+Settings for pfe2:
+        Supported ports: [ TP    MII ]
+        Supported link modes:   10baseT/Half 10baseT/Full
+                                100baseT/Half 100baseT/Full
+                                1000baseT/Half 1000baseT/Full
+        Supported pause frame use: Symmetric
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  10baseT/Half 10baseT/Full
+                                100baseT/Half 100baseT/Full
+                                1000baseT/Half 1000baseT/Full
+        Advertised pause frame use: Symmetric
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: Unknown!
+        Duplex: Unknown! (255)
+        Auto-negotiation: on
+        master-slave cfg: preferred slave
+        master-slave status: unknown
+        Port: Twisted Pair
+        PHYAD: 4
+        Transceiver: external
+        MDI-X: Unknown
+        Link detected: no
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link show pfe2  # → <…UP, LOWER_UP…>
+8: pfe2: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:02 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 기존 IP 제거
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr flush dev pfe2
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 새 IP 할당 (예: 192.168.20.1/24)
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr add 192.168.20.1/24 dev pfe2
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 링크 확실히 UP
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe2 up
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c3 192.168.20.2
+PING 192.168.20.2 (192.168.20.2) 56(84) bytes of data.
+From 192.168.20.1 icmp_seq=1 Destination Host Unreachable
+From 192.168.20.1 icmp_seq=2 Destination Host Unreachable
+From 192.168.20.1 icmp_seq=3 Destination Host Unreachable
+
+--- 192.168.20.2 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2028ms
+pipe 3
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#  ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: can0: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+3: can1: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+4: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+5: end0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 9e:e8:87:59:ed:21 brd ff:ff:ff:ff:ff:ff
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+7: pfe1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:01 brd ff:ff:ff:ff:ff:ff
+8: pfe2: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:02 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 1-1. pfe2 내리기
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe2 down
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 1-2. RGMII-ID(또는 PHY-ID) 모드로 설정 (이미 되
+어 있겠지만, 드라이버 메시지를 보면 이 모드로 동작 중)
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# #    (필요하다면 dt-overlay나 driver 파라미터로
+강제 설정)
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 1-3. PHY 강제 속도/듀플렉스 설정
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool -s pfe2 speed 1000 duplex full autoneg off
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 1-4. pfe2 올리기
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe2 up
+# 1-5. 상태 확인
+ethtool pfe2   # Link detected: yes, Speed: 1000Mb/s, Auto-negotiation: off
+ip link show pfe2  # state UP, LOWER_UP
+[10344.369218] pfeng 46000000.pfe pfe2: PHY [pfeng-emac-2:04] driver [Micrel KSZ9031 Gigabit PHY] (irq=POLL)
+[10344.378411] pfeng 46000000.pfe pfe2: configuring for phy/rgmii-id link mode
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 1-5. 상태 확인
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool pfe2   # Link detected: yes, Speed: 1000Mb/s, Auto-
+negotiation: off
+Settings for pfe2:
+        Supported ports: [ TP    MII ]
+        Supported link modes:   10baseT/Half 10baseT/Full
+                                100baseT/Half 100baseT/Full
+                                1000baseT/Half 1000baseT/Full
+        Supported pause frame use: Symmetric
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  10baseT/Half 10baseT/Full
+                                100baseT/Half 100baseT/Full
+                                1000baseT/Half 1000baseT/Full
+        Advertised pause frame use: Symmetric
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: Unknown!
+        Duplex: Unknown! (255)
+        Auto-negotiation: on
+        master-slave cfg: preferred slave
+        master-slave status: unknown
+        Port: Twisted Pair
+        PHYAD: 4
+        Transceiver: external
+        MDI-X: Unknown
+        Link detected: no
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link show pfe2  # state UP, LOWER_UP
+8: pfe2: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:02 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr flush dev pfe2
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr add 192.168.20.1/24 dev pfe2
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c3 192.168.20.2
+PING 192.168.20.2 (192.168.20.2) 56(84) bytes of data.
+From 192.168.20.1 icmp_seq=1 Destination Host Unreachable
+From 192.168.20.1 icmp_seq=2 Destination Host Unreachable
+From 192.168.20.1 icmp_seq=3 Destination Host Unreachable
+
+--- 192.168.20.2 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2036ms
+pipe 3
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: can0: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+3: can1: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+4: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+5: end0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 9e:e8:87:59:ed:21 brd ff:ff:ff:ff:ff:ff
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+7: pfe1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:01 brd ff:ff:ff:ff:ff:ff
+8: pfe2: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:02 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # pfe2 끄기
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe2 down
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # pfe1 PHY 모드 확인/강제 (필요시)
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # ethtool -s pfe1 speed 1000 duplex full autoneg off
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # pfe1 올리기
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe1 up
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 링크 상태 확인
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool pfe1    # Link detected: yes, Speed: 1000Mb/s
+Settings for pfe1:
+        Supported ports: [  ]
+        Supported link modes:   100baseT/Half 100baseT/Full
+                                1000baseT/Full
+                                1000baseKX/Full
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  100baseT/Half 100baseT/Full
+                                1000baseT/Full
+                                1000baseKX/Full
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: Unknown!
+        Duplex: Unknown! (255)
+        Auto-negotiation: on
+        Port: Twisted Pair
+        PHYAD: 8
+        Transceiver: external
+        MDI-X: Unknown
+        Link detected: no
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link show pfe1  # state UP, LOWER_UP
+7: pfe1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:01 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr flush dev pfe1
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr add 192.168.20.1/24 dev pfe1
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # (Microchip 보드)
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev eth0 up
+Cannot find device "eth0"
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr flush dev eth0
+Device "eth0" does not exist.
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr add 192.168.20.2/24 dev eth0
+Cannot find device "eth0"
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool eth0   # Link detected: yes
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+No data available
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: can0: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+3: can1: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+4: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+5: end0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 9e:e8:87:59:ed:21 brd ff:ff:ff:ff:ff:ff
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+7: pfe1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:01 brd ff:ff:ff:ff:ff:ff
+8: pfe2: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:02 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # pfe0 모든 설정 초기화
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 down
+[10459.059392] pfeng 46000000.pfe pfe0: Link is Down
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr flush dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # (필요하다면 PHY 강제 재설정 — 속도·duplex
+등)
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # ethtool -s pfe0 speed 1000 duplex full autoneg on
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # IP 할당 & 링크 올리기
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr add 192.168.30.1/24 dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 up
+[10459.240334] pfeng 46000000.pfe pfe0: configuring for fixed/sgmii link mode
+[10459.248163] pfeng 46000000.pfe pfe0: Link is Up - 2.5Gbps/Full - flow control off
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 상태 확인
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool pfe0    # → Link detected: yes, Speed: 1000Mb/s
+Settings for pfe0:
+        Supported ports: [ MII ]
+        Supported link modes:   Not reported
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  Not reported
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: 2500Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: MII
+        PHYAD: 0
+        Transceiver: internal
+        Link detected: yes
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link show pfe0  # → state UP, LOWER_UP
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c 4 192.168.30.2
+PING 192.168.30.2 (192.168.30.2) 56(84) bytes of data.
+From 192.168.30.1 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: No route to host
+From 192.168.30.1 icmp_seq=2 Destination Host Unreachable
+From 192.168.30.1 icmp_seq=3 Destination Host Unreachable
+^C
+--- 192.168.30.2 ping statistics ---
+4 packets transmitted, 0 received, +3 errors, 100% packet loss, time 3064ms
+pipe 3
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 1) P2A(pfe0) 초기화 및 IP 할당
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 down
+[10513.521365] pfeng 46000000.pfe pfe0: Link is Down
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr flush dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr add 192.168.10.1/24 dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 up
+[10513.623287] pfeng 46000000.pfe pfe0: configuring for fixed/sgmii link mode
+[10513.630022] pfeng 46000000.pfe pfe0: Link is Up - 2.5Gbps/Full - flow control off
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 2) 마이크로칩 보드 eth0 측 IP 할당 (보드 콘�
+��에서)
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# #    ↳ eth0가 이미 up/1000Mb/s인지 확인된 상태�
+��야 합니다.
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# #    eth0가 아직 up 상태가 아니면:
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# #    ip link set dev eth0 up
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr flush dev eth0
+Device "eth0" does not exist.
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr add 192.168.10.2/24 dev eth0
+Cannot find device "eth0"
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 3) 단방향 핑 (S32G → MC) — 50회, 0.2s 간격, ��
+�그 저장
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# mkdir -p /opt/logs/tsn
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -I pfe0 -i 0.2 -c 50 192.168.10.2 \
+>     > /opt/logs/tsn/ping_p2a_unidir.log 2>&1 &
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # (백그라운드 작업 확인)
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# jobs -l
+[11]+  9186 Running              ping -I pfe0 -i 0.2 -c 50 192.168.10.2 1>/opt/logs/tsn/ping_p2a_unidir.log 2>&1
+[10]-  8927 Running              ptp4l -i pfe0 -f /opt/etc/ptp4l.conf -m 1>/opt/logs/tsn/ptp4l.log 2>&1
+[9]   8926 Running               phc2sys -a -r -m 1>/opt/logs/tsn/phc2sys.log 2>&1
+[8]   8892 Running               ptp4l -i pfe0 -f /opt/etc/ptp4l.conf -m 1>/opt/logs/tsn/ptp4l.log 2>&1
+[7]   8891 Running               phc2sys -a -r -m 1>/opt/logs/tsn/phc2sys.log 2>&1
+[6]   8844 Running               ptp4l -i pfe0 -f /opt/etc/ptp4l.conf -m 1>/opt/logs/tsn/ptp4l.log 2>&1
+[5]   8829 Running               iperf3 -s 1>/opt/logs/tsn/iperf3_server.log 2>&1
+[4]   8823 Running               ptp4l -i pfe0 -f /opt/etc/ptp4l.conf -m 1>/opt/logs/tsn/ptp4l.log 2>&1
+[3]   8699 Running               phc2sys -a -r -m 1>/opt/logs/tsn/phc2sys.log 2>&1
+[1]   8698 Running               ptp4l -i pfe1 -f /opt/etc/ptp4l.conf -m 1>/opt/logs/tsn/ptp4l.log 2>&1
+[2]   8667 Running               phc2sys -a -r -m 1>/opt/logs/tsn/phc2sys.log 2>&1
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 4) 결과 확인 (끝 10줄)
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# tail -n10 /opt/logs/tsn/ping_p2a_unidir.log
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+[11]+  Done(1)                   ping -I pfe0 -i 0.2 -c 50 192.168.10.2 1>/opt/logs/tsn/ping_p2a_unidir.log 2>&1
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -I pfe0 -i 0.2 -c 50 192.168.10.2
+PING 192.168.10.2 (192.168.10.2) from 192.168.10.1 pfe0: 56(84) bytes of data.
+From 192.168.10.1 icmp_seq=1 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=2 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=3 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=4 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=5 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=6 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=7 Destination Host Unreachable
+ping: sendmsg: No route to host
+From 192.168.10.1 icmp_seq=8 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=9 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=10 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=11 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=12 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=14 Destination Host Unreachable
+ping: sendmsg: No route to host
+From 192.168.10.1 icmp_seq=15 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=16 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=17 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=18 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=19 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=21 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=22 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=23 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=24 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=25 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=26 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=27 Destination Host Unreachable
+ping: sendmsg: No route to host
+From 192.168.10.1 icmp_seq=28 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=29 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=30 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=31 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=32 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=34 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=35 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=36 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=37 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=38 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=39 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=40 Destination Host Unreachable
+ping: sendmsg: No route to host
+From 192.168.10.1 icmp_seq=41 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=42 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=43 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=44 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=45 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=47 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=48 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=49 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=50 Destination Host Unreachable
+
+--- 192.168.10.2 ping statistics ---
+50 packets transmitted, 0 received, +46 errors, 100% packet loss, time 22474ms
+pipe 7
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 1) pfe0 설정 초기화 및 IP 재할당
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 down
+[10587.037200] pfeng 46000000.pfe pfe0: Link is Down
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr flush dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr add 192.168.10.1/24 dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 up
+[10587.149069] pfeng 46000000.pfe pfe0: configuring for fixed/sgmii link mode
+[10587.157002] pfeng 46000000.pfe pfe0: Link is Up - 2.5Gbps/Full - flow control off
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 2) 단방향 핑 테스트 (S32G → MC)
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c 4 192.168.10.2
+PING 192.168.10.2 (192.168.10.2) 56(84) bytes of data.
+From 192.168.10.1 icmp_seq=1 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=2 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=3 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=4 Destination Host Unreachable
+
+--- 192.168.10.2 ping statistics ---
+4 packets transmitted, 0 received, +4 errors, 100% packet loss, time 3067ms
+pipe 3
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c 4 192.168.10.2
+PING 192.168.10.2 (192.168.10.2) 56(84) bytes of data.
+From 192.168.10.1 icmp_seq=1 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=2 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=3 Destination Host Unreachable
+^C
+--- 192.168.10.2 ping statistics ---
+4 packets transmitted, 0 received, +3 errors, 100% packet loss, time 3052ms
+pipe 3
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # (1) pfe0 내려놓고
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 down
+[10677.426410] pfeng 46000000.pfe pfe0: Link is Down
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # (2) autoneg 끄고 1G/full 강제
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool -s pfe0 speed 1000 duplex full autoneg off
+netlink error: link settings update failed
+netlink error: Invalid arg[10677.524750] pfeng 46000000.pfe pfe0: configuring for fixed/sgmii link mode
+ument
+root@s32g2[10677.533107] pfeng 46000000.pfe pfe0: Link is Up - 2.5Gbps/Full - flow control off
+74ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # (3) 다시 올리고
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 up
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # (4) 확인
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool pfe0
+Settings for pfe0:
+        Supported ports: [ MII ]
+        Supported link modes:   Not reported
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  Not reported
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: 2500Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: MII
+        PHYAD: 0
+        Transceiver: internal
+        Link detected: yes
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# #   Speed: 1000Mb/s
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# #   Auto-negotiation: off
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip neigh show dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# arping -I pfe0 192.168.10.2
+ARPING 192.168.10.2 from 192.168.10.1 pfe0
+^CSent 6 probes (6 broadcast(s))
+Received 0 response(s)
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -c4 -I pfe0 192.168.10.2
+PING 192.168.10.2 (192.168.10.2) from 192.168.10.1 pfe0: 56(84) bytes of data.
+From 192.168.10.1 icmp_seq=1 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=2 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=3 Destination Host Unreachable
+From 192.168.10.1 icmp_seq=4 Destination Host Unreachable
+
+--- 192.168.10.2 ping statistics ---
+4 packets transmitted, 0 received, +4 errors, 100% packet loss, time 3072ms
+pipe 3
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: can0: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+3: can1: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+4: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+5: end0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 9e:e8:87:59:ed:21 brd ff:ff:ff:ff:ff:ff
+6: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+7: pfe1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:01 brd ff:ff:ff:ff:ff:ff
+8: pfe2: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:02 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool pfe0
+Settings for pfe0:
+        Supported ports: [ MII ]
+        Supported link modes:   Not reported
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  Not reported
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: 2500Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: MII
+        PHYAD: 0
+        Transceiver: internal
+        Link detected: yes
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # pfe0 완전 초기화
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 down
+[10832.789224] pfeng 46000000.pfe pfe0: Link is Down
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip addr flush dev pfe0
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # autoneg, 속도, duplex 강제
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool -s pfe0 speed 1000 duplex full autoneg off
+netlink error: link settings update failed
+netlink error: Invalid argument
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.[10832.890915] pfeng 46000000.pfe pfe0: configuring for fixed/sgmii link mode
+7.0#
+root@s32g[10832.899200] pfeng 46000000.pfe pfe0: Link is Up - 2.5Gbps/Full - flow control off
+274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 링크 올리기
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ip link set dev pfe0 up
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 확인: 반드시 Speed=1000, Auto-negotiation=off 로 ��
+�와야 합니다
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ethtool pfe0
+Settings for pfe0:
+        Supported ports: [ MII ]
+        Supported link modes:   Not reported
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  Not reported
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: 2500Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: MII
+        PHYAD: 0
+        Transceiver: internal
+        Link detected: yes
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping 192.168.10.2
+PING 192.168.10.2 (192.168.10.2) 56(84) bytes of data.
+64 bytes from 192.168.10.2: icmp_seq=1 ttl=61 time=2.25 ms
+64 bytes from 192.168.10.2: icmp_seq=2 ttl=61 time=2.89 ms
+64 bytes from 192.168.10.2: icmp_seq=3 ttl=61 time=3.08 ms
+64 bytes from 192.168.10.2: icmp_seq=4 ttl=61 time=2.35 ms
+64 bytes from 192.168.10.2: icmp_seq=5 ttl=61 time=3.26 ms
+64 bytes from 192.168.10.2: icmp_seq=6 ttl=61 time=2.83 ms
+64 bytes from 192.168.10.2: icmp_seq=7 ttl=61 time=2.79 ms
+64 bytes from 192.168.10.2: icmp_seq=8 ttl=61 time=2.43 ms
+64 bytes from 192.168.10.2: icmp_seq=9 ttl=61 time=1.99 ms
+^C
+--- 192.168.10.2 ping statistics ---
+9 packets transmitted, 9 received, 0% packet loss, time 8011ms
+rtt min/avg/max/mdev = 1.988/2.652/3.257/0.394 ms
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ^C
+
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping 192.168.10.1
+PING 192.168.10.1 (192.168.10.1) 56(84) bytes of data.
+64 bytes from 192.168.10.1: icmp_seq=1 ttl=252 time=2.11 ms
+64 bytes from 192.168.10.1: icmp_seq=2 ttl=252 time=2.10 ms
+64 bytes from 192.168.10.1: icmp_seq=3 ttl=252 time=2.90 ms
+64 bytes from 192.168.10.1: icmp_seq=4 ttl=252 time=2.68 ms
+64 bytes from 192.168.10.1: icmp_seq=5 ttl=252 time=2.28 ms
+64 bytes from 192.168.10.1: icmp_seq=6 ttl=252 time=2.68 ms
+64 bytes from 192.168.10.1: icmp_seq=7 ttl=252 time=1.98 ms
+64 bytes from 192.168.10.1: icmp_seq=8 ttl=252 time=3.70 ms
+64 bytes from 192.168.10.1: icmp_seq=9 ttl=252 time=3.63 ms
+64 bytes from 192.168.10.1: icmp_seq=10 ttl=252 time=2.58 ms
+64 bytes from 192.168.10.1: icmp_seq=11 ttl=252 time=2.99 ms
+64 bytes from 192.168.10.1: icmp_seq=12 ttl=252 time=3.04 ms
+64 bytes from 192.168.10.1: icmp_seq=13 ttl=252 time=2.27 ms
+64 bytes from 192.168.10.1: icmp_seq=14 ttl=252 time=2.09 ms
+64 bytes from 192.168.10.1: icmp_seq=15 ttl=252 time=2.68 ms
+64 bytes from 192.168.10.1: icmp_seq=16 ttl=252 time=2.51 ms
+64 bytes from 192.168.10.1: icmp_seq=17 ttl=252 time=2.40 ms
+64 bytes from 192.168.10.1: icmp_seq=18 ttl=252 time=2.10 ms
+64 bytes from 192.168.10.1: icmp_seq=19 ttl=252 time=2.01 ms
+64 bytes from 192.168.10.1: icmp_seq=20 ttl=252 time=2.05 ms
+64 bytes from 192.168.10.1: icmp_seq=21 ttl=252 time=2.00 ms
+64 bytes from 192.168.10.1: icmp_seq=22 ttl=252 time=2.04 ms
+64 bytes from 192.168.10.1: icmp_seq=23 ttl=252 time=2.04 ms
+64 bytes from 192.168.10.1: icmp_seq=24 ttl=252 time=3.30 ms
+64 bytes from 192.168.10.1: icmp_seq=25 ttl=252 time=1.96 ms
+64 bytes from 192.168.10.1: icmp_seq=26 ttl=252 time=3.23 ms
+64 bytes from 192.168.10.1: icmp_seq=27 ttl=252 time=2.80 ms
+64 bytes from 192.168.10.1: icmp_seq=28 ttl=252 time=2.37 ms
+64 bytes from 192.168.10.1: icmp_seq=29 ttl=252 time=2.51 ms
+64 bytes from 192.168.10.1: icmp_seq=30 ttl=252 time=3.03 ms
+64 bytes from 192.168.10.1: icmp_seq=31 ttl=252 time=2.02 ms
+64 bytes from 192.168.10.1: icmp_seq=32 ttl=252 time=2.70 ms
+64 bytes from 192.168.10.1: icmp_seq=33 ttl=252 time=1.96 ms
+64 bytes from 192.168.10.1: icmp_seq=34 ttl=252 time=1.98 ms
+64 bytes from 192.168.10.1: icmp_seq=35 ttl=252 time=1.97 ms
+64 bytes from 192.168.10.1: icmp_seq=36 ttl=252 time=1.98 ms
+64 bytes from 192.168.10.1: icmp_seq=37 ttl=252 time=2.04 ms
+64 bytes from 192.168.10.1: icmp_seq=38 ttl=252 time=2.21 ms
+64 bytes from 192.168.10.1: icmp_seq=39 ttl=252 time=3.25 ms
+^C
+--- 192.168.10.1 ping statistics ---
+39 packets transmitted, 39 received, 0% packet loss, time 38051ms
+rtt min/avg/max/mdev = 1.956/2.465/3.699/0.498 ms
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# mkdir -p /opt/logs/tsn
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 이미 실행 중이라면 생략
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# phc2sys -a -r -m   > /opt/logs/tsn/phc2sys.log 2>&1 &
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ptp4l   -i pfe0 -f /opt/etc/ptp4l.conf -m  > /opt/logs/tsn/
+ptp4l.log 2>&1 &
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# sleep 1
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# tc qdisc replace dev pfe0 parent root handle 100: taprio \
+>     num_tc 3 map 0 1 2 queues 1@0 1@1 1@2 \
+>     base-time "$(date +%s%N)" \
+>     sched-entry S 01 00 100000 200000 \
+>     sched-entry S 02 00 200000 100000 \
+>     > /opt/logs/tsn/taprio.log 2>&1
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# tc qdisc replace dev pfe0 parent 100:1 cbs \
+>     id 1 \
+>     tba 12500 \
+>     tci 2500 \
+>     > /opt/logs/tsn/cbs.log 2>&1
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 기존 핑 프로세스가 있으면 종료
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# pkill -f "ping -I pfe0"
+-sh: pkill: not found
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# # 로그 남기며 백그라운드 실행
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping -I pfe0 -i 0.2 -c 200 192.168.10.2 \
+>     > /opt/logs/tsn/ping_tsn.log 2>&1 &
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# tail -n20 /opt/logs/tsn/ptp4l.log
+ptp4l[10990.375]: selected /dev/ptp1 as PTP clock
+ptp4l[10990.377]: driver changed our HWTSTAMP options
+ptp4l[10990.377]: tx_type   1 not 1
+ptp4l[10990.377]: rx_filter 1 not 12
+ptp4l[10990.377]: port 1: INITIALIZING to LISTENING on INITIALIZE
+ptp4l[10990.377]: port 0: INITIALIZING to LISTENING on INITIALIZE
+ptp4l[10990.377]: port 1: link up
+ptp4l[10996.417]: port 1: LISTENING to MASTER on ANNOUNCE_RECEIPT_TIMEOUT_EXPIRES
+ptp4l[10996.417]: selected best master clock 00049f.fffe.beef00
+ptp4l[10996.417]: assuming the grand master role
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# tail -n20 /opt/logs/tsn/phc2sys.log
+phc2sys[10991.375]: reconfiguring after port state change
+phc2sys[10991.376]: selecting pfe0 for synchronization
+phc2sys[10991.376]: nothing to synchronize
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# tail -n20 /opt/logs/tsn/taprio.log
+RTNETLINK answers: Operation not supported
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# tail -n20 /opt/logs/tsn/cbs.log
+cbs: unknown parameter "tba"
+Usage: ... cbs hicredit BYTES locredit BYTES sendslope BPS idleslope BPS
+           [offload 0|1]
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# grep rtt /opt/logs/tsn/ping_tsn.log
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# ping 192.168.10.2
+PING 192.168.10.2 (192.168.10.2) 56(84) bytes of data.
+64 bytes from 192.168.10.2: icmp_seq=1 ttl=61 time=3.02 ms
+64 bytes from 192.168.10.2: icmp_seq=2 ttl=61 time=2.20 ms
+64 bytes from 192.168.10.2: icmp_seq=3 ttl=61 time=2.18 ms
+64 bytes from 192.168.10.2: icmp_seq=4 ttl=61 time=2.61 ms
+64 bytes from 192.168.10.2: icmp_seq=5 ttl=61 time=1.94 ms
+64 bytes from 192.168.10.2: icmp_seq=6 ttl=61 time=2.31 ms
+64 bytes from 192.168.10.2: icmp_seq=7 ttl=61 time=2.27 ms
+64 bytes from 192.168.10.2: icmp_seq=8 ttl=61 time=2.05 ms
+64 bytes from 192.168.10.2: icmp_seq=9 ttl=61 time=1.94 ms
+64 bytes from 192.168.10.2: icmp_seq=10 ttl=61 time=2.73 ms
+64 bytes from 192.168.10.2: icmp_seq=11 ttl=61 time=3.10 ms
+64 bytes from 192.168.10.2: icmp_seq=12 ttl=61 time=2.86 ms
+64 bytes from 192.168.10.2: icmp_seq=13 ttl=61 time=2.13 ms
+64 bytes from 192.168.10.2: icmp_seq=14 ttl=61 time=7.58 ms
+64 bytes from 192.168.10.2: icmp_seq=15 ttl=61 time=3.57 ms
+64 bytes from 192.168.10.2: icmp_seq=16 ttl=61 time=2.81 ms
+64 bytes from 192.168.10.2: icmp_seq=17 ttl=61 time=2.52 ms
+64 bytes from 192.168.10.2: icmp_seq=18 ttl=61 time=3.85 ms
+64 bytes from 192.168.10.2: icmp_seq=19 ttl=61 time=3.61 ms
+64 bytes from 192.168.10.2: icmp_seq=20 ttl=61 time=2.78 ms
+64 bytes from 192.168.10.2: icmp_seq=21 ttl=61 time=3.64 ms
+64 bytes from 192.168.10.2: icmp_seq=22 ttl=61 time=2.76 ms
+64 bytes from 192.168.10.2: icmp_seq=23 ttl=61 time=3.37 ms
+64 bytes from 192.168.10.2: icmp_seq=24 ttl=61 time=3.98 ms
+64 bytes from 192.168.10.2: icmp_seq=25 ttl=61 time=2.03 ms
+64 bytes from 192.168.10.2: icmp_seq=26 ttl=61 time=2.38 ms
+64 bytes from 192.168.10.2: icmp_seq=27 ttl=61 time=2.46 ms
+64 bytes from 192.168.10.2: icmp_seq=28 ttl=61 time=3.23 ms
+64 bytes from 192.168.10.2: icmp_seq=29 ttl=61 time=2.70 ms
+64 bytes from 192.168.10.2: icmp_seq=30 ttl=61 time=3.08 ms
+64 bytes from 192.168.10.2: icmp_seq=31 ttl=61 time=2.39 ms
+64 bytes from 192.168.10.2: icmp_seq=32 ttl=61 time=1.96 ms
+64 bytes from 192.168.10.2: icmp_seq=33 ttl=61 time=2.07 ms
+64 bytes from 192.168.10.2: icmp_seq=34 ttl=61 time=2.39 ms
+64 bytes from 192.168.10.2: icmp_seq=35 ttl=61 time=2.27 ms
+64 bytes from 192.168.10.2: icmp_seq=36 ttl=61 time=2.14 ms
+64 bytes from 192.168.10.2: icmp_seq=37 ttl=61 time=1.90 ms
+64 bytes from 192.168.10.2: icmp_seq=38 ttl=61 time=2.15 ms
+64 bytes from 192.168.10.2: icmp_seq=39 ttl=61 time=4.60 ms
+64 bytes from 192.168.10.2: icmp_seq=40 ttl=61 time=3.02 ms
+64 bytes from 192.168.10.2: icmp_seq=41 ttl=61 time=2.54 ms
+64 bytes from 192.168.10.2: icmp_seq=42 ttl=61 time=3.74 ms
+64 bytes from 192.168.10.2: icmp_seq=43 ttl=61 time=5.99 ms
+64 bytes from 192.168.10.2: icmp_seq=44 ttl=61 time=2.73 ms
+64 bytes from 192.168.10.2: icmp_seq=45 ttl=61 time=2.12 ms
+64 bytes from 192.168.10.2: icmp_seq=46 ttl=61 time=2.05 ms
+^C
+--- 192.168.10.2 ping statistics ---
+46 packets transmitted, 46 received, 0% packet loss, time 45064ms
+rtt min/avg/max/mdev = 1.897/2.863/7.576/1.058 ms
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+[13]+  Done(1)                   ping -I pfe0 -i 0.2 -c 200 192.168.10.2 1>/opt/logs/tsn/ping_tsn.log 2>&1
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0# reboot
+root@s32g274ardb2:/opt/src/iproute2-build/iproute2-6.7.0#          Stopping Session c1 of User root...
+[  OK  ] Removed slice Slice /system/modprobe.
+[  OK  ] Stopped target Multi-User System.
+[  OK  ] Stopped target Login Prompts.
+[  OK  ] Stopped target Host and Network Name Lookups.
+[  OK  ] Stopped target System Time Set.
+[  OK  ] Stopped target Timer Units.
+[  OK  ] Stopped Daily Cleanup of Temporary Directories.
+         Stopping Kernel Logging Service...
+         Stopping System Logging Service...
+         Stopping Getty on tty1...
+         Stopping Hardware RNG Entropy Gatherer Daemon...
+         Stopping Serial Getty on ttyLF0...
+         Stopping Load/Save OS Random Seed...
+[  OK  ] Stopped Kernel Logging Service.
+[  OK  ] Stopped System Logging Service.
+[  OK  ] Stopped Hardware RNG Entropy Gatherer Daemon.
+[  OK  ] Stopped Getty on tty1.
+[  OK  ] Stopped Serial Getty on ttyLF0.
+[  OK  ] Stopped Load/Save OS Random Seed.
+[  OK  ] Stopped Session c1 of User root.
+[  OK  ] Removed slice Slice /system/getty.
+[  OK  ] Removed slice Slice /system/serial-getty.
+         Stopping User Login Management...
+         Stopping Permit User Sessions...
+         Stopping User Manager for UID 0...
+[  OK  ] Stopped Permit User Sessions.
+[  OK  ] Stopped User Login Management.
+[  OK  ] Stopped User Manager for UID 0.
+[  OK  ] Stopped target Network.
+[  OK  ] Stopped target Remote File Systems.
+         Stopping Network Configuration...
+         Stopping User Runtime Directory /run/user/0...
+[  OK  ] Unmounted /run/user/0.
+[  OK  ] Stopped Network Configuration.
+[  OK  ] Stopped User Runtime Directory /run/user/0.
+[  OK  ] Removed slice User Slice of UID 0.
+[  OK  ] Stopped target Preparation for Network.
+         Stopping D-Bus System Message Bus...
+[  OK  ] Stopped Generate network units from Kernel command line.
+[  OK  ] Stopped D-Bus System Message Bus.
+[  OK  ] Stopped target Basic System.
+[  OK  ] Stopped target Path Units.
+[  OK  ] Stopped Dispatch Password Requests to Console Directory Watch.
+[  OK  ] Stopped Forward Password Requests to Wall Directory Watch.
+[  OK  ] Stopped target Slice Units.
+[  OK  ] Removed slice User and Session Slice.
+[  OK  ] Stopped target Socket Units.
+[  OK  ] Closed D-Bus System Message Bus Socket.
+[  OK  ] Stopped target System Initialization.
+[  OK  ] Closed Syslog Socket.
+[  OK  ] Closed Network Service Netlink Socket.
+         Stopping Network Name Resolution...
+         Stopping Network Time Synchronization...
+[  OK  ] Stopped Update is Completed.
+[  OK  ] Stopped Rebuild Dynamic Linker Cache.
+[  OK  ] Stopped Rebuild Journal Catalog.
+[  OK  ] Stopped Network Name Resolution.
+[  OK  ] Stopped Network Time Synchronization.
+[  OK  ] Stopped Apply Kernel Variables.
+[  OK  ] Stopped Load Kernel Modules.
+[  OK  ] Stopped Create System Files and Directories.
+[  OK  ] Stopped target Local File Systems.
+         Unmounting /opt...
+         Unmounting /root/entware...
+         Unmounting /run/media/boot_s32g2-mmcblk0p2...
+         Unmounting /run/media/fsl-image-auto-s-mmcblk0p3...
+         Unmounting /tmp...
+         Unmounting /var/volatile/tmp...
+[  OK  ] Unmounted /root/entware.
+[  OK  ] Unmounted /run/media/boot_s32g2-mmcblk0p2.
+[  OK  ] Unmounted /run/media/fsl-image-auto-s-mmcblk0p3.
+[  OK  ] Unmounted /tmp.
+[  OK  ] Unmounted /var/volatile/tmp.
+         Unmounting /var/volatile...
+[  OK  ] Stopped File System Check on /dev/mmcblk0p2.
+[  OK  ] Stopped File System Check on /dev/mmcblk0p3.
+[  OK  ] Removed slice Slice /system/systemd-fsck.
+[  OK  ] Unmounted /var/volatile.
+[  OK  ] Stopped target Swaps.
+[11227.594421] EXT4-fs (mmcblk0p4): unmounting filesystem 4a0532f1-fd55-4906-b2cb-3b1aa8f8927b.
+[11227.713915] EXT4-fs (mmcblk0p3): unmounting filesystem c8d6bf0d-db58-4b91-9d8d-949e6b280d4a.
+[  OK  ] Unmounted /opt.
+[  OK  ] Stopped target Preparation for Local File Systems.
+[  OK  ] Reached target Unmount All Filesystems.
+[  OK  ] Stopped Create Static Device Nodes in /dev.
+[  OK  ] Stopped Create System Users.
+[  OK  ] Stopped Remount Root and Kernel File Systems.
+[  OK  ] Stopped Create Static Device Nodes in /dev gracefully.
+[  OK  ] Reached target System Shutdown.
+[  OK  ] Reached target Late Shutdown Services.
+[  OK  ] Finished System Reboot.
+[  OK  ] Reached target System Reboot.
+[11228.024342] watchdog: watchdog0: watchdog did not stop!
+[11228.046484] systemd-shutdown[1]: Using hardware watchdog 's32cc watchdog', version 0, device /dev/watchdog0
+[11228.055907] systemd-shutdown[1]: Watchdog running with a hardware timeout of 1min.
+[11228.073243] systemd-shutdown[1]: Syncing filesystems and block devices.
+[11228.079762] systemd-shutdown[1]: Sending SIGTERM to remaining processes...
+[11228.105049] systemd-journald[116]: Received SIGTERM from PID 1 (systemd-shutdow).
+[11228.133344] systemd-shutdown[1]: Sending SIGKILL to remaining processes...
+[11228.153914] systemd-shutdown[1]: Unmounting file systems.
+[11228.161364] (sd-remount)[9281]: Remounting '/' read-only with options ''.
+[11228.168665] systemd-shutdown[1]: All filesystems unmounted.
+[11228.174285] systemd-shutdown[1]: Deactivating swaps.
+[11228.178922] systemd-shutdown[1]: All swaps deactivated.
+[11228.184050] systemd-shutdown[1]: Detaching loop devices.
+[11228.189893] systemd-shutdown[1]: All loop devices detached.
+[11228.195052] systemd-shutdown[1]: Stopping MD devices.
+[11228.200405] systemd-shutdown[1]: All MD devices stopped.
+[11228.205379] systemd-shutdown[1]: Detaching DM devices.
+[11228.210798] systemd-shutdown[1]: All DM devices detached.
+[11228.215886] systemd-shutdown[1]: All filesystems, swaps, loop devices, MD devices and DM devices detached.
+[11228.226592] systemd-shutdown[1]: Syncing filesystems and block devices.
+[11228.232914] systemd-shutdown[1]: Rebooting.
+[11228.237060] pfeng 46000000.pfe: Suspending driver
+[11228.241939] pfeng 46000000.pfe pfe0: Link is Down
+[11228.246746] pfeng 46000000.pfe pfe0: Unregistered PTP HW clock successfully on EMAC0
+[11228.266963] pfeng 46000000.pfe pfe1: Unregistered PTP HW clock successfully on EMAC0
+[11228.274586] pfeng 46000000.pfe pfe2: Unregistered PTP HW clock successfully on EMAC0
+[11228.282053] pfeng 46000000.pfe: HIF3 not enabled, skipped
+[11228.287435] pfeng 46000000.pfe: HIF2 stopped
+[11228.311247] pfeng 46000000.pfe: HIF1 stopped
+[11228.331242] pfeng 46000000.pfe: HIF0 stopped
+[11228.491805] pfeng 46000000.pfe: HIF2 disabled
+[11228.640640] pfeng 46000000.pfe: HIF1 disabled
+[11228.922999] pfeng 46000000.pfe: HIF0 disabled
+[11228.926959] pfeng 46000000.pfe: Global poller finished
+[11228.932103] pfeng 46000000.pfe: Removing default logical interface (emac0, parent: emac0)
+[11228.940286] pfeng 46000000.pfe: emac0 (p0x000000004967b6e8) removed from emac0 (p0x000000008d442fd3)
+[11228.949422] pfeng 46000000.pfe: Removing default logical interface (emac1, parent: emac1)
+[11228.957536] pfeng 46000000.pfe: emac1 (p0x000000001d9faff1) removed from emac1 (p0x0000000089ca80d7)
+[11228.966691] pfeng 46000000.pfe: Removing default logical interface (emac2, parent: emac2)
+[11228.974811] pfeng 46000000.pfe: emac2 (p0x000000008b30b3a4) removed from emac2 (p0x000000002b44bd0f)
+[11228.983969] pfeng 46000000.pfe: Removing default logical interface (hif0, parent: hif0)
+[11228.991908] pfeng 46000000.pfe: hif0 (p0x0000000066b9ea53) removed from hif0 (p0x0000000029577f2f)
+[11229.000890] pfeng 46000000.pfe: Removing default logical interface (hif1, parent: hif1)
+[11229.008832] pfeng 46000000.pfe: hif1 (p0x00000000090a3324) removed from hif1 (p0x00000000f0057a9f)
+[11229.017816] pfeng 46000000.pfe: Removing default logical interface (hif2, parent: hif2)
+[11229.025758] pfeng 46000000.pfe: hif2 (p0x00000000c9cbf7fa) removed from hif2 (p0x00000000df873215)
+[11229.034748] pfeng 46000000.pfe: Removing default logical interface (hif3, parent: hif3)
+[11229.042688] pfeng 46000000.pfe: hif3 (p0x000000003f842f6f) removed from hif3 (p0x0000000003238c8a)
+[11229.055465] pfeng 46000000.pfe: Stopping rtable worker...
+[11229.060477] pfeng 46000000.pfe: rtable worker stopped
+[11229.065836] pfeng 46000000.pfe: PFE Platform stopped
+[11229.070524] pfeng 46000000.pfe: PFE controller off
+[11229.183709] sja1110 spi5.0: [sja1110_remove]
+[11229.187733] sja1110 spi5.1: [sja1110_remove]
+[11229.192484] ci_hdrc ci_hdrc.0: remove, state 4
+[11229.196522] usb usb1: USB disconnect, device number 1
+[11229.202228] ci_hdrc ci_hdrc.0: USB bus 1 deregistered
+[11229.207917] s32cc-wdt 4010c000.watchdog: Device shutdown: Expect reboot!
+[11229.214309] reboot: Restarting sys�NOTICE:  Reset status: Power-On Reset
+NOTICE:  BL2: v2.10.14(release):bsp44.0_rc11-2.10.14
+NOTICE:  BL2: Built : 08:13:32, May 13 2025
+NOTICE:  BL2: Booting BL31
+
+
+U-Boot 2022.04+g9a00323278+p0 (May 13 2025 - 06:57:56 +0000)
+
+SoC:   NXP S32G274A rev. 2.1
+CPU:   ARM Cortex-A53 r0p4 @ max 1000 MHz
+Model: NXP S32G274A-RDB2
+DRAM:  4 GiB
+Core:  314 devices, 25 uclasses, devicetree: board
+MMC:   FSL_SDHC: 0
+Loading Environment from SPIFlash... SF: Detected mx25uw51245g with page size 256 Bytes, erase size 64 KiB, total 64 MiB
+*** Warning - bad CRC, using default environment
+
+s32cc_serdes_phy serdes@40480000: Using mode 0 for SerDes subsystem
+pci_s32cc pcie@40400000: Could not set DEVICE ID
+pci_s32cc pcie@40400000: Configuring as RootComplex
+pci_s32cc pcie@40400000: Failed to get link up
+In:    serial@401c8000
+Out:   serial@401c8000
+Err:   serial@401c8000
+Board revision: RDB2/GLDBOX Revision E
+PCIe:   BusDevFun       VendorId   DeviceId   Device Class       Sub-Class
+__________________________________________________________________________
+pcie@40400000 RootComplex
+|   `-- 01:00.00        0x1957     0x4002     Bridge device           0x04
+Net:
+Warning: ethernet@4033c000 (eth0) using random MAC address - 22:bb:ae:05:97:60
+eth0: ethernet@4033c000
+Found PFE version 0x50300 (S32G2)
+pfeng pfeng-base: Uploading CLASS firmware
+pfeng pfeng-base: EMAC0 block was initialized
+pfeng pfeng-base: EMAC1 block was initialized
+pfeng pfeng-base: EMAC2 block was initialized
+pfeng pfeng-base: Enabling the CLASS block
+pfeng pfeng-base: PFE Platform started successfully (mask: 7)
+s32cc_serdes_phy serdes@44180000: Using mode 4 for SerDes subsystem
+
