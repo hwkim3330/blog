@@ -1,0 +1,3273 @@
+
+-sh: iptabl: command not found
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware# iptable
+-sh: iptable: command not found
+root@s32g274ardb2:/lib/firmware# zcat /proc/config.gz | grep "CONFIG_IP_NF_MANGLE"
+CONFIG_IP_NF_MANGLE=y
+root@s32g274ardb2:/lib/firmware# ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: can0: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+3: can1: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+4: teql0: <NOARP> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 100
+    link/void
+5: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+6: end0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+    link/ether 9e:c8:bf:19:25:71 brd ff:ff:ff:ff:ff:ff
+7: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+8: pfe1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:01 brd ff:ff:ff:ff:ff:ff
+9: pfe2: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:02 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:/lib/firmware# ip link set pfe0 up
+root@s32g274ardb2:/lib/firmware# # p2 인터페이스에 IP 할당 및 활성화
+root@s32g274ardb2:/lib/firmware# ip addr add 192.168.100.101/24 dev p2
+Cannot find device "p2"
+root@s32g274ardb2:/lib/firmware# ip link set p2 up
+Cannot find device "p2"
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware# # PC(192.168.100.1)와 통신 확인
+root@s32g274ardb2:/lib/firmware# ping -c 4 192.168.100.1
+ping: connect: Network is unreachable
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware# ip addr flush dev p2 && ip link set p2 down
+Device "p2" does not exist.
+root@s32g274ardb2:/lib/firmware# ip link set pfe0 down
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware# ip addr flush dev end0
+root@s32g274ardb2:/lib/firmware# ip addr add 192.168.100.101/24 broadcast 192.168.100.255 dev end0
+root@s32g274ardb2:/lib/firmware# ip link set end0 up
+root@s32g274ardb2:/lib/firmware# ping -c 4 192.168.100.1 # 최종 연결 확인
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=3 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=4 Destination Host Unreachable
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 0 received, +4 errors, 100% packet loss, time 3055ms
+pipe 3
+root@s32g274ardb2:/lib/firmware# ping -c 4 192.168.100.1 # 최종 연결 확인
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+64 bytes from 192.168.100.1: icmp_seq=1 ttl=128 time=1.27 ms
+64 bytes from 192.168.100.1: icmp_seq=2 ttl=128 time=0.436 ms
+64 bytes from 192.168.100.1: icmp_seq=3 ttl=128 time=0.764 ms
+64 bytes from 192.168.100.1: icmp_seq=4 ttl=128 time=0.649 ms
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3044ms
+rtt min/avg/max/mdev = 0.436/0.779/1.268/0.305 ms
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware# # GoldBox 터미널에서 실행
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware# # 다른 인터페이스 비활성화 및 초기화
+root@s32g274ardb2:/lib/firmware# ip link set pfe0 down && ip addr flush dev pfe0
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware# # end0 인터페이스 완전 초기화 및 IP/Broadcast 주소 설정, 활성화
+root@s32g274ardb2:/lib/firmware# ip link set end0 down
+root@s32g274ardb2:/lib/firmware# ip addr flush dev end0
+root@s32g274ardb2:/lib/firmware# ip addr add 192.168.100.101/24 broadcast 192.168.100.255 dev end0
+root@s32g274ardb2:/lib/firmware# ip link set end0 up
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware# ping -c 4 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=3 Destination Host Unreachable
+64 bytes from 192.168.100.1: icmp_seq=4 ttl=128 time=1025 ms
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 1 received, +3 errors, 75% packet loss, time 3080ms
+rtt min/avg/max/mdev = 1024.506/1024.506/1024.506/0.000 ms, pipe 3
+root@s32g274ardb2:/lib/firmware# ping -c 4 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+64 bytes from 192.168.100.1: icmp_seq=1 ttl=128 time=0.800 ms
+64 bytes from 192.168.100.1: icmp_seq=2 ttl=128 time=0.861 ms
+64 bytes from 192.168.100.1: icmp_seq=3 ttl=128 time=0.939 ms
+64 bytes from 192.168.100.1: icmp_seq=4 ttl=128 time=0.666 ms
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3053ms
+rtt min/avg/max/mdev = 0.666/0.816/0.939/0.099 ms
+root@s32g274ardb2:/lib/firmware# tc qdisc del dev end0 root 2>/dev/null
+root@s32g274ardb2:/lib/firmware# tc qdisc add dev end0 root handle 1: mqprio num_tc 3 map 0 1 2 queues 1@0 1@1 1@2
+RTNETLINK answers: Operation not supported
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware#
+root@s32g274ardb2:/lib/firmware# tc qdisc
+qdisc noqueue 0: dev lo root refcnt 2
+qdisc mq 0: dev end0 root
+qdisc fq_codel 0: dev end0 parent :5 limit 10240p flows 1024 quantum 1514 target 5ms interval 100ms memory_limit 32Mb ecn drop_batch 64
+qdisc fq_codel 0: dev end0 parent :4 limit 10240p flows 1024 quantum 1514 target 5ms interval 100ms memory_limit 32Mb ecn drop_batch 64
+qdisc fq_codel 0: dev end0 parent :3 limit 10240p flows 1024 quantum 1514 target 5ms interval 100ms memory_limit 32Mb ecn drop_batch 64
+qdisc fq_codel 0: dev end0 parent :2 limit 10240p flows 1024 quantum 1514 target 5ms interval 100ms memory_limit 32Mb ecn drop_batch 64
+qdisc fq_codel 0: dev end0 parent :1 limit 10240p flows 1024 quantum 1514 target 5ms interval 100ms memory_limit 32Mb ecn drop_batch 64
+qdisc fq_codel 0: dev pfe0 root refcnt 2 limit 10240p flows 1024 quantum 1514 target 5ms interval 100ms memory_limit 32Mb ecn drop_batch 64
+qdisc fq_codel 0: dev pfe1 root refcnt 2 limit 10240p flows 1024 quantum 1514 target 5ms interval 100ms memory_limit 32Mb ecn drop_batch 64
+qdisc fq_codel 0: dev pfe2 root refcnt 2 limit 10240p flows 1024 quantum 1514 target 5ms interval 100ms memory_limit 32Mb ecn drop_batch 64
+root@s32g274ardb2:/lib/firmware# ^C
+root@s32g274ardb2:/lib/firmware# tc mprio
+Object "mprio" is unknown, try "tc help".
+root@s32g274ardb2:/lib/firmware# tc mqprio
+Object "mqprio" is unknown, try "tc help".
+root@s32g274ardb2:/lib/firmware# tc help
+Usage:  tc [ OPTIONS ] OBJECT { COMMAND | help }
+        tc [-force] -batch filename
+where  OBJECT := { qdisc | class | filter | chain |
+                    action | monitor | exec }
+       OPTIONS := { -V[ersion] | -s[tatistics] | -d[etails] | -r[aw] |
+                    -o[neline] | -j[son] | -p[retty] | -c[olor]
+                    -b[atch] [filename] | -n[etns] name | -N[umeric] |
+                     -nm | -nam[es] | { -cf | -conf } path
+                     -br[ief] }
+root@s32g274ardb2:/lib/firmware# ^C
+root@s32g274ardb2:/lib/firmware# ifconfig -a
+can0: flags=128<NOARP>  mtu 16
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+can1: flags=128<NOARP>  mtu 16
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+end0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.100.101  netmask 255.255.255.0  broadcast 192.168.100.255
+        inet6 fe80::9cc8:bfff:fe19:2571  prefixlen 64  scopeid 0x20<link>
+        ether 9e:c8:bf:19:25:71  txqueuelen 1000  (Ethernet)
+        RX packets 60  bytes 5194 (5.0 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 48  bytes 7304 (7.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 54  base 0x2000
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 15  bytes 1392 (1.3 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 15  bytes 1392 (1.3 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+pfe0: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16  bytes 2764 (2.6 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+pfe1: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:01  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+pfe2: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:02  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+sit0: flags=128<NOARP>  mtu 1480
+        unspec 00-00-00-00-00-00-C4-9A-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+teql0: flags=128<NOARP>  mtu 1500
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@s32g274ardb2:/lib/firmware# ^C
+root@s32g274ardb2:/lib/firmware# NOTICE:  Reset status: External Reset: RESET_B (RUN)
+NOTICE:  BL2: v2.10.14(release):bsp44.0-2.10.14
+NOTICE:  BL2: Built : 08:13:32, May 13 2025
+NOTICE:  BL2: Booting BL31
+
+
+U-Boot 2022.04+g9a00323278+p0 (May 13 2025 - 06:57:56 +0000)
+
+SoC:   NXP S32G274A rev. 2.1
+CPU:   ARM Cortex-A53 r0p4 @ max 1000 MHz
+Model: NXP S32G274A-RDB2
+DRAM:  4 GiB
+Core:  314 devices, 25 uclasses, devicetree: board
+MMC:   FSL_SDHC: 0
+Loading Environment from MMC... OK
+s32cc_serdes_phy serdes@40480000: Using mode 0 for SerDes subsystem
+pci_s32cc pcie@40400000: Could not set DEVICE ID
+pci_s32cc pcie@40400000: Configuring as RootComplex
+pci_s32cc pcie@40400000: Failed to get link up
+In:    serial@401c8000
+Out:   serial@401c8000
+Err:   serial@401c8000
+Board revision: RDB2/GLDBOX Revision E
+PCIe:   BusDevFun       VendorId   DeviceId   Device Class       Sub-Class
+__________________________________________________________________________
+pcie@40400000 RootComplex
+|   `-- 01:00.00        0x1957     0x4002     Bridge device           0x04
+Net:
+Warning: ethernet@4033c000 (eth0) using random MAC address - fe:16:06:33:98:6c
+eth0: ethernet@4033c000
+Found PFE version 0x50300 (S32G2)
+pfeng pfeng-base: Uploading CLASS firmware
+pfeng pfeng-base: EMAC0 block was initialized
+pfeng pfeng-base: EMAC1 block was initialized
+pfeng pfeng-base: EMAC2 block was initialized
+pfeng pfeng-base: Enabling the CLASS block
+pfeng pfeng-base: PFE Platform started successfully (mask: 7)
+s32cc_serdes_phy serdes@44180000: Using mode 4 for SerDes subsystem
+s32cc_serdes_phy serdes@44180000: Unstable RX detected on XPCS0
+, eth1: pfe0s32cc_serdes_phy serdes@44180000: Unstable RX detected on XPCS1
+, eth2: pfe1, eth3: pfe2
+Hit any key to stop autoboot:  0
+=>
+=>
+=> setenv hwconfig "serdes0:mode=pcie,clock=ext;pcie0:mode=rc;serdes1:mode=xpcs0&xpcs1,clock=ext,fmhz=125;xpcs1_0:speed=1G;xpcs1_1:speed=1G"
+=>
+=> setenv sja1110_dsa yes
+=>
+=> : Unstable RX detected on XPCS1
+Unknown command ':' - try 'help'
+=> , et
+Unknown command ',' - try 'help'
+=> setenv sja1110_dsa yes
+=>
+=> saveenv
+Saving Environment to MMC... Writing to MMC(0)... OK
+=> boot
+switch to partitions #0, OK
+mmc0 is current device
+17139720 bytes read in 719 ms (22.7 MiB/s)
+Booting from mmc ...
+59234 bytes read in 6 ms (9.4 MiB/s)
+## Flattened Device Tree blob at 83000000
+   Booting using the fdt blob at 0x83000000
+   Using Device Tree in place at 0000000083000000, end 0000000083011761
+   fixup: pfe1: update phy addr to 0x8
+Failed to configure XPCS1_1
+Failed to update XPCS1 for SerDes1
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 6.6.85-rt53-g6208e1d0d7b5 (oe-user@oe-host) (aarch64-fsl-linux-gcc (GCC) 13.3.0, GNU ld (GNU Binutils) 2.42.0.20240723) #1 SMP PREEMPT Wed May 14 13:40:03 UTC 2025
+[    0.000000] Machine model: NXP S32G2 Reference Design Board 2 (S32G-VNP-RDB2)
+[    0.000000] earlycon: linflex0 at MMIO 0x00000000401c8000 (options '')
+[    0.000000] printk: legacy bootconsole [linflex0] enabled
+[    0.000000] OF: reserved mem: 0x0000000034000000..0x000000003407ffff (512 KiB) nomap non-reusable pfebufs@34000000
+[    0.000000] OF: reserved mem: 0x0000000034080000..0x000000003409ffff (128 KiB) nomap non-reusable pfebufs@34080000
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000083200000, size 3 MiB
+[    0.000000] OF: reserved mem: initialized node pfebufs@83200000, compatible id shared-dma-pool
+[    0.000000] OF: reserved mem: 0x0000000083200000..0x00000000835dffff (3968 KiB) nomap non-reusable pfebufs@83200000
+[    0.000000] OF: reserved mem: 0x00000000835e0000..0x00000000835fffff (128 KiB) map non-reusable pfebufs@835e0000
+[    0.000000] OF: reserved mem: 0x0000000084000000..0x0000000084ffffff (16384 KiB) nomap non-reusable shm@84000000
+[    0.000000] OF: reserved mem: 0x00000000c0000000..0x00000000c03fffff (4096 KiB) nomap non-reusable shm@c0000000
+[    0.000000] OF: reserved mem: 0x00000000c0400000..0x00000000c07fffff (4096 KiB) nomap non-reusable shm@c0400000
+[    0.000000] OF: reserved mem: 0x00000000d0000000..0x00000000d000007f (0 KiB) nomap non-reusable shm@d0000000
+[    0.000000] OF: reserved mem: 0x00000000d0000080..0x00000000d00000ff (0 KiB) nomap non-reusable shm@d0000080
+[    0.000000] OF: reserved mem: 0x00000000ff600000..0x00000000ff7fffff (2048 KiB) nomap non-reusable atf@ff600000
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000080000000-0x00000000ffffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   [mem 0x0000000100000000-0x00000008ffffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080000000-0x00000000831fffff]
+[    0.000000]   node   0: [mem 0x0000000083200000-0x00000000835dffff]
+[    0.000000]   node   0: [mem 0x00000000835e0000-0x0000000083ffffff]
+[    0.000000]   node   0: [mem 0x0000000084000000-0x0000000084ffffff]
+[    0.000000]   node   0: [mem 0x0000000085000000-0x00000000bfffffff]
+[    0.000000]   node   0: [mem 0x00000000c0000000-0x00000000c07fffff]
+[    0.000000]   node   0: [mem 0x00000000c0800000-0x00000000cfffffff]
+[    0.000000]   node   0: [mem 0x00000000d0001000-0x00000000ff5fffff]
+[    0.000000]   node   0: [mem 0x00000000ff600000-0x00000000ff7fffff]
+[    0.000000]   node   0: [mem 0x00000000ff800000-0x00000000ffffffff]
+[    0.000000]   node   0: [mem 0x0000000880000000-0x00000008ffffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080000000-0x00000008ffffffff]
+[    0.000000] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.000000] cma: Reserved 256 MiB at 0x00000000ef600000 on node -1
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.4
+[    0.000000] percpu: Embedded 19 pages/cpu s40104 r8192 d29528 u77824
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] CPU features: detected: NXP erratum ERR050481 (TLBI by VA handled incorrectly)
+[    0.000000] CPU features: detected: ARM errata 1165522, 1319367, 1530923, or 1530924
+[    0.000000] alternatives: applying boot alternatives
+[    0.000000] Kernel command line: console=ttyLF0,115200 root=/dev/mmcblk0p3 rootwait rw earlycon
+[    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 1032191
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] software IO TLB: area num 4.
+[    0.000000] software IO TLB: mapped [mem 0x00000000eb600000-0x00000000ef600000] (64MB)
+[    0.000000] Memory: 3737544K/4194300K available (10688K kernel code, 738K rwdata, 3220K rodata, 1984K init, 233K bss, 194612K reserved, 262144K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu:     RCU event tracing is enabled.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000]  Trampoline variant of Tasks RCU enabled.
+[    0.000000]  Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 544 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] GICv3: MBI range [167:182]
+[    0.000000] GICv3: Using MBI frame 0x0000000050800000
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GICv3: GICv3 features: 16 PPIs
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x0000000050880000
+[    0.000000] ITS: No ITS available, not enabling LPIs
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] arch_timer: cp15 timer(s) running at 5.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x127350b88, max_idle_ns: 440795202120 ns
+[    0.000001] sched_clock: 56 bits at 5MHz, resolution 200ns, wraps every 4398046511100ns
+[    0.008458] Console: colour dummy device 80x25
+[    0.012516] Calibrating delay loop (skipped), value calculated using timer frequency.. 10.00 BogoMIPS (lpj=20000)
+[    0.022720] pid_max: default: 32768 minimum: 301
+[    0.027443] Mount-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.034712] Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.044327] RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.052712] RCU Tasks Trace: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.062044] rcu: Hierarchical SRCU implementation.
+[    0.066583] rcu:     Max phase no-delay instances is 1000.
+[    0.072890] smp: Bringing up secondary CPUs ...
+[    0.077725] Detected VIPT I-cache on CPU1
+[    0.077813] GICv3: CPU1: found redistributor 1 region 0:0x00000000508a0000
+[    0.077867] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.078651] Detected VIPT I-cache on CPU2
+[    0.078728] GICv3: CPU2: found redistributor 100 region 0:0x00000000508c0000
+[    0.078768] CPU2: Booted secondary processor 0x0000000100 [0x410fd034]
+[    0.079470] Detected VIPT I-cache on CPU3
+[    0.079520] GICv3: CPU3: found redistributor 101 region 0:0x00000000508e0000
+[    0.079545] CPU3: Booted secondary processor 0x0000000101 [0x410fd034]
+[    0.079637] smp: Brought up 1 node, 4 CPUs
+[    0.135757] SMP: Total of 4 processors activated.
+[    0.140426] CPU features: detected: 32-bit EL0 Support
+[    0.145568] CPU features: detected: CRC32 instructions
+[    0.150752] CPU: All CPU(s) started at EL2
+[    0.154761] alternatives: applying system-wide alternatives
+[    0.162531] devtmpfs: initialized
+[    0.176354] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.185718] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.201937] pinctrl core: initialized pinctrl subsystem
+[    0.207769] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.214413] DMA: preallocated 512 KiB GFP_KERNEL pool for atomic allocations
+[    0.221308] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.229101] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.237135] thermal_sys: Registered thermal governor 'step_wise'
+[    0.237286] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.249729] ASID allocator initialised with 65536 entries
+[    0.255149] Serial: AMBA PL011 UART driver
+[    0.259155] scmi_core: SCMI protocol bus registered
+[    0.265283] scmi_protocol scmi_dev.1: Enabled polling mode TX channel - prot_id:16
+[    0.272850] arm-scmi firmware:scmi: SCMI Notifications - Core Enabled.
+[    0.279019] arm-scmi firmware:scmi: SCMI Protocol v2.0 'NXP:S32G274A' Firmware version 0x0
+[    0.296557] /soc/interrupt-controller@50800000: Fixed dependency cycle(s) with /soc/interrupt-controller@50800000
+[    0.308730] /soc/siul2@4009c000/siul2-pinctrl@4009c240: Fixed dependency cycle(s) with /soc/siul2@4009c000/siul2-pinctrl@4009c240/jtag_pins
+[    0.331423] Modules: 28512 pages in range for non-PLT usage
+[    0.331446] Modules: 520032 pages in range for PLT usage
+[    0.337214] HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.348871] HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+[    0.355119] HugeTLB: registered 32.0 MiB page size, pre-allocated 0 pages
+[    0.361889] HugeTLB: 0 KiB vmemmap can be freed for a 32.0 MiB page
+[    0.368139] HugeTLB: registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.374909] HugeTLB: 0 KiB vmemmap can be freed for a 2.00 MiB page
+[    0.381161] HugeTLB: registered 64.0 KiB page size, pre-allocated 0 pages
+[    0.387928] HugeTLB: 0 KiB vmemmap can be freed for a 64.0 KiB page
+[    0.403920] SCSI subsystem initialized
+[    0.407478] usbcore: registered new interface driver usbfs
+[    0.412756] usbcore: registered new interface driver hub
+[    0.418059] usbcore: registered new device driver usb
+[    0.423821] pps_core: LinuxPPS API ver. 1 registered
+[    0.428355] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.437480] PTP clock support registered
+[    0.442641] vgaarb: loaded
+[    0.445282] clocksource: Switched to clocksource arch_sys_counter
+[    0.459220] NET: Registered PF_INET protocol family
+[    0.463966] IP idents hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.474419] tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes, linear)
+[    0.482611] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.490255] TCP established hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.498399] TCP bind hash table entries: 32768 (order: 8, 1048576 bytes, linear)
+[    0.506669] TCP: Hash tables configured (established 32768 bind 32768)
+[    0.512973] UDP hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.519573] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.526862] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.532788] RPC: Registered named UNIX socket transport module.
+[    0.538286] RPC: Registered udp transport module.
+[    0.542965] RPC: Registered tcp transport module.
+[    0.547651] RPC: Registered tcp-with-tls transport module.
+[    0.553121] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.559578] PCI: CLS 0 bytes, default 64
+[    0.564960] workingset: timestamp_bits=62 max_order=20 bucket_order=0
+[    0.571600] fuse: init (API version 7.39)
+[    0.575393] NET: Registered PF_ALG protocol family
+[    0.580014] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    0.587340] io scheduler mq-deadline registered
+[    0.591851] io scheduler kyber registered
+[    0.595851] io scheduler bfq registered
+[    0.604346] s32cc-siul2-pinctrl 4009c240.siul2-pinctrl: initialized s32 pinctrl driver
+[    0.613694] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.621564] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.630115] gpio gpiochip0: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.639592] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.647429] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.667536] printk: legacy console [ttyLF0] enabled000 (irq = 23, base_baud = 7812500) is a FSL_LINFLEX
+[    0.667536] printk: legacy console [ttyLF0] enabled
+[    0.677449] printk: legacy bootconsole [linflex0] disabled
+[    0.677449] printk: legacy bootconsole [linflex0] disabled
+[    0.690167] 401cc000.serial: ttyLF1 at MMIO 0x401cc000 (irq = 24, base_baud = 7812500) is a FSL_LINFLEX
+[    0.701541] s32cc_fccu 4030c000.fccu: FCCU status is 0 (normal)
+[    0.710848] ethernet-switch@1 enforce active low on GPIO handle
+[    0.719795] spi-nor spi6.0: mx25uw51245g (65536 Kbytes)
+[    0.725749] 8 fixed-partitions partitions found on MTD device 0.spi
+[    0.732133] Creating 8 MTD partitions on "0.spi":
+[    0.736919] 0x000000000000-0x000004000000 : "Flash-Image"
+[    0.742809] 0x000000000000-0x0000000d0000 : "BL2"
+[    0.747916] 0x0000000d0000-0x0000002a0000 : "FIP"
+[    0.753029] 0x0000002a0000-0x0000002b0000 : "U-Boot-Env"
+[    0.758751] 0x0000002b0000-0x000001380000 : "Kernel"
+[    0.764142] 0x000001380000-0x0000013b0000 : "DTB"
+[    0.769250] 0x0000013b0000-0x0000032c0000 : "Rootfs"
+[    0.774617] 0x0000032c0000-0x000004000000 : "PFE-Firmware"
+[    0.782829] vcan: Virtual CAN interface driver
+[    0.787359] slcan: serial line CAN interface driver
+[    0.792313] CAN device driver interface
+[    0.797600] flexcan 401b4000.can: device registered (reg_base=(____ptrval____), irq(s):
+[    0.805744] flexcan 401b4000.can:  30
+[    0.809468] flexcan 401b4000.can:  31
+[    0.813178] flexcan 401b4000.can:  32
+[    0.816896] flexcan 401b4000.can:  33
+[    0.820616] flexcan 401b4000.can: )
+[    0.825186] flexcan 401be000.can: device registered (reg_base=(____ptrval____), irq(s):
+[    0.833331] flexcan 401be000.can:  34
+[    0.837044] flexcan 401be000.can:  35
+[    0.840772] flexcan 401be000.can:  36
+[    0.844491] flexcan 401be000.can:  37
+[    0.848216] flexcan 401be000.can: )
+[    0.852369] sja1105 spi5.1: Probed switch chip: SJA1110A
+[    0.857795] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    0.874561] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    0.891420] e100: Intel(R) PRO/100 Network Driver
+[    0.896199] e100: Copyright(c) 1999-2006 Intel Corporation
+[    0.901801] e1000: Intel(R) PRO/1000 Network Driver
+[    0.906758] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    0.912618] e1000e: Intel(R) PRO/1000 Network Driver
+[    0.917657] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    0.923689] igb: Intel(R) Gigabit Ethernet Network Driver
+[    0.929169] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    0.936135] hse-uio 40210000.mu0b: firmware not found
+[    0.941855] usbcore: registered new interface driver uas
+[    0.947295] usbcore: registered new interface driver usb-storage
+[    0.954559] imx_usb 44064000.usb: No over current polarity defined
+[    0.973502] ci_hdrc ci_hdrc.0: EHCI Host Controller
+[    0.978640] ci_hdrc ci_hdrc.0: new USB bus registered, assigned bus number 1
+[    1.005287] ci_hdrc ci_hdrc.0: USB 2.0 started, EHCI 1.00
+[    1.010973] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.06
+[    1.019378] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.026714] usb usb1: Product: EHCI Host Controller
+[    1.031670] usb usb1: Manufacturer: Linux 6.6.85-rt53-g6208e1d0d7b5 ehci_hcd
+[    1.038826] usb usb1: SerialNumber: ci_hdrc.0
+[    1.043758] hub 1-0:1.0: USB hub found
+[    1.047602] hub 1-0:1.0: 1 port detected
+[    1.053568] s32cc-rtc 40060000.rtc: registered as rtc0
+[    1.058824] s32cc-rtc 40060000.rtc: setting system clock to 1970-01-01T00:00:00 UTC (0)
+[    1.067163] i2c_dev: i2c /dev entries driver
+[    1.072111] s32cc-wdt 4010c000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.081464] s32cc-wdt 40200000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.090780] s32cc-wdt 40204000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.100059] s32cc-wdt 40208000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.111103] sdhci: Secure Digital Host Controller Interface driver
+[    1.117434] sdhci: Copyright(c) Pierre Ossman
+[    1.121866] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.127922] SMCCC: SOC_ID: ARCH_SOC_ID not implemented, skipping ....
+[    1.135088] hse 40211000.mu1b: interface mu1b not active
+[    1.141160] usbcore: registered new interface driver usbhid
+[    1.146841] usbhid: USB HID core driver
+[    1.160338] mmc0: SDHCI controller on 402f0000.mmc [402f0000.mmc] using ADMA
+[    1.167667] s32-adc 401f8000.adc: using dma0chan4 for ADC DMA transfers
+[    1.174967] s32-adc 401f8000.adc: Device initialized successfully.
+[    1.193553] s32-adc 402e8000.adc: using dma1chan16 for ADC DMA transfers
+[    1.200903] s32-adc 402e8000.adc: Device initialized successfully.
+[    1.201945] mmc0: new high speed SDHC card at address 0001
+[    1.213021] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 7 counters available
+[    1.213462] mmcblk0: mmc0:0001 SD32G 28.8 GiB
+[    1.223191] s32-siul2-nvmem 4009c000.nvram: Initialized s32cc siul2 nvmem driver
+[    1.227682]  mmcblk0: p1 p2 p3
+[    1.233571] s32-siul2-nvmem 44010000.nvram: Initialized s32cc siul2 nvmem driver
+[    1.244703] GACT probability on
+[    1.247930] Mirror/redirect action on
+[    1.251738] Simple TC action Loaded
+[    1.255862] netem: version 1.3
+[    1.259030] u32 classifier
+[    1.261782]     Performance counters on
+[    1.265676]     input device check on
+[    1.269390]     Actions configured
+[    1.274217] xt_time: kernel timezone is -0000
+[    1.278893] NET: Registered PF_INET6 protocol family
+[    1.284894] Segment Routing with IPv6
+[    1.288689] In-situ OAM (IOAM) with IPv6
+[    1.292763] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    1.299336] NET: Registered PF_PACKET protocol family
+[    1.304638] can: controller area network core
+[    1.309118] NET: Registered PF_CAN protocol family
+[    1.313984] can: raw protocol
+[    1.316995] can: broadcast manager protocol
+[    1.321248] can: netlink gateway - max_hops=1
+[    1.325742] 8021q: 802.1Q VLAN Support v1.8
+[    1.350155] i2c i2c-0: using pinctrl states for GPIO recovery
+[    1.356110] i2c i2c-0: using generic GPIOs for recovery
+[    1.362162] pca953x 0-0022: using AI
+[    1.372695] rtc-pcf85063 0-0051: registered as rtc1
+[    1.377722] i2c i2c-0: IMX I2C adapter registered
+[    1.382553] i2c i2c-0: using dma0chan5 (tx) and dma0chan6 (rx) for DMA transfers
+[    1.390903] i2c i2c-2: using pinctrl states for GPIO recovery
+[    1.396829] i2c i2c-2: using generic GPIOs for recovery
+[    1.402222] i2c i2c-2: IMX I2C adapter registered
+[    1.407050] i2c i2c-2: using dma1chan17 (tx) and dma1chan18 (rx) for DMA transfers
+[    1.415478] i2c i2c-4: using pinctrl states for GPIO recovery
+[    1.421375] i2c i2c-4: using generic GPIOs for recovery
+[    1.428234] ina2xx 4-0040: power monitor ina231 (Rshunt = 1000 uOhm)
+[    1.434739] i2c i2c-4: IMX I2C adapter registered
+[    1.439572] i2c i2c-4: using dma1chan19 (tx) and dma1chan20 (rx) for DMA transfers
+[    1.468434] phy-s32cc-serdes 40480000.serdes: Using mode 0 for SerDes subsystem
+[    1.476335] phy-s32cc-serdes 44180000.serdes: Using mode 3 for SerDes subsystem
+[    1.807154] s32cc-pcie 40400000.pcie: Failed to stabilize PHY link
+[    1.813445] s32cc-pcie 40400000.pcie: Configuring as RootComplex
+[    1.819590] s32cc-pcie 40400000.pcie: host bridge /soc/pcie@40400000 ranges:
+[    1.826777] s32cc-pcie 40400000.pcie:       IO 0x5ffffe0000..0x5ffffeffff -> 0x0000000000
+[    1.835096] s32cc-pcie 40400000.pcie:      MEM 0x5800000000..0x5ffffdffff -> 0x0000000000
+[    1.843423] s32cc-pcie 40400000.pcie: Memory resource size exceeds max for 32 bits
+[    2.851266] s32cc-pcie 40400000.pcie: Phy link never came up
+[    2.857041] s32cc-pcie 40400000.pcie: Link Up failed, EndPoint may not be connected
+[    2.864847] s32cc-pcie 40400000.pcie: iATU: unroll T, 6 ob, 4 ib, align 4K, limit 1024G
+[    3.873168] s32cc-pcie 40400000.pcie: Phy link never came up
+[    3.878922] s32cc-pcie 40400000.pcie: Link Up failed, EndPoint may not be connected
+[    4.886830] s32cc-pcie 40400000.pcie: Phy link never came up
+[    4.893199] s32cc-pcie 40400000.pcie: PCI host bridge to bus 0000:00
+[    4.899665] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    4.905243] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    4.911522] pci_bus 0000:00: root bus resource [mem 0x5800000000-0x5ffffdffff] (bus address [0x00000000-0x7fffdffff])
+[    4.922332] pci 0000:00:00.0: [1957:4002] type 01 class 0x060400
+[    4.928449] pci 0000:00:00.0: reg 0x10: [mem 0x5800000000-0x58000fffff]
+[    4.935180] pci 0000:00:00.0: reg 0x38: [mem 0x5800000000-0x580000ffff pref]
+[    4.942432] pci 0000:00:00.0: supports D1
+[    4.946508] pci 0000:00:00.0: PME# supported from D0 D1 D3hot D3cold
+[    4.956668] pci 0000:00:00.0: BAR 0: assigned [mem 0x5800000000-0x58000fffff]
+[    4.963930] pci 0000:00:00.0: BAR 6: assigned [mem 0x5800100000-0x580010ffff pref]
+[    4.971622] pci 0000:00:00.0: PCI bridge to [bus 01-ff]
+[    4.977350] pcieport 0000:00:00.0: PME: Signaling with IRQ 51
+[    4.984258] sja1105 spi5.1: Probed switch chip: SJA1110A
+[    4.989700] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.006483] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.023921] s32cc-dwmac 4033c000.ethernet: IRQ eth_wake_irq not found
+[    5.030470] s32cc-dwmac 4033c000.ethernet: IRQ eth_lpi not found
+[    5.037569] s32cc-dwmac 4033c000.ethernet: User ID: 0x10, Synopsys ID: 0x51
+[    5.044663] s32cc-dwmac 4033c000.ethernet:   DWMAC4/5
+[    5.049718] s32cc-dwmac 4033c000.ethernet: DMA HW capability register supported
+[    5.057144] s32cc-dwmac 4033c000.ethernet: RX Checksum Offload Engine supported
+[    5.064566] s32cc-dwmac 4033c000.ethernet: TX Checksum insertion supported
+[    5.071544] s32cc-dwmac 4033c000.ethernet: Wake-Up On Lan supported
+[    5.077973] s32cc-dwmac 4033c000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    5.085937] s32cc-dwmac 4033c000.ethernet: Enabled L3L4 Flow TC (entries=8)
+[    5.093006] s32cc-dwmac 4033c000.ethernet: Enabled RFS Flow TC (entries=10)
+[    5.100081] s32cc-dwmac 4033c000.ethernet: Enabling HW TC (entries=256, max_off=256)
+[    5.107945] s32cc-dwmac 4033c000.ethernet: Using 32/32 bits DMA host/device width
+[    5.122132] hwmon hwmon1: temp1_input not attached to any thermal zone
+[    5.131465] qoriq_thermal 400a8000.tmu: Critical rising/falling temperature threshold = 5 degree(s)
+[    5.146165] nxp_s32cc_ddr_perf 403e0000.ddr-perf: probing device
+[    5.152643] nxp_s32cc_ddr_perf 403e0000.ddr-perf: device initialized successfully
+[    5.160657] sja1105 spi5.1: Probed switch chip: SJA1110A
+[    5.166089] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.182865] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.199988] sja1105 spi5.1: Probed switch chip: SJA1110A
+[    5.205405] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.222169] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.239211] clk: Disabling unused clocks
+[    5.358178] EXT4-fs (mmcblk0p3): recovery complete
+[    5.363926] EXT4-fs (mmcblk0p3): mounted filesystem 7998e1b8-8d1a-412f-8924-0a57aa6bfd99 r/w with ordered data mode. Quota mode: disabled.
+[    5.376020] VFS: Mounted root (ext4 filesystem) on device 179:3.
+[    5.382863] devtmpfs: mounted
+[    5.386450] Freeing unused kernel memory: 1984K
+[    5.390943] Run /sbin/init as init process
+[    5.923973] systemd[1]: System time before build time, advancing clock.
+[    6.009602] systemd[1]: systemd 255.13^ running in system mode (+PAM -AUDIT -SELINUX -APPARMOR +IMA -SMACK +SECCOMP -GCRYPT -GNUTLS -OPENSSL +ACL +BLKID -CURL -ELFUTILS -FIDO2 -IDN2 -IDN -IPTC +KMOD -LIBCRYPTSETUP +LIBFDISK -PCRE2 -PWQUALITY -P11KIT -QRENCODE -TPM2 -BZIP2 -LZ4 -XZ -ZLIB +ZSTD -BPF_FRAMEWORK +XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[    6.041293] systemd[1]: Detected architecture arm64.
+
+Welcome to Auto Linux BSP 44.0 (scarthgap)!
+
+[    6.067598] systemd[1]: Hostname set to <s32g274ardb2>.
+[    6.660915] systemd[1]: Queued start job for default target Multi-User System.
+[    6.673351] systemd[1]: Created slice Slice /system/getty.
+[  OK  ] Created slice Slice /system/getty.
+[    6.694866] systemd[1]: Created slice Slice /system/modprobe.
+[  OK  ] Created slice Slice /system/modprobe.
+[    6.718791] systemd[1]: Created slice Slice /system/serial-getty.
+[  OK  ] Created slice Slice /system/serial-getty.
+[    6.742267] systemd[1]: Created slice User and Session Slice.
+[  OK  ] Created slice User and Session Slice.
+[    6.765760] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.
+[  OK  ] Started Dispatch Password Requests to Console Directory Watch.
+[    6.793636] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[  OK  ] Started Forward Password Requests to Wall Directory Watch.
+[    6.817608] systemd[1]: Reached target Path Units.
+[  OK  ] Reached target Path Units.
+[    6.837436] systemd[1]: Reached target Remote File Systems.
+[  OK  ] Reached target Remote File Systems.
+[    6.857406] systemd[1]: Reached target Slice Units.
+[  OK  ] Reached target Slice Units.
+[    6.877461] systemd[1]: Reached target Swaps.
+[  OK  ] Reached target Swaps.
+[    6.934319] systemd[1]: Listening on RPCbind Server Activation Socket.
+[  OK  ] Listening on RPCbind Server Activation Socket.
+[    6.957626] systemd[1]: Reached target RPC Port Mapper.
+[  OK  ] Reached target RPC Port Mapper.
+[    6.978162] systemd[1]: Listening on Syslog Socket.
+[  OK  ] Listening on Syslog Socket.
+[    6.997830] systemd[1]: Listening on initctl Compatibility Named Pipe.
+[  OK  ] Listening on initctl Compatibility Named Pipe.
+[    7.028211] systemd[1]: Journal Audit Socket was skipped because of an unmet condition check (ConditionSecurity=audit).
+[    7.039364] systemd[1]: Listening on Journal Socket (/dev/log).
+[  OK  ] Listening on Journal Socket (/dev/log).
+[    7.062166] systemd[1]: Listening on Journal Socket.
+[  OK  ] Listening on Journal Socket.
+[    7.082421] systemd[1]: Listening on Network Service Netlink Socket.
+[  OK  ] Listening on Network Service Netlink Socket.
+[    7.118788] systemd[1]: Listening on udev Control Socket.
+[  OK  ] Listening on udev Control Socket.
+[    7.142122] systemd[1]: Listening on udev Kernel Socket.
+[  OK  ] Listening on udev Kernel Socket.
+[    7.162101] systemd[1]: Listening on User Database Manager Socket.
+[  OK  ] Listening on User Database Manager Socket.
+[    7.209571] systemd[1]: Mounting Huge Pages File System...
+         Mounting Huge Pages File System...
+[    7.229895] systemd[1]: POSIX Message Queue File System was skipped because of an unmet condition check (ConditionPathExists=/proc/sys/fs/mqueue).
+[    7.263416] systemd[1]: Mounting Kernel Debug File System...
+         Mounting Kernel Debug File System...
+[    7.285979] systemd[1]: Kernel Trace File System was skipped because of an unmet condition check (ConditionPathExists=/sys/kernel/tracing).
+[    7.298821] systemd[1]: Create List of Static Device Nodes was skipped because of an unmet condition check (ConditionFileNotEmpty=/lib/modules/6.6.85-rt53-g6208e1d0d7b5/modules.devname).
+[    7.318760] systemd[1]: Starting Load Kernel Module configfs...
+         Starting Load Kernel Module configfs...
+[    7.349007] systemd[1]: Starting Load Kernel Module drm...
+         Starting Load Kernel Module drm...
+[    7.373171] systemd[1]: Starting Load Kernel Module fuse...
+         Starting Load Kernel Module fuse...
+[    7.401924] systemd[1]: Starting RPC Bind...
+         Starting RPC Bind...
+[    7.421793] systemd[1]: File System Check on Root Device was skipped because of an unmet condition check (ConditionPathIsReadWrite=!/).
+[    7.441481] systemd[1]: Starting Journal Service...
+         Starting Journal Service...
+[    7.467933] systemd[1]: Starting Load Kernel Modules...
+         Starting Load Kernel Modules...
+[    7.497000] systemd[1]: Starting Generate network units from Kernel command line...
+         Starting Generate network units from Kernel command line...
+[    7.525736] systemd[1]: Starting Remount Root and Kernel File Systems...
+         Starting Remount Root and Kernel File Systems...
+[    7.544671] sja1110: loading out-of-tree module taints kernel.
+[    7.550979] SPI driver sja1110 has no spi_device_id for nxp,sja1110-switch
+[    7.557447] SPI driver sja1110 has no spi_device_id for nxp,sja1110-uc
+[    7.568638] systemd-journald[124]: Collecting audit messages is disabled.
+[    7.607129] systemd[1]: Starting Create Static Device Nodes in /dev gracefully...
+         Starting Create Static Device Nodes in /dev gracefully...
+[    7.641559] systemd[1]: Starting Coldplug All udev Devices...
+         [    7.648169] EXT4-fs (mmcblk0p3): re-mounted 7998e1b8-8d1a-412f-8924-0a57aa6bfd99 r/w. Quota mode: disabled.
+Starting Coldplug All udev Devices...
+[    7.668977] systemd[1]: Started RPC Bind.
+[  OK  ] Started RPC Bind.
+[    7.690336] systemd[1]: Mounted Huge Pages File System.
+[  OK  ] Mounted Huge Pages File System.
+[    7.710383] systemd[1]: Started Journal Service.
+[  OK  ] Started Journal Service.
+[  OK  ] Mounted Kernel Debug File System.
+[  OK  ] Finished Load Kernel Module configfs.
+[  OK  ] Finished Load Kernel Module drm.
+[  OK  ] Finished Load Kernel Module fuse.
+[  OK  ] Finished Load Kernel Modules.
+[  OK  ] Finished Generate network units from Kernel command line.
+[  OK  ] Finished Remount Root and Kernel File Systems.
+[  OK  ] Finished Create Static Device Nodes in /dev gracefully.
+         Mounting FUSE Control File System...
+         Mounting Kernel Configuration File System...
+         Starting Flush Journal to Persistent Storage...
+         Starting Apply Kernel Variables...
+         Sta[    8.031518] systemd-journald[124]: Received client request to flush runtime journal.
+rting Create Static Device Nodes in /dev...
+[  OK  ] Mounted FUSE Control File System.
+[  OK  ] Mounted Kernel Configuration File System.
+[  OK  ] Finished Flush Journal to Persistent Storage.
+[  OK  ] Finished Apply Kernel Variables.
+[  OK  ] Finished Create Static Device Nodes in /dev.
+[  OK  ] Reached target Preparation for Local File Systems.
+         Mounting /tmp...
+         Mounting /var/volatile...
+         Starting Rule-based Manager for Device Events and Files...
+[  OK  ] Finished Coldplug All udev Devices.
+[  OK  ] Mounted /tmp.
+[  OK  ] Mounted /var/volatile.
+         Mounting /var/volatile/tmp...
+         Starting Load/Save OS Random Seed...
+[  OK  ] Mounted /var/volatile/tmp.
+[  OK  ] Reached target Local File Systems.
+         Starting Create System Files and Directories...
+[  OK  ] Started Rule-based Manager for Device Events and Files.
+[  OK  ] Finished Create System Files and Directories.
+[    8.591863] s32cc-dwmac 4033c000.ethernet end0: renamed from eth0
+         Starting Network Name Resolution...
+         Starting Network Time Synchronization...
+         Starting Record System Boot/Shutdown in UTMP...
+         Starting User Database Manager...
+[  OK  ] Finished Record System Boot/Shutdown in UTMP.
+[    9.231257] pfeng 46000000.pfe: PFEng ethernet driver loading ...
+[    9.238368] pfeng 46000000.pfe: Version: 1.9.0
+[    9.242507] pfeng 46000000.pfe: Driver commit hash: M4_DRIVER_COMMIT_HASH
+[  OK  ] Started     9.252415] pfeng 46000000.pfe: Multi instance support: disabled (standalone)
+1;39mUser Database[    9.261078] pfeng 46000000.pfe: Compiled by: 13.3.0
+ M[    9.266144] pfeng 46000000.pfe: Cbus addr 0x46000000 size 0x1000000
+an[    9.272524] pfeng 46000000.pfe: nxp,fw-class-name: s32g_pfe_class.fw
+ager.
+[    9.284565] pfeng 46000000.pfe: nxp,fw-util-name: s32g_pfe_util.fw
+[    9.291781] pfeng 46000000.pfe: netif name: pfe0
+[    9.296099] pfeng 46000000.pfe: DT mac addr: 00:04:9f:be:ef:00
+[    9.303136] pfeng 46000000.pfe: netif(pfe0) linked phyif: 0
+[    9.308396] pfeng 46000000.pfe: netif(pfe0) mode: std
+[    9.319136] pfeng 46000000.pfe: netif(pfe0) HIFs: count 1 map 01
+[    9.325779] pfeng 46000000.pfe: EMAC0 interface mode: 4
+[    9.330962] pfeng 46000000.pfe: netif name: pfe1
+[    9.338227] pfeng 46000000.pfe: DT mac addr: 00:04:9f:be:ef:01
+[    9.343777] pfeng 46000000.pfe: netif(pfe1) linked phyif: 1
+[    9.365551] pfeng 46000000.pfe: netif(pfe1) mode: std
+[    9.381571] pfeng 46000000.pfe: netif(pfe1) HIFs: count 1 map 02
+[    9.397353] pfeng 46000000.pfe: EMAC1 interface mode: 4
+[    9.409576] pfeng 46000000.pfe: netif name: pfe2
+[    9.425534] pfeng 46000000.pfe: DT mac addr: 00:04:9f:be:ef:02
+         Starting Virtual Console Setup...
+[    9.437328] pfeng 46000000.pfe: netif(pfe2) linked phyif: 2
+[    9.445284] pfeng 46000000.pfe: netif(pfe2) mode: std
+[    9.453871] pfeng 46000000.pfe: netif(pfe2) HIFs: count 1 map 04
+[    9.469469] pfeng 46000000.pfe: EMAC2 interface mode: 10
+[    9.479491] pfeng 46000000.pfe: HIF channels mask: 0x0007
+[    9.489823] pfeng 46000000.pfe: PFE port coherency enabled, mask 0x1e
+[    9.502338] pfeng 46000000.pfe: Clocks: sys=300MHz pe=600MHz
+[    9.512173] pfeng 46000000.pfe: Interface selected: EMAC0: 0x4 EMAC1: 0x4 EMAC2: 0xa
+[    9.525526] pfeng 46000000.pfe: PFE controller reset done
+[    9.537394] pfeng 46000000.pfe: TX clock on EMAC0 for interface sgmii installed
+[    9.549365] pfeng 46000000.pfe: RX clock on EMAC0 for interface sgmii installed
+[    9.565438] pfeng 46000000.pfe: TX clock on EMAC1 for interface sgmii installed
+[    9.577363] pfeng 46000000.pfe: RX clock on EMAC1 for interface sgmii installed
+[    9.593393] pfeng 46000000.pfe: TX clock on EMAC2 for interface rgmii-id installed
+[    9.600639] pfeng 46000000.pfe: RX clock on EMAC2 for interface rgmii-id installed
+[    9.608442] pfeng 46000000.pfe: assigned reserved memory node pfebufs@34000000
+[    9.615456] pfeng 46000000.pfe: assigned reserved memory node pfebufs@34080000
+[    9.622724] pfeng 46000000.pfe: assigned reserved memory node pfebufs@83200000
+[    9.629874] pfeng 46000000.pfe: assigned reserved memory node pfebufs@835e0000
+[    9.650378] pfeng 46000000.pfe: Firmware: CLASS s32g_pfe_class.fw [45724 bytes]
+[    9.658297] pfeng 46000000.pfe: Firmware: UTIL s32g_pfe_util.fw [23352 bytes]
+2m[    9.665599] pfeng 46000000.pfe: PFE CBUS p0x46000000 mapped @ v0xffffffc082000000 (0x1000000 bytes)
+  O[    9.674878] pfeng 46000000.pfe: Silicon S32G2
+K  ] Finis[    9.680490] pfeng 46000000.pfe: PFE_ERRORS:Parity instance created
+h[    9.686730] pfeng 46000000.pfe: PFE_ERRORS:Watchdog instance created
+e[    9.693153] pfeng 46000000.pfe: BMU1 buffer base: p0xc0000000
+d [    9.699062] pfeng 46000000.pfe: BMU2 buffer base: p0x34000000 (0x80000 bytes)
+Virtual[    9.707553] pfeng 46000000.pfe: register IRQ 67 by name 'PFE BMU IRQ'
+ Con[    9.714320] pfeng 46000000.pfe: Firmware .elf detected
+s[    9.717388] pfeng 46000000.pfe: BMU_EMPTY_INT (BMU @ p0x(____ptrval____)). Pool ready.
+o[    9.720600] pfeng 46000000.pfe: Uploading CLASS firmware
+l[    9.727529] pfeng 46000000.pfe: BMU_EMPTY_INT (BMU @ p0x(____ptrval____)). Pool ready.
+e[    9.734502] pfeng 46000000.pfe: Selected FW loading OPs to load 8 PEs in parallel
+ Setup.
+[  OK  ] Started Network Time Synchronization.
+[  OK  ] Started Network Name Resolution.
+[    9.768587] pfeng 46000000.pfe: pfe_ct.h file version"92367c0e25f21f49217a9b08168ad2c8"
+[  OK  ] Reached target Host and Network Name Lookups.
+[    9.791707] pfeng 46000000.pfe: [FW VERSION] 1.11.0, Build: Apr  8 2025, 21:02:36 (nogitaaa), ID: 0x31454650
+[    9.801485] pfeng 46000000.pfe: EMAC timestamp external mode bitmap: 0
+[    9.807717] pfeng 46000000.pfe: Uploading UTIL firmware
+[    9.813203] pfeng 46000000.pfe: Selected FW loading OPs to load 1 PEs in parallel
+[    9.822765] pfeng 46000000.pfe: pfe_ct.h file version"92367c0e25f21f49217a9b08168ad2c8"
+[    9.831671] pfeng 46000000.pfe: FW feature: drv_run_on_g3
+[    9.836686] pfeng 46000000.pfe: FW feature: jumbo_frames
+[    9.836697] pfeng 46000000.pfe: FW feature: ptp_qos_mapping
+[    9.847538] pfeng 46000000.pfe: FW feature: software_vlan_table
+[    9.853429] pfeng 46000000.pfe: FW feature: timestamping
+[ pfeng 46000000.pfe: FW feature: qos_mapping
+[0[    9.864267] pfeng 46000000.pfe: FW feature: core_functionality
+;3[    9.870224] pfeng 46000000.pfe: FW feature: extended_features
+2m[    9.876194] pfeng 46000000.pfe: FW feature: flexible_router
+ [    9.881848] pfeng 46000000.pfe: FW feature: validate_hif_csum
+ [    9.887660] pfeng 46000000.pfe: FW feature: err051211_workaround
+O[    9.893732] pfeng 46000000.pfe: FW feature: IPsec
+K[    9.898508] pfeng 46000000.pfe: FW feature: l2_bridge_aging
+ [    9.904148] pfeng 46000000.pfe: FW feature: receive_malformed
+ [    9.909962] pfeng 46000000.pfe: FW feature: ptp_conf_check
+ pfeng 46000000.pfe: FW feature: vlan_conf_check
+[[    9.921162] pfeng 46000000.pfe: FW feature: hash_load_spread
+0[    9.926895] pfeng 46000000.pfe: FW feature: ingress_vlan
+m[    9.932268] pfeng 46000000.pfe: FW feature: safety
+] Reached target Syst[    9.939622] pfeng 46000000.pfe: VLAN ID incorrect or not set. Using default VLAN ID = 0x01.
+e[    9.948065] pfeng 46000000.pfe: VLAN stats size incorrect or not set. Using default VLAN stats size = 20.
+m I[    9.957800] pfeng 46000000.pfe: Software vlan hash table @ p0x20001288
+nit[    9.964635] pfeng 46000000.pfe: Fall-back bridge domain @ 0x20000a8c (class)
+i[    9.971734] pfeng 46000000.pfe: Default bridge domain @ 0x20000a84 (class)
+alizati[    9.979197] pfeng 46000000.pfe: Routing table created, Hash Table @ p0x34080000, Pool @ p0x34088000 (65536 bytes)
+on    9.989881] pfeng 46000000.pfe: Feature err051211_workaround: DISABLED
+m.
+[   10.001130] pfeng 46000000.pfe: HIF0 enabled
+[   10.005314] pfeng 46000000.pfe: HIF1 enabled
+[  [   10.010083] pfeng 46000000.pfe: HIF2 enabled
+OK[   10.014535] pfeng 46000000.pfe: HIF3 not configured, skipped
+ [   10.020289] pfeng 46000000.pfe: MDIO bus 0 disabled: Not found in DT
+ ][   10.027155] pfeng 46000000.pfe: MDIO bus 1 disabled: Not found in DT
+ Started Daily Cleanup of Temporary Directories.
+[   10.043125] sja1105 spi5.1: Probed switch chip: SJA1110A
+[   10.045371] pfeng 46000000.pfe: MDIO bus 2 enabled
+[   10.048089] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[   10.053361] phy-s32cc-serdes 44180000.serdes: Unstable RX detected on XPCS0
+[   10.076264] pfeng 46000000.pfe pfe0 (uninitialized): Subscribe to HIF0
+[   10.076377] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[   10.082762] pfeng 46000000.pfe pfe0 (uninitialized): Host LLTX disabled
+[   10.082955] pfeng 46000000.pfe pfe0 (uninitialized): Enable HIF0
+[   10.111900] pfeng 46000000.pfe pfe0 (uninitialized): setting MAC addr: 00:04:9f:be:ef:00
+[   10.111926] pfeng 46000000.pfe pfe0 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+[   10.111939] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+[   10.120493] pfeng 46000000.pfe pfe0 (uninitialized): Registered PTP HW clock successfully on EMAC0
+[  OK  [   10.149900] pfeng 46000000.pfe pfe0: registered
+   10.154627] phy-s32cc-serdes 44180000.serdes: Unstable RX detected on XPCS1
+m] Reac[   10.162172] pfeng 46000000.pfe pfe1 (uninitialized): Subscribe to HIF1
+h[   10.168837] pfeng 46000000.pfe pfe1 (uninitialized): Host LLTX disabled
+ed [   10.175676] pfeng 46000000.pfe pfe1 (uninitialized): Enable HIF1
+ta[   10.181852] pfeng 46000000.pfe pfe1 (uninitialized): setting MAC addr: 00:04:9f:be:ef:01
+rg[   10.190030] pfeng 46000000.pfe pfe1 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+et [   10.200523] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+S[   10.210947] pfeng 46000000.pfe pfe1 (uninitialized): Registered PTP HW clock successfully on EMAC1
+ystem Time S[   10.220910] pfeng 46000000.pfe pfe1: registered
+et pfeng 46000000.pfe pfe2 (uninitialized): Subscribe to HIF2
+[0[   10.232381] pfeng 46000000.pfe pfe2 (uninitialized): Host LLTX disabled
+[   10.239336] pfeng 46000000.pfe pfe2 (uninitialized): Enable HIF2
+
+[   10.245511] pfeng 46000000.pfe pfe2 (uninitialized): setting MAC addr: 00:04:9f:be:ef:02
+[   10.253557] pfeng 46000000.pfe pfe2 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+[   10.263795] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+[   10.274029] pfeng 46000000.pfe pfe2 (uninitialized): Registered PTP HW clock successfully on EMAC2
+[   10.283461] pfeng 46000000.pfe pfe2: registered
+[   10.289464] sja1105 spi5.1: Probed switch chip: SJA1110A
+[[   10.298361] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+  [   10.315084] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+OK  ] Started Daily rotation of log files.
+[  OK  ] Reached target Timer Units.
+[  OK  ] Listening on D-Bus System Message Bus Socket.
+         Starting sshd.socket...
+[  OK  ] Listening on sshd.socket.
+[  OK  ] Reached target Socket Units.
+[  OK  ] Reached target Basic System.
+[  OK  ] Started Job spooling tools.
+[  OK  ] Started Periodic Command Scheduler.
+[   10.598143] sja1105 spi5.1: configuring for fixed/2500base-x link mode
+         Starting D-Bus System Message B[   10.608546] sja1105 spi5.1: Link is Up - 2.5Gbps/Full - flow control off
+us...
+         Starting IPv6 Packet Filtering Framework...
+         Starting IPv4 Packet Filtering Framew[   10.669645] sja1105 spi5.1 p1 (uninitialized): PHY [spi5.1-base-tx:01] driver [NXP CBTX (SJA1110)] (irq=POLL)
+ork...
+[   10.687895] sja1105 spi5.1 trx5 (uninitialized): PHY [spi5.1-base-t1:01] driver [Generic Clause 45 PHY] (irq=POLL)
+[   10.704604] sja1105 spi5.1 trx6 (uninitialized): PHY [spi5.1-base-t1:02] driver [Generic Clause 45 PHY] (irq=POLL)
+[   10.718107] sja1105 spi5.1 trx7 (uninitialized): PHY [spi5.1-base-t1:03] driver [Generic Clause 45 PHY] (irq=POLL)
+[   10.730836] sja1105 spi5.1 trx8 (uninitialized): PHY [spi5.1-base-t1:04] driver [Generic Clause 45 PHY] (irq=POLL)
+[  OK  ] Started irqbalance daemon.
+[   10.747998] sja1105 spi5.1 trx9 (uninitialized): PHY [spi5.1-base-t1:05] driver [Generic Clause 45 PHY] (irq=POLL)
+[  OK [   10.760804] sja1105 spi5.1 trx10 (uninitialized): PHY [spi5.1-base-t1:06] driver [Generic Clause 45 PHY] (irq=POLL)
+ ] Started    10.772888] DSA: tree 0 setup
+1;39mHardware RNG Entropy Gatherer Daemon.
+[  OK  ] Started System Logging Service.
+         Starting Resets System Activity Logs...
+         Starting User Login Management...
+         Starting OpenSSH Key Generation...
+[  OK  ] Finished IPv6 Packet Filtering Framework.
+[  OK  ] Finished IPv4 Packet Filtering Framework.
+[  OK  ] Finished Resets System Activity Logs.
+[  OK  ] Started User Login Management.
+[  OK  ] Created slice Slice /system/systemd-fsck.
+[  OK  ] Reached target Preparation for Network.
+         Starting File System Check on /dev/mmcblk0p2...
+         Starting Network Configuration...
+[  OK  ] Finished File System Check on /dev/mmcblk0p2.
+         Mounting /run/media/boot_s32g2-mmcblk0p2...
+[  OK  ] Mounted /run/media/boot_s32g2-mmcblk0p2.
+[  OK  ] Started Network Configuration.
+[  OK  ] Reached target Network.
+[  OK  ] Started Netperf Benchmark Server.
+         Starting Permit User Sessions...
+[  OK  ] Started Xinetd A Powerful Replacement For Inetd.
+[  OK  ] Finished Permit User Sessions.
+[  OK  ] Started Getty on tty1.
+[  OK  ] Started Serial Getty on ttyLF0.
+[  OK  ] Reached target Login Prompts.
+[  OK  ] Finished Load/Save OS Random Seed.
+[  OK  ] Started D-Bus System Message Bus.
+[  OK  ] Reached target Multi-User System.
+         Starting Record Runlevel Change in UTMP...
+[  OK  ] Finished OpenSSH Key Generation.
+[  OK  ] Finished Record Runlevel Change in UTMP.
+
+Auto Linux BSP 44.0 s32g274ardb2 ttyLF0
+
+s32g274ardb2 login: root
+root@s32g274ardb2:~# ifconfig
+end0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::fc16:6ff:fe33:986c  prefixlen 64  scopeid 0x20<link>
+        ether fe:16:06:33:98:6c  txqueuelen 1000  (Ethernet)
+        RX packets 4  bytes 266 (266.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 5  bytes 684 (684.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 54  base 0xe000
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 80  bytes 6080 (5.9 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 80  bytes 6080 (5.9 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+pfe0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1536
+        inet6 fe80::204:9fff:febe:ef00  prefixlen 64  scopeid 0x20<link>
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 8  bytes 1172 (1.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+pfe1: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:01  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+pfe2: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:02  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+root@s32g274ardb2:~# ifconfig -a
+can0: flags=128<NOARP>  mtu 16
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+can1: flags=128<NOARP>  mtu 16
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+end0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::fc16:6ff:fe33:986c  prefixlen 64  scopeid 0x20<link>
+        ether fe:16:06:33:98:6c  txqueuelen 1000  (Ethernet)
+        RX packets 18  bytes 1556 (1.5 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 8  bytes 1172 (1.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 54  base 0xe000
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 80  bytes 6080 (5.9 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 80  bytes 6080 (5.9 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+p1: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+p2: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+p3: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+pfe0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1536
+        inet6 fe80::204:9fff:febe:ef00  prefixlen 64  scopeid 0x20<link>
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 10  bytes 1570 (1.5 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+pfe1: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:01  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+pfe2: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:02  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+sit0: flags=128<NOARP>  mtu 1480
+        unspec 00-00-00-00-00-00-C4-9A-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+teql0: flags=128<NOARP>  mtu 1500
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx5: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx6: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx7: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx8: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx9: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx10: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~# iptables
+iptables v1.8.10 (legacy): no command specified
+Try `iptables -h' or 'iptables --help' for more information.
+root@s32g274ardb2:~# iptable
+-sh: iptable: command not found
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 다른 모든 이더넷 포트 비활성화
+root@s32g274ardb2:~# ip link set pfe0 down; ip link set pfe1 down; ip link set pfe2 down
+# end0 인터페이스 초기화 및 IP 설정, 활성화
+ip addr flush dev end0
+ip addr add 192.168.100.101/24 broadcast 192.168.100.255 dev end0
+ip link set end0 up
+
+# PC(192.168.100.1)��root@s32g274ardb2:~#
+root@s32g274ardb2:~# # end0 인터페이스 초기화 및 IP 설정, 활성화
+root@s32g274ardb2:~# ip addr flush dev end0
+root@s32g274ardb2:~# ip addr add 192.168.100.101/24 broadcast 192.168.100.255 dev end0
+� 연결 확인
+ping -c 4 192.168.100.1root@s32g274ardb2:~# ip link set end0 up
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # PC(192.168.100.1)와 연결 확인
+root@s32g274ardb2:~# ping -c 4 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+64 bytes from 192.168.100.1: icmp_seq=1 ttl=128 time=15.7 ms
+64 bytes from 192.168.100.1: icmp_seq=2 ttl=128 time=1.12 ms
+64 bytes from 192.168.100.1: icmp_seq=3 ttl=128 time=0.467 ms
+64 bytes from 192.168.100.1: icmp_seq=4 ttl=128 time=0.570 ms
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3010ms
+rtt min/avg/max/mdev = 0.467/4.451/15.650/6.470 ms
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 1. 기존 qdisc 제거
+root@s32g274ardb2:~# tc qdisc del dev end0 root 2>/dev/null
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 2. HTB qdisc 및 클래스 설정 (10Mbps, 20Mbps)
+root@s32g274ardb2:~# tc qdisc add dev end0 root handle 1: htb default 30
+root@s32g274ardb2:~# tc class add dev end0 parent 1: classid 1:1 htb rate 1gbit
+Warning: sch_htb: quantum of class 10001 is big. Consider r2q change.
+root@s32g274ardb2:~# tc class add dev end0 parent 1:1 classid 1:10 htb rate 10mbit
+root@s32g274ardb2:~# tc class add dev end0 parent 1:1 classid 1:20 htb rate 20mbit
+Warning: sch_htb: quantum of class 10020 is big. Consider r2q change.
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 3. iptables로 패킷 마킹
+root@s32g274ardb2:~# iptables -t mangle -F OUTPUT
+root@s32g274ardb2:~# iptables -t mangle -A OUTPUT -p udp --dport 5201 -j MARK --set-mark 10
+root@s32g274ardb2:~# iptables -t mangle -A OUTPUT -p udp --dport 5202 -j MARK --set-mark 20
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 4. tc filter로 마킹된 패킷을 해당 클래스로 전송
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 1 handle 10 fw flowid 1:10
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 2 handle 20 fw flowid 1:20
+root@s32g274ardb2:~# killall iperf3 2>/dev/null; iperf3 -s &
+[1] 510
+root@s32g274ardb2:~# -----------------------------------------------------------
+Server listening on 5201 (test #1)
+-----------------------------------------------------------
+Accepted connection from 192.168.100.1, port 59326
+[  5] local 192.168.100.101 port 5201 connected to 192.168.100.1 port 59327
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec  92.5 MBytes   775 Mbits/sec
+[  5]   1.00-2.00   sec  92.6 MBytes   777 Mbits/sec
+[  5]   2.00-3.00   sec  92.8 MBytes   778 Mbits/sec
+[  5]   3.00-4.00   sec  93.1 MBytes   781 Mbits/sec
+[  5]   4.00-5.00   sec  93.0 MBytes   780 Mbits/sec
+[  5]   5.00-6.00   sec  93.1 MBytes   781 Mbits/sec
+[  5]   6.00-7.00   sec  93.2 MBytes   782 Mbits/sec
+[  5]   7.00-8.00   sec  93.4 MBytes   783 Mbits/sec
+[  5]   8.00-9.00   sec  93.2 MBytes   782 Mbits/sec
+[  5]   9.00-10.00  sec  93.2 MBytes   782 Mbits/sec
+[  5]  10.00-10.02  sec  1.25 MBytes   745 Mbits/sec
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-10.02  sec   932 MBytes   781 Mbits/sec                  receiver
+-----------------------------------------------------------
+Server listening on 5201 (test #2)
+-----------------------------------------------------------
+Accepted connection from 192.168.100.1, port 59332
+[  5] local 192.168.100.101 port 5201 connected to 192.168.100.1 port 59333
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec  92.2 MBytes   773 Mbits/sec
+[  5]   1.00-2.00   sec  92.2 MBytes   774 Mbits/sec
+[  5]   2.00-3.00   sec  92.0 MBytes   772 Mbits/sec
+[  5]   3.00-4.00   sec  91.9 MBytes   771 Mbits/sec
+[  5]   4.00-5.00   sec  92.5 MBytes   775 Mbits/sec
+[  5]   5.00-6.00   sec  92.5 MBytes   776 Mbits/sec
+[  5]   6.00-7.00   sec  92.4 MBytes   775 Mbits/sec
+[  5]   7.00-8.00   sec  92.9 MBytes   779 Mbits/sec
+[  5]   8.00-9.00   sec  92.8 MBytes   778 Mbits/sec
+[  5]   9.00-10.00  sec  93.1 MBytes   781 Mbits/sec
+[  5]  10.00-10.02  sec  1.88 MBytes   754 Mbits/sec
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-10.02  sec   926 MBytes   775 Mbits/sec                  receiver
+-----------------------------------------------------------
+Server listening on 5201 (test #3)
+-----------------------------------------------------------
+Accepted connection from 192.168.100.1, port 59342
+[  5] local 192.168.100.101 port 5201 connected to 192.168.100.1 port 59343
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec  92.1 MBytes   772 Mbits/sec
+[  5]   1.00-2.00   sec  92.4 MBytes   775 Mbits/sec
+[  5]   2.00-3.00   sec  92.2 MBytes   774 Mbits/sec
+[  5]   3.00-4.00   sec  92.4 MBytes   775 Mbits/sec
+[  5]   4.00-5.00   sec  92.4 MBytes   775 Mbits/sec
+[  5]   5.00-6.00   sec  92.2 MBytes   774 Mbits/sec
+[  5]   6.00-7.00   sec  92.5 MBytes   776 Mbits/sec
+[  5]   7.00-8.00   sec  92.5 MBytes   776 Mbits/sec
+[  5]   8.00-9.00   sec  92.4 MBytes   775 Mbits/sec
+[  5]   9.00-10.00  sec  92.6 MBytes   777 Mbits/sec
+[  5]  10.00-10.01  sec  1.00 MBytes   748 Mbits/sec
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-10.01  sec   925 MBytes   775 Mbits/sec                  receiver
+-----------------------------------------------------------
+Server listening on 5201 (test #4)
+-----------------------------------------------------------
+Accepted connection from 192.168.100.1, port 59356
+[  5] local 192.168.100.101 port 5201 connected to 192.168.100.1 port 56600
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  0.142 ms  0/90 (0%)
+[  5]   1.00-2.00   sec   127 KBytes  1.04 Mbits/sec  0.089 ms  0/89 (0%)
+[  5]   2.00-3.00   sec   128 KBytes  1.05 Mbits/sec  0.080 ms  0/90 (0%)
+[  5]   3.00-4.00   sec   128 KBytes  1.05 Mbits/sec  0.108 ms  0/90 (0%)
+[  5]   4.00-5.00   sec   127 KBytes  1.04 Mbits/sec  0.114 ms  0/89 (0%)
+[  5]   5.00-6.00   sec   128 KBytes  1.05 Mbits/sec  0.081 ms  0/90 (0%)
+[  5]   6.00-7.00   sec   128 KBytes  1.05 Mbits/sec  0.116 ms  0/90 (0%)
+[  5]   7.00-8.00   sec   128 KBytes  1.05 Mbits/sec  0.068 ms  0/90 (0%)
+[  5]   8.00-9.00   sec   128 KBytes  1.05 Mbits/sec  0.077 ms  0/90 (0%)
+[  5]   9.00-10.00  sec   127 KBytes  1.04 Mbits/sec  0.067 ms  0/89 (0%)
+[  5]  10.00-10.00  sec  1.43 KBytes  3.43 Mbits/sec  0.087 ms  0/1 (0%)
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec  1.25 MBytes  1.05 Mbits/sec  0.087 ms  0/898 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5201 (test #5)
+-----------------------------------------------------------
+Accepted connection from 192.168.100.1, port 59359
+[  5] local 192.168.100.101 port 5201 connected to 192.168.100.1 port 50932
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  11.9 MBytes  99.6 Mbits/sec  0.017 ms  0/8529 (0%)
+[  5]   1.00-2.00   sec  11.8 MBytes  99.0 Mbits/sec  0.019 ms  0/8476 (0%)
+[  5]   2.00-3.00   sec  12.0 MBytes   101 Mbits/sec  0.027 ms  0/8610 (0%)
+[  5]   3.00-4.00   sec  12.0 MBytes   101 Mbits/sec  0.037 ms  0/8612 (0%)
+[  5]   4.00-5.00   sec  11.8 MBytes  99.0 Mbits/sec  0.026 ms  0/8479 (0%)
+[  5]   5.00-6.00   sec  12.0 MBytes   101 Mbits/sec  0.011 ms  0/8608 (0%)
+[  5]   6.00-7.00   sec  11.9 MBytes  99.5 Mbits/sec  0.022 ms  0/8523 (0%)
+[  5]   7.00-8.00   sec  12.0 MBytes   101 Mbits/sec  0.020 ms  0/8621 (0%)
+[  5]   8.00-9.00   sec  11.8 MBytes  99.1 Mbits/sec  0.020 ms  0/8486 (0%)
+[  5]   9.00-10.00  sec  12.0 MBytes   101 Mbits/sec  0.026 ms  0/8625 (0%)
+[  5]  10.00-10.01  sec  51.3 KBytes  38.4 Mbits/sec  0.011 ms  0/36 (0%)
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[SUM]  0.0-10.0 sec  3 datagrams received out-of-order
+[  5]   0.00-10.01  sec   119 MBytes  99.9 Mbits/sec  0.011 ms  0/85605 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5201 (test #6)
+-----------------------------------------------------------
+^C
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 다른 이더넷 인터페이스 비활성화
+root@s32g274ardb2:~# ip link set pfe0 down
+root@s32g274ardb2:~# ip link set pfe1 down
+root@s32g274ardb2:~# ip link set pfe2 down
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # end0 인터페이스 초기화 및 IP/Broadcast 설정, 활성화
+root@s32g274ardb2:~# ip link set end0 down
+root@s32g274ardb2:~# ip addr flush dev end0
+
+root@s32g274ardb2:~# ip addr add 192.168.100.101/24 broadcast 192.168.100.255 dev end0
+root@s32g274ardb2:~# ip link set end0 up
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# ping -c 4 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+64 bytes from 192.168.100.1: icmp_seq=1 ttl=128 time=1.22 ms
+64 bytes from 192.168.100.1: icmp_seq=2 ttl=128 time=0.524 ms
+64 bytes from 192.168.100.1: icmp_seq=3 ttl=128 time=0.543 ms
+64 bytes from 192.168.100.1: icmp_seq=4 ttl=128 time=0.607 ms
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3028ms
+rtt min/avg/max/mdev = 0.524/0.722/1.215/0.286 ms
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 1. 기존 qdisc 제거
+root@s32g274ardb2:~# tc qdisc del dev end0 root 2>/dev/null
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 2. HTB qdisc 및 클래스 설정
+root@s32g274ardb2:~# tc qdisc add dev end0 root handle 1: htb default 30
+root@s32g274ardb2:~# tc class add dev end0 parent 1: classid 1:1 htb rate 1gbit
+Warning: sch_htb: quantum of class 10001 is big. Consider r2q change.
+root@s32g274ardb2:~# tc class add dev end0 parent 1:1 classid 1:10 htb rate 10mbit
+root@s32g274ardb2:~# tc class add dev end0 parent 1:1 classid 1:20 htb rate 20mbit
+Warning: sch_htb: quantum of class 10020 is big. Consider r2q change.
+ngle -A OUTPUT -p udp --dport 5202 -j MARK --set-mark 20
+
+# 4. tc filter로 마킹된 패킷을 해당 클래스로 전송
+tc filter add dev end0 protocol ip parent 1:0 prio 1 handle 10 fw flowid 1:10
+tc filter add dev end0 protocol ip parent 1:0 prio 2 handle 20 fw flowid 1:20root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 3. iptables로 패킷 마킹
+root@s32g274ardb2:~# iptables -t mangle -F OUTPUT
+root@s32g274ardb2:~# iptables -t mangle -A OUTPUT -p udp --dport 5201 -j MARK --set-mark 10
+root@s32g274ardb2:~# iptables -t mangle -A OUTPUT -p udp --dport 5202 -j MARK --set-mark 20
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 4. tc filter로 마킹된 패킷을 해당 클래스로 전송
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 1 handle 10 fw flowid 1:10
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 2 handle 20 fw flowid 1:20
+root@s32g274ardb2:~# killall iperf3 2>/dev/null
+iperf3: interrupt - the server has terminated
+root@s32g274ardb2:~# iperf3 -s &
+[2] 542
+[1]   Done(1)                 iperf3 -s
+-----------------------------------------------------------
+root@s32g274ardb2:~# Server listening on 5201 (test #1)
+-----------------------------------------------------------
+Accepted connection from 192.168.100.1, port 59458
+[  5] local 192.168.100.101 port 5201 connected to 192.168.100.1 port 54952
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  11.8 MBytes  99.4 Mbits/sec  0.014 ms  0/8508 (0%)
+[  5]   1.00-2.00   sec  11.8 MBytes  99.2 Mbits/sec  0.019 ms  0/8492 (0%)
+[  5]   2.00-3.00   sec  12.0 MBytes   100 Mbits/sec  0.019 ms  0/8583 (0%)
+[  5]   3.00-4.00   sec  12.0 MBytes   101 Mbits/sec  0.017 ms  0/8626 (0%)
+[  5]   4.00-5.00   sec  11.8 MBytes  99.3 Mbits/sec  0.023 ms  0/8500 (0%)
+[  5]   5.00-6.00   sec  12.0 MBytes   100 Mbits/sec  0.020 ms  0/8588 (0%)
+[  5]   6.00-7.00   sec  12.0 MBytes   100 Mbits/sec  0.025 ms  8/8594 (0.093%)
+[  5]   7.00-8.00   sec  11.8 MBytes  98.9 Mbits/sec  0.016 ms  22/8493 (0.26%)
+[  5]   8.00-9.00   sec  12.0 MBytes   100 Mbits/sec  0.044 ms  0/8590 (0%)
+[  5]   9.00-10.00  sec  12.0 MBytes   100 Mbits/sec  0.026 ms  0/8591 (0%)
+[  5]  10.00-11.00  sec  11.9 MBytes  99.4 Mbits/sec  0.017 ms  0/8513 (0%)
+[  5]  11.00-12.00  sec  12.0 MBytes   100 Mbits/sec  0.022 ms  0/8597 (0%)
+[  5]  12.00-13.00  sec  12.0 MBytes   100 Mbits/sec  0.012 ms  0/8597 (0%)
+[  5]  13.00-14.00  sec  11.9 MBytes  99.5 Mbits/sec  0.011 ms  0/8523 (0%)
+[  5]  14.00-15.00  sec  12.0 MBytes   100 Mbits/sec  0.019 ms  0/8596 (0%)
+[  5]  15.00-16.00  sec  11.9 MBytes  99.7 Mbits/sec  0.013 ms  0/8537 (0%)
+[  5]  16.00-17.00  sec  12.0 MBytes   100 Mbits/sec  0.011 ms  0/8587 (0%)
+[  5]  17.00-18.00  sec  11.9 MBytes  99.5 Mbits/sec  0.022 ms  0/8526 (0%)
+[  5]  18.00-19.00  sec  12.0 MBytes   100 Mbits/sec  0.015 ms  1/8591 (0.012%)
+[  5]  19.00-20.00  sec  11.9 MBytes   100 Mbits/sec  0.037 ms  0/8559 (0%)
+[  5]  20.00-21.00  sec  11.9 MBytes  99.9 Mbits/sec  0.013 ms  0/8556 (0%)
+[  5]  21.00-22.00  sec  11.9 MBytes  99.7 Mbits/sec  0.028 ms  16/8548 (0.19%)
+[  5]  22.00-23.00  sec  12.0 MBytes   100 Mbits/sec  0.019 ms  0/8602 (0%)
+[  5]  23.00-24.00  sec  11.9 MBytes   100 Mbits/sec  0.036 ms  0/8561 (0%)
+[  5]  24.00-25.00  sec  11.8 MBytes  99.1 Mbits/sec  0.031 ms  0/8487 (0%)
+[  5]  25.00-26.00  sec  12.0 MBytes   101 Mbits/sec  0.023 ms  0/8612 (0%)
+[  5]  26.00-27.00  sec  11.9 MBytes  99.7 Mbits/sec  0.033 ms  3/8543 (0.035%)
+[  5]  27.00-28.00  sec  12.0 MBytes   100 Mbits/sec  0.022 ms  0/8587 (0%)
+[  5]  28.00-29.00  sec  11.9 MBytes  99.8 Mbits/sec  0.025 ms  0/8544 (0%)
+[  5]  29.00-30.00  sec  11.9 MBytes   100 Mbits/sec  0.031 ms  0/8573 (0%)
+[  5]  30.00-30.01  sec  1.43 KBytes  1.20 Mbits/sec  0.043 ms  0/1 (0%)
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-30.01  sec   357 MBytes  99.9 Mbits/sec  0.043 ms  50/256805 (0.019%)  receiver
+-----------------------------------------------------------
+Server listening on 5201 (test #2)
+-----------------------------------------------------------
+
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~# # end0 인터페이스 설정 및 ping 테스트
+root@s32g274ardb2:~# ip link set end0 down && ip addr flush dev end0
+tc qdisc del dev end0 root 2>/dev/null
+tc qdisc add dev end0 root handle 1: htb default 30
+tc class add dev end0 parent 1: classid 1:1 htb rate 1gbit
+tc class add dev end0 parent 1:1 classid 1:10 htb rate 10mbit
+tc class add dev end0 parent 1:1 classid 1:20 htb rate 20mbit
+iptables -t mangle -F OUTPUT
+iptables -t mangle -A OUTPUT -p udp --sport 5201 -j MARK --set-mark 10
+iptables -t mangle -A OUTPUT -p udp --sport 5202 -j MARK --set-mark 20
+tc filter add dev end0 protocol ip parent 1:0 prio 1 handle 10 fw flowid 1:10
+tc filter add dev end0 protocol ip parent 1:0 prio 2 handle 20 fw flowid 1:20root@s32g274ardb2:~# ip addr add 192.168.100.101/24 broadcast 192.168.100.255 dev end0
+root@s32g274ardb2:~# ip link set end0 up
+root@s32g274ardb2:~# ping -c 4 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=3 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=4 Destination Host Unreachable
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 0 received, +4 errors, 100% packet loss, time 3064ms
+pipe 3
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # tc HTB 및 필터 설정 (대역폭 제한 규칙 적용)
+root@s32g274ardb2:~# tc qdisc del dev end0 root 2>/dev/null
+root@s32g274ardb2:~# tc qdisc add dev end0 root handle 1: htb default 30
+root@s32g274ardb2:~# tc class add dev end0 parent 1: classid 1:1 htb rate 1gbit
+Warning: sch_htb: quantum of class 10001 is big. Consider r2q change.
+root@s32g274ardb2:~# tc class add dev end0 parent 1:1 classid 1:10 htb rate 10mbit
+root@s32g274ardb2:~# tc class add dev end0 parent 1:1 classid 1:20 htb rate 20mbit
+Warning: sch_htb: quantum of class 10020 is big. Consider r2q change.
+root@s32g274ardb2:~# iptables -t mangle -F OUTPUT
+root@s32g274ardb2:~# iptables -t mangle -A OUTPUT -p udp --sport 5201 -j MARK --set-mark 10
+root@s32g274ardb2:~# iptables -t mangle -A OUTPUT -p udp --sport 5202 -j MARK --set-mark 20
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 1 handle 10 fw flowid 1:10
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 2 handle 20 fw flowid 1:20
+root@s32g274ardb2:~# # GoldBox 터미널에서 실행
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 10Mbps 클래스 테스트: 20Mbps로 보내 10Mbps로 제한되는지 확인
+root@s32g274ardb2:~# iperf3 -c 192.168.100.1 -u -b 20M -p 5201 -t 30 &
+[3] 565
+root@s32g274ardb2:~#
+Connecting to host 192.168.100.1, port 5201
+root@s32g274ardb2:~# # 20Mbps 클래스 테스트: 30Mbps로 보내 20Mbps로 제한되는지 확인
+[  5] local 192.168.100.101 port 57271 connected to 192.168.100.1 port 5201
+root@s32g274ardb2:~# iperf3 -c 192.168.100.1 -u -b 30M -p 5202 -t 30 &
+[4] 567
+root@s32g274ardb2:~# [ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-1.00   sec  2.38 MBytes  20.0 Mbits/sec  1725
+[  5]   1.00-2.00   sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]   2.00-3.00   sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]   3.00-4.00   sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]   4.00-5.00   sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]   5.00-6.00   sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]   6.00-7.00   sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]   7.00-8.00   sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]   8.00-9.00   sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]   9.00-10.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  10.00-11.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  11.00-12.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  12.00-13.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  13.00-14.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  14.00-15.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  15.00-16.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  16.00-17.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  17.00-18.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  18.00-19.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  19.00-20.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  20.00-21.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  21.00-22.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  22.00-23.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  23.00-24.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  24.00-25.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  25.00-26.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  26.00-27.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  27.00-28.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  28.00-29.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  29.00-30.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-30.00  sec  71.5 MBytes  20.0 Mbits/sec  0.000 ms  0/51794 (0%)  sender
+[  5]   0.00-30.00  sec  71.5 MBytes  20.0 Mbits/sec  0.078 ms  0/51794 (0%)  receiver
+
+iperf Done.
+Connecting to host 192.168.100.1, port 5202
+[  5] local 192.168.100.101 port 43520 connected to 192.168.100.1 port 5202
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-1.00   sec  3.57 MBytes  30.0 Mbits/sec  2588
+[  5]   1.00-2.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]   2.00-3.00   sec  3.58 MBytes  30.0 Mbits/sec  2589
+iperf3 -c 192.168.100.1 -u -b 30M -p 5202 -t 30 &[  5]   3.00-4.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+
+[5] 569
+[3]   Done                    iperf3 -c 192.168.100.1 -u -b 20M -p 5201 -t 30
+iperf3: error - the server is busy running a test. try again later
+root@s32g274ardb2:~# [  5]   4.00-5.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+iperf3 -c 192.168.100.1 -u -b 30M -p 5202 -t 30 &
+[6] 570
+[5]   Done(1)                 iperf3 -c 192.168.100.1 -u -b 30M -p 5202 -t 30
+iperf3: error - the server is busy running a test. try again later
+root@s32g274ardb2:~# [  5]   5.00-6.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]   6.00-7.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]   7.00-8.00   sec  3.58 MBytes  30.0 Mbits/sec  2589
+^C
+[6]+  Done(1)                 iperf3 -c 192.168.100.1 -u -b 30M -p 5202 -t 30
+root@s32g274ardb2:~# [  5]   8.00-9.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]   8.00-9.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-9.00   sec  34.6 MBytes  32.3 Mbits/sec  0.000 ms  0/25085 (0%)  sender
+[  5]   0.00-9.00   sec  0.00 Bytes  0.00 bits/sec  0.000 ms  0/0 (0%)  receiver
+iperf3: error - the server has terminated
+
+[4]+  Done(1)                 iperf3 -c 192.168.100.1 -u -b 30M -p 5202 -t 30
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # GoldBox 터미널에서 실행
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 10Mbps 클래스 테스트: 20Mbps로 보내 10Mbps로 제한되는지 확인
+root@s32g274ardb2:~# iperf3 -c 192.168.100.1 -u -b 20M -p 5201 -t 30 &
+[3] 571
+Connecting to host 192.168.100.1, port 5201
+root@s32g274ardb2:~#
+[  5] local 192.168.100.101 port 52581 connected to 192.168.100.1 port 5201
+root@s32g274ardb2:~# # 20Mbps 클래스 테스트: 30Mbps로 보내 20Mbps로 제한되는지 확인
+root@s32g274ardb2:~# iperf3 -c 192.168.100.1 -u -b 30M -p 5202 -t 30 &
+[4] 573
+Connecting to host 192.168.100.1, port 5202
+root@s32g274ardb2:~# [  5] local 192.168.100.101 port 40483 connected to 192.168.100.1 port 5202
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-1.00   sec  2.38 MBytes  20.0 Mbits/sec  1725
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-1.00   sec  3.57 MBytes  30.0 Mbits/sec  2588
+[  5]   1.00-2.00   sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]   1.00-2.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]   2.00-3.00   sec  2.38 MBytes  20.0 Mbits/sec  1726
+
+root@s32g274ardb2:~# [  5]   2.00-3.00   sec  3.58 MBytes  30.0 Mbits/sec  2589
+[  5]   3.00-4.00   sec  2.38 MBytes  20.0 Mbits/sec  1727
+
+root@s32g274ardb2:~# [  5]   3.00-4.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]   4.00-5.00   sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]   4.00-5.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]   5.00-6.00   sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]   5.00-6.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]   6.00-7.00   sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]   6.00-7.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]   7.00-8.00   sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]   7.00-8.00   sec  3.58 MBytes  30.0 Mbits/sec  2589
+[  5]   8.00-9.00   sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]   8.00-9.00   sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]   9.00-10.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]   9.00-10.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  10.00-11.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  10.00-11.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  11.00-12.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  11.00-12.00  sec  3.58 MBytes  30.0 Mbits/sec  2589
+[  5]  12.00-13.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  12.00-13.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  13.00-14.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  13.00-14.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  14.00-15.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  14.00-15.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  15.00-16.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  15.00-16.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  16.00-17.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  16.00-17.00  sec  3.58 MBytes  30.0 Mbits/sec  2589
+[  5]  17.00-18.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  17.00-18.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  18.00-19.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  18.00-19.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  19.00-20.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  19.00-20.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  20.00-21.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  20.00-21.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  21.00-22.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  21.00-22.00  sec  3.58 MBytes  30.0 Mbits/sec  2589
+[  5]  22.00-23.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  22.00-23.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  23.00-24.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  23.00-24.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  24.00-25.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  24.00-25.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  25.00-26.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  25.00-26.00  sec  3.58 MBytes  30.0 Mbits/sec  2589
+[  5]  26.00-27.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  26.00-27.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  27.00-28.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+[  5]  27.00-28.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  28.00-29.00  sec  2.38 MBytes  20.0 Mbits/sec  1727
+[  5]  28.00-29.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+[  5]  29.00-30.00  sec  2.38 MBytes  20.0 Mbits/sec  1726
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-30.00  sec  71.5 MBytes  20.0 Mbits/sec  0.000 ms  0/51794 (0%)  sender
+[  5]   0.00-30.00  sec  71.5 MBytes  20.0 Mbits/sec  0.032 ms  0/51794 (0%)  receiver
+
+iperf Done.
+[  5]  29.00-30.00  sec  3.58 MBytes  30.0 Mbits/sec  2590
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-30.00  sec   107 MBytes  30.0 Mbits/sec  0.000 ms  0/77692 (0%)  sender
+[  5]   0.00-30.00  sec   107 MBytes  30.0 Mbits/sec  0.029 ms  0/77692 (0%)  receiver
+
+iperf Done.
+
+[3]-  Done                    iperf3 -c 192.168.100.1 -u -b 20M -p 5201 -t 30
+[4]+  Done                    iperf3 -c 192.168.100.1 -u -b 30M -p 5202 -t 30
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # p2, pfe0 비활성화
+root@s32g274ardb2:~# ip addr flush dev p2 && ip link set p2 down
+root@s32g274ardb2:~# ip link set pfe0 down
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # end0 설정
+root@s32g274ardb2:~# ip addr flush dev end0
+root@s32g274ardb2:~# ip addr add 192.168.100.101/24 broadcast 192.168.100.255 dev end0
+root@s32g274ardb2:~# ip link set end0 up
+root@s32g274ardb2:~# ping -c 4 192.168.100.1 # 연결 확인
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+64 bytes from 192.168.100.1: icmp_seq=1 ttl=128 time=17.0 ms
+64 bytes from 192.168.100.1: icmp_seq=2 ttl=128 time=0.811 ms
+64 bytes from 192.168.100.1: icmp_seq=3 ttl=128 time=0.628 ms
+64 bytes from 192.168.100.1: icmp_seq=4 ttl=128 time=0.651 ms
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3028ms
+rtt min/avg/max/mdev = 0.628/4.777/17.020/7.068 ms
+root@s32g274ardb2:~# # 1. 기존 qdisc 제거
+root@s32g274ardb2:~# tc qdisc del dev end0 root 2>/dev/null
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 2. HTB qdisc 및 클래스 설정 (10Mbps, 20Mbps)
+root@s32g274ardb2:~# tc qdisc add dev end0 root handle 1: htb default 30
+root@s32g274ardb2:~# tc class add dev end0 parent 1: classid 1:1 htb rate 1gbit
+Warning: sch_htb: quantum of class 10001 is big. Consider r2q change.
+root@s32g274ardb2:~# tc class add dev end0 parent 1:1 classid 1:10 htb rate 10mbit
+root@s32g274ardb2:~# tc class add dev end0 parent 1:1 classid 1:20 htb rate 20mbit
+Warning: sch_htb: quantum of class 10020 is big. Consider r2q change.
+iptables -t mangle -A OUTPUT -p udp --dport 5201 -j MARK --set-mark 10
+iptables -t mangle -A OUTPUT -p udp --dport 5202 -j MARK --set-mark 20
+
+# 4. tc filter로 마킹된 패킷을 해당 클래스로 전송
+tc filter add dev end0 protocol ip parent 1:0 prio 1 handle 10 fw flowid 1:10
+tc filter add dev end0 protocol ip parent 1:0 prio 2 handle 20 fw flowid 1:20root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 3. iptables로 패킷 마킹
+root@s32g274ardb2:~# iptables -t mangle -F OUTPUT
+root@s32g274ardb2:~# iptables -t mangle -A OUTPUT -p udp --dport 5201 -j MARK --set-mark 10
+root@s32g274ardb2:~# iptables -t mangle -A OUTPUT -p udp --dport 5202 -j MARK --set-mark 20
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 4. tc filter로 마킹된 패킷을 해당 클래스로 전송
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 1 handle 10 fw flowid 1:10
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 2 handle 20 fw flowid 1:20
+root@s32g274ardb2:~# killall iperf3 2>/dev/null; iperf3 -s &
+iperf3: interrupt - the server has terminated
+[3] 597
+[2]   Done(1)                 iperf3 -s
+-----------------------------------------------------------
+root@s32g274ardb2:~# Server listening on 5201 (test #1)
+-----------------------------------------------------------
+^C
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~# iperf3 -c 192.168.100.1 -p 5201
+Connecting to host 192.168.100.1, port 5201
+[  5] local 192.168.100.101 port 38818 connected to 192.168.100.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   110 MBytes   919 Mbits/sec    0    355 KBytes
+[  5]   1.00-2.00   sec   112 MBytes   941 Mbits/sec    0    372 KBytes
+[  5]   2.00-3.00   sec   112 MBytes   944 Mbits/sec    0    372 KBytes
+[  5]   3.00-4.00   sec   112 MBytes   941 Mbits/sec    0    372 KBytes
+[  5]   4.00-5.00   sec   112 MBytes   940 Mbits/sec    0    372 KBytes
+^C[  5]   5.00-5.41   sec  46.4 MBytes   944 Mbits/sec    0    372 KBytes
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-5.41   sec   605 MBytes   937 Mbits/sec    0             sender
+[  5]   0.00-5.41   sec  0.00 Bytes  0.00 bits/sec                  receiver
+iperf3: interrupt - the client has terminated
+root@s32g274ardb2:~# iperf3 -c 192.168.100.1 -p 5202
+Connecting to host 192.168.100.1, port 5202
+[  5] local 192.168.100.101 port 60074 connected to 192.168.100.1 port 5202
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   111 MBytes   932 Mbits/sec    0    141 KBytes
+[  5]   1.00-2.00   sec   112 MBytes   941 Mbits/sec    0    141 KBytes
+[  5]   2.00-3.00   sec   112 MBytes   941 Mbits/sec    0    141 KBytes
+^C[  5]   3.00-3.39   sec  43.5 MBytes   938 Mbits/sec    0    141 KBytes
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-3.39   sec   379 MBytes   938 Mbits/sec    0             sender
+[  5]   0.00-3.39   sec  0.00 Bytes  0.00 bits/sec                  receiver
+iperf3: interrupt - the client has terminated
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~# tc qdisc add dev end0 root handle 1: mqprio \
+> hw 0 num_tc 5 \
+> map 1 1 2 3 4 \
+> queues 1@0 1@1 1@2 1@3 1@4 \
+>
+Error: Exclusivity flag on, cannot modify.
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 다른 포트 비활성화
+root@s32g274ardb2:~# ip link set pfe0 down
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # end0 설정 및 ping 테스트
+root@s32g274ardb2:~# ip link set end0 down && ip addr flush dev end0
+ip addr add 192.168.100.101/24 broadcast 192.168.100.255 dev end0
+ip link set end0 up && ping -c 2 192.168.100.1
+root@s32g274ardb2:~# ip addr add 192.168.100.101/24 broadcast 192.168.100.255 dev end0
+root@s32g274ardb2:~# ip link set end0 up && ping -c 2 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+
+--- 192.168.100.1 ping statistics ---
+2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1020ms
+pipe 2
+root@s32g274ardb2:~# tc qdisc del dev end0 root 2>/dev/null
+root@s32g274ardb2:~# tc qdisc add dev end0 root handle 1: htb default 30
+root@s32g274ardb2:~# tc class add dev end0 parent 1: classid 1:1 htb rate 1gbit
+Warning: sch_htb: quantum of class 10001 is big. Consider r2q change.
+root@s32g274ardb2:~# tc class add dev end0 parent 1:1 classid 1:10 htb rate 10mbit  # 우선순위 10용
+root@s32g274ardb2:~# tc class add dev end0 parent 1:1 classid 1:20 htb rate 20mbit  # 우선순위 20용
+Warning: sch_htb: quantum of class 10020 is big. Consider r2q change.
+root@s32g274ardb2:~# # 우선순위 10번 패킷 -> 10Mbps 클래스(1:10)로 전송
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 1 handle 10 flower sk_priority 10 action skbedit queue_mapping 1
+What is "sk_priority"?
+Usage: ... flower       [ MATCH-LIST ] [ verbose ]
+                        [ skip_sw | skip_hw ]
+                        [ action ACTION-SPEC ] [ classid CLASSID ]
+
+Where: MATCH-LIST := [ MATCH-LIST ] MATCH
+       MATCH      := {  indev DEV-NAME |
+                        num_of_vlans VLANS_COUNT |
+                        vlan_id VID |
+                        vlan_prio PRIORITY |
+                        vlan_ethtype [ ipv4 | ipv6 | ETH-TYPE ] |
+                        cvlan_id VID |
+                        cvlan_prio PRIORITY |
+                        cvlan_ethtype [ ipv4 | ipv6 | ETH-TYPE ] |
+                        pppoe_sid PSID |
+                        ppp_proto [ ipv4 | ipv6 | mpls_uc | mpls_mc | PPP_PROTO ] |
+                        dst_mac MASKED-LLADDR |
+                        src_mac MASKED-LLADDR |
+                        ip_proto [tcp | udp | sctp | icmp | icmpv6 | l2tp | esp | ah | IP-PROTO ] |
+                        ip_tos MASKED-IP_TOS |
+                        ip_ttl MASKED-IP_TTL |
+                        mpls LSE-LIST |
+                        mpls_label LABEL |
+                        mpls_tc TC |
+                        mpls_bos BOS |
+                        mpls_ttl TTL |
+                        spi SPI-INDEX  |
+                        l2tpv3_sid LSID |
+                        dst_ip PREFIX |
+                        src_ip PREFIX |
+                        dst_port PORT-NUMBER |
+                        src_port PORT-NUMBER |
+                        tcp_flags MASKED-TCP_FLAGS |
+                        type MASKED-ICMP-TYPE |
+                        code MASKED-ICMP-CODE |
+                        arp_tip IPV4-PREFIX |
+                        arp_sip IPV4-PREFIX |
+                        arp_op [ request | reply | OP ] |
+                        arp_tha MASKED-LLADDR |
+                        arp_sha MASKED-LLADDR |
+                        enc_dst_ip [ IPV4-ADDR | IPV6-ADDR ] |
+                        enc_src_ip [ IPV4-ADDR | IPV6-ADDR ] |
+                        enc_key_id [ KEY-ID ] |
+                        enc_tos MASKED-IP_TOS |
+                        enc_ttl MASKED-IP_TTL |
+                        geneve_opts MASKED-OPTIONS |
+                        vxlan_opts MASKED-OPTIONS |
+                        erspan_opts MASKED-OPTIONS |
+                        gtp_opts MASKED-OPTIONS |
+                        ip_flags IP-FLAGS |
+                        l2_miss L2_MISS |
+                        enc_dst_port [ port_number ] |
+                        ct_state MASKED_CT_STATE |
+                        ct_label MASKED_CT_LABEL |
+                        ct_mark MASKED_CT_MARK |
+                        ct_zone MASKED_CT_ZONE |
+                        cfm CFM }
+        LSE-LIST := [ LSE-LIST ] LSE
+        LSE := lse depth DEPTH { label LABEL | tc TC | bos BOS | ttl TTL }
+        FILTERID := X:Y:Z
+        MASKED_LLADDR := { LLADDR | LLADDR/MASK | LLADDR/BITS }
+        MASKED_CT_STATE := combination of {+|-} and flags trk,est,new,rel,rpl,inv
+        CFM := { mdl LEVEL | op OPCODE }
+        ACTION-SPEC := ... look at individual actions
+
+NOTE:   CLASSID, IP-PROTO are parsed as hexadecimal input.
+NOTE:   There can be only used one mask per one prio. If user needs
+        to specify different mask, he has to use different prio.
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 우선순위 20번 패킷 -> 20Mbps 클래스(1:20)로 전송
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 2 handle 20 flower sk_priority 20 action skbedit queue_mapping 2
+What is "sk_priority"?
+Usage: ... flower       [ MATCH-LIST ] [ verbose ]
+                        [ skip_sw | skip_hw ]
+                        [ action ACTION-SPEC ] [ classid CLASSID ]
+
+Where: MATCH-LIST := [ MATCH-LIST ] MATCH
+       MATCH      := {  indev DEV-NAME |
+                        num_of_vlans VLANS_COUNT |
+                        vlan_id VID |
+                        vlan_prio PRIORITY |
+                        vlan_ethtype [ ipv4 | ipv6 | ETH-TYPE ] |
+                        cvlan_id VID |
+                        cvlan_prio PRIORITY |
+                        cvlan_ethtype [ ipv4 | ipv6 | ETH-TYPE ] |
+                        pppoe_sid PSID |
+                        ppp_proto [ ipv4 | ipv6 | mpls_uc | mpls_mc | PPP_PROTO ] |
+                        dst_mac MASKED-LLADDR |
+                        src_mac MASKED-LLADDR |
+                        ip_proto [tcp | udp | sctp | icmp | icmpv6 | l2tp | esp | ah | IP-PROTO ] |
+                        ip_tos MASKED-IP_TOS |
+                        ip_ttl MASKED-IP_TTL |
+                        mpls LSE-LIST |
+                        mpls_label LABEL |
+                        mpls_tc TC |
+                        mpls_bos BOS |
+                        mpls_ttl TTL |
+                        spi SPI-INDEX  |
+                        l2tpv3_sid LSID |
+                        dst_ip PREFIX |
+                        src_ip PREFIX |
+                        dst_port PORT-NUMBER |
+                        src_port PORT-NUMBER |
+                        tcp_flags MASKED-TCP_FLAGS |
+                        type MASKED-ICMP-TYPE |
+                        code MASKED-ICMP-CODE |
+                        arp_tip IPV4-PREFIX |
+                        arp_sip IPV4-PREFIX |
+                        arp_op [ request | reply | OP ] |
+                        arp_tha MASKED-LLADDR |
+                        arp_sha MASKED-LLADDR |
+                        enc_dst_ip [ IPV4-ADDR | IPV6-ADDR ] |
+                        enc_src_ip [ IPV4-ADDR | IPV6-ADDR ] |
+                        enc_key_id [ KEY-ID ] |
+                        enc_tos MASKED-IP_TOS |
+                        enc_ttl MASKED-IP_TTL |
+                        geneve_opts MASKED-OPTIONS |
+                        vxlan_opts MASKED-OPTIONS |
+                        erspan_opts MASKED-OPTIONS |
+                        gtp_opts MASKED-OPTIONS |
+                        ip_flags IP-FLAGS |
+                        l2_miss L2_MISS |
+                        enc_dst_port [ port_number ] |
+                        ct_state MASKED_CT_STATE |
+                        ct_label MASKED_CT_LABEL |
+                        ct_mark MASKED_CT_MARK |
+                        ct_zone MASKED_CT_ZONE |
+                        cfm CFM }
+        LSE-LIST := [ LSE-LIST ] LSE
+        LSE := lse depth DEPTH { label LABEL | tc TC | bos BOS | ttl TTL }
+        FILTERID := X:Y:Z
+        MASKED_LLADDR := { LLADDR | LLADDR/MASK | LLADDR/BITS }
+        MASKED_CT_STATE := combination of {+|-} and flags trk,est,new,rel,rpl,inv
+        CFM := { mdl LEVEL | op OPCODE }
+        ACTION-SPEC := ... look at individual actions
+
+NOTE:   CLASSID, IP-PROTO are parsed as hexadecimal input.
+NOTE:   There can be only used one mask per one prio. If user needs
+        to specify different mask, he has to use different prio.
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # [대체 필터]
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 1 handle 10 fw classid 1:10
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 2 handle 20 fw classid 1:20
+root@s32g274ardb2:~# # GoldBox 터미널에서 실행
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 우선순위 10번을 가진 100Mbps 트래픽 전송 (10Mbps로 제한되어야 함)
+root@s32g274ardb2:~# iperf3 -c 192.168.100.1 -u -b 100M -p 5201 -t 30 --tos 10 &
+[4] 625
+Connecting to host 192.168.100.1, port 5201
+root@s32g274ardb2:~#
+[  5] local 192.168.100.101 port 56019 connected to 192.168.100.1 port 5201
+root@s32g274ardb2:~# # 우선순위 20번을 가진 100Mbps 트래픽 전송 (20Mbps로 제한되어야 함)
+root@s32g274ardb2:~# iperf3 -c 192.168.100.1 -u -b 100M -p 5202 -t 30 &
+[5] 627
+Connecting to host 192.168.100.1, port 5202
+root@s32g274ardb2:~# [  5] local 192.168.100.101 port 38296 connected to 192.168.100.1 port 5202
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-1.00   sec  1.25 MBytes  10.5 Mbits/sec  905
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-1.00   sec  2.44 MBytes  20.5 Mbits/sec  1768
+
+root@s32g274ardb2:~# [  5]   1.00-2.00   sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]   1.00-2.00   sec  2.28 MBytes  19.1 Mbits/sec  1650
+
+root@s32g274ardb2:~# [  5]   2.00-3.00   sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]   2.00-3.00   sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]   3.00-4.00   sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]   3.00-4.00   sec  2.28 MBytes  19.1 Mbits/sec  1650
+[  5]   4.00-5.00   sec  1.10 MBytes  9.27 Mbits/sec  800
+[  5]   4.00-5.00   sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]   5.00-6.00   sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]   5.00-6.00   sec  2.28 MBytes  19.1 Mbits/sec  1650
+[  5]   6.00-7.00   sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]   6.00-7.00   sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]   7.00-8.00   sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]   7.00-8.00   sec  2.29 MBytes  19.2 Mbits/sec  1660
+[  5]   8.00-9.00   sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]   8.00-9.00   sec  2.33 MBytes  19.6 Mbits/sec  1690
+[  5]   9.00-10.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]   9.00-10.00  sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]  10.00-11.00  sec  1.10 MBytes  9.27 Mbits/sec  800
+[  5]  10.00-11.00  sec  2.28 MBytes  19.1 Mbits/sec  1650
+[  5]  11.00-12.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  11.00-12.00  sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]  12.00-13.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  12.00-13.00  sec  2.28 MBytes  19.1 Mbits/sec  1650
+[  5]  13.00-14.00  sec  1.17 MBytes  9.82 Mbits/sec  848
+[  5]  13.00-14.00  sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]  14.00-15.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  14.00-15.00  sec  2.28 MBytes  19.1 Mbits/sec  1650
+[  5]  15.00-16.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  15.00-16.00  sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]  16.00-17.00  sec  1.10 MBytes  9.27 Mbits/sec  800
+[  5]  16.00-17.00  sec  2.34 MBytes  19.6 Mbits/sec  1691
+[  5]  17.00-18.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  17.00-18.00  sec  2.29 MBytes  19.2 Mbits/sec  1659
+[  5]  18.00-19.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  18.00-19.00  sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]  19.00-20.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  19.00-20.00  sec  2.28 MBytes  19.1 Mbits/sec  1650
+[  5]  20.00-21.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  20.00-21.00  sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]  21.00-22.00  sec  1.10 MBytes  9.27 Mbits/sec  800
+[  5]  21.00-22.00  sec  2.28 MBytes  19.1 Mbits/sec  1650
+[  5]  22.00-23.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  22.00-23.00  sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]  23.00-24.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  23.00-24.00  sec  2.28 MBytes  19.1 Mbits/sec  1650
+[  5]  24.00-25.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  24.00-25.00  sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]  25.00-26.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  25.00-26.00  sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]  26.00-27.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  26.00-27.00  sec  2.28 MBytes  19.1 Mbits/sec  1650
+[  5]  27.00-28.00  sec  1.10 MBytes  9.27 Mbits/sec  800
+[  5]  27.00-28.00  sec  2.35 MBytes  19.7 Mbits/sec  1700
+[  5]  28.00-29.00  sec  1.17 MBytes  9.81 Mbits/sec  847
+[  5]  28.00-29.00  sec  2.28 MBytes  19.1 Mbits/sec  1650
+[  5]  29.00-30.00  sec  1.17 MBytes  9.80 Mbits/sec  847
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-30.00  sec  34.8 MBytes  9.74 Mbits/sec  0.000 ms  0/25234 (0%)  sender
+[  5]   0.00-30.00  sec  34.8 MBytes  9.72 Mbits/sec  1.676 ms  0/25171 (0%)  receiver
+
+iperf Done.
+[  5]  29.00-30.00  sec  2.35 MBytes  19.7 Mbits/sec  1700
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-30.00  sec  69.6 MBytes  19.5 Mbits/sec  0.000 ms  0/50418 (0%)  sender
+[  5]   0.00-30.00  sec  69.5 MBytes  19.4 Mbits/sec  1.049 ms  0/50340 (0%)  receiver
+
+iperf Done.
+
+[4]-  Done                    iperf3 -c 192.168.100.1 -u -b 100M -p 5201 -t 30 --tos 10
+[5]+  Done                    iperf3 -c 192.168.100.1 -u -b 100M -p 5202 -t 30
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 다른 이더넷 포트 비활성화
+root@s32g274ardb2:~# ip link set pfe0 down
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # end0 인터페이스 초기화 및 IP/Broadcast 설정, 활성화
+root@s32g274ardb2:~# ip link set end0 down
+ip link set end0 up
+
+# PC(192.168.100.1)와 연결 확인
+ping -c 4 192.168.100.1
+root@s32g274ardb2:~# ip addr flush dev end0
+root@s32g274ardb2:~# ip addr add 192.168.100.101/24 broadcast 192.168.100.255 dev end0
+root@s32g274ardb2:~# ip link set end0 up
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # PC(192.168.100.1)와 연결 확인
+root@s32g274ardb2:~# ping -c 4 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: No route to host
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=3 Destination Host Unreachable
+
+
+
+
+^C
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 0 received, +3 errors, 100% packet loss, time 3064ms
+pipe 3
+root@s32g274ardb2:~# tc qdisc del dev end0 root 2>/dev/null
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# tc qdisc add dev end0 root handle 1: mqprio num_tc 3 map 0 1 2 queues 1@0 1@1 1@2
+RTNETLINK answers: Operation not supported
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# tc qdisc add dev end0 parent 1:2 cbs idleslope 10000 sendslope -990000
+Error: Failed to find specified qdisc.
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# tc qdisc add dev end0 parent 1:3 cbs idleslope 20000 sendslope -980000
+Error: Failed to find specified qdisc.
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# iptables -t mangle -F OUTPUT
+root@s32g274ardb2:~# iptables -t mangle -A OUTPUT -p udp --dport 5201 -j MARK --set-mark 1
+root@s32g274ardb2:~# iptables -t mangle -A OUTPUT -p udp --dport 5202 -j MARK --set-mark 2
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 1 handle 1 fw flowid 1:2
+Error: Parent Qdisc doesn't exists.
+We have an error talking to the kernel
+root@s32g274ardb2:~# tc filter add dev end0 protocol ip parent 1:0 prio 2 handle 2 fw flowid 1:3
+Error: Parent Qdisc doesn't exists.
+We have an error talking to the kernel
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# ^C
+-sh: :s^C: substitution failed
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# iperf3 -c 192.168.100.101 -u -b 100M -p 5201 -t 30
+Connecting to host 192.168.100.101, port 5201
+Accepted connection from 192.168.100.101, port 42342
+[  5] local 192.168.100.101 port 5201 connected to 192.168.100.101 port 36599
+[  5] local 192.168.100.101 port 36599 connected to 192.168.100.101 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  11.9 MBytes   100 Mbits/sec  0.002 ms  0/382 (0%)
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-1.00   sec  11.9 MBytes   100 Mbits/sec  382
+[  5]   1.00-2.00   sec  11.9 MBytes  99.9 Mbits/sec  0.003 ms  0/381 (0%)
+[  5]   1.00-2.00   sec  11.9 MBytes  99.9 Mbits/sec  381
+iperf3 -c 192.168.100.101 -u -b 100M -p 5202 -t 30[  5]   2.00-3.00   sec  11.9 MBytes   100 Mbits/sec  0.002 ms  0/382 (0%)
+[  5]   2.00-3.00   sec  11.9 MBytes   100 Mbits/sec  382
+
+
+[  5]   3.00-4.00   sec  11.9 MBytes  99.9 Mbits/sec  0.001 ms  0/381 (0%)
+[  5]   3.00-4.00   sec  11.9 MBytes  99.9 Mbits/sec  381
+[  5]   4.00-5.00   sec  11.9 MBytes  99.9 Mbits/sec  0.002 ms  0/381 (0%)
+[  5]   4.00-5.00   sec  11.9 MBytes  99.9 Mbits/sec  381
+[  5]   5.00-6.00   sec  11.9 MBytes   100 Mbits/sec  0.002 ms  0/382 (0%)
+[  5]   5.00-6.00   sec  11.9 MBytes   100 Mbits/sec  382
+[  5]   6.00-7.00   sec  11.9 MBytes  99.9 Mbits/sec  0.003 ms  0/381 (0%)
+[  5]   6.00-7.00   sec  11.9 MBytes  99.9 Mbits/sec  381
+[  5]   7.00-8.00   sec  11.9 MBytes   100 Mbits/sec  0.002 ms  0/382 (0%)
+[  5]   7.00-8.00   sec  11.9 MBytes   100 Mbits/sec  382
+^C[  5]   8.00-8.18   sec  2.16 MBytes  99.7 Mbits/sec  69
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-8.18   sec  97.5 MBytes   100 Mbits/sec  0.000 ms  0/3121 (0%)  sender
+[  5]   0.00-8.18   sec  0.00 Bytes  0.00 bits/sec  0.000 ms  0/0 (0%)  receiver
+iperf3: interrupt - the client has terminated
+[  5]   7.00-8.00   sec  11.9 MBytes   100 Mbits/sec  0.002 ms  0/382 (0%)
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-8.00   sec  97.5 MBytes   102 Mbits/sec  0.003 ms  0/3121 (0%)  receiver
+iperf3: the client has terminated
+-----------------------------------------------------------
+Server listening on 5201 (test #2)
+-----------------------------------------------------------
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 1. 브릿지 인터페이스 생성
+root@s32g274ardb2:~# ip link add name br0 type bridge
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 2. 스위치 포트들을 브릿지에 연결
+root@s32g274ardb2:~# ip link set dev p2a master br0
+Cannot find device "p2a"
+root@s32g274ardb2:~# ip link set dev p2b master br0
+Cannot find device "p2b"
+ip link set pfe0 up   # DSA 마스터 포트
+ip link set p2a up
+ip link set p2b up
+ip link set br0 up
+
+# 4. 브릿지에 IP 주소 할당
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 3. 모든 관련 인터페이스 활성화
+root@s32g274ardb2:~# ip link set pfe0 up   # DSA 마스터 포트
+root@s32g274ardb2:~# ip link set p2a up
+ip addr add 192.168.100.101/24 dev br0Cannot find device "p2a"
+root@s32g274ardb2:~# ip link set p2b up
+Cannot find device "p2b"
+root@s32g274ardb2:~# ip link set br0 up
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 4. 브릿지에 IP 주소 할당
+root@s32g274ardb2:~# ip addr add 192.168.100.101/24 dev br0
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# tcpdump -i any -e -v 'ether proto 0xf1c1'
+tcpdump: data link type LINUX_SLL2
+tcpdump: listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 bytes
+
+^C
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+root@s32g274ardb2:~# ifconfig -a
+br0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.100.101  netmask 255.255.255.0  broadcast 0.0.0.0
+        ether 56:e2:0e:09:87:99  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+can0: flags=128<NOARP>  mtu 16
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+can1: flags=128<NOARP>  mtu 16
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+end0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.100.101  netmask 255.255.255.0  broadcast 192.168.100.255
+        inet6 fe80::fc16:6ff:fe33:986c  prefixlen 64  scopeid 0x20<link>
+        ether fe:16:06:33:98:6c  txqueuelen 1000  (Ethernet)
+        RX packets 2415170  bytes 3549329039 (3.3 GiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1283180  bytes 1514264825 (1.4 GiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 54  base 0xe000
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 3231  bytes 102364663 (97.6 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 3231  bytes 102364663 (97.6 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+p1: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+p2: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+p3: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+pfe0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1536
+        inet6 fe80::204:9fff:febe:ef00  prefixlen 64  scopeid 0x20<link>
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 38  bytes 6980 (6.8 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+pfe1: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:01  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+pfe2: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:02  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x46000000-46ffffff
+
+sit0: flags=128<NOARP>  mtu 1480
+        unspec 00-00-00-00-00-00-C4-9A-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+teql0: flags=128<NOARP>  mtu 1500
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx5: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx6: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx7: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx8: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx9: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+trx10: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 00:04:9f:be:ef:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 1. 브릿지(br0)를 생성합니다.
+root@s32g274ardb2:~# ip link add name br0 type bridge
+RTNETLINK answers: File exists
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 2. 올바른 스위치 포트 �(p2, p3)을 사용하여 브릿지에 연결합니다.
+root@s32g274ardb2:~# ip link set dev p2 master br0
+root@s32g274ardb2:~# ip link set dev p3 master br0
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 3. 모든 관련 인터페이스를 활성화합니다.
+ip link set p2 up
+ip link set p3 up
+ip link set br0 up
+
+# 4. 브릿지(br0)에 IP 주소를 할당합니다.
+ip addr add 192.168.100.101/24 dev br0root@s32g274ardb2:~# ip link set pfe0 up   # DSA 마스터 포트
+root@s32g274ardb2:~# ip link set p2 up
+root@s32g274ardb2:~# ip link set p3 up
+root@s32g274ardb2:~# ip link set br0 up
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 4. 브릿지(br0)에 IP 주소를 할당합니다.
+root@s32g274ardb2:~# ip addr add 192.168.100.101/24 dev br0
+Error: ipv4: Address already assigned.
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# ping -c 2 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+
+--- 192.168.100.1 ping statistics ---
+2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1020ms
+pipe 2
+root@s32g274ardb2:~# ping -c 2 192.168.100.2
+PING 192.168.100.2 (192.168.100.2) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+
+--- 192.168.100.2 ping statistics ---
+2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1008ms
+pipe 2
+root@s32g274ardb2:~# ping -c 2 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+
+--- 192.168.100.1 ping statistics ---
+2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1028ms
+pipe 2
+root@s32g274ardb2:~# ping -c 2 192.168.100.2
+PING 192.168.100.2 (192.168.100.2) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+
+--- 192.168.100.2 ping statistics ---
+2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1028ms
+pipe 2
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 1. 다른 인터페이스는 모두 비활성화하여 충돌 방지
+root@s32g274ardb2:~# ip link set end0 down
+# 2. DSA 기능을 위한 마스터 포트(pfe0) 활성화
+ip link set pfe0 up
+
+# 3. 브릿지(br0) 생성
+ip link add name br0 type bridge
+
+# 4. 올바른 스위치 포트(p2, p3)를 브릿지에 연결
+ip link set dev p2 master br0
+ip link set dev p3 master br0
+
+# 5. 모든 관련 인터페이스 활성화
+ip link set p2 up
+ip link set p3 up
+ip link set br0 up
+
+# 6. 브릿지(br0)에 IP 주소 할당 (이전에 할당되었다면 flush 후 재할당)
+ip addr flush dev br0
+ip addr add 192.168.100.101/24 dev br0root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 2. DSA 기능을 위한 마스터 포트(pfe0) 활성화
+root@s32g274ardb2:~# ip link set pfe0 up
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 3. 브릿지(br0) 생성
+root@s32g274ardb2:~# ip link add name br0 type bridge
+RTNETLINK answers: File exists
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 4. 올바른 스위치 포트(p2, p3)를 브릿지에 연결
+root@s32g274ardb2:~# ip link set dev p2 master br0
+root@s32g274ardb2:~# ip link set dev p3 master br0
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 5. 모든 관련 인터페이스 활성화
+root@s32g274ardb2:~# ip link set p2 up
+root@s32g274ardb2:~# ip link set p3 up
+root@s32g274ardb2:~# ip link set br0 up
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 6. 브릿지(br0)에 IP 주소 할당 (이전에 할당되었다면 flush 후 재할당)
+root@s32g274ardb2:~# ip addr flush dev br0
+root@s32g274ardb2:~# ip addr add 192.168.100.101/24 dev br0
+root@s32g274ardb2:~# ping -c 4 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: No route to host
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=3 Destination Host Unreachable
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 0 received, +3 errors, 100% packet loss, time 3080ms
+pipe 3
+root@s32g274ardb2:~# ping -c 4 192.168.100.2
+PING 192.168.100.2 (192.168.100.2) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=3 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=4 Destination Host Unreachable
+
+--- 192.168.100.2 ping statistics ---
+4 packets transmitted, 0 received, +4 errors, 100% packet loss, time 3072ms
+pipe 3
+root@s32g274ardb2:~#
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # --- 1. 기존 설정 완전 초기화 ---
+root@s32g274ardb2:~# # 기존 브릿지 삭제 및 모든 관련 포트 비활성화
+root@s32g274ardb2:~# ip link set br0 down 2>/dev/null
+root@s32g274ardb2:~# ip link del br0 2>/dev/null
+# --- 2. STP가 비활성화된 브릿지 생성 ---
+# DSA 마스터 포트 활성화
+ip link set pfe0 up
+
+# 브릿지(br0)를 생성하고, STP 상태를 0(off)으로 설정
+ip link add name br0 type bridge
+ip link set dev br0 type bridge stp_state 0
+
+# 사용할 스위치 포트(p2, p3)를 브릿지에 연결
+ip link set dev p2 master br0
+ip link set dev p3 master br0
+
+# --- 3. 인터페이스 활성화 및 IP 할당 ---
+# 모든 관련 인터페이스 활성화
+ip link set p2 up
+ip link set p3 up
+ip link set br0 up
+
+# 브릿지(br0)에 IP 주소 할당
+ip addr flush dev br0
+ip addr add 192.168.100.101/24 dev br0
+
+# --- 4. 최종 상태 확인 ---
+echo "브릿지 설정 완료. 3초 후 상태를 확인합니다..."
+sleep 3
+brctl show
+bridge link showroot@s32g274ardb2:~# ip link set p2 down
+root@s32g274ardb2:~# ip link set p3 down
+root@s32g274ardb2:~# ip link set pfe0 down
+root@s32g274ardb2:~# sleep 1
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # --- 2. STP가 비활성화된 브릿지 생성 ---
+root@s32g274ardb2:~# # DSA 마스터 포트 활성화
+root@s32g274ardb2:~# ip link set pfe0 up
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 브릿지(br0)를 생성하고, STP 상태를 0(off)으로 설정
+root@s32g274ardb2:~# ip link add name br0 type bridge
+root@s32g274ardb2:~# ip link set dev br0 type bridge stp_state 0
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 사용할 스위치 포트(p2, p3)를 브릿지에 연결
+root@s32g274ardb2:~# ip link set dev p2 master br0
+root@s32g274ardb2:~# ip link set dev p3 master br0
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # --- 3. 인터페이스 활성화 및 IP 할당 ---
+root@s32g274ardb2:~# # 모든 관련 인터페이스 활성화
+root@s32g274ardb2:~# ip link set p2 up
+root@s32g274ardb2:~# ip link set p3 up
+root@s32g274ardb2:~# ip link set br0 up
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 브릿지(br0)에 IP 주소 할당
+root@s32g274ardb2:~# ip addr flush dev br0
+root@s32g274ardb2:~# ip addr add 192.168.100.101/24 dev br0
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # --- 4. 최종 상태 확인 ---
+root@s32g274ardb2:~# echo "브릿지 설정 완료. 3초 후 상태를 확인합니다..."
+브릿지 설정 완료. 3초 후 상태를 확인합니다...
+root@s32g274ardb2:~# sleep 3
+root@s32g274ardb2:~# brctl show
+bridge name     bridge id               STP enabled     interfaces
+br0             8000.56e20e098799       no              p2
+                                                        p3
+root@s32g274ardb2:~# bridge link show
+11: p2@pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master br0 state forwarding priority 32 cost 5
+12: p3@pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master br0 state forwarding priority 32 cost 5
+root@s32g274ardb2:~# ping -c 4 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: No route to host
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=3 Destination Host Unreachable
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 0 received, +3 errors, 100% packet loss, time 3072ms
+pipe 3
+root@s32g274ardb2:~# ping -c 4 192.168.100.2
+PING 192.168.100.2 (192.168.100.2) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=3 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=4 Destination Host Unreachable
+
+--- 192.168.100.2 ping statistics ---
+4 packets transmitted, 0 received, +4 errors, 100% packet loss, time 3080ms
+pipe 3
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~# ping -c 4 192.168.100.2
+PING 192.168.100.2 (192.168.100.2) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: No route to host
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=3 Destination Host Unreachable
+
+--- 192.168.100.2 ping statistics ---
+4 packets transmitted, 0 received, +3 errors, 100% packet loss, time 3052ms
+pipe 3
+root@s32g274ardb2:~# # 1. 브릿지 삭제 및 모든 포트 비활성화
+root@s32g274ardb2:~# ip link set br0 down 2>/dev/null
+root@s32g274ardb2:~# ip link del br0 2>/dev/null
+ip addr flush dev p2
+ip addr flush dev p3
+
+# 3. P2 포트에만 IP 주소를 할당하고 활성화
+ip addr add 192.168.100.101/24 dev p2
+ip link set p2 up
+
+# 4. P3 포트는 IP 없이 활성화만 시켜서 감시용으로 준비
+ip link set p3 uproot@s32g274ardb2:~# ip link set p2 down
+root@s32g274ardb2:~# ip link set p3 down
+root@s32g274ardb2:~# sleep 1
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 2. 사용할 포트만 설정
+root@s32g274ardb2:~# ip addr flush dev p2
+root@s32g274ardb2:~# ip addr flush dev p3
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 3. P2 포트에만 IP 주소를 할당하고 활성화
+root@s32g274ardb2:~# ip addr add 192.168.100.101/24 dev p2
+root@s32g274ardb2:~# ip link set p2 up
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 4. P3 포트는 IP 없이 활성화만 시켜서 감시용으로 준비
+root@s32g274ardb2:~# ip link set p3 up
+root@s32g274ardb2:~# ping -c 4 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 0 received, +1 errors, 100% packet loss, time 3056ms
+pipe 4
+root@s32g274ardb2:~# ^C
+root@s32g274ardb2:~# # 1. 모든 이더넷 인터페이스 비활성화 및 초기화
+root@s32g274ardb2:~# ip link set br0 down 2>/dev/null; ip link del br0 2>/dev/null
+root@s32g274ardb2:~# ip link set end0 down; ip addr flush dev end0
+addr flush dev p3
+sleep 1
+
+# 2. DSA 마스터(pfe0) 및 p2 포트만 활성화하고 IP 할당
+ip link set pfe0 up
+ip addr add 192.168.100.101/24 dev p2
+root@s32g274ardb2:~# ip link set pfe0 down; ip addr flush dev pfe0
+root@s32g274ardb2:~# ip link set p2 down; ip addr flush dev p2
+ip link set p2 uproot@s32g274ardb2:~# ip link set p3 down; ip addr flush dev p3
+root@s32g274ardb2:~# sleep 1
+root@s32g274ardb2:~#
+root@s32g274ardb2:~# # 2. DSA 마스터(pfe0) 및 p2 포트만 활성화하고 IP 할당
+root@s32g274ardb2:~# ip link set pfe0 up
+root@s32g274ardb2:~# ip addr add 192.168.100.101/24 dev p2
+root@s32g274ardb2:~# ip link set p2 up
+root@s32g274ardb2:~# 2ping -c 4 192.168.100.1
+-sh: 2ping: command not found
+root@s32g274ardb2:~# ping -c 4 192.168.100.1
+PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
+From 192.168.100.101 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: No route to host
+From 192.168.100.101 icmp_seq=2 Destination Host Unreachable
+From 192.168.100.101 icmp_seq=3 Destination Host Unreachable
+
+--- 192.168.100.1 ping statistics ---
+4 packets transmitted, 0 received, +3 errors, 100% packet loss, time 3060ms
+pipe 3
+root@s32g274ardb2:~# ip link set p3 up
+root@s32g274ardb2:~# ip link set p1 up
+root@s32g274ardb2:~# ip link set pfe0 up
+root@s32g274ardb2:~# ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: can0: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+3: can1: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+4: teql0: <NOARP> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 100
+    link/void
+5: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+6: end0: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+    link/ether fe:16:06:33:98:6c brd ff:ff:ff:ff:ff:ff
+7: pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1536 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+8: pfe1: <BROADCAST,MULTICAST> mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:01 brd ff:ff:ff:ff:ff:ff
+9: pfe2: <BROADCAST,MULTICAST> mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:02 brd ff:ff:ff:ff:ff:ff
+10: p1@pfe0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state LOWERLAYERDOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+11: p2@pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+12: p3@pfe0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+13: trx5@pfe0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+14: trx6@pfe0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+15: trx7@pfe0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+16: trx8@pfe0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+17: trx9@pfe0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+18: trx10@pfe0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:04:9f:be:ef:00 brd ff:ff:ff:ff:ff:ff
+root@s32g274ardb2:~# NOTICE:  Reset status: Power-On Reset
+NOTICE:  BL2: v2.10.14(release):bsp44.0-2.10.14
+NOTICE:  BL2: Built : 08:13:32, May 13 2025
+NOTICE:  BL2: Booting BL31
+
+
+U-Boot 2022.04+g9a00323278+p0 (May 13 2025 - 06:57:56 +0000)
+
+SoC:   NXP S32G274A rev. 2.1
+CPU:   ARM Cortex-A53 r0p4 @ max 1000 MHz
+Model: NXP S32G274A-RDB2
+DRAM:  4 GiB
+Core:  314 devices, 25 uclasses, devicetree: board
+MMC:   FSL_SDHC: 0
+Loading Environment from MMC... OK
+s32cc_serdes_phy serdes@40480000: Using mode 0 for SerDes subsystem
+pci_s32cc pcie@40400000: Could not set DEVICE ID
+pci_s32cc pcie@40400000: Configuring as RootComplex
+pci_s32cc pcie@40400000: Failed to get link up
+In:    serial@401c8000
+Out:   serial@401c8000
+Err:   serial@401c8000
+Board revision: RDB2/GLDBOX Revision E
+PCIe:   BusDevFun       VendorId   DeviceId   Device Class       Sub-Class
+__________________________________________________________________________
+pcie@40400000 RootComplex
+|   `-- 01:00.00        0x1957     0x4002     Bridge device           0x04
+Net:   eth0: ethernet@4033c000
+Found PFE version 0x50300 (S32G2)
+pfeng pfeng-base: Uploading CLASS firmware
+pfeng pfeng-base: EMAC0 block was initialized
+pfeng pfeng-base: EMAC1 block was initialized
+pfeng pfeng-base: EMAC2 block was initialized
+pfeng pfeng-base: Enabling the CLASS block
+pfeng pfeng-base: PFE Platform started successfully (mask: 7)
+s32cc_serdes_phy serdes@44180000: Using mode 3 for SerDes subsystem
+s32cc_serdes_phy serdes@44180000: Unstable RX detected on XPCS0
+, eth1: pfe0s32cc_serdes_phy serdes@44180000: Unstable RX detected on XPCS1
+, eth2: pfe1, eth3: pfe2
+Hit any key to stop autoboot:  0
+switch to partitions #0, OK
+mmc0 is current device
+17139720 bytes read in 719 ms (22.7 MiB/s)
+Booting from mmc ...
+59234 bytes read in 6 ms (9.4 MiB/s)
+## Flattened Device Tree blob at 83000000
+   Booting using the fdt blob at 0x83000000
+   Using Device Tree in place at 0000000083000000, end 0000000083011761
+   fixup: pfe1: update phy addr to 0x8
+Failed to configure XPCS1_1
+Failed to update XPCS1 for SerDes1
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 6.6.85-rt53-g6208e1d0d7b5 (oe-user@oe-host) (aarch64-fsl-linux-gcc (GCC) 13.3.0, GNU ld (GNU Binutils) 2.42.0.20240723) #1 SMP PREEMPT Wed May 14 13:40:03 UTC 2025
+[    0.000000] Machine model: NXP S32G2 Reference Design Board 2 (S32G-VNP-RDB2)
+[    0.000000] earlycon: linflex0 at MMIO 0x00000000401c8000 (options '')
+[    0.000000] printk: legacy bootconsole [linflex0] enabled
+[    0.000000] OF: reserved mem: 0x0000000034000000..0x000000003407ffff (512 KiB) nomap non-reusable pfebufs@34000000
+[    0.000000] OF: reserved mem: 0x0000000034080000..0x000000003409ffff (128 KiB) nomap non-reusable pfebufs@34080000
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000083200000, size 3 MiB
+[    0.000000] OF: reserved mem: initialized node pfebufs@83200000, compatible id shared-dma-pool
+[    0.000000] OF: reserved mem: 0x0000000083200000..0x00000000835dffff (3968 KiB) nomap non-reusable pfebufs@83200000
+[    0.000000] OF: reserved mem: 0x00000000835e0000..0x00000000835fffff (128 KiB) map non-reusable pfebufs@835e0000
+[    0.000000] OF: reserved mem: 0x0000000084000000..0x0000000084ffffff (16384 KiB) nomap non-reusable shm@84000000
+[    0.000000] OF: reserved mem: 0x00000000c0000000..0x00000000c03fffff (4096 KiB) nomap non-reusable shm@c0000000
+[    0.000000] OF: reserved mem: 0x00000000c0400000..0x00000000c07fffff (4096 KiB) nomap non-reusable shm@c0400000
+[    0.000000] OF: reserved mem: 0x00000000d0000000..0x00000000d000007f (0 KiB) nomap non-reusable shm@d0000000
+[    0.000000] OF: reserved mem: 0x00000000d0000080..0x00000000d00000ff (0 KiB) nomap non-reusable shm@d0000080
+[    0.000000] OF: reserved mem: 0x00000000ff600000..0x00000000ff7fffff (2048 KiB) nomap non-reusable atf@ff600000
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000080000000-0x00000000ffffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   [mem 0x0000000100000000-0x00000008ffffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080000000-0x00000000831fffff]
+[    0.000000]   node   0: [mem 0x0000000083200000-0x00000000835dffff]
+[    0.000000]   node   0: [mem 0x00000000835e0000-0x0000000083ffffff]
+[    0.000000]   node   0: [mem 0x0000000084000000-0x0000000084ffffff]
+[    0.000000]   node   0: [mem 0x0000000085000000-0x00000000bfffffff]
+[    0.000000]   node   0: [mem 0x00000000c0000000-0x00000000c07fffff]
+[    0.000000]   node   0: [mem 0x00000000c0800000-0x00000000cfffffff]
+[    0.000000]   node   0: [mem 0x00000000d0001000-0x00000000ff5fffff]
+[    0.000000]   node   0: [mem 0x00000000ff600000-0x00000000ff7fffff]
+[    0.000000]   node   0: [mem 0x00000000ff800000-0x00000000ffffffff]
+[    0.000000]   node   0: [mem 0x0000000880000000-0x00000008ffffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080000000-0x00000008ffffffff]
+[    0.000000] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.000000] cma: Reserved 256 MiB at 0x00000000ef600000 on node -1
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.4
+[    0.000000] percpu: Embedded 19 pages/cpu s40104 r8192 d29528 u77824
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] CPU features: detected: NXP erratum ERR050481 (TLBI by VA handled incorrectly)
+[    0.000000] CPU features: detected: ARM errata 1165522, 1319367, 1530923, or 1530924
+[    0.000000] alternatives: applying boot alternatives
+[    0.000000] Kernel command line: console=ttyLF0,115200 root=/dev/mmcblk0p3 rootwait rw earlycon
+[    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 1032191
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] software IO TLB: area num 4.
+[    0.000000] software IO TLB: mapped [mem 0x00000000eb600000-0x00000000ef600000] (64MB)
+[    0.000000] Memory: 3737544K/4194300K available (10688K kernel code, 738K rwdata, 3220K rodata, 1984K init, 233K bss, 194612K reserved, 262144K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu:     RCU event tracing is enabled.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000]  Trampoline variant of Tasks RCU enabled.
+[    0.000000]  Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 544 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] GICv3: MBI range [167:182]
+[    0.000000] GICv3: Using MBI frame 0x0000000050800000
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GICv3: GICv3 features: 16 PPIs
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x0000000050880000
+[    0.000000] ITS: No ITS available, not enabling LPIs
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] arch_timer: cp15 timer(s) running at 5.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x127350b88, max_idle_ns: 440795202120 ns
+[    0.000001] sched_clock: 56 bits at 5MHz, resolution 200ns, wraps every 4398046511100ns
+[    0.008467] Console: colour dummy device 80x25
+[    0.012523] Calibrating delay loop (skipped), value calculated using timer frequency.. 10.00 BogoMIPS (lpj=20000)
+[    0.022728] pid_max: default: 32768 minimum: 301
+[    0.027452] Mount-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.034719] Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.044338] RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.052721] RCU Tasks Trace: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.062057] rcu: Hierarchical SRCU implementation.
+[    0.066597] rcu:     Max phase no-delay instances is 1000.
+[    0.072889] smp: Bringing up secondary CPUs ...
+[    0.077728] Detected VIPT I-cache on CPU1
+[    0.077812] GICv3: CPU1: found redistributor 1 region 0:0x00000000508a0000
+[    0.077867] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.078659] Detected VIPT I-cache on CPU2
+[    0.078738] GICv3: CPU2: found redistributor 100 region 0:0x00000000508c0000
+[    0.078776] CPU2: Booted secondary processor 0x0000000100 [0x410fd034]
+[    0.079475] Detected VIPT I-cache on CPU3
+[    0.079525] GICv3: CPU3: found redistributor 101 region 0:0x00000000508e0000
+[    0.079549] CPU3: Booted secondary processor 0x0000000101 [0x410fd034]
+[    0.079640] smp: Brought up 1 node, 4 CPUs
+[    0.135764] SMP: Total of 4 processors activated.
+[    0.140432] CPU features: detected: 32-bit EL0 Support
+[    0.145575] CPU features: detected: CRC32 instructions
+[    0.150756] CPU: All CPU(s) started at EL2
+[    0.154768] alternatives: applying system-wide alternatives
+[    0.162516] devtmpfs: initialized
+[    0.176317] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.185680] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.201900] pinctrl core: initialized pinctrl subsystem
+[    0.207728] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.214370] DMA: preallocated 512 KiB GFP_KERNEL pool for atomic allocations
+[    0.221264] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.229060] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.237099] thermal_sys: Registered thermal governor 'step_wise'
+[    0.237250] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.249696] ASID allocator initialised with 65536 entries
+[    0.255119] Serial: AMBA PL011 UART driver
+[    0.259118] scmi_core: SCMI protocol bus registered
+[    0.265219] scmi_protocol scmi_dev.1: Enabled polling mode TX channel - prot_id:16
+[    0.272793] arm-scmi firmware:scmi: SCMI Notifications - Core Enabled.
+[    0.278965] arm-scmi firmware:scmi: SCMI Protocol v2.0 'NXP:S32G274A' Firmware version 0x0
+[    0.296475] /soc/interrupt-controller@50800000: Fixed dependency cycle(s) with /soc/interrupt-controller@50800000
+[    0.308660] /soc/siul2@4009c000/siul2-pinctrl@4009c240: Fixed dependency cycle(s) with /soc/siul2@4009c000/siul2-pinctrl@4009c240/jtag_pins
+[    0.331316] Modules: 28512 pages in range for non-PLT usage
+[    0.331338] Modules: 520032 pages in range for PLT usage
+[    0.337110] HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.348765] HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+[    0.355015] HugeTLB: registered 3] PTP clock support registered
+[    0.442507] vgaarb: loaded
+[    0.445149] clocksource: Switched to clocksource arch_sys_counter
+[    0.459064] NET: Registered PF_INET protocol family
+[    0.463812] IP idents hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.474259] tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes, linear)
+[    0.482455] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.490098] TCP established hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.498239] TCP bind hash table entries: 32768 (order: 8, 1048576 bytes, linear)
+[    0.506522] TCP: Hash tables configured (established 32768 bind 32768)
+[    0.512825] UDP hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.519448] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.526718] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.532614] RPC: Registered named UNIX socket transport module.
+[    0.538111] RPC: Registered udp transport module.
+[    0.542793] RPC: Registered tcp transport module.
+[    0.547477] RPC: Registered tcp-with-tls transport module.
+[    0.552945] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.559402] PCI: CLS 0 bytes, default 64
+[    0.564792] workingset: timestamp_bits=62 max_order=20 bucket_order=0
+[    0.571438] fuse: init (API version 7.39)
+[    0.575235] NET: Registered PF_ALG protocol family
+[    0.579853] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    0.587180] io scheduler mq-deadline registered
+[    0.591688] io scheduler kyber registered
+[    0.595688] io scheduler bfq registered
+[    0.604165] s32cc-siul2-pinctrl 4009c240.siul2-pinctrl: initialized s32 pinctrl driver
+[    0.613526] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.621413] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.629949] gpio gpiochip0: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.639418] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.647280] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.667354] printk: legacy console [ttyLF0] enabled000 (irq = 23, base_baud = 7812500) is a FSL_LINFLEX
+[    0.667354] printk: legacy console [ttyLF0] enabled
+[    0.677268] printk: legacy bootconsole [linflex0] disabled
+[    0.677268] printk: legacy bootconsole [linflex0] disabled
+[    0.690033] 401cc000.serial: ttyLF1 at MMIO 0x401cc000 (irq = 24, base_baud = 7812500) is a FSL_LINFLEX
+[    0.701395] s32cc_fccu 4030c000.fccu: FCCU status is 0 (normal)
+[    0.710680] ethernet-switch@1 enforce active low on GPIO handle
+[    0.719632] spi-nor spi6.0: mx25uw51245g (65536 Kbytes)
+[    0.725546] 8 fixed-partitions partitions found on MTD device 0.spi
+[    0.731931] Creating 8 MTD partitions on "0.spi":
+[    0.736718] 0x000000000000-0x000004000000 : "Flash-Image"
+[    0.742600] 0x000000000000-0x0000000d0000 : "BL2"
+[    0.747709] 0x0000000d0000-0x0000002a0000 : "FIP"
+[    0.752813] 0x0000002a0000-0x0000002b0000 : "U-Boot-Env"
+[    0.758538] 0x0000002b0000-0x000001380000 : "Kernel"
+[    0.763924] 0x000001380000-0x0000013b0000 : "DTB"
+[    0.769037] 0x0000013b0000-0x0000032c0000 : "Rootfs"
+[    0.774412] 0x0000032c0000-0x000004000000 : "PFE-Firmware"
+[    0.782628] vcan: Virtual CAN interface driver
+[    0.787159] slcan: serial line CAN interface driver
+[    0.792115] CAN device driver interface
+[    0.797400] flexcan 401b4000.can: device registered (reg_base=(____ptrval____), irq(s):
+[    0.805544] flexcan 401b4000.can:  30
+[    0.809266] flexcan 401b4000.can:  31
+[    0.812978] flexcan 401b4000.can:  32
+[    0.816697] flexcan 401b4000.can:  33
+[    0.820416] flexcan 401b4000.can: )
+[    0.825004] flexcan 401be000.can: device registered (reg_base=(____ptrval____), irq(s):
+[    0.833154] flexcan 401be000.can:  34
+[    0.836868] flexcan 401be000.can:  35
+[    0.840596] flexcan 401be000.can:  36
+[    0.844313] flexcan 401be000.can:  37
+[    0.848039] flexcan 401be000.can: )
+[    0.852192] sja1105 spi5.1: Probed switch chip: SJA1110A
+[    0.857619] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    0.874385] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    0.891248] e100: Intel(R) PRO/100 Network Driver
+[    0.896027] e100: Copyright(c) 1999-2006 Intel Corporation
+[    0.901626] e1000: Intel(R) PRO/1000 Network Driver
+[    0.906581] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    0.912442] e1000e: Intel(R) PRO/1000 Network Driver
+[    0.917482] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    0.923513] igb: Intel(R) Gigabit Ethernet Network Driver
+[    0.928996] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    0.935985] hse-uio 40210000.mu0b: firmware not found
+[    0.941711] usbcore: registered new interface driver uas
+[    0.947151] usbcore: registered new interface driver usb-storage
+[    0.954417] imx_usb 44064000.usb: No over current polarity defined
+[    0.973357] ci_hdrc ci_hdrc.0: EHCI Host Controller
+[    0.978493] ci_hdrc ci_hdrc.0: new USB bus registered, assigned bus number 1
+[    1.001155] ci_hdrc ci_hdrc.0: USB 2.0 started, EHCI 1.00
+[    1.006842] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.06
+[    1.015245] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.022578] usb usb1: Product: EHCI Host Controller
+[    1.027532] usb usb1: Manufacturer: Linux 6.6.85-rt53-g6208e1d0d7b5 ehci_hcd
+[    1.034687] usb usb1: SerialNumber: ci_hdrc.0
+[    1.039617] hub 1-0:1.0: USB hub found
+[    1.043460] hub 1-0:1.0: 1 port detected
+[    1.049435] s32cc-rtc 40060000.rtc: registered as rtc0
+[    1.054690] s32cc-rtc 40060000.rtc: setting system clock to 1970-01-01T00:00:00 UTC (0)
+[    1.063025] i2c_dev: i2c /dev entries driver
+[    1.067971] s32cc-wdt 4010c000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.077323] s32cc-wdt 40200000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.086637] s32cc-wdt 40204000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.095922] s32cc-wdt 40208000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.106969] sdhci: Secure Digital Host Controller Interface driver
+[    1.113307] sdhci: Copyright(c) Pierre Ossman
+[    1.117737] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.123784] SMCCC: SOC_ID: ARCH_SOC_ID not implemented, skipping ....
+[    1.130915] hse 40211000.mu1b: interface mu1b not active
+[    1.136976] usbcore: registered new interface driver usbhid
+[    1.142656] usbhid: USB HID core driver
+[    1.156185] mmc0: SDHCI controller on 402f0000.mmc [402f0000.mmc] using ADMA
+[    1.163511] s32-adc 401f8000.adc: using dma0chan4 for ADC DMA transfers
+[    1.170818] s32-adc 401f8000.adc: Device initialized successfully.
+[    1.189407] s32-adc 402e8000.adc: using dma1chan16 for ADC DMA transfers
+[    1.196753] s32-adc 402e8000.adc: Device initialized successfully.
+[    1.197860] mmc0: new high speed SDHC card at address 0001
+[    1.209006] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 7 counters available
+[    1.209268] mmcblk0: mmc0:0001 SD32G 28.8 GiB
+[    1.219122] s32-siul2-nvmem 4009c000.nvram: Initialized s32cc siul2 nvmem driver
+[    1.223770]  mmcblk0: p1 p2 p3
+[    1.229496] s32-siul2-nvmem 44010000.nvram: Initialized s32cc siul2 nvmem driver
+[    1.240554] GACT probability on
+[    1.243774] Mirror/redirect action on
+[    1.247576] Simple TC action Loaded
+[    1.251699] netem: version 1.3
+[    1.254865] u32 classifier
+[    1.257614]     Performance counters on
+[    1.261516]     input device check on
+[    1.265235]     Actions configured
+[    1.270061] xt_time: kernel timezone is -0000
+[    1.274740] NET: Registered PF_INET6 protocol family
+[    1.280795] Segment Routing with IPv6
+[    1.284571] In-situ OAM (IOAM) with IPv6
+[    1.288648] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    1.295214] NET: Registered PF_PACKET protocol family
+[    1.300504] can: controller area network core
+[    1.304980] NET: Registered PF_CAN protocol family
+[    1.309848] can: raw protocol
+[    1.312859] can: broadcast manager protocol
+[    1.317113] can: netlink gateway - max_hops=1
+[    1.321616] 8021q: 802.1Q VLAN Support v1.8
+[    1.346142] i2c i2c-0: using pinctrl states for GPIO recovery
+[    1.352092] i2c i2c-0: using generic GPIOs for recovery
+[    1.358169] pca953x 0-0022: using AI
+[    1.368709] rtc-pcf85063 0-0051: registered as rtc1
+[    1.373731] i2c i2c-0: IMX I2C adapter registered
+[    1.378565] i2c i2c-0: using dma0chan5 (tx) and dma0chan6 (rx) for DMA transfers
+[    1.386883] i2c i2c-2: using pinctrl states for GPIO recovery
+[    1.392809] i2c i2c-2: using generic GPIOs for recovery
+[    1.398205] i2c i2c-2: IMX I2C adapter registered
+[    1.403037] i2c i2c-2: using dma1chan17 (tx) and dma1chan18 (rx) for DMA transfers
+[    1.411418] i2c i2c-4: using pinctrl states for GPIO recovery
+[    1.417322] i2c i2c-4: using generic GPIOs for recovery
+[    1.424173] ina2xx 4-0040: power monitor ina231 (Rshunt = 1000 uOhm)
+[    1.430682] i2c i2c-4: IMX I2C adapter registered
+[    1.435520] i2c i2c-4: using dma1chan19 (tx) and dma1chan20 (rx) for DMA transfers
+[    1.464349] phy-s32cc-serdes 40480000.serdes: Using mode 0 for SerDes subsystem
+[    1.472258] phy-s32cc-serdes 44180000.serdes: Using mode 3 for SerDes subsystem
+[    1.803039] s32cc-pcie 40400000.pcie: Failed to stabilize PHY link
+[    1.809328] s32cc-pcie 40400000.pcie: Configuring as RootComplex
+[    1.815468] s32cc-pcie 40400000.pcie: host bridge /soc/pcie@40400000 ranges:
+[    1.822661] s32cc-pcie 40400000.pcie:       IO 0x5ffffe0000..0x5ffffeffff -> 0x0000000000
+[    1.830980] s32cc-pcie 40400000.pcie:      MEM 0x5800000000..0x5ffffdffff -> 0x0000000000
+[    1.839307] s32cc-pcie 40400000.pcie: Memory resource size exceeds max for 32 bits
+[    2.847155] s32cc-pcie 40400000.pcie: Phy link never came up
+[    2.852932] s32cc-pcie 40400000.pcie: Link Up failed, EndPoint may not be connected
+[    2.860737] s32cc-pcie 40400000.pcie: iATU: unroll T, 6 ob, 4 ib, align 4K, limit 1024G
+[    3.869067] s32cc-pcie 40400000.pcie: Phy link never came up
+[    3.874825] s32cc-pcie 40400000.pcie: Link Up failed, EndPoint may not be connected
+[    4.882738] s32cc-pcie 40400000.pcie: Phy link never came up
+[    4.889151] s32cc-pcie 40400000.pcie: PCI host bridge to bus 0000:00
+[    4.895609] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    4.901185] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    4.907465] pci_bus 0000:00: root bus resource [mem 0x5800000000-0x5ffffdffff] (bus address [0x00000000-0x7fffdffff])
+[    4.918274] pci 0000:00:00.0: [1957:4002] type 01 class 0x060400
+[    4.924393] pci 0000:00:00.0: reg 0x10: [mem 0x5800000000-0x58000fffff]
+[    4.931125] pci 0000:00:00.0: reg 0x38: [mem 0x5800000000-0x580000ffff pref]
+[    4.938377] pci 0000:00:00.0: supports D1
+[    4.942452] pci 0000:00:00.0: PME# supported from D0 D1 D3hot D3cold
+[    4.952586] pci 0000:00:00.0: BAR 0: assigned [mem 0x5800000000-0x58000fffff]
+[    4.959850] pci 0000:00:00.0: BAR 6: assigned [mem 0x5800100000-0x580010ffff pref]
+[    4.967543] pci 0000:00:00.0: PCI bridge to [bus 01-ff]
+[    4.973282] pcieport 0000:00:00.0: PME: Signaling with IRQ 51
+[    4.980211] sja1105 spi5.1: Probed switch chip: SJA1110A
+[    4.985649] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.002442] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.019932] s32cc-dwmac 4033c000.ethernet: IRQ eth_wake_irq not found
+[    5.026492] s32cc-dwmac 4033c000.ethernet: IRQ eth_lpi not found
+[    5.033589] s32cc-dwmac 4033c000.ethernet: User ID: 0x10, Synopsys ID: 0x51
+[    5.040682] s32cc-dwmac 4033c000.ethernet:   DWMAC4/5
+[    5.045730] s32cc-dwmac 4033c000.ethernet: DMA HW capability register supported
+[    5.053155] s32cc-dwmac 4033c000.ethernet: RX Checksum Offload Engine supported
+[    5.060573] s32cc-dwmac 4033c000.ethernet: TX Checksum insertion supported
+[    5.067550] s32cc-dwmac 4033c000.ethernet: Wake-Up On Lan supported
+[    5.073985] s32cc-dwmac 4033c000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    5.081945] s32cc-dwmac 4033c000.ethernet: Enabled L3L4 Flow TC (entries=8)
+[    5.089021] s32cc-dwmac 4033c000.ethernet: Enabled RFS Flow TC (entries=10)
+[    5.096108] s32cc-dwmac 4033c000.ethernet: Enabling HW TC (entries=256, max_off=256)
+[    5.103974] s32cc-dwmac 4033c000.ethernet: Using 32/32 bits DMA host/device width
+[    5.118212] hwmon hwmon1: temp1_input not attached to any thermal zone
+[    5.127578] qoriq_thermal 400a8000.tmu: Critical rising/falling temperature threshold = 5 degree(s)
+[    5.142262] nxp_s32cc_ddr_perf 403e0000.ddr-perf: probing device
+[    5.148756] nxp_s32cc_ddr_perf 403e0000.ddr-perf: device initialized successfully
+[    5.156749] sja1105 spi5.1: Probed switch chip: SJA1110A
+[    5.162177] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.178953] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.196058] sja1105 spi5.1: Probed switch chip: SJA1110A
+[    5.201475] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.218246] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[    5.235294] clk: Disabling unused clocks
+[    5.327637] EXT4-fs (mmcblk0p3): recovery complete
+[    5.333400] EXT4-fs (mmcblk0p3): mounted filesystem 7998e1b8-8d1a-412f-8924-0a57aa6bfd99 r/w with ordered data mode. Quota mode: disabled.
+[    5.345493] VFS: Mounted root (ext4 filesystem) on device 179:3.
+[    5.352373] devtmpfs: mounted
+[    5.355769] Freeing unused kernel memory: 1984K
+[    5.360179] Run /sbin/init as init process
+[    5.897856] systemd[1]: System time before build time, advancing clock.
+[    5.978082] systemd[1]: systemd 255.13^ running in system mode (+PAM -AUDIT -SELINUX -APPARMOR +IMA -SMACK +SECCOMP -GCRYPT -GNUTLS -OPENSSL +ACL +BLKID -CURL -ELFUTILS -FIDO2 -IDN2 -IDN -IPTC +KMOD -LIBCRYPTSETUP +LIBFDISK -PCRE2 -PWQUALITY -P11KIT -QRENCODE -TPM2 -BZIP2 -LZ4 -XZ -ZLIB +ZSTD -BPF_FRAMEWORK +XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[    6.009627] systemd[1]: Detected architecture arm64.
+
+Welcome to Auto Linux BSP 44.0 (scarthgap)!
+
+[    6.039578] systemd[1]: Hostname set to <s32g274ardb2>.
+[    6.639432] systemd[1]: Queued start job for default target Multi-User System.
+[    6.651805] systemd[1]: Created slice Slice /system/getty.
+[  OK  ] Created slice Slice /system/getty.
+[    6.678709] systemd[1]: Created slice Slice /system/modprobe.
+[  OK  ] Created slice Slice /system/modprobe.
+[    6.702670] systemd[1]: Created slice Slice /system/serial-getty.
+[  OK  ] Created slice Slice /system/serial-getty.
+[    6.726113] systemd[1]: Created slice User and Session Slice.
+[  OK  ] Created slice User and Session Slice.
+[    6.749621] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.
+[  OK  ] Started Dispatch Password Requests to Console Directory Watch.
+[    6.777506] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[  OK  ] Started Forward Password Requests to Wall Directory Watch.
+[    6.801496] systemd[1]: Reached target Path Units.
+[  OK  ] Reached target Path Units.
+[    6.821306] systemd[1]: Reached target Remote File Systems.
+[  OK  ] Reached target Remote File Systems.
+[    6.841290] systemd[1]: Reached target Slice Units.
+[  OK  ] Reached target Slice Units.
+[    6.861328] systemd[1]: Reached target Swaps.
+[  OK  ] Reached target Swaps.
+[    6.918144] systemd[1]: Listening on RPCbind Server Activation Socket.
+[  OK  ] Listening on RPCbind Server Activation Socket.
+[    6.941466] systemd[1]: Reached target RPC Port Mapper.
+[  OK  ] Reached target RPC Port Mapper.
+[    6.962090] systemd[1]: Listening on Syslog Socket.
+[  OK  ] Listening on Syslog Socket.
+[    6.981715] systemd[1]: Listening on initctl Compatibility Named Pipe.
+[  OK  ] Listening on initctl Compatibility Named Pipe.
+[    7.012220] systemd[1]: Journal Audit Socket was skipped because of an unmet condition check (ConditionSecurity=audit).
+[    7.023434] systemd[1]: Listening on Journal Socket (/dev/log).
+[  OK  ] Listening on Journal Socket (/dev/log).
+[    7.046077] systemd[1]: Listening on Journal Socket.
+[  OK  ] Listening on Journal Socket.
+[    7.066314] systemd[1]: Listening on Network Service Netlink Socket.
+[  OK  ] Listening on Network Service Netlink Socket.
+[    7.102741] systemd[1]: Listening on udev Control Socket.
+[  OK  ] Listening on udev Control Socket.
+[    7.125943] systemd[1]: Listening on udev Kernel Socket.
+[  OK  ] Listening on udev Kernel Socket.
+[    7.145936] systemd[1]: Listening on User Database Manager Socket.
+[  OK  ] Listening on User Database Manager Socket.
+[    7.193421] systemd[1]: Mounting Huge Pages File System...
+         Mounting Huge Pages File System...
+[    7.213703] systemd[1]: POSIX Message Queue File System was skipped because of an unmet condition check (ConditionPathExists=/proc/sys/fs/mqueue).
+[    7.247189] systemd[1]: Mounting Kernel Debug File System...
+         Mounting Kernel Debug File System...
+[    7.269837] systemd[1]: Kernel Trace File System was skipped because of an unmet condition check (ConditionPathExists=/sys/kernel/tracing).
+[    7.282638] systemd[1]: Create List of Static Device Nodes was skipped because of an unmet condition check (ConditionFileNotEmpty=/lib/modules/6.6.85-rt53-g6208e1d0d7b5/modules.devname).
+[    7.302563] systemd[1]: Starting Load Kernel Module configfs...
+         Starting Load Kernel Module configfs...
+[    7.354029] systemd[1]: Starting Load Kernel Module drm...
+         Starting Load Kernel Module drm...
+[    7.380872] systemd[1]: Starting Load Kernel Module fuse...
+         Starting Load Kernel Module fuse...
+[    7.409751] systemd[1]: Starting RPC Bind...
+         Starting RPC Bind...
+[    7.433668] systemd[1]: File System Check on Root Device was skipped because of an unmet condition check (ConditionPathIsReadWrite=!/).
+[    7.452679] systemd[1]: Starting Journal Service...
+         Starting Journal Service...
+[    7.494112] systemd[1]: Starting Load Kernel Modules...
+         Starting Load Kernel Modules...
+[    7.517836] systemd[1]: Starting Generate network units from Kernel command line...
+         Starting Generate network units from Kernel command line...
+[    7.549375] sja1110: loading out-of-tree module taints kernel.
+[    7.549507] systemd[1]: Starting Remount Root and Kernel File Systems...
+         S[    7.562377] SPI driver sja1110 has no spi_device_id for nxp,sja1110-switch
+ta[    7.569371] SPI driver sja1110 has no spi_device_id for nxp,sja1110-uc
+rting Remount Root and Kernel Fil[    7.579501] systemd-journald[124]: Collecting audit messages is disabled.
+e Systems...
+[    7.634087] systemd[1]: Starting Create Static Device Nodes in /dev gracefully...
+         Starting Create Static Device Nodes in /dev gracefully...
+[    7.673860] systemd[1]: Starting Coldplug All udev Devices...
+         Starting Coldplug All udev Devices...
+[    7.689548] EXT4-fs (mmcblk0p3): re-mounted 7998e1b8-8d1a-412f-8924-0a57aa6bfd99 r/w. Quota mode: disabled.
+[    7.729522] systemd[1]: Started RPC Bind.
+[  OK  ] Started RPC Bind.
+[    7.754136] systemd[1]: Started Journal Service.
+[  OK  ] Started Journal Service.
+[  OK  ] Mounted Huge Pages File System.
+[  OK  ] Mounted Kernel Debug File System.
+[  OK  ] Finished Load Kernel Module configfs.
+[  OK  ] Finished Load Kernel Module drm.
+[  OK  ] Finished Load Kernel Module fuse.
+[  OK  ] Finished Load Kernel Modules.
+[  OK  ] Finished Generate network units from Kernel command line.
+[  OK  ] Finished Remount Root and Kernel File Systems.
+[  OK  ] Finished Create Static Device Nodes in /dev gracefully.
+         Mounting FUSE Control File System...
+         Mounting Kernel Configuration File System...
+         Starting Flush Journal to Persistent Storage...
+         Starting Apply Kernel Variables...
+[    8.077081] systemd-journald[124]: Received client request to flush runtime journal.
+         Starting Create Static Device Nodes in /dev...
+[  OK  ] Mounted FUSE Control File System.
+[  OK  ] Mounted Kernel Configuration File System.
+[  OK  ] Finished Flush Journal to Persistent Storage.
+[  OK  ] Finished Apply Kernel Variables.
+[  OK  ] Finished Create Static Device Nodes in /dev.
+[  OK  ] Finished Coldplug All udev Devices.
+[  OK  ] Reached target Preparation for Local File Systems.
+         Mounting /tmp...
+         Mounting /var/volatile...
+         Starting Rule-based Manager for Device Events and Files...
+[  OK  ] Mounted /tmp.
+[  OK  ] Mounted /var/volatile.
+         Mounting /var/volatile/tmp...
+         Starting Load/Save OS Random Seed...
+[  OK  ] Mounted /var/volatile/tmp.
+[  OK  ] Reached target Local File Systems.
+         Starting Create System Files and Directories...
+[  OK  ] Started Rule-based Manager for Device Events and Files.
+[  OK  ] Finished Create System Files and Directories.
+[    8.745098] s32cc-dwmac 4033c000.ethernet end0: renamed from eth0
+         Starting Network Name Resolution...
+         Starting Network Time Synchronization...
+         Starting Record System Boot/Shutdown in UTMP...
+         Starting User Database Manager...
+[  OK  ] Finished Record System Boot/Shutdown in UTMP.
+[    9.327267] pfeng 46000000.pfe: PFEng ethernet driver loading ...
+[    9.337568] pfeng 46000000.pfe: Version: 1.9.0
+[    9.345244] pfeng 46000000.pfe: Driver commit hash: M4_DRIVER_COMMIT_HASH
+[    9.360513] pfeng 46000000.pfe: Multi instance support: disabled (standalone)
+[[    9.371416] pfeng 46000000.pfe: Compiled by: 13.3.0
+  OK  ] Started [    9.377973] pfeng 46000000.pfe: Cbus addr 0x46000000 size 0x1000000
+    9.384429] pfeng 46000000.pfe: nxp,fw-class-name: s32g_pfe_class.fw
+0;1;39mUser Database Manager.
+[    9.397507] pfeng 46000000.pfe: nxp,fw-util-name: s32g_pfe_util.fw
+[    9.413479] pfeng 46000000.pfe: netif name: pfe0
+[    9.421248] pfeng 46000000.pfe: DT mac addr: 00:04:9f:be:ef:00
+[    9.432126] pfeng 46000000.pfe: netif(pfe0) linked phyif: 0
+[    9.437584] pfeng 46000000.pfe: netif(pfe0) mode: std
+[    9.447272] pfeng 46000000.pfe: netif(pfe0) HIFs: count 1 map 01
+[    9.456637] pfeng 46000000.pfe: EMAC0 interface mode: 4
+[    9.463286] pfeng 46000000.pfe: netif name: pfe1
+[    9.467892] pfeng 46000000.pfe: DT mac addr: 00:04:9f:be:ef:01
+[    9.479760] pfeng 46000000.pfe: netif(pfe1) linked phyif: 1
+[    9.485038] pfeng 46000000.pfe: netif(pfe1) mode: std
+[    9.493380] pfeng 46000000.pfe: netif(pfe1) HIFs: count 1 map 02
+[    9.500460] pfeng 46000000.pfe: EMAC1 interface mode: 4
+         Starting     9.507311] pfeng 46000000.pfe: netif name: pfe2
+;39mVirtual Console Setup    9.514179] pfeng 46000000.pfe: DT mac addr: 00:04:9f:be:ef:02
+0m[    9.520233] pfeng 46000000.pfe: netif(pfe2) linked phyif: 2
+...
+[    9.527700] pfeng 46000000.pfe: netif(pfe2) mode: std
+[    9.532602] pfeng 46000000.pfe: netif(pfe2) HIFs: count 1 map 04
+[    9.540644] pfeng 46000000.pfe: EMAC2 interface mode: 10
+[    9.546233] pfeng 46000000.pfe: HIF channels mask: 0x0007
+[    9.552684] pfeng 46000000.pfe: PFE port coherency enabled, mask 0x1e
+[    9.559108] pfeng 46000000.pfe: Clocks: sys=300MHz pe=600MHz
+[    9.565241] pfeng 46000000.pfe: Interface selected: EMAC0: 0x4 EMAC1: 0x4 EMAC2: 0xa
+[    9.576468] pfeng 46000000.pfe: PFE controller reset done
+[    9.582766] pfeng 46000000.pfe: TX clock on EMAC0 for interface sgmii installed
+[    9.591862] pfeng 46000000.pfe: RX clock on EMAC0 for interface sgmii installed
+[    9.601055] pfeng 46000000.pfe: TX clock on EMAC1 for interface sgmii installed
+[    9.614404] pfeng 46000000.pfe: RX clock on EMAC1 for interface sgmii installed
+[    9.624355] pfeng 46000000.pfe: TX clock on EMAC2 for interface rgmii-id installed
+[    9.631972] pfeng 46000000.pfe: RX clock on EMAC2 for interface rgmii-id installed
+[    9.649456] pfeng 46000000.pfe: assigned reserved memory node pfebufs@34000000
+[    9.656406] pfeng 46000000.pfe: assigned reserved memory node pfebufs@34080000
+[    9.663756] pfeng 46000000.pfe: assigned reserved memory node pfebufs@83200000
+[    9.670847] pfeng 46000000.pfe: assigned reserved memory node pfebufs@835e0000
+[    9.686052] pfeng 46000000.pfe: Firmware: CLASS s32g_pfe_class.fw [45724 bytes]
+[    9.701166] pfeng 46000000.pfe: Firmware: UTIL s32g_pfe_util.fw [23352 bytes]
+[    9.713192] pfeng 46000000.pfe: PFE CBUS p0x46000000 mapped @ v0xffffffc082000000 (0x1000000 bytes)
+[    9.727554] pfeng 46000000.pfe: Silicon S32G2
+[    9.732667] pfeng 46000000.pfe: PFE_ERRORS:Parity instance created
+[    9.740709] pfeng 46000000.pfe: PFE_ERRORS:Watchdog instance created
+[    9.747405] pfeng 46000000.pfe: BMU1 buffer base: p0xc0000000
+[    9.752884] pfeng 46000000.pfe: BMU2 buffer base: p0x34000000 (0x80000 bytes)
+[    9.761192] pfeng 46000000.pfe: register IRQ 67 by name 'PFE BMU IRQ'
+[    9.770678] pfeng 46000000.pfe: Firmware .elf detected
+[    9.771731] pfeng 46000000.pfe: BMU_EMPTY_INT (BMU @ p0x(____ptrval____)). Pool ready.
+[    9.775541] pfeng 46000000.pfe: Uploading CLASS firmware
+[    9.783567] pfeng 46000000.pfe: BMU_EMPTY_INT (BMU @ p0x(____ptrval____)). Pool ready.
+[    9.788711] pfeng 46000000.pfe: Selected FW loading OPs to load 8 PEs in parallel
+[    9.808501] pfeng 46000000.pfe: pfe_ct.h file version"92367c0e25f21f49217a9b08168ad2c8"
+[  OK  ] Star[    9.831770] pfeng 46000000.pfe: [FW VERSION] 1.11.0, Build: Apr  8 2025, 21:02:36 (nogitaaa), ID: 0x31454650
+ted  pfeng 46000000.pfe: EMAC timestamp external mode bitmap: 0
+[0[    9.848724] pfeng 46000000.pfe: Uploading UTIL firmware
+;[    9.854021] pfeng 46000000.pfe: Selected FW loading OPs to load 1 PEs in parallel
+1;39mNetwork Time Synchroniza[    9.864023] pfeng 46000000.pfe: pfe_ct.h file version"92367c0e25f21f49217a9b08168ad2c8"
+tion.
+[    9.873341] pfeng 46000000.pfe: FW feature: drv_run_on_g3
+;3[    9.878861] pfeng 46000000.pfe: FW feature: jumbo_frames
+2[    9.884301] pfeng 46000000.pfe: FW feature: ptp_qos_mapping
+m[    9.889956] pfeng 46000000.pfe: FW feature: software_vlan_table
+ [    9.895936] pfeng 46000000.pfe: FW feature: timestamping
+ [    9.901309] pfeng 46000000.pfe: FW feature: qos_mapping
+O[    9.906611] pfeng 46000000.pfe: FW feature: core_functionality
+K[    9.912506] pfeng 46000000.pfe: FW feature: extended_features
+ [    9.918344] pfeng 46000000.pfe: FW feature: flexible_router
+ [    9.923962] pfeng 46000000.pfe: FW feature: validate_hif_csum
+ pfeng 46000000.pfe: FW feature: err051211_workaround
+[[    9.935853] pfeng 46000000.pfe: FW feature: IPsec
+0[    9.940651] pfeng 46000000.pfe: FW feature: l2_bridge_aging
+m[    9.946279] pfeng 46000000.pfe: FW feature: receive_malformed
+][    9.952114] pfeng 46000000.pfe: FW feature: ptp_conf_check
+ R[    9.957726] pfeng 46000000.pfe: FW feature: vlan_conf_check
+ea[    9.963464] pfeng 46000000.pfe: FW feature: hash_load_spread
+c[    9.969191] pfeng 46000000.pfe: FW feature: ingress_vlan
+h[    9.974567] pfeng 46000000.pfe: FW feature: safety
+ed target System Ti[    9.981796] pfeng 46000000.pfe: VLAN ID incorrect or not set. Using default VLAN ID = 0x01.
+m[    9.990202] pfeng 46000000.pfe: VLAN stats size incorrect or not set. Using default VLAN stats size = 20.
+e [    9.999916] pfeng 46000000.pfe: Software vlan hash table @ p0x20001288
+Set[   10.006682] pfeng 46000000.pfe: Fall-back bridge domain @ 0x20000a8c (class)
+ pfeng 46000000.pfe: Default bridge domain @ 0x20000a84 (class)
+[0m.
+[   10.021258] pfeng 46000000.pfe: Routing table created, Hash Table @ p0x34080000, Pool @ p0x34088000 (65536 bytes)
+[   10.031931] pfeng 46000000.pfe: Feature err051211_workaround: DISABLED
+32m  OK  ] Started Network Name Resoluti[   10.043002] pfeng 46000000.pfe: HIF0 enabled
+on   10.047716] pfeng 46000000.pfe: HIF1 enabled
+[   10.052377] pfeng 46000000.pfe: HIF2 enabled
+
+[   10.056678] pfeng 46000000.pfe: HIF3 not configured, skipped
+[[   10.062408] pfeng 46000000.pfe: MDIO bus 0 disabled: Not found in DT
+ pfeng 46000000.pfe: MDIO bus 1 disabled: Not found in DT
+[0;32m  OK  ] Reached target Host and Network Name Lookups.
+[   10.085227] pfeng 46000000.pfe: MDIO bus 2 enabled
+[   10.089325] sja1105 spi5.1: Probed switch chip: SJA1110A
+[   10.089779] phy-s32cc-serdes 44180000.serdes: Unstable RX detected on XPCS0
+[   10.094941] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[   10.101873] pfeng 46000000.pfe pfe0 (uninitialized): Subscribe to HIF0
+[   10.101885] pfeng 46000000.pfe pfe0 (uninitialized): Host LLTX disabled
+[   10.102072] pfeng 46000000.pfe pfe0 (uninitialized): Enable HIF0
+[   10.119302] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[   10.124866] pfeng 46000000.pfe pfe0 (uninitialized): setting MAC addr: 00:04:9f:be:ef:00
+[   10.124893] pfeng 46000000.pfe pfe0 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+[   10.172261] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+[   10.174153] pfeng 46000000.pfe pfe0 (uninitialized): Registered PTP HW clock successfully on EMAC0
+[  OK  ] Finis[   10.192927] pfeng 46000000.pfe pfe0: registered
+hed[   10.197709] phy-s32cc-serdes 44180000.serdes: Unstable RX detected on XPCS1
+  pfeng 46000000.pfe pfe1 (uninitialized): Subscribe to HIF1
+[[   10.211420] pfeng 46000000.pfe pfe1 (uninitialized): Host LLTX disabled
+0;1[   10.218275] pfeng 46000000.pfe pfe1 (uninitialized): Enable HIF1
+;[   10.224350] pfeng 46000000.pfe pfe1 (uninitialized): setting MAC addr: 00:04:9f:be:ef:01
+3[   10.232525] pfeng 46000000.pfe pfe1 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+9[   10.242837] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+mVirtual[   10.253115] pfeng 46000000.pfe pfe1 (uninitialized): Registered PTP HW clock successfully on EMAC1
+ Console S[   10.262899] pfeng 46000000.pfe pfe1: registered
+et[   10.267537] pfeng 46000000.pfe pfe2 (uninitialized): Subscribe to HIF2
+u[   10.274192] pfeng 46000000.pfe pfe2 (uninitialized): Host LLTX disabled
+p   10.281090] pfeng 46000000.pfe pfe2 (uninitialized): Enable HIF2
+m.[   10.287229] pfeng 46000000.pfe pfe2 (uninitialized): setting MAC addr: 00:04:9f:be:ef:02
+[   10.295503] pfeng 46000000.pfe pfe2 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+
+[   10.305855] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+[   10.316022] pfeng 46000000.pfe pfe2 (uninitialized): Registered PTP HW clock successfully on EMAC2
+[   10.325310] pfeng 46000000.pfe pfe2: registered
+[   10.333260] sja1105 spi5.1: Probed switch chip: SJA1110A
+[   10.338642] sja1105 spi5.1: Port 2 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[   10.354889] sja1105 spi5.1: Port 3 interpreting RGMII delay settings based on "phy-mode" property, please update device tree to specify "rx-internal-delay-ps" and "tx-internal-delay-ps"
+[  OK  ] Created slice Slice /system/systemd-fsck.
+[  OK  ] Reached target System Initialization.
+[  OK  ] Started Daily rotation of log files.
+[  OK  ] Started Daily Cleanup of Temporary Directories.
+[  OK  ] Reached target Timer Units.
+[  OK  ] Listening on D-B[   10.621952] sja1105 spi5.1: configuring for fixed/2500base-x link mode
+[   10.631499] sja1105 spi5.1: Link is Up - 2.5Gbps/Full - flow control off
+
+         Starting sshd.socket...
+[   10.693409] sja1105 spi5.1 p1 (uninitialized): PHY [spi5.1-base-tx:01] driver [NXP CBTX (SJA1110)] (irq=POLL)
+         Starting File System Check on /dev/mmcblk0p2...
+[   10.711813] sja1105 spi5.1 trx5 (uninitialized): PHY [spi5.1-base-t1:01] driver [Generic Clause 45 PHY] (irq=POLL)
+[   10.726736] sja1105 spi5.1 trx6 (uninitialized): PHY [spi5.1-base-t1:02] driver [Generic Clause 45 PHY] (irq=POLL)
+[  OK  ] Listening on [   10.739503] sja1105 spi5.1 trx7 (uninitialized): PHY [spi5.1-base-t1:03] driver [Generic Clause 45 PHY] (irq=POLL)
+sshd.socket.
+[   10.755716] sja1105 spi5.1 trx8 (uninitialized): PHY [spi5.1-base-t1:04] driver [Generic Clause 45 PHY] (irq=POLL)
+[   10.768217] sja1105 spi5.1 trx9 (uninitialized): PHY [spi5.1-base-t1:05] driver [Generic Clause 45 PHY] (irq=POLL)
+[   10.780733] sja1105 spi5.1 trx10 (uninitialized): PHY [spi5.1-base-t1:06] driver [Generic Clause 45 PHY] (irq=POLL)
+[   10.792025] DSA: tree 0 setup
+[  OK  ] Reached target Socket Units.
+[  OK  ] Reached target Basic System.
+[  OK  ] Started Job spooling tools.
+[  OK  ] Started Periodic Command Scheduler.
+         Starting D-Bus System Message Bus...
+         Starting IPv6 Packet Filtering Framework...
+         Starting IPv4 Packet Filtering Framework...
+[  OK  ] Started irqbalance daemon.
+[  OK  ] Started Hardware RNG Entropy Gatherer Daemon.
+[  OK  ] Started System Logging Service.
+         Starting Resets System Activity Logs...
+         Starting User Login Management...
+         Starting OpenSSH Key Generation...
+[  OK  ] Finished File System Check on /dev/mmcblk0p2.
+[  OK  ] Finished IPv6 Packet Filtering Framework.
+[  OK  ] Finished IPv4 Packet Filtering Framework.
+[  OK  ] Finished Resets System Activity Logs.
+[  OK  ] Reached target Preparation for Network.
+         Mounting /run/media/boot_s32g2-mmcblk0p2...
+         Starting Network Configuration...
+[  OK  ] Started User Login Management.
+[  OK  ] Mounted /run/media/boot_s32g2-mmcblk0p2.
+[  OK  ] Started Network Configuration.
+[  OK  ] Reached target Network.
+[  OK  ] Started Netperf Benchmark Server.
+         Starting Permit User Sessions...
+[  OK  ] Started Xinetd A Powerful Replacement For Inetd.
+[  OK  ] Finished Permit User Sessions.
+[  OK  ] Started Getty on tty1.
+[  OK  ] Started Serial Getty on ttyLF0.
+[  OK  ] Reached target Login Prompts.
+[  OK  ] Finished Load/Save OS Random Seed.
+[  OK  ] Finished OpenSSH Key Generation.
+[  OK  ] Started D-Bus System Message Bus.
+[  OK  ] Reached target Multi-User System.
+         Starting Record Runlevel Change in UTMP...
+[  OK  ] Finished Record Runlevel Change in UTMP.
+
+Auto Linux BSP 44.0 s32g274ardb2 ttyLF0
+
+s32g274ardb2 login: root
+root@s32g274ardb2:~#
