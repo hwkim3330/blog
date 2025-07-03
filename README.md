@@ -53,6 +53,7 @@
 </p>
 
 <hr>
+![214442620](https://github.com/user-attachments/assets/58dc0e61-ec5d-4915-b350-7d44c92e4b9e)
 
 ## 🌍 English Version for International Visitors
 
