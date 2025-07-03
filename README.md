@@ -4,29 +4,17 @@
 
 ---
 
-## ✨ 주요 링크 (My Links)
-
-저의 활동을 다양한 플랫폼에서 확인하실 수 있습니다.
-
-* [**GitHub**](https://github.com/hwkims) - 소스 코드 및 프로젝트 관리
-* [**LinkedIn**](https://www.linkedin.com/in/hwkims/) - 전문적인 네트워크 및 경력
-* [**Hugging Face**](https://huggingface.co/kimhyunwoo) - 머신러닝 모델 및 데이터셋
-* [**Velog**](https://velog.io/@hwkims/posts) - 개발 및 학습 기록
-* [**Kaggle**](https://www.kaggle.com/hwkims) - 데이터 사이언스 프로필
-
----
-
 ## 📚 기술 블로그 & 논문 연구 (GitHub Blog)
 
 > **주요 연구 분야:** Time-Sensitive Networking (TSN), Reinforcement Learning (RL)
 
 * **논문 리뷰**
-    * 📄 [Paper Review #1](https://hwkim3330.github.io/blog/paper)
-    * 📄 [Paper Review #2](https://hwkim3330.github.io/blog/paper2)
+    * 📄 [Paper Review #1](https://hwkim3330.github.io/blog/paper) (`https://hwkim3330.github.io/blog/paper`)
+    * 📄 [Paper Review #2](https://hwkim3330.github.io/blog/paper2) (`https://hwkim3330.github.io/blog/paper2`)
 * **TSN/TAS 연구**
-    * 📝 [IEEE 802.1Qbv 논문 학습](https://hwkim3330.github.io/blog/qbv/0)
+    * 📝 [IEEE 802.1Qbv 논문 학습](https://hwkim3330.github.io/blog/qbv/0) (`https://hwkim3330.github.io/blog/qbv/0`)
 * **블로그 포스트**
-    * 🏠 [블로그 메인](https://hwkim3330.github.io/blog/)
+    * 🏠 [블로그 메인](https://hwkim3330.github.io/blog/) (`https://hwkim3330.github.io/blog/`)
     * ✍️ [포스트 #1](https://hwkim3330.github.io/blog/1) / [#2](https://hwkim3330.github.io/blog/2) / [#3 (테스트)](https://hwkim3330.github.io/blog/3)
 
 ---
@@ -36,20 +24,25 @@
 > 실제 데이터로 실험하고 모델을 구현하는 프로젝트들입니다.
 
 * **GCL (Graph Contrastive Learning) 연구**
-    * 📓 [GCL Notebook (d7b340a738)](https://www.kaggle.com/code/hwkims/gcl-notebookd7b340a738)
-    * 📓 [GCL Notebook (790ead1f5f)](https://www.kaggle.com/code/hwkims/gcl-notebook790ead1f5f)
+    * 📓 [GCL Notebook (d7b340a738)](https://www.kaggle.com/code/hwkims/gcl-notebookd7b340a738) (`https://www.kaggle.com/code/hwkims/gcl-notebookd7b340a738`)
+    * 📓 [GCL Notebook (790ead1f5f)](https://www.kaggle.com/code/hwkims/gcl-notebook790ead1f5f) (`https://www.kaggle.com/code/hwkims/gcl-notebook790ead1f5f`)
 * **강화학습**
-    * 🤖 [강화학습 PPO 테스트](https://www.kaggle.com/code/hwkims/gclpponotebookd88ef72d96)
+    * 🤖 [강화학습 PPO 테스트](https://www.kaggle.com/code/hwkims/gclpponotebookd88ef72d96) (`https://www.kaggle.com/code/hwkims/gclpponotebookd88ef72d96`)
 * **기타**
-    * 📓 [일반 분석 노트북](https://www.kaggle.com/code/hwkims/notebookc1b8ab99e0)
+    * 📓 [일반 분석 노트북](https://www.kaggle.com/code/hwkims/notebookc1b8ab99e0) (`https://www.kaggle.com/code/hwkims/notebookc1b8ab99e0`)
 
 ---
 
-## 🌐 개인 공간 (Naver Blog)
+## ✨ 주요 링크 (My Links)
 
-학습 외의 다양한 생각과 일상을 기록합니다.
-
-* ☕ [**네이버 블로그 바로가기**](https://blog.naver.com/hwkims)
+<p>
+  <a href="https://github.com/hwkims" target="_blank"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
+  <a href="https://www.linkedin.com/in/hwkims/" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+  <a href="https://huggingface.co/kimhyunwoo" target="_blank"><img alt="Hugging Face" src="https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black"/></a>
+  <a href="https://velog.io/@hwkims/posts" target="_blank"><img alt="Velog" src="https://img.shields.io/badge/Velog-20C997?style=for-the-badge&logo=velog&logoColor=white"/></a>
+  <a href="https://www.kaggle.com/hwkims" target="_blank"><img alt="Kaggle" src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white"/></a>
+  <a href="https://blog.naver.com/hwkims" target="_blank"><img alt="Naver Blog" src="https://img.shields.io/badge/Naver_Blog-03C75A?style=for-the-badge&logo=naver&logoColor=white"/></a>
+</p>
 
 ---
 
@@ -57,4 +50,54 @@
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/cc7c84cc-f3fe-4502-bf66-7f7bcf14fcaa" alt="Project Vision Image" width="700"/>
+</p>
+
+<hr>
+
+## 🌍 English Version for International Visitors
+
+### # 🚀 Project Start: June 2025 ✨
+
+Hello! This is a log of my research, projects, and studies, starting from June 2025.
+
+---
+
+### ## 📚 Tech Blog & Research (GitHub Blog)
+
+> **Main Research Areas:** Time-Sensitive Networking (TSN), Reinforcement Learning (RL)
+
+* **Paper Reviews**
+    * 📄 [Paper Review #1](https://hwkim3330.github.io/blog/paper) (`https://hwkim3330.github.io/blog/paper`)
+    * 📄 [Paper Review #2](https://hwkim3330.github.io/blog/paper2) (`https://hwkim3330.github.io/blog/paper2`)
+* **TSN/TAS Research**
+    * 📝 [IEEE 802.1Qbv Paper Study](https://hwkim3330.github.io/blog/qbv/0) (`https://hwkim3330.github.io/blog/qbv/0`)
+* **Blog Posts**
+    * 🏠 [Blog Main](https://hwkim3330.github.io/blog/) (`https://hwkim3330.github.io/blog/`)
+    * ✍️ [Post #1](https://hwkim3330.github.io/blog/1) / [#2](https://hwkim3330.github.io/blog/2) / [#3 (Test)](https://hwkim3330.github.io/blog/3)
+
+---
+
+### ## 🧠 Data Science & Reinforcement Learning (Kaggle)
+
+> Projects where I experiment with real data and implement models.
+
+* **GCL (Graph Contrastive Learning) Research**
+    * 📓 [GCL Notebook (d7b340a738)](https://www.kaggle.com/code/hwkims/gcl-notebookd7b340a738) (`https://www.kaggle.com/code/hwkims/gcl-notebookd7b340a738`)
+    * 📓 [GCL Notebook (790ead1f5f)](https://www.kaggle.com/code/hwkims/gcl-notebook790ead1f5f) (`https://www.kaggle.com/code/hwkims/gcl-notebook790ead1f5f`)
+* **Reinforcement Learning**
+    * 🤖 [RL PPO Test](https://www.kaggle.com/code/hwkims/gclpponotebookd88ef72d96) (`https://www.kaggle.com/code/hwkims/gclpponotebookd88ef72d96`)
+* **Misc**
+    * 📓 [General Analysis Notebook](https://www.kaggle.com/code/hwkims/notebookc1b8ab99e0) (`https://www.kaggle.com/code/hwkims/notebookc1b8ab99e0`)
+
+---
+
+### ## ✨ My Links
+
+<p>
+  <a href="https://github.com/hwkims" target="_blank"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
+  <a href="https://www.linkedin.com/in/hwkims/" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+  <a href="https://huggingface.co/kimhyunwoo" target="_blank"><img alt="Hugging Face" src="https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black"/></a>
+  <a href="https://velog.io/@hwkims/posts" target="_blank"><img alt="Velog" src="https://img.shields.io/badge/Velog-20C997?style=for-the-badge&logo=velog&logoColor=white"/></a>
+  <a href="https://www.kaggle.com/hwkims" target="_blank"><img alt="Kaggle" src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white"/></a>
+  <a href="https://blog.naver.com/hwkims" target="_blank"><img alt="Naver Blog" src="https://img.shields.io/badge/Naver_Blog-03C75A?style=for-the-badge&logo=naver&logoColor=white"/></a>
 </p>
