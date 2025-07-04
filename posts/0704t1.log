@@ -1,0 +1,1822 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\parksik> ssh kim@192.168.5.10
+kim@192.168.5.10's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-63-lowlatency x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+Last login: Thu Jul  3 16:10:25 2025 from 192.168.5.11
+kim@kim-System-Product-Name:~$ # python 3.9 버전으로 tsn_env 라는 이름의 가상 환경 생성
+conda create -n tsn_env python=3.9 -y
+
+# tsn_env 가상 환경 활성화
+conda activate tsn_env
+
+# (이제 터미널 프롬프트 앞에 (tsn_env) 라고 표시됩니다)
+conda: command not found
+conda: command not found
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ source ~/.bashrc
+kim@kim-System-Product-Name:~$ source ~/.bashrc
+kim@kim-System-Product-Name:~$ # 가상 환경 생성
+conda create -n tsn_env python=3.9 -y
+
+# 가상 환경 활성화
+conda activate tsn_env
+conda: command not found
+conda: command not found
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ sudo apt update
+sudo apt install build-essential dkms linux-headers-$(uname -r) unzip
+[sudo] password for kim:
+Hit:1 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:2 https://ppa.launchpadcontent.net/cappelikan/ppa/ubuntu noble InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Hit:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Fetched 126 kB in 12s (10.4 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+5 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)
+^Citing for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 248391 (apt)... 15s
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ sudo apt update
+sudo apt install build-essential dkms linux-headers-$(uname -r) unzip
+Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:4 https://ppa.launchpadcontent.net/cappelikan/ppa/ubuntu noble InRelease
+Hit:5 http://security.ubuntu.com/ubuntu noble-security InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+5 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+build-essential is already the newest version (12.10ubuntu1).
+dkms is already the newest version (3.0.11-1ubuntu13).
+linux-headers-6.8.0-63-lowlatency is already the newest version (6.8.0-63.66.1).
+linux-headers-6.8.0-63-lowlatency set to manually installed.
+unzip is already the newest version (6.0-28ubuntu4.1).
+unzip set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+4 not fully installed or removed.
+After this operation, 0 B of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules...........(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure):
+ installed linux-headers-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Setting up nvidia-dkms-570 (570.133.07-0ubuntu0.24.04.1) ...
+update-initramfs: deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+INFO:Enable nvidia
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/dell_latitude
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/put_your_quirks_here
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/lenovo_thinkpad
+Removing old nvidia-570.133.07 DKMS files...
+Module nvidia-570.133.07 for kernel 6.8.0-63-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Deleting module nvidia-570.133.07 completely from the DKMS tree.
+Loading new nvidia-570.133.07 DKMS files...
+Building for 6.8.0-63-lowlatency 6.15.4-061504-generic
+Building for architecture x86_64
+Building initial module for 6.8.0-63-lowlatency
+Done.
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+depmod...
+Building initial module for 6.15.4-061504-generic
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dpkg: error processing package nvidia-dkms-570 (--configure):
+ installed nvidia-dkms-570 package post-installation script subprocess returned error exit status 10
+Setting up linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+dpkg: dependency problems prevent configuration of nvidia-driver-570:
+ nvidia-driver-570 depends on nvidia-dkms-570 (<= 570.133.07-1); however:
+  Package nvidia-dkms-570 is not configured yet.
+ nvidia-driver-570 depends on nvidia-dkms-570 (>= 570.133.07); however:
+  Package nvidia-dkms-570 is not configured yet.
+
+dpkg: error processing package nvidia-driver-570 (--configure):
+ dependency problems - leaving unconfigured
+No apport report written because the error message indicates its a followup error from a previous failure.
+                                                                                                          Processing triggers for initramfs-tools (0.142ubuntu25.5) ...
+update-initramfs: Generating /boot/initrd.img-6.11.0-29-generic
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--configure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Errors were encountered while processing:
+ linux-headers-6.15.4-061504-generic
+ nvidia-dkms-570
+ nvidia-driver-570
+ linux-image-unsigned-6.15.4-061504-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+kim@kim-System-Product-Name:~$ cd ~/Downloads
+unzip Release_30.2.zip
+cd Release_30.2/Linux/igc/src
+Archive:  Release_30.2.zip
+  inflating: 3rd_party_licenses.txt
+  inflating: 3rd_party_licenses_BSD.txt
+  inflating: 3rd_party_licenses_GPL.txt
+  inflating: 3rd_party_licenses_tools.txt
+   creating: APPS/
+   creating: APPS/BootUtil/
+  inflating: APPS/BootUtil/BootIMG.FLB
+   creating: APPS/BootUtil/Docs/
+  inflating: APPS/BootUtil/Docs/bootutil.txt
+   creating: APPS/BootUtil/EFI2_AArch64/
+  inflating: APPS/BootUtil/EFI2_AArch64/BOOTUTILAARCH64.EFI
+  inflating: APPS/BootUtil/EFI2_AArch64/BOOTUTILAARCH64.MAN
+   creating: APPS/BootUtil/EFI2_x64/
+  inflating: APPS/BootUtil/EFI2_x64/BOOTUTIL64E.EFI
+  inflating: APPS/BootUtil/EFI2_x64/BOOTUTIL64E.MAN
+   creating: APPS/BootUtil/FreeBSD32/
+  inflating: APPS/BootUtil/FreeBSD32/bootutil32
+   creating: APPS/BootUtil/FreeBSD32/DRIVER/
+  inflating: APPS/BootUtil/FreeBSD32/DRIVER/install
+  inflating: APPS/BootUtil/FreeBSD32/DRIVER/iqvfreebsd.tar
+  inflating: APPS/BootUtil/FreeBSD32/DRIVER/license_bsd.txt
+   creating: APPS/BootUtil/FreeBSDx64/
+  inflating: APPS/BootUtil/FreeBSDx64/bootutil64e
+   creating: APPS/BootUtil/FreeBSDx64/DRIVER/
+  inflating: APPS/BootUtil/FreeBSDx64/DRIVER/install
+  inflating: APPS/BootUtil/FreeBSDx64/DRIVER/iqvfreebsd.tar
+  inflating: APPS/BootUtil/FreeBSDx64/DRIVER/license_bsd.txt
+  inflating: APPS/BootUtil/iv.txt
+   creating: APPS/BootUtil/Linux32/
+  inflating: APPS/BootUtil/Linux32/bootutil32
+   creating: APPS/BootUtil/Linux32/DRIVER/
+  inflating: APPS/BootUtil/Linux32/DRIVER/install
+  inflating: APPS/BootUtil/Linux32/DRIVER/iqvlinux-1.3.0.10-0.noarch.rpm
+  inflating: APPS/BootUtil/Linux32/DRIVER/iqvlinux.tar.gz
+  inflating: APPS/BootUtil/Linux32/DRIVER/license_gpl.txt
+   creating: APPS/BootUtil/Linux_AArch64/
+  inflating: APPS/BootUtil/Linux_AArch64/bootutilaarch64
+   creating: APPS/BootUtil/Linux_AArch64/DRIVER/
+  inflating: APPS/BootUtil/Linux_AArch64/DRIVER/install
+  inflating: APPS/BootUtil/Linux_AArch64/DRIVER/iqvlinux-1.3.0.10-0.noarch.rpm
+  inflating: APPS/BootUtil/Linux_AArch64/DRIVER/iqvlinux.tar.gz
+  inflating: APPS/BootUtil/Linux_AArch64/DRIVER/license_gpl.txt
+   creating: APPS/BootUtil/Linux_x64/
+  inflating: APPS/BootUtil/Linux_x64/bootutil64e
+   creating: APPS/BootUtil/Linux_x64/DRIVER/
+  inflating: APPS/BootUtil/Linux_x64/DRIVER/install
+  inflating: APPS/BootUtil/Linux_x64/DRIVER/iqvlinux-1.3.0.10-0.noarch.rpm
+  inflating: APPS/BootUtil/Linux_x64/DRIVER/iqvlinux.tar.gz
+  inflating: APPS/BootUtil/Linux_x64/DRIVER/license_gpl.txt
+  inflating: APPS/BootUtil/readme.txt
+   creating: APPS/DDPTOOL/
+   creating: APPS/DDPTOOL/Linux_x64/
+  inflating: APPS/DDPTOOL/Linux_x64/3rd_party_licenses_BSD.txt
+  inflating: APPS/DDPTOOL/Linux_x64/ddptool.tar.gz
+  inflating: APPS/DDPTOOL/Linux_x64/ddptool.txt
+   creating: APPS/EFI/
+   creating: APPS/EFI/EFIAArch64/
+  inflating: APPS/EFI/EFIAArch64/E4349A8.EFI
+   creating: APPS/EFI/EFIx64/
+  inflating: APPS/EFI/EFIx64/E4349X8.EFI
+  inflating: APPS/EFI/EFIx64/E5020X5.EFI
+  inflating: APPS/EFI/EFIx64/E8291X4.EFI
+  inflating: APPS/EFI/EFIx64/E9886X3.EFI
+   creating: APPS/EFI/OPENSRC/
+  inflating: APPS/EFI/OPENSRC/GigUndiDxe.zip
+  inflating: APPS/EFI/OPENSRC/i40eUndiDxe.zip
+  inflating: APPS/EFI/OPENSRC/IceUndiDxe.zip
+  inflating: APPS/EFI/OPENSRC/license_bsd.txt
+  inflating: APPS/EFI/OPENSRC/XGigUndiDxe.zip
+   creating: APPS/EPCT/
+   creating: APPS/EPCT/EFI2_AArch64/
+  inflating: APPS/EPCT/EFI2_AArch64/epctaarch64.efi
+  inflating: APPS/EPCT/EFI2_AArch64/license.pdf
+   creating: APPS/EPCT/EFI2_x64/
+  inflating: APPS/EPCT/EFI2_x64/epct64e.efi
+  inflating: APPS/EPCT/EFI2_x64/license.pdf
+  inflating: APPS/EPCT/epct.txt
+   creating: APPS/EPCT/ESXi_x64/
+  inflating: APPS/EPCT/ESXi_x64/epctn64e
+  inflating: APPS/EPCT/ESXi_x64/Intel-esx-epctn64e_1.43.13.0-800.20613240_24772066.zip
+  inflating: APPS/EPCT/ESXi_x64/license.pdf
+   creating: APPS/EPCT/FreeBSD32/
+  inflating: APPS/EPCT/FreeBSD32/epct32
+  inflating: APPS/EPCT/FreeBSD32/license.pdf
+   creating: APPS/EPCT/FreeBSDx64/
+  inflating: APPS/EPCT/FreeBSDx64/epct64e
+  inflating: APPS/EPCT/FreeBSDx64/license.pdf
+   creating: APPS/EPCT/Linux32/
+   creating: APPS/EPCT/Linux32/DRIVER/
+  inflating: APPS/EPCT/Linux32/DRIVER/install
+  inflating: APPS/EPCT/Linux32/DRIVER/iqvlinux-1.3.0.10-0.noarch.rpm
+  inflating: APPS/EPCT/Linux32/DRIVER/iqvlinux.tar.gz
+  inflating: APPS/EPCT/Linux32/DRIVER/license_gpl.txt
+  inflating: APPS/EPCT/Linux32/epct32
+  inflating: APPS/EPCT/Linux32/license.pdf
+   creating: APPS/EPCT/Linux_AArch64/
+  inflating: APPS/EPCT/Linux_AArch64/epctaarch64
+  inflating: APPS/EPCT/Linux_AArch64/license.pdf
+   creating: APPS/EPCT/Linux_x64/
+  inflating: APPS/EPCT/Linux_x64/epct64e
+  inflating: APPS/EPCT/Linux_x64/license.pdf
+   creating: APPS/EPCT/Winx64/
+  inflating: APPS/EPCT/Winx64/epctw64e.exe
+  inflating: APPS/EPCT/Winx64/install-uninstall-qv-tools.txt
+  inflating: APPS/EPCT/Winx64/install.bat
+  inflating: APPS/EPCT/Winx64/iqvsw64e.cat
+  inflating: APPS/EPCT/Winx64/iqvsw64e.inf
+  inflating: APPS/EPCT/Winx64/iqvsw64e.sys
+  inflating: APPS/EPCT/Winx64/license.pdf
+  inflating: APPS/EPCT/Winx64/uninstall.bat
+   creating: APPS/EthernetCmdlets/
+  inflating: APPS/EthernetCmdlets/Ethernet_Cmdlets.zip
+  inflating: APPS/EthernetCmdlets/readme.txt
+  inflating: APPS/EthernetCmdlets/Release_Notes.md
+   creating: APPS/intnetcli/
+   creating: APPS/intnetcli/ESXi8.0/
+  inflating: APPS/intnetcli/ESXi8.0/Intel-esx-intnetcli_8.0-1.16.1.0_24668387-package.zip
+  inflating: APPS/intnetcli/ESXi8.0/intnetcli-esx80-readme.txt
+   creating: APPS/PROSETDX/
+   creating: APPS/PROSETDX/Winx64/
+  inflating: APPS/PROSETDX/Winx64/DxSetup.exe
+   creating: APPS/PROSETDX/Winx64/Resource/
+  inflating: APPS/PROSETDX/Winx64/Resource/ANS.cab
+  inflating: APPS/PROSETDX/Winx64/Resource/DCB.cab
+  inflating: APPS/PROSETDX/Winx64/Resource/DMIX.cab
+   creating: APPS/PROSETDX/Winx64/Resource/DRIVERS/
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ansmw60e.inf
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/anspw60e.inf
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/DCBNTObj.dll
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/iansmsg.dll
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/iansw60e.cat
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/iANSW60e.sys
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ilp60x64.cat
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ilp60x64.inf
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ilp60x64.sys
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/indv2.cat
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/indv2.inf
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/indv2.sys
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/iqvsw64e.cat
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/iqvsw64e.inf
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/iqvsw64e.sys
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/irdma.dll
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/irdma_license.txt
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/irdmamsg.dll
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/irdmasvc.exe
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/iSCSDump.sys
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/LLDPMsg.dll
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/Ncs2Setp.dll
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/nicco5.dll
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/PRONtObj.dll
+   creating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ws2022/
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ws2022/indv2.cat
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ws2022/indv2.inf
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ws2022/indv2.sys
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ws2022/irdma.dll
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ws2022/irdma_license.txt
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ws2022/irdmamsg.dll
+  inflating: APPS/PROSETDX/Winx64/Resource/DRIVERS/ws2022/irdmasvc.exe
+  inflating: APPS/PROSETDX/Winx64/Resource/DxSetup.ini
+  inflating: APPS/PROSETDX/Winx64/Resource/Help.cab
+  inflating: APPS/PROSETDX/Winx64/Resource/InstallHelp.cab
+  inflating: APPS/PROSETDX/Winx64/Resource/iSCSI.cab
+  inflating: APPS/PROSETDX/Winx64/Resource/LR_DMIX.cab
+  inflating: APPS/PROSETDX/Winx64/Resource/OemVer.reg
+  inflating: APPS/PROSETDX/Winx64/Resource/perf.xml
+  inflating: APPS/PROSETDX/Winx64/Resource/PROSet.cab
+  inflating: APPS/PROSETDX/Winx64/Resource/PROSETDX.msi
+  inflating: APPS/PROSETDX/Winx64/Resource/PShellHelp.cab
+  inflating: APPS/PROSETDX/Winx64/Resource/RDMA.cab
+  inflating: APPS/PROSETDX/Winx64/Resource/setup.cab
+   creating: APPS/SETUP/
+   creating: APPS/SETUP/SETUPBD/
+   creating: APPS/SETUP/SETUPBD/Winx64/
+   creating: APPS/SETUP/SETUPBD/Winx64/Resource/
+  inflating: APPS/SETUP/SETUPBD/Winx64/Resource/PROUnstl.exe
+  inflating: APPS/SETUP/SETUPBD/Winx64/Resource/SetBDRes.dll
+  inflating: APPS/SETUP/SETUPBD/Winx64/Resource/SetupBD.din
+  inflating: APPS/SETUP/SETUPBD/Winx64/Resource/SetupBD.ini
+  inflating: APPS/SETUP/SETUPBD/Winx64/SetupBD.exe
+   creating: APPS/WMI/
+  inflating: APPS/WMI/Ncs2Cm.mof
+  inflating: APPS/WMI/Ncs2IBA.mof
+  inflating: APPS/WMI/Ncs2ICr.mof
+  inflating: APPS/WMI/Ncs2IDg.mof
+  inflating: APPS/WMI/Ncs2ITm.mof
+  inflating: APPS/WMI/Ncs2IVL.mof
+  inflating: APPS/WMI/SaveRestore.ps1
+   creating: DDP_Profiles/
+   creating: DDP_Profiles/710_Series/
+  inflating: DDP_Profiles/710_Series/ecpri.zip
+  inflating: DDP_Profiles/710_Series/esp-ah.zip
+  inflating: DDP_Profiles/710_Series/geneve-pctype.zip
+  inflating: DDP_Profiles/710_Series/gre-custom-proto_types.zip
+  inflating: DDP_Profiles/710_Series/gre_nokey.zip
+  inflating: DDP_Profiles/710_Series/gtp-ext.zip
+  inflating: DDP_Profiles/710_Series/gtp.zip
+  inflating: DDP_Profiles/710_Series/ipv4-mcast.zip
+  inflating: DDP_Profiles/710_Series/l2tpv3oip-l4.zip
+  inflating: DDP_Profiles/710_Series/mpls-pay.zip
+  inflating: DDP_Profiles/710_Series/mplsogreudp.zip
+  inflating: DDP_Profiles/710_Series/ppp-oe-ol2tpv2.zip
+  inflating: DDP_Profiles/710_Series/radiofh4g.zip
+   creating: DDP_Profiles/810_Series/
+  inflating: DDP_Profiles/810_Series/ice-1.3.43.0.zip
+  inflating: DDP_Profiles/810_Series/ice_comms-1.3.55.0.zip
+  inflating: DDP_Profiles/810_Series/ice_wireless_edge-1.3.23.0.zip
+   creating: DOCS/
+  inflating: DOCS/Adapter_User_Guide.pdf
+   creating: DOCS/QUICK/
+  inflating: DOCS/QUICK/chs.gif
+   creating: DOCS/QUICK/CHS/
+  inflating: DOCS/QUICK/CHS/legaldis.htm
+  inflating: DOCS/QUICK/CHS/license.htm
+  inflating: DOCS/QUICK/CHS/note.gif
+  inflating: DOCS/QUICK/CHS/qi_chs.htm
+  inflating: DOCS/QUICK/CHS/style.css
+  inflating: DOCS/QUICK/CHS/warranty.htm
+  inflating: DOCS/QUICK/cht.gif
+   creating: DOCS/QUICK/CHT/
+  inflating: DOCS/QUICK/CHT/legaldis.htm
+  inflating: DOCS/QUICK/CHT/license.htm
+  inflating: DOCS/QUICK/CHT/note.gif
+  inflating: DOCS/QUICK/CHT/qi_cht.htm
+  inflating: DOCS/QUICK/CHT/style.css
+  inflating: DOCS/QUICK/CHT/warranty.htm
+  inflating: DOCS/QUICK/deu.png
+   creating: DOCS/QUICK/DEU/
+  inflating: DOCS/QUICK/DEU/legaldis.htm
+  inflating: DOCS/QUICK/DEU/license.htm
+  inflating: DOCS/QUICK/DEU/note.gif
+  inflating: DOCS/QUICK/DEU/qi_deu.htm
+  inflating: DOCS/QUICK/DEU/style.css
+  inflating: DOCS/QUICK/DEU/warranty.htm
+  inflating: DOCS/QUICK/enu.png
+   creating: DOCS/QUICK/ENU/
+  inflating: DOCS/QUICK/ENU/legaldis.htm
+  inflating: DOCS/QUICK/ENU/license.htm
+  inflating: DOCS/QUICK/ENU/note.gif
+  inflating: DOCS/QUICK/ENU/qi_enu.htm
+  inflating: DOCS/QUICK/ENU/style.css
+  inflating: DOCS/QUICK/ENU/warranty.htm
+  inflating: DOCS/QUICK/esn.png
+   creating: DOCS/QUICK/ESN/
+  inflating: DOCS/QUICK/ESN/legaldis.htm
+  inflating: DOCS/QUICK/ESN/license.htm
+  inflating: DOCS/QUICK/ESN/note.gif
+  inflating: DOCS/QUICK/ESN/qi_esn.htm
+  inflating: DOCS/QUICK/ESN/style.css
+  inflating: DOCS/QUICK/ESN/warranty.htm
+  inflating: DOCS/QUICK/fra.png
+   creating: DOCS/QUICK/FRA/
+  inflating: DOCS/QUICK/FRA/legaldis.htm
+  inflating: DOCS/QUICK/FRA/license.htm
+  inflating: DOCS/QUICK/FRA/note.gif
+  inflating: DOCS/QUICK/FRA/qi_fra.htm
+  inflating: DOCS/QUICK/FRA/style.css
+  inflating: DOCS/QUICK/FRA/warranty.htm
+  inflating: DOCS/QUICK/ita.png
+   creating: DOCS/QUICK/ITA/
+  inflating: DOCS/QUICK/ITA/legaldis.htm
+  inflating: DOCS/QUICK/ITA/license.htm
+  inflating: DOCS/QUICK/ITA/note.gif
+  inflating: DOCS/QUICK/ITA/qi_ita.htm
+  inflating: DOCS/QUICK/ITA/style.css
+  inflating: DOCS/QUICK/ITA/warranty.htm
+  inflating: DOCS/QUICK/jpn.gif
+   creating: DOCS/QUICK/JPN/
+  inflating: DOCS/QUICK/JPN/legaldis.htm
+  inflating: DOCS/QUICK/JPN/license.htm
+  inflating: DOCS/QUICK/JPN/note.gif
+  inflating: DOCS/QUICK/JPN/qi_jpn.htm
+  inflating: DOCS/QUICK/JPN/style.css
+  inflating: DOCS/QUICK/JPN/warranty.htm
+  inflating: DOCS/QUICK/kor.gif
+   creating: DOCS/QUICK/KOR/
+  inflating: DOCS/QUICK/KOR/legaldis.htm
+  inflating: DOCS/QUICK/KOR/license.htm
+  inflating: DOCS/QUICK/KOR/note.gif
+  inflating: DOCS/QUICK/KOR/qi_kor.htm
+  inflating: DOCS/QUICK/KOR/style.css
+  inflating: DOCS/QUICK/KOR/warranty.htm
+  inflating: DOCS/QUICK/ptb.png
+   creating: DOCS/QUICK/PTB/
+  inflating: DOCS/QUICK/PTB/legaldis.htm
+  inflating: DOCS/QUICK/PTB/license.htm
+  inflating: DOCS/QUICK/PTB/note.gif
+  inflating: DOCS/QUICK/PTB/qi_ptb.htm
+  inflating: DOCS/QUICK/PTB/style.css
+  inflating: DOCS/QUICK/PTB/warranty.htm
+  inflating: DOCS/QUICK/quick.htm
+  inflating: DOCS/QUICK/style.css
+  inflating: legaldis.htm
+  inflating: license.htm
+  inflating: license.pdf
+  inflating: license.txt
+  inflating: license_notice.txt
+  inflating: note.gif
+   creating: NVMUpdatePackage/
+   creating: NVMUpdatePackage/700_Series/
+  inflating: NVMUpdatePackage/700_Series/700Series_NVMUpdatePackage_v9_54_EFI.zip
+  inflating: NVMUpdatePackage/700_Series/700Series_NVMUpdatePackage_v9_54_ESX.tar.gz
+  inflating: NVMUpdatePackage/700_Series/700Series_NVMUpdatePackage_v9_54_FreeBSD.tar.gz
+  inflating: NVMUpdatePackage/700_Series/700Series_NVMUpdatePackage_v9_54_Linux.tar.gz
+  inflating: NVMUpdatePackage/700_Series/700Series_NVMUpdatePackage_v9_54_Windows.zip
+   creating: NVMUpdatePackage/E610/
+  inflating: NVMUpdatePackage/E610/E610_NVMUpdatePackage_v1_21_EFI.zip
+  inflating: NVMUpdatePackage/E610/E610_NVMUpdatePackage_v1_21_ESX.tar.gz
+  inflating: NVMUpdatePackage/E610/E610_NVMUpdatePackage_v1_21_FreeBSD.tar.gz
+  inflating: NVMUpdatePackage/E610/E610_NVMUpdatePackage_v1_21_Linux.tar.gz
+  inflating: NVMUpdatePackage/E610/E610_NVMUpdatePackage_v1_21_Windows.zip
+   creating: NVMUpdatePackage/E810/
+  inflating: NVMUpdatePackage/E810/E810_NVMUpdatePackage_v4_80_EFI.zip
+  inflating: NVMUpdatePackage/E810/E810_NVMUpdatePackage_v4_80_ESX.tar.gz
+  inflating: NVMUpdatePackage/E810/E810_NVMUpdatePackage_v4_80_FreeBSD.tar.gz
+  inflating: NVMUpdatePackage/E810/E810_NVMUpdatePackage_v4_80_Linux.tar.gz
+  inflating: NVMUpdatePackage/E810/E810_NVMUpdatePackage_v4_80_Windows.zip
+  inflating: NVMUpdatePackage/E810/E810_NVMUpdatePackageAArch64_v4_80_EFI.zip
+  inflating: NVMUpdatePackage/E810/E810_NVMUpdatePackageAArch64_v4_80_Linux.tar.gz
+   creating: NVMUpdatePackage/E830/
+  inflating: NVMUpdatePackage/E830/E830_NVMUpdatePackage_v1_00_EFI.zip
+  inflating: NVMUpdatePackage/E830/E830_NVMUpdatePackage_v1_00_ESX.tar.gz
+  inflating: NVMUpdatePackage/E830/E830_NVMUpdatePackage_v1_00_FreeBSD.tar.gz
+  inflating: NVMUpdatePackage/E830/E830_NVMUpdatePackage_v1_00_Linux.tar.gz
+  inflating: NVMUpdatePackage/E830/E830_NVMUpdatePackage_v1_00_Windows.zip
+   creating: NVMUpdatePackage/I210/
+  inflating: NVMUpdatePackage/I210/I210_NVMUpdatePackage_v2_00_EFI.zip
+  inflating: NVMUpdatePackage/I210/I210_NVMUpdatePackage_v2_00_ESX.tar.gz
+  inflating: NVMUpdatePackage/I210/I210_NVMUpdatePackage_v2_00_FreeBSD.tar.gz
+  inflating: NVMUpdatePackage/I210/I210_NVMUpdatePackage_v2_00_Linux.tar.gz
+  inflating: NVMUpdatePackage/I210/I210_NVMUpdatePackage_v2_00_Windows.zip
+   creating: NVMUpdatePackage/I225/
+  inflating: NVMUpdatePackage/I225/I225_NVMUpdatePackage_v1_00_EFI.zip
+  inflating: NVMUpdatePackage/I225/I225_NVMUpdatePackage_v1_00_Linux.tar.gz
+  inflating: NVMUpdatePackage/I225/I225_NVMUpdatePackage_v1_00_Windows.zip
+   creating: NVMUpdatePackage/X550/
+  inflating: NVMUpdatePackage/X550/X550_NVMUpdatePackage_v3_70_EFI.zip
+  inflating: NVMUpdatePackage/X550/X550_NVMUpdatePackage_v3_70_ESX.tar.gz
+  inflating: NVMUpdatePackage/X550/X550_NVMUpdatePackage_v3_70_FreeBSD.tar.gz
+  inflating: NVMUpdatePackage/X550/X550_NVMUpdatePackage_v3_70_Linux.tar.gz
+  inflating: NVMUpdatePackage/X550/X550_NVMUpdatePackage_v3_70_Windows.zip
+   creating: PRO1000/
+   creating: PRO1000/LINUX/
+  inflating: PRO1000/LINUX/igb-5.19.3.tar.gz
+  inflating: PRO1000/LINUX/igb-kmp-5.19.3-1.sles15sp5.src.rpm
+  inflating: PRO1000/LINUX/igb-kmp-5.19.3-1.sles15sp6.src.rpm
+  inflating: PRO1000/LINUX/igb-kmp-default-5.19.3_k5.14.21_150500.53-1.sles15sp5.x86_64.rpm
+  inflating: PRO1000/LINUX/igb-kmp-default-5.19.3_k6.4.0_150600.21-1.sles15sp6.x86_64.rpm
+  inflating: PRO1000/LINUX/intel-public-key-igb-ko.rsa
+  inflating: PRO1000/LINUX/kmod-igb-5.19.3-1.rhel10u0.src.rpm
+  inflating: PRO1000/LINUX/kmod-igb-5.19.3-1.rhel10u0.x86_64.rpm
+  inflating: PRO1000/LINUX/kmod-igb-5.19.3-1.rhel9u5.src.rpm
+  inflating: PRO1000/LINUX/kmod-igb-5.19.3-1.rhel9u5.x86_64.rpm
+  inflating: PRO1000/LINUX/kmod-igb-5.19.3-1.rhel9u6.src.rpm
+  inflating: PRO1000/LINUX/kmod-igb-5.19.3-1.rhel9u6.x86_64.rpm
+  inflating: PRO1000/LINUX/license_gpl.txt
+  inflating: PRO1000/LINUX/readmefirst.txt
+   creating: PRO1000/Winx64/
+   creating: PRO1000/Winx64/NDIS65/
+  inflating: PRO1000/Winx64/NDIS65/e1c65x64.cat
+  inflating: PRO1000/Winx64/NDIS65/e1c65x64.din
+  inflating: PRO1000/Winx64/NDIS65/e1c65x64.inf
+  inflating: PRO1000/Winx64/NDIS65/e1c65x64.sys
+  inflating: PRO1000/Winx64/NDIS65/e1cmsg.dll
+  inflating: PRO1000/Winx64/NDIS65/e1d65x64.cat
+  inflating: PRO1000/Winx64/NDIS65/e1d65x64.din
+  inflating: PRO1000/Winx64/NDIS65/e1d65x64.inf
+  inflating: PRO1000/Winx64/NDIS65/e1d65x64.sys
+  inflating: PRO1000/Winx64/NDIS65/e1dmsg.dll
+  inflating: PRO1000/Winx64/NDIS65/e1r65x64.cat
+  inflating: PRO1000/Winx64/NDIS65/e1r65x64.din
+  inflating: PRO1000/Winx64/NDIS65/e1r65x64.inf
+  inflating: PRO1000/Winx64/NDIS65/e1r65x64.sys
+  inflating: PRO1000/Winx64/NDIS65/e1rmsg.dll
+  inflating: PRO1000/Winx64/NDIS65/nicco4.dll
+  inflating: PRO1000/Winx64/NDIS65/nicco5.dll
+  inflating: PRO1000/Winx64/NDIS65/NicInE1R.dll
+  inflating: PRO1000/Winx64/NDIS65/NicInstC.dll
+  inflating: PRO1000/Winx64/NDIS65/NicInstD.dll
+  inflating: PRO1000/Winx64/NDIS65/NicInVQ.dll
+  inflating: PRO1000/Winx64/NDIS65/PROUnstl.exe
+  inflating: PRO1000/Winx64/NDIS65/readme.txt
+  inflating: PRO1000/Winx64/NDIS65/v1q65x64.cat
+  inflating: PRO1000/Winx64/NDIS65/v1q65x64.din
+  inflating: PRO1000/Winx64/NDIS65/v1q65x64.inf
+  inflating: PRO1000/Winx64/NDIS65/v1q65x64.sys
+  inflating: PRO1000/Winx64/NDIS65/v1qmsg.dll
+   creating: PRO1000/Winx64/NDIS68/
+  inflating: PRO1000/Winx64/NDIS68/e1d.cat
+  inflating: PRO1000/Winx64/NDIS68/e1d.inf
+  inflating: PRO1000/Winx64/NDIS68/e1d.sys
+  inflating: PRO1000/Winx64/NDIS68/e1dmsg.dll
+  inflating: PRO1000/Winx64/NDIS68/e1r68x64.cat
+  inflating: PRO1000/Winx64/NDIS68/e1r68x64.din
+  inflating: PRO1000/Winx64/NDIS68/e1r68x64.inf
+  inflating: PRO1000/Winx64/NDIS68/e1r68x64.sys
+  inflating: PRO1000/Winx64/NDIS68/e1rmsg.dll
+  inflating: PRO1000/Winx64/NDIS68/readme.txt
+  inflating: PRO1000/Winx64/NDIS68/v1q68x64.cat
+  inflating: PRO1000/Winx64/NDIS68/v1q68x64.din
+  inflating: PRO1000/Winx64/NDIS68/v1q68x64.inf
+  inflating: PRO1000/Winx64/NDIS68/v1q68x64.sys
+  inflating: PRO1000/Winx64/NDIS68/v1qmsg.dll
+   creating: PRO1000/Winx64/W11/
+  inflating: PRO1000/Winx64/W11/e1d.cat
+  inflating: PRO1000/Winx64/W11/e1d.inf
+  inflating: PRO1000/Winx64/W11/e1d.sys
+  inflating: PRO1000/Winx64/W11/e1dmsg.dll
+  inflating: PRO1000/Winx64/W11/e1dn.cat
+  inflating: PRO1000/Winx64/W11/e1dn.inf
+  inflating: PRO1000/Winx64/W11/e1dn.sys
+  inflating: PRO1000/Winx64/W11/e1dnmsg.dll
+  inflating: PRO1000/Winx64/W11/e1r.cat
+  inflating: PRO1000/Winx64/W11/e1r.inf
+  inflating: PRO1000/Winx64/W11/e1r.sys
+  inflating: PRO1000/Winx64/W11/e1rmsg.dll
+  inflating: PRO1000/Winx64/W11/readme.txt
+   creating: PRO1000/Winx64/WS2022/
+  inflating: PRO1000/Winx64/WS2022/e1d.cat
+  inflating: PRO1000/Winx64/WS2022/e1d.inf
+  inflating: PRO1000/Winx64/WS2022/e1d.sys
+  inflating: PRO1000/Winx64/WS2022/e1dmsg.dll
+  inflating: PRO1000/Winx64/WS2022/e1r.cat
+  inflating: PRO1000/Winx64/WS2022/e1r.inf
+  inflating: PRO1000/Winx64/WS2022/e1r.sys
+  inflating: PRO1000/Winx64/WS2022/e1rmsg.dll
+  inflating: PRO1000/Winx64/WS2022/readme.txt
+   creating: PRO1000/Winx64/WS2025/
+  inflating: PRO1000/Winx64/WS2025/e1d.cat
+  inflating: PRO1000/Winx64/WS2025/e1d.inf
+  inflating: PRO1000/Winx64/WS2025/e1d.sys
+  inflating: PRO1000/Winx64/WS2025/e1dmsg.dll
+  inflating: PRO1000/Winx64/WS2025/e1dn.cat
+  inflating: PRO1000/Winx64/WS2025/e1dn.inf
+  inflating: PRO1000/Winx64/WS2025/e1dn.sys
+  inflating: PRO1000/Winx64/WS2025/e1dnmsg.dll
+  inflating: PRO1000/Winx64/WS2025/e1r.cat
+  inflating: PRO1000/Winx64/WS2025/e1r.inf
+  inflating: PRO1000/Winx64/WS2025/e1r.sys
+  inflating: PRO1000/Winx64/WS2025/e1rmsg.dll
+  inflating: PRO1000/Winx64/WS2025/readme.txt
+   creating: PRO2500/
+   creating: PRO2500/Winx64/
+   creating: PRO2500/Winx64/NDIS68/
+  inflating: PRO2500/Winx64/NDIS68/e2f.cat
+  inflating: PRO2500/Winx64/NDIS68/e2f.inf
+  inflating: PRO2500/Winx64/NDIS68/e2f.sys
+  inflating: PRO2500/Winx64/NDIS68/e2fmsg.dll
+  inflating: PRO2500/Winx64/NDIS68/readme.txt
+   creating: PRO2500/Winx64/W11/
+  inflating: PRO2500/Winx64/W11/e2fn.cat
+  inflating: PRO2500/Winx64/W11/e2fn.inf
+  inflating: PRO2500/Winx64/W11/e2fn.sys
+  inflating: PRO2500/Winx64/W11/e2fnmsg.dll
+  inflating: PRO2500/Winx64/W11/readme.txt
+   creating: PRO2500/Winx64/WS2022/
+  inflating: PRO2500/Winx64/WS2022/e2f.cat
+  inflating: PRO2500/Winx64/WS2022/e2f.inf
+  inflating: PRO2500/Winx64/WS2022/e2f.sys
+  inflating: PRO2500/Winx64/WS2022/e2fmsg.dll
+  inflating: PRO2500/Winx64/WS2022/readme.txt
+   creating: PRO2500/Winx64/WS2025/
+  inflating: PRO2500/Winx64/WS2025/e2fn.cat
+  inflating: PRO2500/Winx64/WS2025/e2fn.inf
+  inflating: PRO2500/Winx64/WS2025/e2fn.sys
+  inflating: PRO2500/Winx64/WS2025/e2fnmsg.dll
+  inflating: PRO2500/Winx64/WS2025/readme.txt
+   creating: PRO40GB/
+   creating: PRO40GB/Linux/
+  inflating: PRO40GB/Linux/i40e-2.28.7.tar.gz
+  inflating: PRO40GB/Linux/i40e-kmp-2.28.7-1.sles15sp5.src.rpm
+  inflating: PRO40GB/Linux/i40e-kmp-2.28.7-1.sles15sp6.src.rpm
+  inflating: PRO40GB/Linux/i40e-kmp-default-2.28.7_k5.14.21_150500.53-1.sles15sp5.x86_64.rpm
+  inflating: PRO40GB/Linux/i40e-kmp-default-2.28.7_k6.4.0_150600.21-1.sles15sp6.x86_64.rpm
+  inflating: PRO40GB/Linux/intel-public-key-i40e-ko.rsa
+  inflating: PRO40GB/Linux/kmod-i40e-2.28.7-1.rhel10u0.src.rpm
+  inflating: PRO40GB/Linux/kmod-i40e-2.28.7-1.rhel10u0.x86_64.rpm
+  inflating: PRO40GB/Linux/kmod-i40e-2.28.7-1.rhel9u5.src.rpm
+  inflating: PRO40GB/Linux/kmod-i40e-2.28.7-1.rhel9u5.x86_64.rpm
+  inflating: PRO40GB/Linux/kmod-i40e-2.28.7-1.rhel9u6.src.rpm
+  inflating: PRO40GB/Linux/kmod-i40e-2.28.7-1.rhel9u6.x86_64.rpm
+  inflating: PRO40GB/Linux/license_gpl.txt
+  inflating: PRO40GB/Linux/readmefirst.txt
+   creating: PRO40GB/Winx64/
+   creating: PRO40GB/Winx64/NDIS65/
+  inflating: PRO40GB/Winx64/NDIS65/i40ea65.cat
+  inflating: PRO40GB/Winx64/NDIS65/i40ea65.din
+  inflating: PRO40GB/Winx64/NDIS65/i40ea65.inf
+  inflating: PRO40GB/Winx64/NDIS65/i40ea65.sys
+  inflating: PRO40GB/Winx64/NDIS65/i40eamsg.dll
+  inflating: PRO40GB/Winx64/NDIS65/i40eb65.cat
+  inflating: PRO40GB/Winx64/NDIS65/i40eb65.din
+  inflating: PRO40GB/Winx64/NDIS65/i40eb65.inf
+  inflating: PRO40GB/Winx64/NDIS65/i40eb65.sys
+  inflating: PRO40GB/Winx64/NDIS65/i40ebmsg.dll
+  inflating: PRO40GB/Winx64/NDIS65/nicco5.dll
+  inflating: PRO40GB/Winx64/NDIS65/NicIn40B.dll
+  inflating: PRO40GB/Winx64/NDIS65/NicInI40.dll
+  inflating: PRO40GB/Winx64/NDIS65/PROUnstl.exe
+  inflating: PRO40GB/Winx64/NDIS65/readme.txt
+   creating: PRO40GB/Winx64/NDIS68/
+  inflating: PRO40GB/Winx64/NDIS68/i40ea68.cat
+  inflating: PRO40GB/Winx64/NDIS68/i40ea68.din
+  inflating: PRO40GB/Winx64/NDIS68/i40ea68.inf
+  inflating: PRO40GB/Winx64/NDIS68/i40ea68.sys
+  inflating: PRO40GB/Winx64/NDIS68/i40eamsg.dll
+  inflating: PRO40GB/Winx64/NDIS68/i40eb68.cat
+  inflating: PRO40GB/Winx64/NDIS68/i40eb68.din
+  inflating: PRO40GB/Winx64/NDIS68/i40eb68.inf
+  inflating: PRO40GB/Winx64/NDIS68/i40eb68.sys
+  inflating: PRO40GB/Winx64/NDIS68/i40ebmsg.dll
+  inflating: PRO40GB/Winx64/NDIS68/readme.txt
+   creating: PRO40GB/Winx64/W11/
+  inflating: PRO40GB/Winx64/W11/i40ea.cat
+  inflating: PRO40GB/Winx64/W11/i40ea.inf
+  inflating: PRO40GB/Winx64/W11/i40ea.sys
+  inflating: PRO40GB/Winx64/W11/i40eamsg.dll
+  inflating: PRO40GB/Winx64/W11/i40eb.cat
+  inflating: PRO40GB/Winx64/W11/i40eb.inf
+  inflating: PRO40GB/Winx64/W11/i40eb.sys
+  inflating: PRO40GB/Winx64/W11/i40ebmsg.dll
+  inflating: PRO40GB/Winx64/W11/readme.txt
+   creating: PRO40GB/Winx64/WS2022/
+  inflating: PRO40GB/Winx64/WS2022/i40ea.cat
+  inflating: PRO40GB/Winx64/WS2022/i40ea.inf
+  inflating: PRO40GB/Winx64/WS2022/i40ea.sys
+  inflating: PRO40GB/Winx64/WS2022/i40eamsg.dll
+  inflating: PRO40GB/Winx64/WS2022/i40eb.cat
+  inflating: PRO40GB/Winx64/WS2022/i40eb.inf
+  inflating: PRO40GB/Winx64/WS2022/i40eb.sys
+  inflating: PRO40GB/Winx64/WS2022/i40ebmsg.dll
+  inflating: PRO40GB/Winx64/WS2022/readme.txt
+   creating: PRO40GB/Winx64/WS2025/
+  inflating: PRO40GB/Winx64/WS2025/i40ea.cat
+  inflating: PRO40GB/Winx64/WS2025/i40ea.inf
+  inflating: PRO40GB/Winx64/WS2025/i40ea.sys
+  inflating: PRO40GB/Winx64/WS2025/i40eamsg.dll
+  inflating: PRO40GB/Winx64/WS2025/i40eb.cat
+  inflating: PRO40GB/Winx64/WS2025/i40eb.inf
+  inflating: PRO40GB/Winx64/WS2025/i40eb.sys
+  inflating: PRO40GB/Winx64/WS2025/i40ebmsg.dll
+  inflating: PRO40GB/Winx64/WS2025/readme.txt
+   creating: PROAVF/
+   creating: PROAVF/FreeBSD/
+  inflating: PROAVF/FreeBSD/iavf-3.1.3.tar.gz
+  inflating: PROAVF/FreeBSD/license_bsd.txt
+  inflating: PROAVF/FreeBSD/readmefirst.txt
+   creating: PROAVF/Linux/
+  inflating: PROAVF/Linux/iavf-4.13.15.tar.gz
+  inflating: PROAVF/Linux/iavf-kmp-4.13.15-1.sles15sp5.src.rpm
+  inflating: PROAVF/Linux/iavf-kmp-4.13.15-1.sles15sp6.src.rpm
+  inflating: PROAVF/Linux/iavf-kmp-default-4.13.15_k5.14.21_150500.53-1.sles15sp5.x86_64.rpm
+  inflating: PROAVF/Linux/iavf-kmp-default-4.13.15_k6.4.0_150600.21-1.sles15sp6.x86_64.rpm
+  inflating: PROAVF/Linux/intel-public-key-iavf-ko.rsa
+  inflating: PROAVF/Linux/kmod-iavf-4.13.15-1.rhel10u0.src.rpm
+  inflating: PROAVF/Linux/kmod-iavf-4.13.15-1.rhel10u0.x86_64.rpm
+  inflating: PROAVF/Linux/kmod-iavf-4.13.15-1.rhel9u5.src.rpm
+  inflating: PROAVF/Linux/kmod-iavf-4.13.15-1.rhel9u5.x86_64.rpm
+  inflating: PROAVF/Linux/kmod-iavf-4.13.15-1.rhel9u6.src.rpm
+  inflating: PROAVF/Linux/kmod-iavf-4.13.15-1.rhel9u6.x86_64.rpm
+  inflating: PROAVF/Linux/license_gpl.txt
+  inflating: PROAVF/Linux/readmefirst.txt
+   creating: PROAVF/Winx64/
+   creating: PROAVF/Winx64/NDIS65/
+  inflating: PROAVF/Winx64/NDIS65/iavf65.cat
+  inflating: PROAVF/Winx64/NDIS65/iavf65.din
+  inflating: PROAVF/Winx64/NDIS65/iavf65.inf
+  inflating: PROAVF/Winx64/NDIS65/iavf65.sys
+  inflating: PROAVF/Winx64/NDIS65/iavfmsg.dll
+  inflating: PROAVF/Winx64/NDIS65/nicco5.dll
+  inflating: PROAVF/Winx64/NDIS65/nicinavf.dll
+  inflating: PROAVF/Winx64/NDIS65/PROUnstl.exe
+  inflating: PROAVF/Winx64/NDIS65/readme.txt
+   creating: PROAVF/Winx64/NDIS68/
+  inflating: PROAVF/Winx64/NDIS68/iavf68.cat
+  inflating: PROAVF/Winx64/NDIS68/iavf68.din
+  inflating: PROAVF/Winx64/NDIS68/iavf68.inf
+  inflating: PROAVF/Winx64/NDIS68/iavf68.sys
+  inflating: PROAVF/Winx64/NDIS68/iavfmsg.dll
+  inflating: PROAVF/Winx64/NDIS68/manifest_iavf68.man
+  inflating: PROAVF/Winx64/NDIS68/readme.txt
+   creating: PROAVF/Winx64/WS2022/
+  inflating: PROAVF/Winx64/WS2022/iavf.cat
+  inflating: PROAVF/Winx64/WS2022/iavf.inf
+  inflating: PROAVF/Winx64/WS2022/iavf.sys
+  inflating: PROAVF/Winx64/WS2022/iavfmsg.dll
+  inflating: PROAVF/Winx64/WS2022/manifest_iavf.man
+  inflating: PROAVF/Winx64/WS2022/readme.txt
+   creating: PROAVF/Winx64/WS2025/
+  inflating: PROAVF/Winx64/WS2025/iavf.cat
+  inflating: PROAVF/Winx64/WS2025/iavf.inf
+  inflating: PROAVF/Winx64/WS2025/iavf.sys
+  inflating: PROAVF/Winx64/WS2025/iavfmsg.dll
+  inflating: PROAVF/Winx64/WS2025/manifest_iavf.man
+  inflating: PROAVF/Winx64/WS2025/readme.txt
+   creating: PROCGB/
+   creating: PROCGB/FreeBSD/
+  inflating: PROCGB/FreeBSD/ice-2.0.1.tar.gz
+  inflating: PROCGB/FreeBSD/license_bsd.txt
+  inflating: PROCGB/FreeBSD/readmefirst.txt
+   creating: PROCGB/Linux/
+  inflating: PROCGB/Linux/ice-2.2.8.tar.gz
+  inflating: PROCGB/Linux/ice-kmp-2.2.8-1.sles15sp5.src.rpm
+  inflating: PROCGB/Linux/ice-kmp-2.2.8-1.sles15sp6.src.rpm
+  inflating: PROCGB/Linux/ice-kmp-default-2.2.8_k5.14.21_150500.53-1.sles15sp5.x86_64.rpm
+  inflating: PROCGB/Linux/ice-kmp-default-2.2.8_k6.4.0_150600.21-1.sles15sp6.x86_64.rpm
+  inflating: PROCGB/Linux/intel-public-key-ice-ko.rsa
+  inflating: PROCGB/Linux/kmod-ice-2.2.8-1.rhel10u0.src.rpm
+  inflating: PROCGB/Linux/kmod-ice-2.2.8-1.rhel10u0.x86_64.rpm
+  inflating: PROCGB/Linux/kmod-ice-2.2.8-1.rhel9u5.src.rpm
+  inflating: PROCGB/Linux/kmod-ice-2.2.8-1.rhel9u5.x86_64.rpm
+  inflating: PROCGB/Linux/kmod-ice-2.2.8-1.rhel9u6.src.rpm
+  inflating: PROCGB/Linux/kmod-ice-2.2.8-1.rhel9u6.x86_64.rpm
+  inflating: PROCGB/Linux/license_gpl.txt
+  inflating: PROCGB/Linux/readmefirst.txt
+   creating: PROCGB/Winx64/
+   creating: PROCGB/Winx64/NDIS65/
+  inflating: PROCGB/Winx64/NDIS65/icea65.cat
+  inflating: PROCGB/Winx64/NDIS65/icea65.din
+  inflating: PROCGB/Winx64/NDIS65/icea65.inf
+  inflating: PROCGB/Winx64/NDIS65/icea65.sys
+  inflating: PROCGB/Winx64/NDIS65/iceamsg.dll
+  inflating: PROCGB/Winx64/NDIS65/manifest_icea65.man
+  inflating: PROCGB/Winx64/NDIS65/nicco5.dll
+  inflating: PROCGB/Winx64/NDIS65/nicinicea.dll
+  inflating: PROCGB/Winx64/NDIS65/PROUnstl.exe
+  inflating: PROCGB/Winx64/NDIS65/readme.txt
+   creating: PROCGB/Winx64/NDIS68/
+  inflating: PROCGB/Winx64/NDIS68/icea68.cat
+  inflating: PROCGB/Winx64/NDIS68/icea68.din
+  inflating: PROCGB/Winx64/NDIS68/icea68.inf
+  inflating: PROCGB/Winx64/NDIS68/icea68.sys
+  inflating: PROCGB/Winx64/NDIS68/iceamsg.dll
+  inflating: PROCGB/Winx64/NDIS68/iceb68.cat
+  inflating: PROCGB/Winx64/NDIS68/iceb68.din
+  inflating: PROCGB/Winx64/NDIS68/iceb68.inf
+  inflating: PROCGB/Winx64/NDIS68/iceb68.sys
+  inflating: PROCGB/Winx64/NDIS68/icebmsg.dll
+  inflating: PROCGB/Winx64/NDIS68/manifest_icea68.man
+  inflating: PROCGB/Winx64/NDIS68/manifest_iceb68.man
+  inflating: PROCGB/Winx64/NDIS68/readme.txt
+  inflating: PROCGB/Winx64/NDIS68/scea68.cat
+  inflating: PROCGB/Winx64/NDIS68/scea68.din
+  inflating: PROCGB/Winx64/NDIS68/scea68.inf
+  inflating: PROCGB/Winx64/NDIS68/scea68.sys
+  inflating: PROCGB/Winx64/NDIS68/sceamsg.dll
+   creating: PROCGB/Winx64/W11/
+  inflating: PROCGB/Winx64/W11/icea.cat
+  inflating: PROCGB/Winx64/W11/icea.inf
+  inflating: PROCGB/Winx64/W11/icea.sys
+  inflating: PROCGB/Winx64/W11/iceamsg.dll
+  inflating: PROCGB/Winx64/W11/manifest_icea.man
+  inflating: PROCGB/Winx64/W11/readme.txt
+   creating: PROCGB/Winx64/WS2022/
+  inflating: PROCGB/Winx64/WS2022/icea.cat
+  inflating: PROCGB/Winx64/WS2022/icea.inf
+  inflating: PROCGB/Winx64/WS2022/icea.sys
+  inflating: PROCGB/Winx64/WS2022/iceamsg.dll
+  inflating: PROCGB/Winx64/WS2022/iceb.cat
+  inflating: PROCGB/Winx64/WS2022/iceb.inf
+  inflating: PROCGB/Winx64/WS2022/iceb.sys
+  inflating: PROCGB/Winx64/WS2022/icebmsg.dll
+  inflating: PROCGB/Winx64/WS2022/manifest_icea.man
+  inflating: PROCGB/Winx64/WS2022/manifest_iceb.man
+  inflating: PROCGB/Winx64/WS2022/readme.txt
+  inflating: PROCGB/Winx64/WS2022/scea.cat
+  inflating: PROCGB/Winx64/WS2022/scea.inf
+  inflating: PROCGB/Winx64/WS2022/scea.sys
+  inflating: PROCGB/Winx64/WS2022/sceamsg.dll
+  inflating: PROCGB/Winx64/WS2022/sceb.cat
+  inflating: PROCGB/Winx64/WS2022/sceb.inf
+  inflating: PROCGB/Winx64/WS2022/sceb.sys
+  inflating: PROCGB/Winx64/WS2022/scebmsg.dll
+   creating: PROCGB/Winx64/WS2025/
+  inflating: PROCGB/Winx64/WS2025/icea.cat
+  inflating: PROCGB/Winx64/WS2025/icea.inf
+  inflating: PROCGB/Winx64/WS2025/icea.sys
+  inflating: PROCGB/Winx64/WS2025/iceamsg.dll
+  inflating: PROCGB/Winx64/WS2025/iceb.cat
+  inflating: PROCGB/Winx64/WS2025/iceb.inf
+  inflating: PROCGB/Winx64/WS2025/iceb.sys
+  inflating: PROCGB/Winx64/WS2025/icebmsg.dll
+  inflating: PROCGB/Winx64/WS2025/manifest_icea.man
+  inflating: PROCGB/Winx64/WS2025/manifest_iceb.man
+  inflating: PROCGB/Winx64/WS2025/readme.txt
+  inflating: PROCGB/Winx64/WS2025/scea.cat
+  inflating: PROCGB/Winx64/WS2025/scea.inf
+  inflating: PROCGB/Winx64/WS2025/scea.sys
+  inflating: PROCGB/Winx64/WS2025/sceamsg.dll
+  inflating: PROCGB/Winx64/WS2025/sceb.cat
+  inflating: PROCGB/Winx64/WS2025/sceb.inf
+  inflating: PROCGB/Winx64/WS2025/sceb.sys
+  inflating: PROCGB/Winx64/WS2025/scebmsg.dll
+   creating: PROXGB/
+   creating: PROXGB/FreeBSD/
+  inflating: PROXGB/FreeBSD/ix-3.4.29.tar.gz
+  inflating: PROXGB/FreeBSD/ixv-1.6.9.tar.gz
+  inflating: PROXGB/FreeBSD/license_bsd.txt
+  inflating: PROXGB/FreeBSD/readmefirst.txt
+   creating: PROXGB/LINUX/
+  inflating: PROXGB/LINUX/intel-public-key-ixgbe-ko.rsa
+  inflating: PROXGB/LINUX/intel-public-key-ixgbevf-ko.rsa
+  inflating: PROXGB/LINUX/ixgbe-6.1.5.tar.gz
+  inflating: PROXGB/LINUX/ixgbe-kmp-6.1.5-1.sles15sp5.src.rpm
+  inflating: PROXGB/LINUX/ixgbe-kmp-6.1.5-1.sles15sp6.src.rpm
+  inflating: PROXGB/LINUX/ixgbe-kmp-default-6.1.5_k5.14.21_150500.53-1.sles15sp5.x86_64.rpm
+  inflating: PROXGB/LINUX/ixgbe-kmp-default-6.1.5_k6.4.0_150600.21-1.sles15sp6.x86_64.rpm
+  inflating: PROXGB/LINUX/ixgbevf-5.1.4.tar.gz
+  inflating: PROXGB/LINUX/ixgbevf-kmp-5.1.4-1.sles15sp5.src.rpm
+  inflating: PROXGB/LINUX/ixgbevf-kmp-5.1.4-1.sles15sp6.src.rpm
+  inflating: PROXGB/LINUX/ixgbevf-kmp-default-5.1.4_k5.14.21_150500.53-1.sles15sp5.x86_64.rpm
+  inflating: PROXGB/LINUX/ixgbevf-kmp-default-5.1.4_k6.4.0_150600.21-1.sles15sp6.x86_64.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbe-6.1.5-1.rhel10u0.src.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbe-6.1.5-1.rhel10u0.x86_64.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbe-6.1.5-1.rhel9u5.src.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbe-6.1.5-1.rhel9u5.x86_64.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbe-6.1.5-1.rhel9u6.src.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbe-6.1.5-1.rhel9u6.x86_64.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbevf-5.1.4-1.rhel10u0.src.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbevf-5.1.4-1.rhel10u0.x86_64.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbevf-5.1.4-1.rhel9u5.src.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbevf-5.1.4-1.rhel9u5.x86_64.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbevf-5.1.4-1.rhel9u6.src.rpm
+  inflating: PROXGB/LINUX/kmod-ixgbevf-5.1.4-1.rhel9u6.x86_64.rpm
+  inflating: PROXGB/LINUX/license_gpl.txt
+  inflating: PROXGB/LINUX/readmefirst.txt
+   creating: PROXGB/Winx64/
+   creating: PROXGB/Winx64/NDIS65/
+  inflating: PROXGB/Winx64/NDIS65/ixn65x64.cat
+  inflating: PROXGB/Winx64/NDIS65/ixn65x64.din
+  inflating: PROXGB/Winx64/NDIS65/ixn65x64.inf
+  inflating: PROXGB/Winx64/NDIS65/ixn65x64.sys
+  inflating: PROXGB/Winx64/NDIS65/ixnmsg.dll
+  inflating: PROXGB/Winx64/NDIS65/ixs65x64.cat
+  inflating: PROXGB/Winx64/NDIS65/ixs65x64.din
+  inflating: PROXGB/Winx64/NDIS65/ixs65x64.inf
+  inflating: PROXGB/Winx64/NDIS65/ixs65x64.sys
+  inflating: PROXGB/Winx64/NDIS65/ixsmsg.dll
+  inflating: PROXGB/Winx64/NDIS65/ixt65x64.cat
+  inflating: PROXGB/Winx64/NDIS65/ixt65x64.din
+  inflating: PROXGB/Winx64/NDIS65/ixt65x64.inf
+  inflating: PROXGB/Winx64/NDIS65/ixt65x64.sys
+  inflating: PROXGB/Winx64/NDIS65/ixtmsg.dll
+  inflating: PROXGB/Winx64/NDIS65/nicco5.dll
+  inflating: PROXGB/Winx64/NDIS65/NicInIXN.dll
+  inflating: PROXGB/Winx64/NDIS65/NicInIXS.dll
+  inflating: PROXGB/Winx64/NDIS65/NicInIXT.dll
+  inflating: PROXGB/Winx64/NDIS65/NicInSXA.dll
+  inflating: PROXGB/Winx64/NDIS65/NicInSXB.dll
+  inflating: PROXGB/Winx64/NDIS65/NicInVXN.dll
+  inflating: PROXGB/Winx64/NDIS65/NicInVXS.dll
+  inflating: PROXGB/Winx64/NDIS65/PROUnstl.exe
+  inflating: PROXGB/Winx64/NDIS65/readme.txt
+  inflating: PROXGB/Winx64/NDIS65/sxa65x64.cat
+  inflating: PROXGB/Winx64/NDIS65/sxa65x64.din
+  inflating: PROXGB/Winx64/NDIS65/sxa65x64.inf
+  inflating: PROXGB/Winx64/NDIS65/sxa65x64.sys
+  inflating: PROXGB/Winx64/NDIS65/sxamsg.dll
+  inflating: PROXGB/Winx64/NDIS65/sxb65x64.cat
+  inflating: PROXGB/Winx64/NDIS65/sxb65x64.din
+  inflating: PROXGB/Winx64/NDIS65/sxb65x64.inf
+  inflating: PROXGB/Winx64/NDIS65/sxb65x64.sys
+  inflating: PROXGB/Winx64/NDIS65/sxbmsg.dll
+  inflating: PROXGB/Winx64/NDIS65/vxn65x64.cat
+  inflating: PROXGB/Winx64/NDIS65/vxn65x64.din
+  inflating: PROXGB/Winx64/NDIS65/vxn65x64.inf
+  inflating: PROXGB/Winx64/NDIS65/vxn65x64.sys
+  inflating: PROXGB/Winx64/NDIS65/vxnmsg.dll
+  inflating: PROXGB/Winx64/NDIS65/vxs65x64.cat
+  inflating: PROXGB/Winx64/NDIS65/vxs65x64.din
+  inflating: PROXGB/Winx64/NDIS65/vxs65x64.inf
+  inflating: PROXGB/Winx64/NDIS65/vxs65x64.sys
+  inflating: PROXGB/Winx64/NDIS65/vxsmsg.dll
+   creating: PROXGB/Winx64/NDIS68/
+  inflating: PROXGB/Winx64/NDIS68/ixn68x64.cat
+  inflating: PROXGB/Winx64/NDIS68/ixn68x64.din
+  inflating: PROXGB/Winx64/NDIS68/ixn68x64.inf
+  inflating: PROXGB/Winx64/NDIS68/ixn68x64.sys
+  inflating: PROXGB/Winx64/NDIS68/ixnmsg.dll
+  inflating: PROXGB/Winx64/NDIS68/ixs68x64.cat
+  inflating: PROXGB/Winx64/NDIS68/ixs68x64.din
+  inflating: PROXGB/Winx64/NDIS68/ixs68x64.inf
+  inflating: PROXGB/Winx64/NDIS68/ixs68x64.sys
+  inflating: PROXGB/Winx64/NDIS68/ixsmsg.dll
+  inflating: PROXGB/Winx64/NDIS68/ixt68x64.cat
+  inflating: PROXGB/Winx64/NDIS68/ixt68x64.din
+  inflating: PROXGB/Winx64/NDIS68/ixt68x64.inf
+  inflating: PROXGB/Winx64/NDIS68/ixt68x64.sys
+  inflating: PROXGB/Winx64/NDIS68/ixtmsg.dll
+  inflating: PROXGB/Winx64/NDIS68/readme.txt
+  inflating: PROXGB/Winx64/NDIS68/sxa68x64.cat
+  inflating: PROXGB/Winx64/NDIS68/sxa68x64.din
+  inflating: PROXGB/Winx64/NDIS68/sxa68x64.inf
+  inflating: PROXGB/Winx64/NDIS68/sxa68x64.sys
+  inflating: PROXGB/Winx64/NDIS68/sxamsg.dll
+  inflating: PROXGB/Winx64/NDIS68/sxb68x64.cat
+  inflating: PROXGB/Winx64/NDIS68/sxb68x64.din
+  inflating: PROXGB/Winx64/NDIS68/sxb68x64.inf
+  inflating: PROXGB/Winx64/NDIS68/sxb68x64.sys
+  inflating: PROXGB/Winx64/NDIS68/sxbmsg.dll
+  inflating: PROXGB/Winx64/NDIS68/vxn68x64.cat
+  inflating: PROXGB/Winx64/NDIS68/vxn68x64.din
+  inflating: PROXGB/Winx64/NDIS68/vxn68x64.inf
+  inflating: PROXGB/Winx64/NDIS68/vxn68x64.sys
+  inflating: PROXGB/Winx64/NDIS68/vxnmsg.dll
+  inflating: PROXGB/Winx64/NDIS68/vxs68x64.cat
+  inflating: PROXGB/Winx64/NDIS68/vxs68x64.din
+  inflating: PROXGB/Winx64/NDIS68/vxs68x64.inf
+  inflating: PROXGB/Winx64/NDIS68/vxs68x64.sys
+  inflating: PROXGB/Winx64/NDIS68/vxsmsg.dll
+   creating: PROXGB/Winx64/W11/
+  inflating: PROXGB/Winx64/W11/ixs.cat
+  inflating: PROXGB/Winx64/W11/ixs.inf
+  inflating: PROXGB/Winx64/W11/ixs.sys
+  inflating: PROXGB/Winx64/W11/ixsmsg.dll
+  inflating: PROXGB/Winx64/W11/ixw.cat
+  inflating: PROXGB/Winx64/W11/ixw.inf
+  inflating: PROXGB/Winx64/W11/ixw.sys
+  inflating: PROXGB/Winx64/W11/ixwmsg.dll
+  inflating: PROXGB/Winx64/W11/readme.txt
+   creating: PROXGB/Winx64/WS2022/
+  inflating: PROXGB/Winx64/WS2022/ixs.cat
+  inflating: PROXGB/Winx64/WS2022/ixs.inf
+  inflating: PROXGB/Winx64/WS2022/ixs.sys
+  inflating: PROXGB/Winx64/WS2022/ixsmsg.dll
+  inflating: PROXGB/Winx64/WS2022/ixw.cat
+  inflating: PROXGB/Winx64/WS2022/ixw.inf
+  inflating: PROXGB/Winx64/WS2022/ixw.sys
+  inflating: PROXGB/Winx64/WS2022/ixwmsg.dll
+  inflating: PROXGB/Winx64/WS2022/readme.txt
+  inflating: PROXGB/Winx64/WS2022/sxa.cat
+  inflating: PROXGB/Winx64/WS2022/sxa.inf
+  inflating: PROXGB/Winx64/WS2022/sxa.sys
+  inflating: PROXGB/Winx64/WS2022/sxamsg.dll
+  inflating: PROXGB/Winx64/WS2022/sxb.cat
+  inflating: PROXGB/Winx64/WS2022/sxb.inf
+  inflating: PROXGB/Winx64/WS2022/sxb.sys
+  inflating: PROXGB/Winx64/WS2022/sxbmsg.dll
+  inflating: PROXGB/Winx64/WS2022/vxs.cat
+  inflating: PROXGB/Winx64/WS2022/vxs.inf
+  inflating: PROXGB/Winx64/WS2022/vxs.sys
+  inflating: PROXGB/Winx64/WS2022/vxsmsg.dll
+   creating: PROXGB/Winx64/WS2025/
+  inflating: PROXGB/Winx64/WS2025/ixs.cat
+  inflating: PROXGB/Winx64/WS2025/ixs.inf
+  inflating: PROXGB/Winx64/WS2025/ixs.sys
+  inflating: PROXGB/Winx64/WS2025/ixsmsg.dll
+  inflating: PROXGB/Winx64/WS2025/ixw.cat
+  inflating: PROXGB/Winx64/WS2025/ixw.inf
+  inflating: PROXGB/Winx64/WS2025/ixw.sys
+  inflating: PROXGB/Winx64/WS2025/ixwmsg.dll
+  inflating: PROXGB/Winx64/WS2025/readme.txt
+  inflating: PROXGB/Winx64/WS2025/sxa.cat
+  inflating: PROXGB/Winx64/WS2025/sxa.inf
+  inflating: PROXGB/Winx64/WS2025/sxa.sys
+  inflating: PROXGB/Winx64/WS2025/sxamsg.dll
+  inflating: PROXGB/Winx64/WS2025/vxs.cat
+  inflating: PROXGB/Winx64/WS2025/vxs.inf
+  inflating: PROXGB/Winx64/WS2025/vxs.sys
+  inflating: PROXGB/Winx64/WS2025/vxsmsg.dll
+   creating: RDMA/
+   creating: RDMA/FreeBSD/
+  inflating: RDMA/FreeBSD/irdma-1.3.27.tar.gz
+  inflating: RDMA/FreeBSD/license_bsd.txt
+  inflating: RDMA/FreeBSD/readmefirst.txt
+   creating: RDMA/Linux/
+  inflating: RDMA/Linux/intel-public-key-irdma-ko.rsa
+  inflating: RDMA/Linux/irdma-2.0.21.tgz
+  inflating: RDMA/Linux/irdma-kmp-2.0.21-1.sles15sp5.src.rpm
+  inflating: RDMA/Linux/irdma-kmp-2.0.21-1.sles15sp6.src.rpm
+  inflating: RDMA/Linux/irdma-kmp-default-2.0.21_k5.14.21_150500.53-1.sles15sp5.x86_64.rpm
+  inflating: RDMA/Linux/irdma-kmp-default-2.0.21_k6.4.0_150600.21-1.sles15sp6.x86_64.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel10u0.src.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel10u0.x86_64.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel8u10.src.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel8u10.x86_64.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel8u9.src.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel8u9.x86_64.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel9u4.src.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel9u4.x86_64.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel9u5.src.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel9u5.x86_64.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel9u6.src.rpm
+  inflating: RDMA/Linux/kmod-irdma-2.0.21-1.rhel9u6.x86_64.rpm
+  inflating: RDMA/Linux/license_gpl.txt
+  inflating: RDMA/Linux/readmefirst.txt
+   creating: RDMA/Windows/
+  inflating: RDMA/Windows/Readme.txt
+   creating: RDMA/Windows/W10/
+  inflating: RDMA/Windows/W10/indv2.cat
+  inflating: RDMA/Windows/W10/indv2.inf
+  inflating: RDMA/Windows/W10/indv2.sys
+  inflating: RDMA/Windows/W10/irdma.dll
+  inflating: RDMA/Windows/W10/irdma_license.txt
+  inflating: RDMA/Windows/W10/irdmamsg.dll
+  inflating: RDMA/Windows/W10/irdmasvc.exe
+   creating: RDMA/Windows/W11/
+  inflating: RDMA/Windows/W11/indv2.cat
+  inflating: RDMA/Windows/W11/indv2.inf
+  inflating: RDMA/Windows/W11/indv2.sys
+  inflating: RDMA/Windows/W11/irdma.dll
+  inflating: RDMA/Windows/W11/irdma_license.txt
+  inflating: RDMA/Windows/W11/irdmamsg.dll
+  inflating: RDMA/Windows/W11/irdmasvc.exe
+   creating: RDMA/Windows/ws2019/
+  inflating: RDMA/Windows/ws2019/indv2.cat
+  inflating: RDMA/Windows/ws2019/indv2.inf
+  inflating: RDMA/Windows/ws2019/indv2.sys
+  inflating: RDMA/Windows/ws2019/irdma.dll
+  inflating: RDMA/Windows/ws2019/irdma_license.txt
+  inflating: RDMA/Windows/ws2019/irdmamsg.dll
+  inflating: RDMA/Windows/ws2019/irdmasvc.exe
+   creating: RDMA/Windows/ws2022/
+  inflating: RDMA/Windows/ws2022/indv2.cat
+  inflating: RDMA/Windows/ws2022/indv2.inf
+  inflating: RDMA/Windows/ws2022/indv2.sys
+  inflating: RDMA/Windows/ws2022/irdma.dll
+  inflating: RDMA/Windows/ws2022/irdma_license.txt
+  inflating: RDMA/Windows/ws2022/irdmamsg.dll
+  inflating: RDMA/Windows/ws2022/irdmasvc.exe
+   creating: RDMA/Windows/ws2025/
+  inflating: RDMA/Windows/ws2025/indv2.cat
+  inflating: RDMA/Windows/ws2025/indv2.inf
+  inflating: RDMA/Windows/ws2025/indv2.sys
+  inflating: RDMA/Windows/ws2025/irdma.dll
+  inflating: RDMA/Windows/ws2025/irdma_license.txt
+  inflating: RDMA/Windows/ws2025/irdmamsg.dll
+  inflating: RDMA/Windows/ws2025/irdmasvc.exe
+  inflating: readme.txt
+  inflating: Release_Notes.pdf
+  inflating: style.css
+  inflating: verfile.tic
+  inflating: warranty.htm
+-bash: cd: Release_30.2/Linux/igc/src: No such file or directory
+kim@kim-System-Product-Name:~/Downloads$ ls
+3rd_party_licenses_BSD.txt    DDP_Profiles        license.pdf       PRO2500  RDMA               verfile.tic
+3rd_party_licenses_GPL.txt    DOCS                license.txt       PRO40GB  readme.txt         warranty.htm
+3rd_party_licenses_tools.txt  legaldis.htm        note.gif          PROAVF   Release_30.2.zip
+3rd_party_licenses.txt        license.htm         NVMUpdatePackage  PROCGB   Release_Notes.pdf
+APPS                          license_notice.txt  PRO1000           PROXGB   style.css
+kim@kim-System-Product-Name:~/Downloads$ git clone https://github.com/intel/igc.git
+cd igc
+sudo make install
+sudo modprobe -r igc
+sudo modprobe igc
+Cloning into 'igc'...
+Username for 'https://github.com':
+Password for 'https://github.com':
+
+remote: Repository not found.
+fatal: Authentication failed for 'https://github.com/intel/igc.git/'
+-bash: cd: igc: No such file or directory
+
+make: *** No rule to make target 'install'.  Stop.
+kim@kim-System-Product-Name:~/Downloads$ ethtool -i eth0
+# driver: igc
+# version: <커널 버전>
+Cannot get driver information: No such device
+kim@kim-System-Product-Name:~/Downloads$ sudo apt update
+sudo apt install linux-image-generic linux-headers-generic
+sudo reboot
+Hit:1 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:2 https://ppa.launchpadcontent.net/cappelikan/ppa/ubuntu noble InRelease
+0% [Waiting for headers]^C
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+^C
+
+Broadcast message from root@kim-System-Product-Name on pts/2 (Thu 2025-07-03 16:55:06 KST):
+
+The system will reboot now!
+
+kim@kim-System-Product-Name:~/Downloads$ client_loop: send disconnect: Connection reset
+PS C:\Users\parksik> ^C
+PS C:\Users\parksik> ^C
+PS C:\Users\parksik> ^C
+PS C:\Users\parksik> ^C
+PS C:\Users\parksik> ^C
+PS C:\Users\parksik> ^C
+PS C:\Users\parksik> ^C
+PS C:\Users\parksik> ^C
+PS C:\Users\parksik> ssh kim@192.168.5.10
+kim@192.168.5.10's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-63-lowlatency x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+Last login: Thu Jul  3 16:26:12 2025 from 192.168.5.11
+(base) kim@kim-System-Product-Name:~$ sudo apt update
+sudo apt install linux-image-generic linux-headers-generic
+[sudo] password for kim:
+Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:3 https://ppa.launchpadcontent.net/cappelikan/ppa/ubuntu noble InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:5 http://security.ubuntu.com/ubuntu noble-security InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+5 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  linux-headers-6.8.0-63 linux-headers-6.8.0-63-generic linux-image-6.8.0-63-generic linux-modules-6.8.0-63-generic
+  linux-modules-extra-6.8.0-63-generic
+Suggested packages:
+  fdutils linux-tools
+The following NEW packages will be installed:
+  linux-headers-6.8.0-63 linux-headers-6.8.0-63-generic linux-headers-generic linux-image-6.8.0-63-generic
+  linux-image-generic linux-modules-6.8.0-63-generic linux-modules-extra-6.8.0-63-generic
+0 upgraded, 7 newly installed, 0 to remove and 5 not upgraded.
+4 not fully installed or removed.
+Need to get 185 MB of archives.
+After this operation, 282 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-headers-6.8.0-63 all 6.8.0-63.66 [13.9 MB]
+Get:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-headers-6.8.0-63-generic amd64 6.8.0-63.66 [4,147 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-headers-generic amd64 6.8.0-63.66 [10.5 kB]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-modules-6.8.0-63-generic amd64 6.8.0-63.66 [39.4 MB]
+Get:5 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-image-6.8.0-63-generic amd64 6.8.0-63.66 [14.8 MB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-modules-extra-6.8.0-63-generic amd64 6.8.0-63.66 [113 MB]
+Get:7 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-image-generic amd64 6.8.0-63.66 [10.7 kB]
+Fetched 185 MB in 27s (6,762 kB/s)
+Selecting previously unselected package linux-headers-6.8.0-63.
+(Reading database ... 234457 files and directories currently installed.)
+Preparing to unpack .../0-linux-headers-6.8.0-63_6.8.0-63.66_all.deb ...
+Unpacking linux-headers-6.8.0-63 (6.8.0-63.66) ...
+Selecting previously unselected package linux-headers-6.8.0-63-generic.
+Preparing to unpack .../1-linux-headers-6.8.0-63-generic_6.8.0-63.66_amd64.deb ...
+Unpacking linux-headers-6.8.0-63-generic (6.8.0-63.66) ...
+Selecting previously unselected package linux-headers-generic.
+Preparing to unpack .../2-linux-headers-generic_6.8.0-63.66_amd64.deb ...
+Unpacking linux-headers-generic (6.8.0-63.66) ...
+Selecting previously unselected package linux-modules-6.8.0-63-generic.
+Preparing to unpack .../3-linux-modules-6.8.0-63-generic_6.8.0-63.66_amd64.deb ...
+Unpacking linux-modules-6.8.0-63-generic (6.8.0-63.66) ...
+Selecting previously unselected package linux-image-6.8.0-63-generic.
+Preparing to unpack .../4-linux-image-6.8.0-63-generic_6.8.0-63.66_amd64.deb ...
+Unpacking linux-image-6.8.0-63-generic (6.8.0-63.66) ...
+Selecting previously unselected package linux-modules-extra-6.8.0-63-generic.
+Preparing to unpack .../5-linux-modules-extra-6.8.0-63-generic_6.8.0-63.66_amd64.deb ...
+Unpacking linux-modules-extra-6.8.0-63-generic (6.8.0-63.66) ...
+Selecting previously unselected package linux-image-generic.
+Preparing to unpack .../6-linux-image-generic_6.8.0-63.66_amd64.deb ...
+Unpacking linux-image-generic (6.8.0-63.66) ...
+Setting up linux-headers-6.8.0-63 (6.8.0-63.66) ...
+Setting up linux-modules-6.8.0-63-generic (6.8.0-63.66) ...
+Setting up linux-image-6.8.0-63-generic (6.8.0-63.66) ...
+I: /boot/vmlinuz.old is now a symlink to vmlinuz-6.15.4-061504-generic
+I: /boot/vmlinuz is now a symlink to vmlinuz-6.8.0-63-generic
+I: /boot/initrd.img is now a symlink to initrd.img-6.8.0-63-generic
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules.....................(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure):
+ installed linux-headers-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Setting up linux-headers-6.8.0-63-generic (6.8.0-63.66) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-63-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-63-generic -C /lib/modules/6.8.0-63-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-63-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.8.0-63-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.8.0-63-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules.....................
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-modeset.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-drm.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-uvm.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-peermem.ko
+Cleaning build area...
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+depmod...
+dkms autoinstall on 6.8.0-63-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-63-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-63-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.8.0-63-generic (--configure):
+ installed linux-headers-6.8.0-63-generic package post-installation script subprocess returned error exit status 11
+Setting up linux-modules-extra-6.8.0-63-generic (6.8.0-63.66) ...
+Setting up nvidia-dkms-570 (570.133.07-0ubuntu0.24.04.1) ...
+update-initramfs: deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+INFO:Enable nvidia
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/dell_latitude
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/put_your_quirks_here
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/lenovo_thinkpad
+Removing old nvidia-570.133.07 DKMS files...
+Module nvidia-570.133.07 for kernel 6.8.0-63-generic (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Module nvidia-570.133.07 for kernel 6.8.0-63-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod....
+Deleting module nvidia-570.133.07 completely from the DKMS tree.
+Loading new nvidia-570.133.07 DKMS files...
+Building for 6.8.0-63-lowlatency 6.15.4-061504-generic
+Building for architecture x86_64
+Building initial module for 6.8.0-63-lowlatency
+Done.
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+depmod...
+Building initial module for 6.15.4-061504-generic
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dpkg: error processing package nvidia-dkms-570 (--configure):
+ installed nvidia-dkms-570 package post-installation script subprocess returned error exit status 10
+Setting up linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+I: /boot/initrd.img.old is now a symlink to initrd.img-6.15.4-061504-generic
+Setting up linux-image-generic (6.8.0-63.66) ...
+dpkg: dependency problems prevent configuration of nvidia-driver-570:
+ nvidia-driver-570 depends on nvidia-dkms-570 (<= 570.133.07-1); however:
+  Package nvidia-dkms-570 is not configured yet.
+ nvidia-driver-570 depends on nvidia-dkms-570 (>= 570.133.07); however:
+  Package nvidia-dkms-570 is not configured yet.
+
+dpkg: error processing package nvidia-driver-570 (--configure):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of linux-headers-generic:
+No apport report written because MaxReports is reached already
+                                                               linux-headers-generic depends on linux-headers-6.8.0-63-generic; however:
+  Package linux-headers-6.8.0-63-generic is not configured yet.
+
+dpkg: error processing package linux-headers-generic (--configure):
+ dependency problems - leaving unconfigured
+Processing triggers for linux-image-6.8.0-63-generic (6.8.0-63.66) ...
+No apport report written because MaxReports is reached already
+                                                              /etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-63-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-63-generic -C /lib/modules/6.8.0-63-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-63-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.8.0-63-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.8.0-63-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules......................
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-modeset.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-drm.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-uvm.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-peermem.ko
+Cleaning build area...
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+depmod...
+dkms autoinstall on 6.8.0-63-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-63-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-63-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-6.8.0-63-generic (--configure):
+ installed linux-image-6.8.0-63-generic package post-installation script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Processing triggers for initramfs-tools (0.142ubuntu25.5) ...
+update-initramfs: Generating /boot/initrd.img-6.11.0-29-generic
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules.....................(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--configure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Errors were encountered while processing:
+ linux-headers-6.15.4-061504-generic
+ linux-headers-6.8.0-63-generic
+ nvidia-dkms-570
+ nvidia-driver-570
+ linux-headers-generic
+ linux-image-6.8.0-63-generic
+ linux-image-unsigned-6.15.4-061504-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+(base) kim@kim-System-Product-Name:~$ client_loop: send disconnect: Connection reset
+PS C:\Users\parksik>
+Microsoft Windows [Version 10.0.26100.4484]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\parksik>ipconfig /all
+
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : X1
+   Primary Dns Suffix  . . . . . . . :
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+   DNS Suffix Search List. . . . . . : mshome.net
+
+Ethernet adapter vEthernet (Default Switch):
+
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Hyper-V Virtual Ethernet Adapter
+   Physical Address. . . . . . . . . : 00-15-5D-D4-7C-6D
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::6fc8:9c4c:145a:4213%30(Preferred)
+   IPv4 Address. . . . . . . . . . . : 172.20.176.1(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.240.0
+   Default Gateway . . . . . . . . . :
+   DHCPv6 IAID . . . . . . . . . . . : 503321949
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2E-E4-1C-D2-58-CE-2A-FC-1B-1A
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Ethernet adapter Ethernet:
+
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Realtek USB GbE Family Controller
+   Physical Address. . . . . . . . . : 00-E0-4C-68-13-36
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::7123:2f1c:9692:4d72%7(Preferred)
+   IPv4 Address. . . . . . . . . . . : 192.168.2.10(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+   DHCPv6 IAID . . . . . . . . . . . : 738254924
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2E-E4-1C-D2-58-CE-2A-FC-1B-1A
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Wireless LAN adapter Local Area Connection* 1:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Microsoft Wi-Fi Direct Virtual Adapter
+   Physical Address. . . . . . . . . : 58-CE-2A-FC-1B-1B
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . : mshome.net
+   Description . . . . . . . . . . . : Intel(R) Wi-Fi 6E AX211 160MHz
+   Physical Address. . . . . . . . . : 58-CE-2A-FC-1B-1A
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::fd42:287d:aa4:4d83%6(Preferred)
+   IPv4 Address. . . . . . . . . . . : 10.252.102.18(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : 2025년 7월 2일 수요일 오전 7:01:47
+   Lease Expires . . . . . . . . . . : 2025년 7월 7일 월요일 오후 2:06:57
+   Default Gateway . . . . . . . . . : 10.252.102.1
+   DHCP Server . . . . . . . . . . . : 10.252.110.2
+   DHCPv6 IAID . . . . . . . . . . . : 106483242
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2E-E4-1C-D2-58-CE-2A-FC-1B-1A
+   DNS Servers . . . . . . . . . . . : fe80::4a64:7492:c9f5:f2c1%6
+                                       203.253.128.237
+                                       203.253.128.238
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+   Connection-specific DNS Suffix Search List :
+                                       mshome.net
+
+Ethernet adapter Bluetooth Network Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Bluetooth Device (Personal Area Network)
+   Physical Address. . . . . . . . . : 58-CE-2A-FC-1B-1E
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Ethernet adapter vEthernet (WSL (Hyper-V firewall)):
+
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Hyper-V Virtual Ethernet Adapter #2
+   Physical Address. . . . . . . . . : 00-15-5D-7D-CB-7A
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::b7cf:3dbe:a43a:5ff5%47(Preferred)
+   IPv4 Address. . . . . . . . . . . : 172.22.176.1(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.240.0
+   Default Gateway . . . . . . . . . :
+   DHCPv6 IAID . . . . . . . . . . . : 788534621
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2E-E4-1C-D2-58-CE-2A-FC-1B-1A
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+C:\Users\parksik>
