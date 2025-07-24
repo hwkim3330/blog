@@ -1,0 +1,2413 @@
+
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m get~
+[sudo] password for kim: 
+/home/kim/velocitydrivesp-support/velocitydrivesp-support/support/scripts/mup1cc:226:in `<main>': invalid argument: -m get~ (OptionParser::InvalidArgument)
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m get
+Opening serial port at /dev/ttyACM0
+---
+ietf-interfaces:interfaces:
+  interface:
+  - name: '1'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: up
+    if-index: 1
+    phys-address: 52-4C-88-48-21-01
+    statistics:
+      in-octets: '3153087477'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '285860230'
+      in-multicast-pkts: '39882868'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '3151730252'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '285862493'
+      out-multicast-pkts: '39863574'
+      out-discards: 0
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation:
+        enable: false
+      speed: '1.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '0'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '325743098'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '325726067'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:d-bridge-port
+      pvid: 10
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      statistics:
+        discard-inbound: '46'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 33567546
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '1.000'
+        phy-clock-role: phy_clock_leader
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_mgmt_based
+      statistics:
+        rx-64-octets: '285868768'
+        rx-65-127-octets: '11808917'
+        rx-128-255-octets: '28065413'
+        rx-256-511-octets: '0'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '285862493'
+        tx-65-127-octets: '11798116'
+        tx-128-255-octets: '28065458'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '325743098'
+          tx-packets: '325726067'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '0'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 325720896
+  - name: '2'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: up
+    if-index: 2
+    phys-address: 52-4C-88-48-21-02
+    statistics:
+      in-octets: '3151730252'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '285862493'
+      in-multicast-pkts: '39863574'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '3153087477'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '285860230'
+      out-multicast-pkts: '39882868'
+      out-discards: 0
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation:
+        enable: false
+      speed: '1.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '0'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '325726067'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '325743098'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:d-bridge-port
+      pvid: 20
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      statistics:
+        discard-inbound: '46'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 42528512
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '1.000'
+        phy-clock-role: phy_clock_follower
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_mgmt_based
+      statistics:
+        rx-64-octets: '285862493'
+        rx-65-127-octets: '11798116'
+        rx-128-255-octets: '28065458'
+        rx-256-511-octets: '0'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '285868768'
+        tx-65-127-octets: '11808917'
+        tx-128-255-octets: '28065413'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '325726067'
+          tx-packets: '325743098'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '0'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 325723240
+  - name: '3'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: down
+    if-index: 3
+    phys-address: 52-4C-88-48-21-03
+    statistics:
+      in-octets: '0'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '0'
+      in-multicast-pkts: '0'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '0'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '0'
+      out-multicast-pkts: '0'
+      out-discards: 0
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation:
+        enable: false
+      duplex: half
+      speed: '1.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '0'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '0'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '0'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:d-bridge-port
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      statistics:
+        discard-inbound: '0'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 51466716
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '1.000'
+        phy-clock-role: phy_clock_leader
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_mgmt_based
+      statistics:
+        rx-64-octets: '0'
+        rx-65-127-octets: '0'
+        rx-128-255-octets: '0'
+        rx-256-511-octets: '0'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '0'
+        tx-65-127-octets: '0'
+        tx-128-255-octets: '0'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '0'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 0
+  - name: '4'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: down
+    if-index: 4
+    phys-address: 52-4C-88-48-21-04
+    statistics:
+      in-octets: '0'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '0'
+      in-multicast-pkts: '0'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '0'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '0'
+      out-multicast-pkts: '0'
+      out-discards: 0
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation:
+        enable: false
+      duplex: half
+      speed: '1.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '0'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '0'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '0'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:d-bridge-port
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      statistics:
+        discard-inbound: '0'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 60397197
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '1.000'
+        phy-clock-role: phy_clock_follower
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_mgmt_based
+      statistics:
+        rx-64-octets: '0'
+        rx-65-127-octets: '0'
+        rx-128-255-octets: '0'
+        rx-256-511-octets: '0'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '0'
+        tx-65-127-octets: '0'
+        tx-128-255-octets: '0'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '0'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 0
+  - name: '5'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: down
+    if-index: 5
+    phys-address: 52-4C-88-48-21-05
+    statistics:
+      in-octets: '0'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '0'
+      in-multicast-pkts: '0'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '0'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '0'
+      out-multicast-pkts: '0'
+      out-discards: 0
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation:
+        enable: false
+      duplex: half
+      speed: '1.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '0'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '0'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '0'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:d-bridge-port
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      statistics:
+        discard-inbound: '0'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 69338708
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '1.000'
+        phy-clock-role: phy_clock_leader
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_mgmt_based
+      statistics:
+        rx-64-octets: '0'
+        rx-65-127-octets: '0'
+        rx-128-255-octets: '0'
+        rx-256-511-octets: '0'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '0'
+        tx-65-127-octets: '0'
+        tx-128-255-octets: '0'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '0'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 0
+  - name: '6'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: down
+    if-index: 6
+    phys-address: 52-4C-88-48-21-06
+    statistics:
+      in-octets: '0'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '0'
+      in-multicast-pkts: '0'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '0'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '0'
+      out-multicast-pkts: '0'
+      out-discards: 0
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation:
+        enable: false
+      duplex: half
+      speed: '1.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '0'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '0'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '0'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:d-bridge-port
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      statistics:
+        discard-inbound: '0'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 78265760
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '1.000'
+        phy-clock-role: phy_clock_follower
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_mgmt_based
+      statistics:
+        rx-64-octets: '0'
+        rx-65-127-octets: '0'
+        rx-128-255-octets: '0'
+        rx-256-511-octets: '0'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '0'
+        tx-65-127-octets: '0'
+        tx-128-255-octets: '0'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '0'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 0
+  - name: '7'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: down
+    if-index: 7
+    phys-address: 52-4C-88-48-21-07
+    statistics:
+      in-octets: '0'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '0'
+      in-multicast-pkts: '0'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '0'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '0'
+      out-multicast-pkts: '0'
+      out-discards: 0
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation:
+        enable: false
+      duplex: half
+      speed: '1.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '0'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '0'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '0'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:d-bridge-port
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      statistics:
+        discard-inbound: '0'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 87196210
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '1.000'
+        phy-clock-role: phy_clock_leader
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_mgmt_based
+      statistics:
+        rx-64-octets: '0'
+        rx-65-127-octets: '0'
+        rx-128-255-octets: '0'
+        rx-256-511-octets: '0'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '0'
+        tx-65-127-octets: '0'
+        tx-128-255-octets: '0'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '0'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 0
+  - name: '8'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: down
+    if-index: 8
+    phys-address: 52-4C-88-48-21-08
+    statistics:
+      in-octets: '0'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '0'
+      in-multicast-pkts: '0'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '0'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '0'
+      out-multicast-pkts: '0'
+      out-discards: 0
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation:
+        enable: false
+      speed: '10.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '0'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '0'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '0'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:d-bridge-port
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      statistics:
+        discard-inbound: '0'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 96000636
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '10.000'
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_mgmt_based
+      statistics:
+        rx-64-octets: '0'
+        rx-65-127-octets: '0'
+        rx-128-255-octets: '0'
+        rx-256-511-octets: '0'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '0'
+        tx-65-127-octets: '0'
+        tx-128-255-octets: '0'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '0'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 0
+  - name: '9'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: down
+    if-index: 9
+    phys-address: 52-4C-88-48-21-09
+    statistics:
+      in-octets: '0'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '0'
+      in-multicast-pkts: '0'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '0'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '0'
+      out-multicast-pkts: '0'
+      out-discards: 0
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation:
+        enable: false
+      speed: '10.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '0'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '0'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '0'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:d-bridge-port
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      statistics:
+        discard-inbound: '0'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 104531578
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '10.000'
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_mgmt_based
+      statistics:
+        rx-64-octets: '0'
+        rx-65-127-octets: '0'
+        rx-128-255-octets: '0'
+        rx-256-511-octets: '0'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '0'
+        tx-65-127-octets: '0'
+        tx-128-255-octets: '0'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '0'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 0
+  - name: '10'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: down
+    if-index: 10
+    phys-address: 52-4C-88-48-21-0A
+    statistics:
+      in-octets: '0'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '0'
+      in-multicast-pkts: '0'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '0'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '0'
+      out-multicast-pkts: '0'
+      out-discards: 0
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation:
+        enable: false
+      speed: '10.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '0'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '0'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '0'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:d-bridge-port
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      statistics:
+        discard-inbound: '0'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 113120732
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '10.000'
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_mgmt_based
+      statistics:
+        rx-64-octets: '0'
+        rx-65-127-octets: '0'
+        rx-128-255-octets: '0'
+        rx-256-511-octets: '0'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '0'
+        tx-65-127-octets: '0'
+        tx-128-255-octets: '0'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '1'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 0
+  - name: '11'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: down
+    if-index: 11
+    phys-address: 52-4C-88-48-21-0B
+    statistics:
+      in-octets: '0'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '0'
+      in-multicast-pkts: '0'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '0'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '0'
+      out-multicast-pkts: '0'
+      out-discards: 0
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation:
+        enable: false
+      speed: '10.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '0'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '0'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '0'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:d-bridge-port
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      statistics:
+        discard-inbound: '0'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 121721846
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '10.000'
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_mgmt_based
+      statistics:
+        rx-64-octets: '0'
+        rx-65-127-octets: '0'
+        rx-128-255-octets: '0'
+        rx-256-511-octets: '0'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '0'
+        tx-65-127-octets: '0'
+        tx-128-255-octets: '0'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '0'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 0
+  - name: '12'
+    type: iana-if-type:ethernetCsmacd
+    oper-status: up
+    if-index: 12
+    phys-address: 52-4C-88-48-21-0C
+    statistics:
+      in-octets: '9707573'
+      in-unicast-pkts: '0'
+      in-broadcast-pkts: '7443'
+      in-multicast-pkts: '144174'
+      in-discards: 0
+      in-errors: 0
+      in-unknown-protos: 0
+      out-octets: '2234838958'
+      out-unicast-pkts: '0'
+      out-broadcast-pkts: '162924073'
+      out-multicast-pkts: '51201329'
+      out-discards: 258757797
+      out-errors: 0
+    ieee802-ethernet-interface:ethernet:
+      auto-negotiation: {}
+      speed: '1.000'
+      flow-control:
+        pause:
+          statistics:
+            in-frames-pause: '144127'
+            out-frames-pause: '0'
+      statistics:
+        frame:
+          in-total-frames: '151617'
+          in-error-fcs-frames: '0'
+          in-error-undersize-frames: '0'
+          in-error-oversize-frames: '0'
+          out-frames: '214125402'
+    ieee802-dot1q-bridge:bridge-port:
+      port-type: ieee802-dot1q-bridge:c-vlan-bridge-port
+      pvid: 10
+      pcp-decoding-table:
+        pcp-decoding-map: []
+      pcp-encoding-table:
+        pcp-encoding-map: []
+      acceptable-frame: admit-only-VLAN-tagged-frames
+      enable-ingress-filtering: true
+      statistics:
+        discard-inbound: '7241'
+      ieee802-dot1q-preemption-bridge:frame-preemption-parameters: {}
+      ieee802-dot1q-sched-bridge:gate-parameter-table:
+        queue-max-sdu-table:
+        - traffic-class: 0
+        - traffic-class: 1
+        - traffic-class: 2
+        - traffic-class: 3
+        - traffic-class: 4
+        - traffic-class: 5
+        - traffic-class: 6
+        - traffic-class: 7
+        oper-gate-states: 255
+        admin-control-list:
+          gate-control-entry: []
+        oper-control-list:
+          gate-control-entry: []
+        admin-cycle-time:
+          numerator: 0
+          denominator: 1
+        oper-cycle-time:
+          numerator: 0
+          denominator: 1
+        admin-cycle-time-extension: 256
+        oper-cycle-time-extension: 256
+        admin-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        oper-base-time:
+          seconds: '0'
+          nanoseconds: 0
+        config-change: false
+        config-change-time:
+          seconds: '0'
+          nanoseconds: 0
+        tick-granularity: 30
+        current-time:
+          seconds: '7495'
+          nanoseconds: 130506954
+        config-pending: false
+        config-change-error: '0'
+        supported-list-max: 8
+        supported-cycle-max:
+          numerator: 1000000000
+          denominator: 1000000001
+        supported-interval-max: 4294967295
+    mchp-velocitysp-port:eth-port:
+      config:
+        speed: '1.000'
+      status:
+        flow-control: disabled
+        oper-info: oper_speed_default_based
+      statistics:
+        rx-64-octets: '151573'
+        rx-65-127-octets: '17'
+        rx-128-255-octets: '24'
+        rx-256-511-octets: '3'
+        rx-512-1023-octets: '0'
+        rx-1024-1518-octets: '0'
+        rx-1519-max-octets: '0'
+        rx-fragments: '0'
+        rx-jabbers: '0'
+        tx-64-octets: '162924073'
+        tx-65-127-octets: '8562849'
+        tx-128-255-octets: '42638480'
+        tx-256-511-octets: '0'
+        tx-512-1023-octets: '0'
+        tx-1024-1518-octets: '0'
+        tx-1519-max-octets: '0'
+        traffic-class:
+        - traffic-class: 0
+          rx-packets: '7490'
+          tx-packets: '214125402'
+        - traffic-class: 1
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 2
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 3
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 4
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 5
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 6
+          rx-packets: '0'
+          tx-packets: '0'
+        - traffic-class: 7
+          rx-packets: '0'
+          tx-packets: '0'
+        rx-mm-fragments: '0'
+        rx-mm-asm-packets: '0'
+        rx-mm-asm-errors: '0'
+        rx-mm-smd-errors: '0'
+        tx-mm-fragments: '0'
+        tx-mm-holds: '0'
+    mchp-velocitysp-port:eth-qos:
+      config:
+        traffic-class-shapers: []
+        traffic-class-schedulers-bandwidth: []
+        port-policers: []
+    mchp-velocitysp-acl:acl-port:
+      egress-port-list: []
+      rx-count: 271
+ieee802-dot1q-bridge:bridges:
+  bridge:
+  - name: b0
+    component:
+    - name: c0
+      ports: 12
+      filtering-database:
+        filtering-entry:
+        - database-id: 0
+          vids: '10'
+          address: 68-05-CA-BD-96-E7
+          entry-type: dynamic
+          port-map:
+          - port-ref: 1
+        vlan-registration-entry: []
+        mchp-velocitysp-bridge:unknown-mac-flooding:
+          uc-disable: []
+          mc-disable: []
+          ipv4-mc-disable: []
+          ipv6-mc-disable: []
+      bridge-vlan:
+        vid-to-fid: []
+      ieee802-dot1q-psfp-bridge:flow-meters:
+        flow-meter-instance-table: []
+        max-flow-meter-instances: 64
+      ieee802-dot1q-psfp-bridge:stream-gates:
+        stream-gate-instance-table: []
+        max-stream-gate-instances: 64
+        supported-list-max: 4
+      ieee802-dot1q-psfp-bridge:stream-filters:
+        stream-filter-instance-table: []
+        max-stream-filter-instances: 64
+ietf-routing:routing:
+  control-plane-protocols:
+    control-plane-protocol:
+    - type: ietf-routing:static
+      name: '0'
+      static-routes:
+        ietf-ipv4-unicast-routing:ipv4:
+          route: []
+  ribs:
+    rib:
+    - name: ipv4
+      address-family: ietf-routing:ipv4
+      routes:
+        route: []
+ieee1588-ptp:ptp:
+  instances:
+    instance: []
+  mchp-velocitysp-ptp:ltcs:
+    ltc: []
+ietf-system:system:
+  authentication:
+    user: []
+ietf-system:system-state:
+  platform:
+    os-version: VelocitySP-v2025.06
+    machine: LAN9692VAO - EV09P11A0 (UNG8420) - auto
+mchp-velocitysp-system:coap-server:
+  config:
+    security-mode: no-sec
+    mup1-dtls-enable: false
+    ip-dtls-enable: false
+ieee802-dot1cb-stream-identification:stream-identity: []
+ietf-constrained-yang-library:yang-library:
+  module-set:
+  - index: 0
+    module:
+    - identifier: '39200'
+      revision: ICUGMA==
+      deviation: []
+    - identifier: '31149'
+      revision: ICUDMQ==
+      deviation: []
+    - identifier: '31050'
+      revision: IBgDEw==
+      deviation:
+      - '31149'
+    - identifier: '39000'
+      revision: ICUGMA==
+      deviation: []
+    - identifier: '19999'
+      revision: ICQEEg==
+      deviation: []
+    - identifier: '12999'
+      revision: ICQEEg==
+      deviation: []
+    - identifier: '18999'
+      revision: ICQEEg==
+      deviation: []
+    - identifier: '2999'
+      revision: ICQEEg==
+      deviation: []
+    - identifier: '29399'
+      revision: ICQEEg==
+      deviation: []
+    - identifier: '7999'
+      revision: ICQEEg==
+      deviation: []
+    - identifier: '24999'
+      revision: ICUGMA==
+      deviation: []
+    - identifier: '11999'
+      revision: ICQEEg==
+      deviation: []
+    - identifier: '15999'
+      revision: ICQEEg==
+      deviation: []
+    - identifier: '29300'
+      revision: IBkDKA==
+      deviation:
+      - '29399'
+    - identifier: '24000'
+      revision: ICESCA==
+      deviation:
+      - '24999'
+    - identifier: '21000'
+      revision: ICUGJw==
+      deviation: []
+    - identifier: '15000'
+      revision: ICIIMA==
+      deviation:
+      - '15999'
+    - identifier: '19000'
+      revision: IBQIBg==
+      deviation:
+      - '19999'
+    - identifier: '12000'
+      revision: IBgDEw==
+      deviation:
+      - '12999'
+    - identifier: '7000'
+      revision: ICMEFw==
+      deviation:
+      - '7999'
+    - identifier: '2000'
+      revision: IBgCIA==
+      deviation:
+      - '2999'
+    import-only-module:
+    - identifier: '31000'
+      revision: ''
+    - identifier: '38400'
+      revision: ''
+    - identifier: '38000'
+      revision: ''
+    - identifier: '30000'
+      revision: ''
+    - identifier: '29200'
+      revision: ''
+    - identifier: '29000'
+      revision: ''
+    - identifier: '29100'
+      revision: ''
+    - identifier: '27000'
+      revision: ''
+    - identifier: '26000'
+      revision: ''
+    - identifier: '25000'
+      revision: ''
+    - identifier: '24899'
+      revision: ''
+    - identifier: '23100'
+      revision: ''
+    - identifier: '23000'
+      revision: ''
+    - identifier: '22000'
+      revision: ''
+    - identifier: '16000'
+      revision: ''
+    - identifier: '18000'
+      revision: ''
+    - identifier: '17000'
+      revision: ''
+    - identifier: '14000'
+      revision: ''
+    - identifier: '13000'
+      revision: ''
+    - identifier: '10000'
+      revision: ''
+    - identifier: '8000'
+      revision: ''
+    - identifier: '6000'
+      revision: ''
+    - identifier: '5000'
+      revision: ''
+    - identifier: '4000'
+      revision: ''
+    - identifier: '3000'
+      revision: ''
+    - identifier: '9000'
+      revision: ''
+    - identifier: '1000'
+      revision: ''
+    - identifier: '950'
+      revision: ''
+  schema:
+  - index: 0
+    module-set:
+    - 0
+  datastore:
+  - identifier: ietf-datastores:startup
+    schema: 0
+  - identifier: ietf-datastores:running
+    schema: 0
+  - identifier: ietf-datastores:operational
+    schema: 0
+  checksum: UVG64HZ3sVAfnPUmN/Kjjw==
+ietf-hardware:hardware:
+  component:
+  - name: Board
+    class: iana-hardware:chassis
+    firmware-rev: VelocitySP-v2025.06
+    serial-num: '0'
+    mfg-name: Microchip Technology Inc.
+    model-name: LAN9692VAO - EV09P11A0 (UNG8420) - auto
+  - name: Switch
+    class: iana-hardware:module
+    parent: Board
+    hardware-rev: '0'
+    model-name: LAN9692
+  - name: SwTmp
+    class: iana-hardware:sensor
+    parent: Switch
+    sensor-data:
+      value: 80
+      value-type: celsius
+      value-scale: units
+      value-precision: 0
+      oper-status: ok
+      units-display: C
+      value-update-rate: 0
+  - name: Phy1
+    class: iana-hardware:module
+    parent: Switch
+    hardware-rev: '2'
+    model-name: '31'
+  - name: Port1
+    class: iana-hardware:port
+    parent: Phy1
+  - name: Phy2
+    class: iana-hardware:module
+    parent: Switch
+    hardware-rev: '2'
+    model-name: '31'
+  - name: Port2
+    class: iana-hardware:port
+    parent: Phy2
+  - name: Phy3
+    class: iana-hardware:module
+    parent: Switch
+    hardware-rev: '2'
+    model-name: '31'
+  - name: Port3
+    class: iana-hardware:port
+    parent: Phy3
+  - name: Phy4
+    class: iana-hardware:module
+    parent: Switch
+    hardware-rev: '2'
+    model-name: '31'
+  - name: Port4
+    class: iana-hardware:port
+    parent: Phy4
+  - name: Phy5
+    class: iana-hardware:module
+    parent: Switch
+    hardware-rev: '2'
+    model-name: '31'
+  - name: Port5
+    class: iana-hardware:port
+    parent: Phy5
+  - name: Phy6
+    class: iana-hardware:module
+    parent: Switch
+    hardware-rev: '2'
+    model-name: '31'
+  - name: Port6
+    class: iana-hardware:port
+    parent: Phy6
+  - name: Phy7
+    class: iana-hardware:module
+    parent: Switch
+    hardware-rev: '2'
+    model-name: '31'
+  - name: Port7
+    class: iana-hardware:port
+    parent: Phy7
+  - name: Sfp8
+    class: iana-hardware:container
+    parent: Switch
+  - name: Sfp9
+    class: iana-hardware:container
+    parent: Switch
+  - name: Sfp10
+    class: iana-hardware:container
+    parent: Switch
+  - name: Sfp11
+    class: iana-hardware:container
+    parent: Switch
+mchp-velocitysp-acl:acl:
+  acl-rules:
+    rule-list: []
+  acl-policers:
+    policer-list: []
+mchp-velocitysp-redbox:redbox:
+  redbox-capable-list:
+  - id: 0
+    capable-port-list: []
+  - id: 1
+    capable-port-list: []
+  - id: 2
+    capable-port-list: []
+  - id: 3
+    capable-port-list: []
+  - id: 4
+    capable-port-list: []
+  redbox-list: []
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > ipatch-full.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/type"
+  : iana-if-type:l3ipvlan
+- ? "/ietf-interfaces:interfaces/interface[name='2']/type"
+  : iana-if-type:l3ipvlan
+
+- ? "/ietf-interfaces:interfaces/interface[name='1']/ietf-ip:ipv4/address"
+  :
+    - ip: 169.254.59.101
+      prefix-length: 16
+- ? "/ietf-interfaces:interfaces/interface[name='2']/ietf-ip:ipv4/address"
+  :
+    - ip: 169.254.59.102
+      prefix-length: 16
+
+- ? "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable"
+  : false
+- ? "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/speed"
+  : 0.100
+- ? "/ietf-interfaces:interfaces/interface[name='2']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable"
+  : false
+- ? "/ietf-interfaces:interfaces/interface[name='2']/ieee802-ethernet-interface:ethernet/speed"
+  : 0.100
+
+- ? "/ieee802-dot1q-bridge:bridges/bridge[name='b0']/component[name='c0']/ports"
+  : [1,2]
+- ? "/ieee802-dot1q-bridge:bridges/bridge[name='b0']/component[name='c0']/vlan-registration-entry"
+  :
+    - database-id: 0
+      vids: '10'
+      entry-type: static
+      port-map:
+        - port-ref: 1
+        - port-ref: 2
+      static-vlan-registration-entries:
+        vlan-transmitted: untagged
+
+- ? "/ieee1588-ptp:ptp/instances/instance"
+  :
+    - instance-index: 0
+      default-ds:
+        external-port-config-enable: true
+      mchp-velocitysp-ptp:automotive:
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-full.yaml
+Opening serial port at /dev/ttyACM0
+root is not of type: string
+/home/kim/velocitydrivesp-support/velocitydrivesp-support/support/yang-enc/yang-enc.rb:490:in `json_validate': Errors in JSON data (RuntimeError)
+	from /home/kim/velocitydrivesp-support/velocitydrivesp-support/support/yang-enc/yang-enc.rb:505:in `instance2cbor'
+	from /home/kim/velocitydrivesp-support/velocitydrivesp-support/support/yang-enc/yang-enc.rb:527:in `block in json_seq2cbor'
+	from /home/kim/velocitydrivesp-support/velocitydrivesp-support/support/yang-enc/yang-enc.rb:527:in `each'
+	from /home/kim/velocitydrivesp-support/velocitydrivesp-support/support/yang-enc/yang-enc.rb:527:in `json_seq2cbor'
+	from /home/kim/velocitydrivesp-support/velocitydrivesp-support/support/scripts/mup1cc:313:in `<main>'
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > ipatch-port1-eth.yaml
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable": false
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/speed": "0.100"
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-port1-eth.yaml
+Opening serial port at /dev/ttyACM0
+ERROR: response code 4.05
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m fetch -i - <<EOF
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet"
+EOF
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet"
+Opening serial port at /dev/ttyACM0
+/home/kim/velocitydrivesp-support/velocitydrivesp-support/support/scripts/mup1cc:264:in `read': No such file or directory @ rb_sysopen - /home/kim/velocitydrivesp-support/velocitydrivesp-support/- (Errno::ENOENT)
+	from /home/kim/velocitydrivesp-support/velocitydrivesp-support/support/scripts/mup1cc:264:in `<main>'
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m fetch -i - <<EOF
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet"
+EOF
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet"
+Opening serial port at /dev/ttyACM0
+/home/kim/velocitydrivesp-support/velocitydrivesp-support/support/scripts/mup1cc:264:in `read': No such file or directory @ rb_sysopen - /home/kim/velocitydrivesp-support/velocitydrivesp-support/- (Errno::ENOENT)
+	from /home/kim/velocitydrivesp-support/velocitydrivesp-support/support/scripts/mup1cc:264:in `<main>'
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > fetch-port1-eth.yaml
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet"
+EOF
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-port1-eth.yaml
+Opening serial port at /dev/ttyACM0
+---
+- "/ietf-interfaces:interfaces/interface/ieee802-ethernet-interface:ethernet":
+    auto-negotiation:
+      enable: false
+    speed: '1.000'
+    flow-control:
+      pause:
+        statistics:
+          in-frames-pause: '0'
+          out-frames-pause: '0'
+    statistics:
+      frame:
+        in-total-frames: '325743098'
+        in-error-fcs-frames: '0'
+        in-error-undersize-frames: '0'
+        in-error-oversize-frames: '0'
+        out-frames: '325726067'
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > ipatch-port1-eth.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable"
+  : false
+- ? "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/speed"
+  : "0.100"
+EOF
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-port1-eth.yaml
+Opening serial port at /dev/ttyACM0
+ERROR: response code 4.05
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > ipatch-port1-eth.yaml
+
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/speed": "0.100"
+EOF
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-port1-eth.yaml
+Opening serial port at /dev/ttyACM0
+ERROR: response code 4.05
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > ipatch-port1-100m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable"
+  : false
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-port/config/speed"
+  : '0.1'
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-port1-100m.yaml
+[sudo] password for kim: 
+Opening serial port at /dev/ttyACM0
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > fetch-port1-config.yaml
+- "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-port/config"
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-port1-config.yaml
+Opening serial port at /dev/ttyACM0
+---
+- "/ietf-interfaces:interfaces/interface/mchp-velocitysp-port:eth-port/config":
+    speed: '0.100'
+    phy-clock-role: phy_clock_leader
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > fetch-port1-light.yaml
+- "/ietf-interfaces:interfaces/interface[name='1']/oper-status"
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable"
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/speed"
+- "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-port/config/speed"
+- "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-port/status"
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-port1-light.yaml
+Opening serial port at /dev/ttyACM0
+---
+- "/ietf-interfaces:interfaces/interface/oper-status": down
+- "/ietf-interfaces:interfaces/interface/ieee802-ethernet-interface:ethernet/auto-negotiation/enable": false
+- "/ietf-interfaces:interfaces/interface/ieee802-ethernet-interface:ethernet/speed": '0.100'
+- "/ietf-interfaces:interfaces/interface/mchp-velocitysp-port:eth-port/config/speed": '0.100'
+- "/ietf-interfaces:interfaces/interface/mchp-velocitysp-port:eth-port/status":
+    flow-control: disabled
+    oper-info: oper_speed_mgmt_based
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > ipatch-port1-auto.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable"
+  : true
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-port1-auto.yaml
+Opening serial port at /dev/ttyACM0
+Error decoding 5004 as type instance-identifier: No such file or directory @ rb_sysopen - /home/kim/velocitydrivesp-support/velocitydrivesp-support/support/scripts/gen-cc-nodes.yaml
+ERROR: response code 4.00
+---
+ietf-coreconf:error:
+  error-data-node: 5004
+  error-tag: ietf-coreconf:error
+  error-message: lma_cc_node_call_cb()
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > fetch-port1-status.yaml
+- "/ietf-interfaces:interfaces/interface[name='1']/oper-status"
+- "/ietf-interfaces:interfaces/interface[name='1']/enabled"
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable"
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/speed"
+- "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-port/config/speed"
+- "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-port/status"
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-port1-status.yaml
+Opening serial port at /dev/ttyACM0
+---
+- "/ietf-interfaces:interfaces/interface/oper-status": down
+- "/ietf-interfaces:interfaces/interface/enabled": true
+- "/ietf-interfaces:interfaces/interface/ieee802-ethernet-interface:ethernet/auto-negotiation/enable": false
+- "/ietf-interfaces:interfaces/interface/ieee802-ethernet-interface:ethernet/speed": '0.100'
+- "/ietf-interfaces:interfaces/interface/mchp-velocitysp-port:eth-port/config/speed": '0.100'
+- "/ietf-interfaces:interfaces/interface/mchp-velocitysp-port:eth-port/status":
+    flow-control: disabled
+    oper-info: oper_speed_mgmt_based
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-port1-auto.yaml
+Opening serial port at /dev/ttyACM0
+Error decoding 5004 as type instance-identifier: No such file or directory @ rb_sysopen - /home/kim/velocitydrivesp-support/velocitydrivesp-support/support/scripts/gen-cc-nodes.yaml
+ERROR: response code 4.00
+---
+ietf-coreconf:error:
+  error-data-node: 5004
+  error-tag: ietf-coreconf:error
+  error-message: lma_cc_node_call_cb()
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-port1-auto.yaml
+Opening serial port at /dev/ttyACM0
+ERROR:L60: SID file '/home/kim/velocitydrivesp-support/velocitydrivesp-support/docs/sw_refs/yang/ietf-inet-types@2013-07-15.sid' not found!
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > fetch-port1-status.yaml
+- "/ietf-interfaces:interfaces/interface[name='1']/oper-status"
+- "/ietf-interfaces:interfaces/interface[name='1']/enabled"
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable"
+- "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-port/config/speed"
+- "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-port/config/phy-clock-role"
+EOF
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-port1-status.yaml
+Opening serial port at /dev/ttyACM0
+---
+- "/ietf-interfaces:interfaces/interface/oper-status": down
+- "/ietf-interfaces:interfaces/interface/enabled": true
+- "/ietf-interfaces:interfaces/interface/ieee802-ethernet-interface:ethernet/auto-negotiation/enable": false
+- "/ietf-interfaces:interfaces/interface/mchp-velocitysp-port:eth-port/config/speed": '0.100'
+- "/ietf-interfaces:interfaces/interface/mchp-velocitysp-port:eth-port/config/phy-clock-role": phy_clock_leader
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > ipatch-port1-admin-up.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/enabled"
+  : true
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-port1-admin-up.yaml
+Opening serial port at /dev/ttyACM0
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > ipatch-port2-100m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/enabled"
+  : true
+- ? "/ietf-interfaces:interfaces/interface[name='2']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable"
+  : false
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-port/config/speed"
+  : '0.1'
+EOF
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-port2-100m.yaml
+Opening serial port at /dev/ttyACM0
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ cat <<EOF > fetch-ports-status.yaml
+- "/ietf-interfaces:interfaces/interface[name='1']/oper-status"
+- "/ietf-interfaces:interfaces/interface[name='1']/enabled"
+- "/ietf-interfaces:interfaces/interface[name='1']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable"
+- "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-port/config/speed"
+
+- "/ietf-interfaces:interfaces/interface[name='2']/oper-status"
+- "/ietf-interfaces:interfaces/interface[name='2']/enabled"
+- "/ietf-interfaces:interfaces/interface[name='2']/ieee802-ethernet-interface:ethernet/auto-negotiation/enable"
+- "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-port/config/speed"
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-ports-status.yaml
+Opening serial port at /dev/ttyACM0
+---
+- "/ietf-interfaces:interfaces/interface/oper-status": up
+- "/ietf-interfaces:interfaces/interface/enabled": true
+- "/ietf-interfaces:interfaces/interface/ieee802-ethernet-interface:ethernet/auto-negotiation/enable": false
+- "/ietf-interfaces:interfaces/interface/mchp-velocitysp-port:eth-port/config/speed": '0.100'
+- "/ietf-interfaces:interfaces/interface/oper-status": up
+- "/ietf-interfaces:interfaces/interface/enabled": true
+- "/ietf-interfaces:interfaces/interface/ieee802-ethernet-interface:ethernet/auto-negotiation/enable": false
+- "/ietf-interfaces:interfaces/interface/mchp-velocitysp-port:eth-port/config/speed": '0.100'
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support/velocitydrivesp-support$ 
