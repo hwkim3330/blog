@@ -1,0 +1,1719 @@
+kim@kim-System-Product-Name:~$ ^[[200~sudo apt install chromium-browser wmctrl
+sudo: command not found
+kim@kim-System-Product-Name:~$ chromium-browser --app="file:///home/kim/animated_wallpaper/index.html" --start-fullscreen --kiosk &
+[1] 334529
+kim@kim-System-Product-Name:~$ ~Command 'chromium-browser' not found, but can be installed with:
+sudo apt install chromium-browser
+
+bash: /home/kim: Is a directory
+[1]+  Exit 127                chromium-browser --app="file:///home/kim/animated_wallpaper/index.html" --start-fullscreen --kiosk
+kim@kim-System-Product-Name:~$ 
+kim@kim-System-Product-Name:~$ sudo apt install chromium-browser wmctrl
+chromium-browser --app="file:///home/kim/animated_wallpaper/index.html" --start-fullscreen --kiosk &
+[sudo] password for kim: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libgl1-amber-dri libglapi-mesa linux-hwe-6.14-tools-6.14.0-24
+  linux-image-6.14.0-24-generic linux-modules-6.14.0-24-generic
+  linux-modules-extra-6.14.0-24-generic linux-tools-6.14.0-24-generic
+  nvidia-firmware-570-570.133.07
+Use 'sudo apt autoremove' to remove them.
+The following NEW packages will be installed:
+  chromium-browser wmctrl
+0 upgraded, 2 newly installed, 0 to remove and 18 not upgraded.
+15 not fully installed or removed.
+Need to get 69.8 kB of archives.
+After this operation, 168 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble/universe amd64 chromium-browser amd64 2:1snap1-0ubuntu2 [50.0 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble/universe amd64 wmctrl amd64 1.07-7ubuntu3 [19.8 kB]
+Fetched 69.8 kB in 1s (48.3 kB/s) 
+Preconfiguring packages ...
+Selecting previously unselected package chromium-browser.
+(Reading database ... 452781 files and directories currently installed.)
+Preparing to unpack .../chromium-browser_2%3a1snap1-0ubuntu2_amd64.deb ...
+=> Installing the chromium snap
+==> Checking connectivity with the snap store
+==> Installing the chromium snap
+chromium 138.0.7204.183 from Canonical✓ installed
+=> Snap installation complete
+Unpacking chromium-browser (2:1snap1-0ubuntu2) ...
+Selecting previously unselected package wmctrl.
+Preparing to unpack .../wmctrl_1.07-7ubuntu3_amd64.deb ...
+Unpacking wmctrl (1.07-7ubuntu3) ...
+Setting up linux-headers-6.14.0-27-generic (6.14.0-27.27~24.04.1) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.14.0-27-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.14.0-27-generic -C /lib/modules/6.14.0-27-generic/buil
+d M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.14.0-27-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+dkms autoinstall on 6.14.0-27-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.14.0-27-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.14.0-27-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.14.0-27-generic (--configure):
+ installed linux-headers-6.14.0-27-generic package post-installation script subp
+rocess returned error exit status 11
+Setting up linux-image-6.14.0-27-generic (6.14.0-27.27~24.04.1) ...
+I: /boot/initrd.img is now a symlink to initrd.img-6.14.0-27-generic
+Setting up linux-headers-6.8.0-71-generic (6.8.0-71.71) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-71-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-71-generic -C /lib/modules/6.8.0-71-generic/build 
+M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-71-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+dkms autoinstall on 6.8.0-71-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-71-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-71-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.8.0-71-generic (--configure):
+ installed linux-headers-6.8.0-71-generic package post-installation script subpr
+ocess returned error exit status 11
+dpkg: dependency problems prevent configuration of linux-headers-generic:
+ linux-headers-generic depends on linux-headers-6.8.0-71-generic; however:
+  Package linux-headers-6.8.0-71-generic is not configured yet.
+
+dpkg: error processing package linux-headers-generic (--configure):
+ dependency problems - leaving unconfigured
+Setting up wmctrl (1.07-7ubuntu3) ...
+No apport report written because the error message indicates its a followup erro
+r from a previous failure.
+                          Setting up linux-headers-6.8.0-65-lowlatency (6.8.0-65
+.68.1) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-65-lowlatency
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-65-lowlatency -C /lib/modules/6.8.0-65-lowlatency/
+build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-65-lowlatency (x86_64
+)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+dkms autoinstall on 6.8.0-65-lowlatency/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-65-lowlatency/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-65-lowlatency
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.8.0-65-lowlatency (--configure):
+ installed linux-headers-6.8.0-65-lowlatency package post-installation script su
+bprocess returned error exit status 11
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+No apport report written because MaxReports is reached already
+                                                              /etc/kernel/header
+_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-gene
+ric/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status
+: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_
+64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'ma
+ke' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_X
+EN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/bui
+ld LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules..........(bad exit status: 
+2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not s
+upported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_
+64)
+Consult /var/lib/dkms/nvidia/570.169/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure)
+:
+ installed linux-headers-6.15.4-061504-generic package post-installation script 
+subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Setting up chromiu
+m-browser (2:1snap1-0ubuntu2) ...
+dpkg: dependency problems prevent configuration of linux-headers-generic-hwe-24.
+04:
+ linux-headers-generic-hwe-24.04 depends on linux-headers-6.14.0-27-generic; how
+ever:
+  Package linux-headers-6.14.0-27-generic is not configured yet.
+
+dpkg: error processing package linux-headers-generic-hwe-24.04 (--configure):
+ dependency problems - leaving unconfigured
+Setting up nvidia-dkms-570 (570.169-0ubuntu0.24.04.1) ...
+No apport report written because MaxReports is reached already
+                                                              update-initramfs: 
+deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+INFO:Enable nvidia
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/dell_latitude
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/put_your_quirks_here
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/lenovo_thinkpad
+Removing old nvidia-570.169 DKMS files...
+Module nvidia-570.169 for kernel 6.8.0-63-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Module nvidia-570.169 for kernel 6.8.0-65-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Module nvidia-570.169 for kernel 6.8.0-71-generic (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-71-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-71-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-71-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-71-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-71-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Module nvidia-570.169 for kernel 6.14.0-27-generic (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.14.0-27-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.14.0-27-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.14.0-27-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.14.0-27-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.14.0-27-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Deleting module nvidia-570.169 completely from the DKMS tree.
+Loading new nvidia-570.169 DKMS files...
+Building for 6.8.0-63-lowlatency 6.15.4-061504-generic
+Building for architecture x86_64
+Building initial module for 6.8.0-63-lowlatency
+Done.
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+depmod...
+Building initial module for 6.15.4-061504-generic
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not s
+upported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_
+64)
+Consult /var/lib/dkms/nvidia/570.169/build/make.log for more information.
+dpkg: error processing package nvidia-dkms-570 (--configure):
+ installed nvidia-dkms-570 package post-installation script subprocess returned 
+error exit status 10
+No apport report written because MaxReports is reached already
+                                                              Setting up linux-i
+mage-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+Setting up linux-image-6.8.0-65-lowlatency (6.8.0-65.68.1) ...
+Setting up linux-image-6.8.0-71-generic (6.8.0-71.71) ...
+I: /boot/initrd.img.old is now a symlink to initrd.img-6.8.0-71-generic
+dpkg: dependency problems prevent configuration of linux-headers-lowlatency:
+ linux-headers-lowlatency depends on linux-headers-6.8.0-65-lowlatency; however:
+  Package linux-headers-6.8.0-65-lowlatency is not configured yet.
+
+dpkg: error processing package linux-headers-lowlatency (--configure):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of nvidia-driver-570:
+ nvidia-driver-570 depends on nvidia-dkms-570 (<= 570.169-1); however:
+  Package nvidia-dkms-570 is not configured yet.
+ nvidia-driver-570 depends on nvidia-dkms-570 (>= 570.169); however:
+  Package nvidia-dkms-570 is not configured yet.
+
+dpkg: error processing package nvidia-driver-570 (--configure):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of linux-generic-hwe-24.04:
+ linux-generic-hwe-24.04 depends on linux-headers-generic-hwe-24.04 (= 6.14.0-27
+.27~24.04.1); however:
+  Package linux-headers-genericNo apport report written because MaxReports is re
+ached already
+             No apport report written because MaxReports is reached already
+                                                                           No ap
+port report written because MaxReports is reached already
+                                                         No apport report writte
+n because MaxReports is reached already
+                                       -hwe-24.04 is not configured yet.
+
+dpkg: error processing package linux-generic-hwe-24.04 (--configure):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of linux-lowlatency:
+ linux-lowlatency depends on linux-headers-lowlatency (= 6.8.0-65.68.1); however
+:
+  Package linux-headers-lowlatency is not configured yet.
+
+dpkg: error processing package linux-lowlatency (--configure):
+ dependency problems - leaving unconfigured
+Processing triggers for desktop-file-utils (0.27-2build1) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for gnome-menus (3.36.0-1.1ubuntu3) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for bamfdaemon (0.5.6+22.04.20220217-0ubuntu5) ...
+Rebuilding /usr/share/applications/bamf-2.index...
+Processing triggers for linux-image-6.14.0-27-generic (6.14.0-27.27~24.04.1) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.14.0-27-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.14.0-27-generic -C /lib/modules/6.14.0-27-generic/buil
+d M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.14.0-27-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'ma
+ke' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.14.0-27-generic IGNORE_XEN_P
+RESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.14.0-27-generic/build LD=/u
+sr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-modeset.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-drm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-uvm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-peermem.ko
+Cleaning build area...
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.14.0-27-generic/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.14.0-27-generic/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.14.0-27-generic/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.14.0-27-generic/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.14.0-27-generic/updates/dkms/
+depmod...
+dkms autoinstall on 6.14.0-27-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.14.0-27-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.14.0-27-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-6.14.0-27-generic (--configure):
+ installed linux-image-6.14.0-27-generic package post-installation script subpro
+cess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Processing trigger
+s for initramfs-tools (0.142ubuntu25.5) ...
+update-initramfs: Generating /boot/initrd.img-6.14.0-24-generic
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-06150
+4.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-gene
+ric/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status
+: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_
+64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'ma
+ke' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_X
+EN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/bui
+ld LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules..........(bad exit status: 
+2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not s
+upported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_
+64)
+Consult /var/lib/dkms/nvidia/570.169/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--con
+figure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation 
+script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Processing trigger
+s for linux-image-6.8.0-65-lowlatency (6.8.0-65.68.1) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-65-lowlatency
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-65-lowlatency -C /lib/modules/6.8.0-65-lowlatency/
+build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-65-lowlatency (x86_64
+)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'ma
+ke' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.8.0-65-lowlatency IGNORE_XEN
+_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.8.0-65-lowlatency/build L
+D=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-modeset.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-drm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-uvm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-peermem.ko
+Cleaning build area...
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+depmod...
+dkms autoinstall on 6.8.0-65-lowlatency/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-65-lowlatency/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-65-lowlatency
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-6.8.0-65-lowlatency (--configure):
+ installed linux-image-6.8.0-65-lowlatency package post-installation script subp
+rocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Processing trigger
+s for linux-image-6.8.0-71-generic (6.8.0-71.71) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-71-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-71-generic -C /lib/modules/6.8.0-71-generic/build 
+M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-71-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'ma
+ke' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.8.0-71-generic IGNORE_XEN_PR
+ESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.8.0-71-generic/build LD=/usr
+/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-modeset.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-drm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-uvm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-peermem.ko
+Cleaning build area...
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-71-generic/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-71-generic/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-71-generic/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-71-generic/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-71-generic/updates/dkms/
+depmod...
+dkms autoinstall on 6.8.0-71-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-71-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-71-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-6.8.0-71-generic (--configure):
+ installed linux-image-6.8.0-71-generic package post-installation script subproc
+ess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Errors were encoun
+tered while processing:
+ linux-headers-6.14.0-27-generic
+ linux-headers-6.8.0-71-generic
+ linux-headers-generic
+ linux-headers-6.8.0-65-lowlatency
+ linux-headers-6.15.4-061504-generic
+ linux-headers-generic-hwe-24.04
+ nvidia-dkms-570
+ linux-headers-lowlatency
+ nvidia-driver-570
+ linux-generic-hwe-24.04
+ linux-lowlatency
+ linux-image-6.14.0-27-generic
+ linux-image-unsigned-6.15.4-061504-generic
+ linux-image-6.8.0-65-lowlatency
+ linux-image-6.8.0-71-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+[1] 456231
+kim@kim-System-Product-Name:~$ touch: cannot touch '/home/kim/snap/chromium/common/.cache/desktop-runtime-date': No such file or directory
+Gtk-Message: 10:45:45.771: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+
+(chrome:456231): Gtk-WARNING **: 10:45:45.848: GTK+ module /snap/chromium/3217/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.
+Gtk-Message: 10:45:45.848: Failed to load module "canberra-gtk-module"
+
+(chrome:456231): Gtk-WARNING **: 10:45:45.848: GTK+ module /snap/chromium/3217/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.
+Gtk-Message: 10:45:45.848: Failed to load module "canberra-gtk-module"
+Fontconfig error: Cannot load default config file
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+[456231:456448:0806/104548.926479:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+^C
+kim@kim-System-Product-Name:~$ chromium-browser --app="file:///home/kim/animated_wallpaper/index.html" --start-fullscreen --kiosk &
+[2] 462638
+[1]   Done                    chromium-browser --app="file:///home/kim/animated_wallpaper/index.html" --start-fullscreen --kiosk
+kim@kim-System-Product-Name:~$ Gtk-Message: 10:50:38.033: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+
+(chrome:462638): Gtk-WARNING **: 10:50:38.081: GTK+ module /snap/chromium/3217/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.
+Gtk-Message: 10:50:38.081: Failed to load module "canberra-gtk-module"
+
+(chrome:462638): Gtk-WARNING **: 10:50:38.081: GTK+ module /snap/chromium/3217/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.
+Gtk-Message: 10:50:38.081: Failed to load module "canberra-gtk-module"
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+[462638:462843:0806/105040.410664:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: QUOTA_EXCEEDED
+^C
+[2]+  Done                    chromium-browser --app="file:///home/kim/animated_wallpaper/index.html" --start-fullscreen --kiosk
+kim@kim-System-Product-Name:~$ ^C
+kim@kim-System-Product-Name:~$ chromium-browser --app="file:///home/kim/animated_wallpaper/index.html" --start-fullscreen --kiosk &
+[1] 466680
+kim@kim-System-Product-Name:~$ Gtk-Message: 10:52:50.244: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+
+(chrome:466680): Gtk-WARNING **: 10:52:50.292: GTK+ module /snap/chromium/3217/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.
+Gtk-Message: 10:52:50.292: Failed to load module "canberra-gtk-module"
+
+(chrome:466680): Gtk-WARNING **: 10:52:50.292: GTK+ module /snap/chromium/3217/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.
+Gtk-Message: 10:52:50.292: Failed to load module "canberra-gtk-module"
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+^C
+kim@kim-System-Product-Name:~$ sudo chromium-browser --app="file:///home/kim/animated_wallpaper/index.html" --start-fullscreen --kiosk &
+[2] 467217
+kim@kim-System-Product-Name:~$ touch: cannot touch '/root/snap/chromium/common/.cache/desktop-runtime-date': No such file or directory
+mkdir: cannot create directory ‘/run/user/0’: Permission denied
+[467219:467219:0806/105303.533409:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:105] Running as root without --no-sandbox is not supported. See https://crbug.com/638180.
+[466680:466804:0806/105351.254585:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: QUOTA_EXCEEDED
+
+[2]+  Exit 1                  sudo chromium-browser --app="file:///home/kim/animated_wallpaper/index.html" --start-fullscreen --kiosk
+kim@kim-System-Product-Name:~$ 
+kim@kim-System-Product-Name:~$ pkill xwinwrap
+kim@kim-System-Product-Name:~$ pkill -f chromium-browser
+kim@kim-System-Product-Name:~$ [466680:466680:0806/105437.300395:ERROR:content/common/zygote/zygote_communication_linux.cc:296] Failed to send GetTerminationStatus message to zygote
+[466680:466804:0806/105437.303036:ERROR:google_apis/gcm/engine/connection_factory_impl.cc:483] ConnectionHandler failed with net error: -2
+
+[1]+  Done                    chromium-browser --app="file:///home/kim/animated_wallpaper/index.html" --start-fullscreen --kiosk
+kim@kim-System-Product-Name:~$ 
+kim@kim-System-Product-Name:~$ killall chromium-browser
+chromium-browser: no process found
+kim@kim-System-Product-Name:~$ sudo apt install devilspie2
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libgl1-amber-dri libglapi-mesa linux-hwe-6.14-tools-6.14.0-24
+  linux-image-6.14.0-24-generic linux-modules-6.14.0-24-generic
+  linux-modules-extra-6.14.0-24-generic linux-tools-6.14.0-24-generic
+  nvidia-firmware-570-570.133.07
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  liblua5.1-0
+The following NEW packages will be installed:
+  devilspie2 liblua5.1-0
+0 upgraded, 2 newly installed, 0 to remove and 18 not upgraded.
+15 not fully installed or removed.
+Need to get 152 kB of archives.
+After this operation, 557 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://archive.ubuntu.com/ubuntu noble/universe amd64 liblua5.1-0 amd64 5.1.5-9build2 [120 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble/universe amd64 devilspie2 amd64 0.43-5build2 [31.7 kB]
+Fetched 152 kB in 2s (71.1 kB/s)     
+Selecting previously unselected package liblua5.1-0:amd64.
+(Reading database ... 452801 files and directories currently installed.)
+Preparing to unpack .../liblua5.1-0_5.1.5-9build2_amd64.deb ...
+Unpacking liblua5.1-0:amd64 (5.1.5-9build2) ...
+Selecting previously unselected package devilspie2.
+Preparing to unpack .../devilspie2_0.43-5build2_amd64.deb ...
+Unpacking devilspie2 (0.43-5build2) ...
+Setting up linux-headers-6.14.0-27-generic (6.14.0-27.27~24.04.1) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.14.0-27-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.14.0-27-generic -C /lib/modules/6.14.0-27-generic/buil
+d M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.14.0-27-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+dkms autoinstall on 6.14.0-27-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.14.0-27-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.14.0-27-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.14.0-27-generic (--configure):
+ installed linux-headers-6.14.0-27-generic package post-installation script subp
+rocess returned error exit status 11
+Setting up linux-image-6.14.0-27-generic (6.14.0-27.27~24.04.1) ...
+I: /boot/initrd.img is now a symlink to initrd.img-6.14.0-27-generic
+Setting up linux-headers-6.8.0-71-generic (6.8.0-71.71) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-71-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-71-generic -C /lib/modules/6.8.0-71-generic/build 
+M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-71-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+dkms autoinstall on 6.8.0-71-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-71-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-71-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.8.0-71-generic (--configure):
+ installed linux-headers-6.8.0-71-generic package post-installation script subpr
+ocess returned error exit status 11
+No apport report written because the error message indicates its a followup erro
+r from a previous failure.
+                          dpkg: dependency problems prevent configuration of lin
+ux-headers-generic:
+ linux-headers-generic depends on linux-headers-6.8.0-71-generic; however:
+  Package linux-headers-6.8.0-71-generic is not configured yet.
+
+dpkg: error processing package linux-headers-generic (--configure):
+ dependency problems - leaving unconfigured
+Setting up linux-headers-6.8.0-65-lowlatency (6.8.0-65.68.1) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-65-lowlatency
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-65-lowlatency -C /lib/modules/6.8.0-65-lowlatency/
+build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-65-lowlatency (x86_64
+)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+dkms autoinstall on 6.8.0-65-lowlatency/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-65-lowlatency/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-65-lowlatency
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.8.0-65-lowlatency (--configure):
+ installed linux-headers-6.8.0-65-lowlatency package post-installation script su
+bprocess returned error exit status 11
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+No apport report written because MaxReports is reached already
+                                                              /etc/kernel/header
+_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-gene
+ric/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status
+: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_
+64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'ma
+ke' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_X
+EN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/bui
+ld LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules..........(bad exit status: 
+2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not s
+upported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_
+64)
+Consult /var/lib/dkms/nvidia/570.169/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure)
+:
+ installed linux-headers-6.15.4-061504-generic package post-installation script 
+subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Setting up liblua5
+.1-0:amd64 (5.1.5-9build2) ...
+dpkg: dependency problems prevent configuration of linux-headers-generic-hwe-24.
+04:
+ linux-headers-generic-hwe-24.04 depends on linux-headers-6.14.0-27-generic; how
+ever:
+  Package linux-headers-6.14.0-27-generic is not configured yet.
+
+dpkg: error processing package linux-headers-generic-hwe-24.04 (--configure):
+ dependency problems - leaving unconfigured
+Setting up nvidia-dkms-570 (570.169-0ubuntu0.24.04.1) ...
+No apport report written because MaxReports is reached already
+                                                              update-initramfs: 
+deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+INFO:Enable nvidia
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/dell_latitude
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/put_your_quirks_here
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/lenovo_thinkpad
+Removing old nvidia-570.169 DKMS files...
+Module nvidia-570.169 for kernel 6.8.0-63-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Module nvidia-570.169 for kernel 6.8.0-65-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Module nvidia-570.169 for kernel 6.8.0-71-generic (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-71-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-71-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-71-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-71-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-71-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Module nvidia-570.169 for kernel 6.14.0-27-generic (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.14.0-27-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.14.0-27-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.14.0-27-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.14.0-27-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.14.0-27-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Deleting module nvidia-570.169 completely from the DKMS tree.
+Loading new nvidia-570.169 DKMS files...
+Building for 6.8.0-63-lowlatency 6.15.4-061504-generic
+Building for architecture x86_64
+Building initial module for 6.8.0-63-lowlatency
+Done.
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+depmod...
+Building initial module for 6.15.4-061504-generic
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not s
+upported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_
+64)
+Consult /var/lib/dkms/nvidia/570.169/build/make.log for more information.
+dpkg: error processing package nvidia-dkms-570 (--configure):
+ installed nvidia-dkms-570 package post-installation script subprocess returned 
+error exit status 10
+No apport report written because MaxReports is reached already
+                                                              Setting up linux-i
+mage-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+Setting up linux-image-6.8.0-65-lowlatency (6.8.0-65.68.1) ...
+Setting up devilspie2 (0.43-5build2) ...
+Setting up linux-image-6.8.0-71-generic (6.8.0-71.71) ...
+I: /boot/initrd.img.old is now a symlink to initrd.img-6.8.0-71-generic
+dpkg: dependency problems prevent configuration of linux-headers-lowlatency:
+ linux-headers-lowlatency depends on linux-headers-6.8.0-65-lowlatency; however:
+  Package linux-headers-6.8.0-65-lowlatency is not configured yet.
+
+dpkg: error processing package linux-headers-lowlatency (--configure):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of nvidia-driver-570:
+ nvidia-driver-570 depends on nvidia-dkms-570 (<= 570.169-1); however:
+  Package nvidia-dkms-570 is not configured yet.
+ nvidia-driver-570 depends on nvidia-dkms-570 (>= 570.169); however:
+  Package nvidia-dkms-570 is not configured yet.
+
+dpkg: error processing package nvidia-driver-570 (--configure):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of linux-generic-hwe-24.04:
+ linux-generic-hwe-24.04 depends on linux-headers-generic-hwe-24.04 (= 6.14.0-27
+.27~24.04.1); however:
+  Package linux-headers-genericNo apport report written because MaxReports is re
+ached already
+             No apport report written because MaxReports is reached already
+                                                                           No ap
+port report written because MaxReports is reached already
+                                                         No apport report writte
+n because MaxReports is reached already
+                                       -hwe-24.04 is not configured yet.
+
+dpkg: error processing package linux-generic-hwe-24.04 (--configure):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of linux-lowlatency:
+ linux-lowlatency depends on linux-headers-lowlatency (= 6.8.0-65.68.1); however
+:
+  Package linux-headers-lowlatency is not configured yet.
+
+dpkg: error processing package linux-lowlatency (--configure):
+ dependency problems - leaving unconfigured
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.5) ...
+Processing triggers for linux-image-6.14.0-27-generic (6.14.0-27.27~24.04.1) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.14.0-27-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.14.0-27-generic -C /lib/modules/6.14.0-27-generic/buil
+d M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.14.0-27-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'ma
+ke' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.14.0-27-generic IGNORE_XEN_P
+RESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.14.0-27-generic/build LD=/u
+sr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules.............
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-modeset.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-drm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-uvm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-peermem.ko
+Cleaning build area...
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.14.0-27-generic/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.14.0-27-generic/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.14.0-27-generic/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.14.0-27-generic/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.14.0-27-generic/updates/dkms/
+depmod...
+dkms autoinstall on 6.14.0-27-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.14.0-27-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.14.0-27-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-6.14.0-27-generic (--configure):
+ installed linux-image-6.14.0-27-generic package post-installation script subpro
+cess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Processing trigger
+s for initramfs-tools (0.142ubuntu25.5) ...
+update-initramfs: Generating /boot/initrd.img-6.14.0-24-generic
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-06150
+4.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-gene
+ric/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status
+: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_
+64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'ma
+ke' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_X
+EN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/bui
+ld LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules..........(bad exit status: 
+2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not s
+upported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_
+64)
+Consult /var/lib/dkms/nvidia/570.169/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--con
+figure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation 
+script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Processing trigger
+s for linux-image-6.8.0-65-lowlatency (6.8.0-65.68.1) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-65-lowlatency
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-65-lowlatency -C /lib/modules/6.8.0-65-lowlatency/
+build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-65-lowlatency (x86_64
+)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'ma
+ke' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.8.0-65-lowlatency IGNORE_XEN
+_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.8.0-65-lowlatency/build L
+D=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-modeset.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-drm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-uvm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-peermem.ko
+Cleaning build area...
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-65-lowlatency/updates/dkms/
+depmod...
+dkms autoinstall on 6.8.0-65-lowlatency/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-65-lowlatency/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-65-lowlatency
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-6.8.0-65-lowlatency (--configure):
+ installed linux-image-6.8.0-65-lowlatency package post-installation script subp
+rocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Processing trigger
+s for linux-image-6.8.0-71-generic (6.8.0-71.71) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-71-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.c
+onf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-71-generic -C /lib/modules/6.8.0-71-generic/build 
+M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-71-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'ma
+ke' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.8.0-71-generic IGNORE_XEN_PR
+ESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.8.0-71-generic/build LD=/usr
+/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-modeset.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-drm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-uvm.ko
+Signing module /var/lib/dkms/nvidia/570.169/build/nvidia-peermem.ko
+Cleaning build area...
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-71-generic/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-71-generic/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-71-generic/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-71-generic/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-71-generic/updates/dkms/
+depmod...
+dkms autoinstall on 6.8.0-71-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-71-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-71-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-6.8.0-71-generic (--configure):
+ installed linux-image-6.8.0-71-generic package post-installation script subproc
+ess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Errors were encoun
+tered while processing:
+ linux-headers-6.14.0-27-generic
+ linux-headers-6.8.0-71-generic
+ linux-headers-generic
+ linux-headers-6.8.0-65-lowlatency
+ linux-headers-6.15.4-061504-generic
+ linux-headers-generic-hwe-24.04
+ nvidia-dkms-570
+ linux-headers-lowlatency
+ nvidia-driver-570
+ linux-generic-hwe-24.04
+ linux-lowlatency
+ linux-image-6.14.0-27-generic
+ linux-image-unsigned-6.15.4-061504-generic
+ linux-image-6.8.0-65-lowlatency
+ linux-image-6.8.0-71-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+kim@kim-System-Product-Name:~$ 
+
