@@ -1,2 +1,58 @@
-title: hwkim3330의 블로그
+# Jekyll Configuration for GitHub Pages
+title: HW Kim Tech Blog
+description: Time-Sensitive Networking, AI/ML, Embedded Systems Research
+author: HW Kim
+email: hwkim3330@example.com
+
+# GitHub Pages compatible theme
 theme: jekyll-theme-minimal
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Permalinks
+permalink: /posts/:year/:month/:day/:title/
+
+# Plugins (GitHub Pages supported)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections for organized content
+collections:
+  technical:
+    output: true
+    permalink: /technical/:name/
+  papers:
+    output: true
+    permalink: /papers/:name/
+  logs:
+    output: true
+    permalink: /logs/:name/
+
+# Default layouts
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "technical"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "papers"
+    values:
+      layout: "post"
+
+# Social links
+github_username: hwkim3330
+linkedin_username: hwkim3330
