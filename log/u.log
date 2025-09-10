@@ -1,0 +1,3424 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\parksik> ping 192.168.5.10
+
+Pinging 192.168.5.10 with 32 bytes of data:
+Reply from 192.168.5.10: bytes=32 time=1ms TTL=64
+Reply from 192.168.5.10: bytes=32 time<1ms TTL=64
+
+192.168.5.10에 대한 Ping 통계:
+    패킷: 보냄 = 2, 받음 = 2, 손실 = 0 (0% 손실),
+왕복 시간(밀리초):
+    최소 = 0ms, 최대 = 1ms, 평균 = 0ms
+Control-C
+PS C:\Users\parksik> ssh kim@192.168.5.10
+The authenticity of host '192.168.5.10 (192.168.5.10)' can't be established.
+ED25519 key fingerprint is SHA256:d9ZZFGvyAS3AK7N0nH7hlrVWCx03hLf7qL5qi2rczhs.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+Host key verification failed.
+PS C:\Users\parksik> ssh kim@192.168.5.10
+The authenticity of host '192.168.5.10 (192.168.5.10)' can't be established.
+ED25519 key fingerprint is SHA256:d9ZZFGvyAS3AK7N0nH7hlrVWCx03hLf7qL5qi2rczhs.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.5.10' (ED25519) to the list of known hosts.
+kim@192.168.5.10's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-63-lowlatency x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+kim@kim-System-Product-Name:~$ sudo ip addr add 10.10.10.1/24 dev enp5s0
+[sudo] password for kim:
+kim@kim-System-Product-Name:~$ sudo ip link set enp5s0 up
+kim@kim-System-Product-Name:~$ ping 10.10.10.2
+PING 10.10.10.2 (10.10.10.2) 56(84) bytes of data.
+64 bytes from 10.10.10.2: icmp_seq=1 ttl=64 time=0.089 ms
+64 bytes from 10.10.10.2: icmp_seq=2 ttl=64 time=0.125 ms
+64 bytes from 10.10.10.2: icmp_seq=3 ttl=64 time=0.156 ms
+64 bytes from 10.10.10.2: icmp_seq=4 ttl=64 time=0.097 ms
+64 bytes from 10.10.10.2: icmp_seq=5 ttl=64 time=0.131 ms
+64 bytes from 10.10.10.2: icmp_seq=6 ttl=64 time=0.113 ms
+64 bytes from 10.10.10.2: icmp_seq=7 ttl=64 time=0.124 ms
+64 bytes from 10.10.10.2: icmp_seq=8 ttl=64 time=0.122 ms
+64 bytes from 10.10.10.2: icmp_seq=9 ttl=64 time=0.225 ms
+^C
+--- 10.10.10.2 ping statistics ---
+9 packets transmitted, 9 received, 0% packet loss, time 8197ms
+rtt min/avg/max/mdev = 0.089/0.131/0.225/0.037 ms
+kim@kim-System-Product-Name:~$ # -2: L2 전송 모드, -A: 자동으로 BMCA 실행, -i: 인터페이스, -m: 메시지 출력
+sudo ptp4l -2 -A -i enp5s0 -m
+ptp4l[2175.861]: selected /dev/ptp1 as PTP clock
+ptp4l[2175.877]: port 1 (enp5s0): INITIALIZING to LISTENING on INIT_COMPLETE
+ptp4l[2175.877]: port 0 (/var/run/ptp4l): INITIALIZING to LISTENING on INIT_COMPLETE
+ptp4l[2175.877]: port 0 (/var/run/ptp4lro): INITIALIZING to LISTENING on INIT_COMPLETE
+ptp4l[2183.144]: port 1 (enp5s0): LISTENING to MASTER on ANNOUNCE_RECEIPT_TIMEOUT_EXPIRES
+ptp4l[2183.144]: selected local clock d45d64.fffe.b25dc3 as best master
+ptp4l[2183.144]: port 1 (enp5s0): assuming the grand master role
+^Ckim@kim-System-Product-Name:~sudo tc qdisc replace dev enpXs0 parent root handle 100 mqprio num_tc 8 map 0 1 2 3 4 5 6 7 hw 0 0
+sudo tc qdisc replace dev enpXs0 parent 100:4 cbs idleslope 20000000 sendslope -980000000
+Cannot find device "enpXs0"
+Cannot find device "enpXs0"
+kim@kim-System-Product-Name:~$ sudo tc qdisc replace dev enp5s0 parent root handle 100 mqprio num_tc 8 map 0 1 2 3 4 5 6
+ 7 hw 0
+sudo tc qdisc replace dev enp5s0 parent 100:4 cbs idleslope 20000000 sendslope -980000000
+Error: sch_mqprio_lib: No queues for TC 0.
+Error: Failed to find specified qdisc.
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# enp5s0 위에 vlan10 이라는 가상 인터페이스를 만듭니다.
+sudo ip link add link enp5s0 name vlan10 type vlan id 10
+
+# vlan10 인터페이스로 나가는 패킷의 우선순위(PCP)를 TC 3에 매핑합니다.
+# egress-qos-map: 나가는 패킷의 우선순위를 0~7까지 어떻게 매길지 정합니다.
+# 0:3 -> 내부 우선순위 0번 패킷을 VLAN PCP 3으로 매핑
+# 1:3 -> 내부 우선순위 1번 패킷을 VLAN PCP 3으로 매핑 ...
+# 즉, vlan10을 통과하는 모든 패킷의 VLAN 우선순위를 3으로 고정합니다.
+sudo ip link set dev vlan10 type vlan egress-qos-map 0:3 1:3 2:3 3:3 4:3 5:3 6:3 7:3
+
+# vlan10 인터페이스에 IP 주소를 할당하고 활성화합니다.
+sudo ip addr add 10.10.10.1/24 dev vlan10
+sudo ip link set vlan10 up
+[sudo] password for kim:
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+sudo tc qdisc del dev enp5s0 root
+Error: Cannot delete qdisc with handle of zero.
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# enp5s0의 root qdisc로 cbs를 바로 설정합니다.
+# idleslope: 20Mbps, sendslope: -980Mbps (1G 링크 기준)
+sudo tc qdisc add dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# 30Mbps (설정한 20Mbps 초과)로 트래픽을 보냅니다.
+sockperf under-load -i 10.10.10.2 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.2      PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: Test end (interrupted by timer)
+sockperf: Test ended
+sockperf: No messages were received from the server. Is the server down?
+sockperf: Test end (interrupted by signal 2)
+kim@kim-System-Product-Name:~$ sudo tc qdisc add dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+Error: Exclusivity flag on, cannot modify.
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # 리눅스 PC 터미널
+sockperf under-load -i 10.10.10.2 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.2      PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: Test end (interrupted by timer)
+sockperf: Test ended
+sockperf: No messages were received from the server. Is the server down?
+sockperf: Test end (interrupted by signal 2)
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+sudo tc qdisc add dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+Error: Exclusivity flag on, cannot modify.
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# -i 10.10.10.255: 브로드캐스트 주소로 패킷을 전송
+sockperf ping-pong -i 10.10.10.255 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.255    PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: ERROR: sendto() Failed sending on fd[3] to 10.10.10.255:11111 msg size of 1472 bytes (errno=13 Permission denied)
+sockperf: ERROR: program exits because of an error. (errno=13 Permission denied)
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# add -> replace 로 변경
+sudo tc qdisc replace dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# 명령어 앞에 sudo 추가
+sudo sockperf ping-pong -i 10.10.10.255 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.255    PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: ERROR: sendto() Failed sending on fd[3] to 10.10.10.255:11111 msg size of 1472 bytes (errno=13 Permission denied)
+sockperf: ERROR: program exits because of an error. (errno=13 Permission denied)
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# --allow-broadcast 옵션 추가
+sockperf ping-pong -i 10.10.10.255 --allow-broadcast -t 10 -m 1472 --pps 2500
+ping-pong (pp): Run sockperf client for latency test in ping pong mode.
+
+Usage: sockperf ping-pong [options] [args]...
+ sockperf ping-pong -i ip  [-p port] [-m message_size] [-t time]
+ sockperf ping-pong -f file [-F s/p/e] [-m message_size] [-r msg_size_range] [-t time]
+
+Options:
+ -h,-?   --help,--usage         -Show the help message and exit.
+         --tcp                  -Use TCP protocol (default UDP).
+ -i      --ip                   -Listen on/send to ip <ip>.
+ -p      --port                 -Listen on/connect to port <port> (default 11111).
+ -f      --file                 -Read list of connections from file (used in pair with -F option).
+ -F      --iomux-type           -Type of multiple file descriptors handle [s|select|p|poll|e|epoll|r|recvfrom|x|socketxtreme](default epoll).
+         --timeout              -Set select/poll/epoll timeout to <msec>, -1 for infinite (default is 10 msec).
+ -a      --activity             -Measure activity by printing a '.' for the last <N> messages processed.
+ -A      --Activity             -Measure activity by printing the duration for last <N>  messages processed.
+         --tcp-avoid-nodelay    -Stop/Start delivering TCP Messages Immediately (Enable/Disable Nagel). Default is Nagel Disabled except in Throughput where the default is Nagel enabled.
+         --tcp-skip-blocking-send
+                                -Enables non-blocking send operation (default OFF).
+         --tos                  -Allows setting tos
+         --mc-rx-if             -Set address <ip> of interface on which to receive mulitcast messages (can be other then route table).
+         --mc-tx-if             -Set address <ip> of interface on which to transmit mulitcast messages (can be other then route table).
+         --mc-loopback-enable   -Enables mc loopback (default disabled).
+         --mc-ttl               -Limit the lifetime of the message (default 2).
+         --mc-source-filter     -Set address <ip, hostname> of mulitcast messages source which is allowed to receive from.
+         --uc-reuseaddr         -Enables unicast reuse address (default disabled).
+         --lls                  -Turn on LLS via socket option (value = usec to poll).
+         --buffer-size          -Set total socket receive/send buffer <size> in bytes (system defined by default).
+         --nonblocked           -Open non-blocked sockets.
+         --recv_looping_num     -Set sockperf to loop over recvfrom() until EAGAIN or <N> good received packets, -1 for infinite, must be used with --nonblocked (default 1).
+         --dontwarmup           -Don't send warm up messages on start.
+         --pre-warmup-wait      -Time to wait before sending warm up messages (seconds).
+         --vmazcopyread         -Use VMA's zero copy reads API (See VMA's readme).
+         --daemonize            -Run as daemon.
+         --no-rdtsc             -Don't use register when taking time; instead use monotonic clock.
+         --load-vma             -Load VMA dynamically even when LD_PRELOAD was not used.
+         --rate-limit           -use rate limit (packet-pacing), with VMA must be run with VMA_RING_ALLOCATION_LOGIC_TX mode.
+         --set-sock-accl        -Set socket accleration before run (available for some of Mellanox systems)
+ -d      --debug                -Print extra debug information.
+
+Valid arguments:
+         --srv-num              -Set num of servers the client works with to N.
+         --sender-affinity      -Set sender thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --receiver-affinity    -Set receiver thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --full-log             -Dump full log of all messages send/receive time to the given file in CSV format.
+         --full-rtt             -Show results in round-trip-time instead of latency.
+         --giga-size            -Print sizes in GigaByte.
+         --increase_output_precision
+                                -Increase number of digits after decimal point of the throughput output (from 3 to 9).
+         --dummy-send           -Use VMA's dummy send API instead of busy wait, must be higher than regular msg rate.
+                                 optional: set dummy-send rate per second (default 10,000), usage: --dummy-send [<rate>|max]
+ -t      --time                 -Run for <sec> seconds (default 1, max = 36000000).
+         --client_port          -Force the client side to bind to a specific port (default = 0).
+         --client_ip            -Force the client side to bind to a specific ip address (default = 0).
+ -b      --burst                -Control the client's number of a messages sent in every burst.
+         --mps                  -Set number of messages-per-second (default = 10000 - for under-load mode, or max - for ping-pong and throughput modes; for maximum use --mps=max;
+                                 support --pps for old compatibility).
+ -m      --msg-size             -Use messages of size <size> bytes (minimum default 14).
+ -r      --range                -comes with -m <size>, randomly change the messages size in range: <size> +- <N>.
+         --data-integrity       -Perform data integrity test.
+
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# 명령어 앞에 sudo 추가
+sudo sockperf ping-pong -i 10.10.10.255 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.255    PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: ERROR: sendto() Failed sending on fd[3] to 10.10.10.255:11111 msg size of 1472 bytes (errno=13 Permission denied)
+sockperf: ERROR: program exits because of an error. (errno=13 Permission denied)
+kim@kim-System-Product-Name:~$ sudo tc qdisc replace dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$ sudo sockperf ping-pong -i 10.10.10.255 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.255    PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: ERROR: sendto() Failed sending on fd[3] to 10.10.10.255:11111 msg size of 1472 bytes (errno=13 Permission denied)
+sockperf: ERROR: program exits because of an error. (errno=13 Permission denied)
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# --tx-if enp5s0 : 전송할 인터페이스를 명시적으로 지정
+sudo sockperf ping-pong -i 10.10.10.255 --tx-if enp5s0 -t 10 -m 1472 --pps 2500
+ping-pong (pp): Run sockperf client for latency test in ping pong mode.
+
+Usage: sockperf ping-pong [options] [args]...
+ sockperf ping-pong -i ip  [-p port] [-m message_size] [-t time]
+ sockperf ping-pong -f file [-F s/p/e] [-m message_size] [-r msg_size_range] [-t time]
+
+Options:
+ -h,-?   --help,--usage         -Show the help message and exit.
+         --tcp                  -Use TCP protocol (default UDP).
+ -i      --ip                   -Listen on/send to ip <ip>.
+ -p      --port                 -Listen on/connect to port <port> (default 11111).
+ -f      --file                 -Read list of connections from file (used in pair with -F option).
+ -F      --iomux-type           -Type of multiple file descriptors handle [s|select|p|poll|e|epoll|r|recvfrom|x|socketxtreme](default epoll).
+         --timeout              -Set select/poll/epoll timeout to <msec>, -1 for infinite (default is 10 msec).
+ -a      --activity             -Measure activity by printing a '.' for the last <N> messages processed.
+ -A      --Activity             -Measure activity by printing the duration for last <N>  messages processed.
+         --tcp-avoid-nodelay    -Stop/Start delivering TCP Messages Immediately (Enable/Disable Nagel). Default is Nagel Disabled except in Throughput where the default is Nagel enabled.
+         --tcp-skip-blocking-send
+                                -Enables non-blocking send operation (default OFF).
+         --tos                  -Allows setting tos
+         --mc-rx-if             -Set address <ip> of interface on which to receive mulitcast messages (can be other then route table).
+         --mc-tx-if             -Set address <ip> of interface on which to transmit mulitcast messages (can be other then route table).
+         --mc-loopback-enable   -Enables mc loopback (default disabled).
+         --mc-ttl               -Limit the lifetime of the message (default 2).
+         --mc-source-filter     -Set address <ip, hostname> of mulitcast messages source which is allowed to receive from.
+         --uc-reuseaddr         -Enables unicast reuse address (default disabled).
+         --lls                  -Turn on LLS via socket option (value = usec to poll).
+         --buffer-size          -Set total socket receive/send buffer <size> in bytes (system defined by default).
+         --nonblocked           -Open non-blocked sockets.
+         --recv_looping_num     -Set sockperf to loop over recvfrom() until EAGAIN or <N> good received packets, -1 for infinite, must be used with --nonblocked (default 1).
+         --dontwarmup           -Don't send warm up messages on start.
+         --pre-warmup-wait      -Time to wait before sending warm up messages (seconds).
+         --vmazcopyread         -Use VMA's zero copy reads API (See VMA's readme).
+         --daemonize            -Run as daemon.
+         --no-rdtsc             -Don't use register when taking time; instead use monotonic clock.
+         --load-vma             -Load VMA dynamically even when LD_PRELOAD was not used.
+         --rate-limit           -use rate limit (packet-pacing), with VMA must be run with VMA_RING_ALLOCATION_LOGIC_TX mode.
+         --set-sock-accl        -Set socket accleration before run (available for some of Mellanox systems)
+ -d      --debug                -Print extra debug information.
+
+Valid arguments:
+         --srv-num              -Set num of servers the client works with to N.
+         --sender-affinity      -Set sender thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --receiver-affinity    -Set receiver thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --full-log             -Dump full log of all messages send/receive time to the given file in CSV format.
+         --full-rtt             -Show results in round-trip-time instead of latency.
+         --giga-size            -Print sizes in GigaByte.
+         --increase_output_precision
+                                -Increase number of digits after decimal point of the throughput output (from 3 to 9).
+         --dummy-send           -Use VMA's dummy send API instead of busy wait, must be higher than regular msg rate.
+                                 optional: set dummy-send rate per second (default 10,000), usage: --dummy-send [<rate>|max]
+ -t      --time                 -Run for <sec> seconds (default 1, max = 36000000).
+         --client_port          -Force the client side to bind to a specific port (default = 0).
+         --client_ip            -Force the client side to bind to a specific ip address (default = 0).
+ -b      --burst                -Control the client's number of a messages sent in every burst.
+         --mps                  -Set number of messages-per-second (default = 10000 - for under-load mode, or max - for ping-pong and throughput modes; for maximum use --mps=max;
+                                 support --pps for old compatibility).
+ -m      --msg-size             -Use messages of size <size> bytes (minimum default 14).
+ -r      --range                -comes with -m <size>, randomly change the messages size in range: <size> +- <N>.
+         --data-integrity       -Perform data integrity test.
+
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# --tx-if enp5s0 : 전송할 인터페이스를 명시적으로 지정
+sudo sockperf ping-pong -i 10.10.10.255 --tx-if enp5s0 -t 10 -m 1472 --pps 2500
+ping-pong (pp): Run sockperf client for latency test in ping pong mode.
+
+Usage: sockperf ping-pong [options] [args]...
+ sockperf ping-pong -i ip  [-p port] [-m message_size] [-t time]
+ sockperf ping-pong -f file [-F s/p/e] [-m message_size] [-r msg_size_range] [-t time]
+
+Options:
+ -h,-?   --help,--usage         -Show the help message and exit.
+         --tcp                  -Use TCP protocol (default UDP).
+ -i      --ip                   -Listen on/send to ip <ip>.
+ -p      --port                 -Listen on/connect to port <port> (default 11111).
+ -f      --file                 -Read list of connections from file (used in pair with -F option).
+ -F      --iomux-type           -Type of multiple file descriptors handle [s|select|p|poll|e|epoll|r|recvfrom|x|socketxtreme](default epoll).
+         --timeout              -Set select/poll/epoll timeout to <msec>, -1 for infinite (default is 10 msec).
+ -a      --activity             -Measure activity by printing a '.' for the last <N> messages processed.
+ -A      --Activity             -Measure activity by printing the duration for last <N>  messages processed.
+         --tcp-avoid-nodelay    -Stop/Start delivering TCP Messages Immediately (Enable/Disable Nagel). Default is Nagel Disabled except in Throughput where the default is Nagel enabled.
+         --tcp-skip-blocking-send
+                                -Enables non-blocking send operation (default OFF).
+         --tos                  -Allows setting tos
+         --mc-rx-if             -Set address <ip> of interface on which to receive mulitcast messages (can be other then route table).
+         --mc-tx-if             -Set address <ip> of interface on which to transmit mulitcast messages (can be other then route table).
+         --mc-loopback-enable   -Enables mc loopback (default disabled).
+         --mc-ttl               -Limit the lifetime of the message (default 2).
+         --mc-source-filter     -Set address <ip, hostname> of mulitcast messages source which is allowed to receive from.
+         --uc-reuseaddr         -Enables unicast reuse address (default disabled).
+         --lls                  -Turn on LLS via socket option (value = usec to poll).
+         --buffer-size          -Set total socket receive/send buffer <size> in bytes (system defined by default).
+         --nonblocked           -Open non-blocked sockets.
+         --recv_looping_num     -Set sockperf to loop over recvfrom() until EAGAIN or <N> good received packets, -1 for infinite, must be used with --nonblocked (default 1).
+         --dontwarmup           -Don't send warm up messages on start.
+         --pre-warmup-wait      -Time to wait before sending warm up messages (seconds).
+         --vmazcopyread         -Use VMA's zero copy reads API (See VMA's readme).
+         --daemonize            -Run as daemon.
+         --no-rdtsc             -Don't use register when taking time; instead use monotonic clock.
+         --load-vma             -Load VMA dynamically even when LD_PRELOAD was not used.
+         --rate-limit           -use rate limit (packet-pacing), with VMA must be run with VMA_RING_ALLOCATION_LOGIC_TX mode.
+         --set-sock-accl        -Set socket accleration before run (available for some of Mellanox systems)
+ -d      --debug                -Print extra debug information.
+
+Valid arguments:
+         --srv-num              -Set num of servers the client works with to N.
+         --sender-affinity      -Set sender thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --receiver-affinity    -Set receiver thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --full-log             -Dump full log of all messages send/receive time to the given file in CSV format.
+         --full-rtt             -Show results in round-trip-time instead of latency.
+         --giga-size            -Print sizes in GigaByte.
+         --increase_output_precision
+                                -Increase number of digits after decimal point of the throughput output (from 3 to 9).
+         --dummy-send           -Use VMA's dummy send API instead of busy wait, must be higher than regular msg rate.
+                                 optional: set dummy-send rate per second (default 10,000), usage: --dummy-send [<rate>|max]
+ -t      --time                 -Run for <sec> seconds (default 1, max = 36000000).
+         --client_port          -Force the client side to bind to a specific port (default = 0).
+         --client_ip            -Force the client side to bind to a specific ip address (default = 0).
+ -b      --burst                -Control the client's number of a messages sent in every burst.
+         --mps                  -Set number of messages-per-second (default = 10000 - for under-load mode, or max - for ping-pong and throughput modes; for maximum use --mps=max;
+                                 support --pps for old compatibility).
+ -m      --msg-size             -Use messages of size <size> bytes (minimum default 14).
+ -r      --range                -comes with -m <size>, randomly change the messages size in range: <size> +- <N>.
+         --data-integrity       -Perform data integrity test.
+
+kim@kim-System-Product-Name:~$ ^C
+kim@kim-System-Product-Name:~$ ^C
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# -c 10.10.10.255: 클라이언트 모드, 목적지는 브로드캐스트 주소
+# -u: UDP 모드
+# -b 30M: 대역폭을 30Mbps로 지정 (2500 pps * 1472 bytes * 8 bits/byte ≈ 29.44Mbps)
+# -l 1472: 패킷 크기
+# -t 10: 10초 동안 실행
+# -S 0: 서비스 품질(TOS) 필드를 0으로 설정 (CBS 테스트에서는 우선순위가 중요하지 않음)
+iperf3 -c 10.10.10.255 -u -b 30M -l 1472 -t 10 -S 0
+iperf3: error - unable to connect to server - server may have stopped running or use a different port, firewall issue, etc.: Network is unreachable
+kim@kim-System-Product-Name:~$ sudo iperf3 -c 10.10.10.255 -u -b 30M -l 1472 -t 10 -S 0
+iperf3: error - unable to connect to server - server may have stopped running or use a different port, firewall issue, etc.: Network is unreachable
+kim@kim-System-Product-Name:~$ sudo modprobe pktgen
+kim@kim-System-Product-Name:~$ # pktgen_script.sh 라는 파일을 만듭니다.
+#!/bin/bash
+
+# pktgen을 제어할 스레드를 CPU 0에 할당
+echo "rem_device_all" > /proc/net/pktgen/kpktgend_0
+
+# enp5s0 인터페이스 추가
+echo "add_device enp5s0" > /proc/net/pktgen/kpktgend_0
+
+# enp5s0 인터페이스에 대한 설정
+PGDEV=/proc/net/pktgen/enp5s0
+echo "count 25000" > $PGDEV       # 총 25000개 패킷 (2500 pps * 10초)
+echo "delay 400000" > $PGDEV       # 패킷 간 지연 (ns). 1/2500s = 400,000ns
+echo "pkt_size 1472" > $PGDEV
+echo "dst 10.10.10.255" > $PGDEV  # 목적지 IP
+echo "dst_mac 00:04:9f:be:ef:00" > $PGDEV # GoldBox의 pfe0 MAC 주소
+
+# pktgen 시작
+echo "start" > /proc/net/pktgen/pgctrl
+
+echo "Pktgen started..."
+sleep 10
+echo "Pktgen stopped."
+-bash: /proc/net/pktgen/kpktgend_0: Permission denied
+-bash: /proc/net/pktgen/kpktgend_0: Permission denied
+-bash: /proc/net/pktgen/enp5s0: No such file or directory
+-bash: /proc/net/pktgen/enp5s0: No such file or directory
+-bash: /proc/net/pktgen/enp5s0: No such file or directory
+-bash: /proc/net/pktgen/enp5s0: No such file or directory
+-bash: /proc/net/pktgen/enp5s0: No such file or directory
+-bash: /proc/net/pktgen/pgctrl: Permission denied
+Pktgen started...
+
+
+
+
+Pktgen stopped.
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ ^C
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+sudo tc qdisc replace dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# -c 10.10.10.255: 클라이언트 모드, 브로드캐스트 주소로
+# -u: UDP 모드
+# -b 30M: 대역폭 30Mbps
+# -l 1472: 패킷 페이로드 크기
+# -t 10: 10초간 실행
+# --bind 10.10.10.1: 10.10.10.1 IP를 가진 enp5s0 인터페이스를 통해 보내도록 강제
+iperf3 -c 10.10.10.255 -u -b 30M -l 1472 -t 10 --bind 10.10.10.1
+iperf3: error - unable to connect to server - server may have stopped running or use a different port, firewall issue, etc.: Network is unreachable
+kim@kim-System-Product-Name:~$ sudo iperf3 -c 10.10.10.255 -u -b 30M -l 1472 -t 10 --bind 10.10.10.1
+iperf3: error - unable to connect to server - server may have stopped running or use a different port, firewall issue, etc.: Network is unreachable
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# -c 10.10.10.2: 목적지를 GoldBox의 유니캐스트 IP로 다시 변경
+# -B: 브로드캐스트 옵션 추가 (iperf3가 내부적으로 처리)
+# sudo: 브로드캐스트를 위한 권한 획득
+sudo iperf3 -c 10.10.10.2 -u -b 30M -l 1472 -t 10 --bind 10.10.10.1 -B
+iperf3: option requires an argument -- 'B'
+
+Usage: iperf3 [-s|-c host] [options]
+Try `iperf3 --help' for more information.
+kim@kim-System-Product-Name:~$ sudo tc qdisc replace dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$ sudo iperf3 -c 10.10.10.2 -u -b 30M -l 1472 -t 10 --bind 10.10.10.1 -B
+iperf3: option requires an argument -- 'B'
+
+Usage: iperf3 [-s|-c host] [options]
+Try `iperf3 --help' for more information.
+kim@kim-System-Product-Name:~$ ping 10.10.10.1
+PING 10.10.10.1 (10.10.10.1) 56(84) bytes of data.
+64 bytes from 10.10.10.1: icmp_seq=1 ttl=64 time=0.014 ms
+64 bytes from 10.10.10.1: icmp_seq=2 ttl=64 time=0.020 ms
+64 bytes from 10.10.10.1: icmp_seq=3 ttl=64 time=0.019 ms
+64 bytes from 10.10.10.1: icmp_seq=4 ttl=64 time=0.025 ms
+^C
+--- 10.10.10.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3077ms
+rtt min/avg/max/mdev = 0.014/0.019/0.025/0.004 ms
+kim@kim-System-Product-Name:~$ ping 10.10.10.2
+PING 10.10.10.2 (10.10.10.2) 56(84) bytes of data.
+64 bytes from 10.10.10.2: icmp_seq=1 ttl=64 time=0.243 ms
+64 bytes from 10.10.10.2: icmp_seq=2 ttl=64 time=0.128 ms
+64 bytes from 10.10.10.2: icmp_seq=3 ttl=64 time=0.163 ms
+64 bytes from 10.10.10.2: icmp_seq=4 ttl=64 time=0.126 ms
+^C
+--- 10.10.10.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3090ms
+rtt min/avg/max/mdev = 0.126/0.165/0.243/0.047 ms
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+sudo modprobe pktgen
+kim@kim-System-Product-Name:~$ nano run_pktgen.sh
+kim@kim-System-Product-Name:~$ nano run_pktgen.sh
+kim@kim-System-Product-Name:~$ sudo tc qdisc replace dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$ chmod +x run_pktgen.sh
+kim@kim-System-Product-Name:~$ sudo ./run_pktgen.sh
+Setting up pktgen...
+Starting pktgen...
+Stopping pktgen...
+Done.
+kim@kim-System-Product-Name:~$ # CBS의 속도 제한을 5Mbps로 설정합니다.
+sudo tc qdisc replace dev enp5s0 root cbs idleslope 5000000 sendslope -995000000
+[sudo] password for kim:
+kim@kim-System-Product-Name:~$ nano run_pktgen.sh
+kim@kim-System-Product-Name:~$ # 이전에 실행 권한을 줬으므로 바로 실행하면 됩니다.
+sudo ./run_pktgen.sh
+Setting up pktgen...
+Starting pktgen...
+Stopping pktgen...
+Done.
+kim@kim-System-Product-Name:~$ # 패키지 목록 업데이트 및 업그레이드
+sudo apt update && sudo apt upgrade -y
+
+# 필수 도구 설치
+sudo apt install -y wget build-essential
+Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:2 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:3 https://ppa.launchpadcontent.net/cappelikan/ppa/ubuntu noble InRelease
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Hit:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Fetched 126 kB in 5s (26.3 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+6 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Calculating upgrade... Done
+The following packages were automatically installed and are no longer required:
+  linux-headers-6.11.0-17-generic linux-hwe-6.11-headers-6.11.0-17 linux-hwe-6.11-tools-6.11.0-17
+  linux-image-6.11.0-17-generic linux-modules-6.11.0-17-generic linux-modules-extra-6.11.0-17-generic
+  linux-modules-nvidia-550-6.11.0-17-generic linux-objects-nvidia-550-6.11.0-17-generic
+  linux-signatures-nvidia-6.11.0-17-generic linux-tools-6.11.0-17-generic nvidia-firmware-550-550.120
+Use 'sudo apt autoremove' to remove them.
+The following upgrades have been deferred due to phasing:
+  dnsmasq-base libnautilus-extension4 nautilus nautilus-data ubuntu-drivers-common
+The following packages will be upgraded:
+  gzip
+1 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+2 not fully installed or removed.
+Need to get 99.0 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 gzip amd64 1.12-1ubuntu3.1 [99.0 kB]
+Fetched 99.0 kB in 3s (31.3 kB/s)
+(Reading database ... 273284 files and directories currently installed.)
+Preparing to unpack .../gzip_1.12-1ubuntu3.1_amd64.deb ...
+Unpacking gzip (1.12-1ubuntu3.1) over (1.12-1ubuntu3) ...
+Setting up gzip (1.12-1ubuntu3.1) ...
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0=7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0=7642.46/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure):
+ installed linux-headers-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Setting up linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+Processing triggers for install-info (7.1-3build2) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0=7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0=7642.46/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--configure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Errors were encountered while processing:
+ linux-headers-6.15.4-061504-generic
+ linux-image-unsigned-6.15.4-061504-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+wget is already the newest version (1.21.4-1ubuntu4.1).
+wget set to manually installed.
+build-essential is already the newest version (12.10ubuntu1).
+The following packages were automatically installed and are no longer required:
+  linux-headers-6.11.0-17-generic linux-hwe-6.11-headers-6.11.0-17 linux-hwe-6.11-tools-6.11.0-17
+  linux-image-6.11.0-17-generic linux-modules-6.11.0-17-generic linux-modules-extra-6.11.0-17-generic
+  linux-modules-nvidia-550-6.11.0-17-generic linux-objects-nvidia-550-6.11.0-17-generic
+  linux-signatures-nvidia-6.11.0-17-generic linux-tools-6.11.0-17-generic nvidia-firmware-550-550.120
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+2 not fully installed or removed.
+After this operation, 0 B of additional disk space will be used.
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0=7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0=7642.46/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure):
+ installed linux-headers-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Setting up linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0=7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0=7642.46/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--configure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Errors were encountered while processing:
+ linux-headers-6.15.4-061504-generic
+ linux-image-unsigned-6.15.4-061504-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+kim@kim-System-Product-Name:~$ nvidia-smi
+NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+kim@kim-System-Product-Name:~$ lspci | grep -i nvidia
+01:00.0 VGA compatible controller: NVIDIA Corporation GP107 [GeForce GTX 1050 Ti] (rev a1)
+01:00.1 Audio device: NVIDIA Corporation GP107GL High Definition Audio Controller (rev a1)
+kim@kim-System-Product-Name:~$ sudo ubuntu-drivers autoinstall
+sudo reboot # 설치 후 반드시 서버를 재부팅해야 합니다.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  linux-headers-6.11.0-17-generic linux-hwe-6.11-headers-6.11.0-17 linux-hwe-6.11-tools-6.11.0-17
+  linux-image-6.11.0-17-generic linux-modules-6.11.0-17-generic linux-modules-extra-6.11.0-17-generic
+  linux-objects-nvidia-550-6.11.0-17-generic linux-signatures-nvidia-6.11.0-17-generic linux-tools-6.11.0-17-generic
+  nvidia-firmware-550-550.120 nvidia-firmware-550-550.144.03
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libnvidia-cfg1-570 libnvidia-common-570 libnvidia-compute-570 libnvidia-decode-570 libnvidia-encode-570
+  libnvidia-extra-570 libnvidia-fbc1-570 libnvidia-gl-570 nvidia-compute-utils-570 nvidia-dkms-570
+  nvidia-firmware-570-570.133.07 nvidia-kernel-common-570 nvidia-kernel-source-570 nvidia-utils-570
+  xserver-xorg-video-nvidia-570
+Recommended packages:
+  libnvidia-compute-570:i386 libnvidia-decode-570:i386 libnvidia-encode-570:i386 libnvidia-fbc1-570:i386
+  libnvidia-gl-570:i386
+The following packages will be REMOVED:
+  libnvidia-cfg1-550 libnvidia-common-550 libnvidia-compute-550 libnvidia-decode-550 libnvidia-encode-550
+  libnvidia-extra-550 libnvidia-fbc1-550 libnvidia-gl-550 linux-modules-nvidia-550-6.11.0-17-generic
+  linux-modules-nvidia-550-6.11.0-29-generic linux-modules-nvidia-550-generic-hwe-24.04 nvidia-compute-utils-550
+  nvidia-driver-550 nvidia-kernel-common-550 nvidia-kernel-source-550 nvidia-utils-550 xserver-xorg-video-nvidia-550
+The following NEW packages will be installed:
+  libnvidia-cfg1-570 libnvidia-common-570 libnvidia-compute-570 libnvidia-decode-570 libnvidia-encode-570
+  libnvidia-extra-570 libnvidia-fbc1-570 libnvidia-gl-570 nvidia-compute-utils-570 nvidia-dkms-570 nvidia-driver-570
+  nvidia-firmware-570-570.133.07 nvidia-kernel-common-570 nvidia-kernel-source-570 nvidia-utils-570
+  xserver-xorg-video-nvidia-570
+0 upgraded, 16 newly installed, 17 to remove and 5 not upgraded.
+2 not fully installed or removed.
+Need to get 363 MB of archives.
+After this operation, 337 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 libnvidia-cfg1-570 amd64 570.133.07-0ubuntu0.24.04.1 [157 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 libnvidia-common-570 all 570.133.07-0ubuntu0.24.04.1 [16.2 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 libnvidia-compute-570 amd64 570.133.07-0ubuntu0.24.04.1 [48.3 MB]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 libnvidia-decode-570 amd64 570.133.07-0ubuntu0.24.04.1 [2,825 kB]
+Get:5 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 libnvidia-encode-570 amd64 570.133.07-0ubuntu0.24.04.1 [112 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 libnvidia-extra-570 amd64 570.133.07-0ubuntu0.24.04.1 [77.2 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 libnvidia-fbc1-570 amd64 570.133.07-0ubuntu0.24.04.1 [106 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 libnvidia-gl-570 amd64 570.133.07-0ubuntu0.24.04.1 [169 MB]
+Get:9 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 nvidia-compute-utils-570 amd64 570.133.07-0ubuntu0.24.04.1 [125 kB]
+Get:10 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 nvidia-kernel-source-570 amd64 570.133.07-0ubuntu0.24.04.1 [72.6 MB]
+Get:11 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 nvidia-firmware-570-570.133.07 amd64 570.133.07-0ubuntu0.24.04.1 [65.7 MB]
+Get:12 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 nvidia-kernel-common-570 amd64 570.133.07-0ubuntu0.24.04.1 [122 kB]
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 nvidia-dkms-570 amd64 570.133.07-0ubuntu0.24.04.1 [35.6 kB]
+Get:14 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 nvidia-utils-570 amd64 570.133.07-0ubuntu0.24.04.1 [552 kB]
+Get:15 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 xserver-xorg-video-nvidia-570 amd64 570.133.07-0ubuntu0.24.04.1 [1,780 kB]
+Get:16 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 nvidia-driver-570 amd64 570.133.07-0ubuntu0.24.04.1 [499 kB]
+Fetched 363 MB in 1min 20s (4,508 kB/s)
+(Reading database ... 273284 files and directories currently installed.)
+Removing nvidia-driver-550 (550.144.03-0ubuntu0.24.04.1) ...
+Removing xserver-xorg-video-nvidia-550 (550.144.03-0ubuntu0.24.04.1) ...
+Removing libnvidia-cfg1-550:amd64 (550.144.03-0ubuntu0.24.04.1) ...
+Removing libnvidia-gl-550:amd64 (550.144.03-0ubuntu0.24.04.1) ...
+Removing libnvidia-common-550 (550.144.03-0ubuntu0.24.04.1) ...
+Removing nvidia-utils-550 (550.144.03-0ubuntu0.24.04.1) ...
+Removing libnvidia-encode-550:amd64 (550.144.03-0ubuntu0.24.04.1) ...
+Removing libnvidia-decode-550:amd64 (550.144.03-0ubuntu0.24.04.1) ...
+Removing libnvidia-extra-550:amd64 (550.144.03-0ubuntu0.24.04.1) ...
+Removing libnvidia-fbc1-550:amd64 (550.144.03-0ubuntu0.24.04.1) ...
+Removing linux-modules-nvidia-550-6.11.0-17-generic (6.11.0-17.17~24.04.2+1) ...
+linux-image-nvidia-6.11.0-17-generic: removing .ko files
+Removing linux-modules-nvidia-550-generic-hwe-24.04 (6.11.0-29.29~24.04.1) ...
+Removing linux-modules-nvidia-550-6.11.0-29-generic (6.11.0-29.29~24.04.1) ...
+linux-image-nvidia-6.11.0-29-generic: removing .ko files
+Removing nvidia-compute-utils-550 (550.144.03-0ubuntu0.24.04.1) ...
+Removing nvidia-kernel-common-550 (550.144.03-0ubuntu0.24.04.1) ...
+update-initramfs: deferring update (trigger activated)
+Removing nvidia-kernel-source-550 (550.144.03-0ubuntu0.24.04.1) ...
+Removing libnvidia-compute-550:amd64 (550.144.03-0ubuntu0.24.04.1) ...
+Selecting previously unselected package libnvidia-cfg1-570:amd64.
+(Reading database ... 272596 files and directories currently installed.)
+Preparing to unpack .../00-libnvidia-cfg1-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking libnvidia-cfg1-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package libnvidia-common-570.
+Preparing to unpack .../01-libnvidia-common-570_570.133.07-0ubuntu0.24.04.1_all.deb ...
+Unpacking libnvidia-common-570 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package libnvidia-compute-570:amd64.
+Preparing to unpack .../02-libnvidia-compute-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking libnvidia-compute-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package libnvidia-decode-570:amd64.
+Preparing to unpack .../03-libnvidia-decode-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking libnvidia-decode-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package libnvidia-encode-570:amd64.
+Preparing to unpack .../04-libnvidia-encode-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking libnvidia-encode-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package libnvidia-extra-570:amd64.
+Preparing to unpack .../05-libnvidia-extra-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking libnvidia-extra-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package libnvidia-fbc1-570:amd64.
+Preparing to unpack .../06-libnvidia-fbc1-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking libnvidia-fbc1-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package libnvidia-gl-570:amd64.
+Preparing to unpack .../07-libnvidia-gl-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+dpkg-query: no packages found matching libnvidia-gl-550
+Unpacking libnvidia-gl-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package nvidia-compute-utils-570.
+Preparing to unpack .../08-nvidia-compute-utils-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking nvidia-compute-utils-570 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package nvidia-kernel-source-570.
+Preparing to unpack .../09-nvidia-kernel-source-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking nvidia-kernel-source-570 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package nvidia-firmware-570-570.133.07.
+Preparing to unpack .../10-nvidia-firmware-570-570.133.07_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking nvidia-firmware-570-570.133.07 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package nvidia-kernel-common-570.
+Preparing to unpack .../11-nvidia-kernel-common-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking nvidia-kernel-common-570 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package nvidia-dkms-570.
+Preparing to unpack .../12-nvidia-dkms-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking nvidia-dkms-570 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package nvidia-utils-570.
+Preparing to unpack .../13-nvidia-utils-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking nvidia-utils-570 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package xserver-xorg-video-nvidia-570.
+Preparing to unpack .../14-xserver-xorg-video-nvidia-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking xserver-xorg-video-nvidia-570 (570.133.07-0ubuntu0.24.04.1) ...
+Selecting previously unselected package nvidia-driver-570.
+Preparing to unpack .../15-nvidia-driver-570_570.133.07-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking nvidia-driver-570 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up libnvidia-extra-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up nvidia-firmware-570-570.133.07 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up nvidia-kernel-source-570 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up libnvidia-common-570 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up libnvidia-cfg1-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0=7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0=7642.46/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure):
+ installed linux-headers-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Setting up libnvidia-compute-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+Setting up libnvidia-fbc1-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up libnvidia-decode-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up xserver-xorg-video-nvidia-570 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up nvidia-kernel-common-570 (570.133.07-0ubuntu0.24.04.1) ...
+Installing new version of config file /etc/modprobe.d/nvidia-graphics-drivers-kms.conf ...
+update-initramfs: deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+Setting up libnvidia-gl-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up nvidia-utils-570 (570.133.07-0ubuntu0.24.04.1) ...
+Setting up nvidia-compute-utils-570 (570.133.07-0ubuntu0.24.04.1) ...
+info: The home dir /nonexistent you specified can't be accessed: No such file or directory
+
+info: Selecting UID from range 100 to 999 ...
+
+info: Selecting GID from range 100 to 999 ...
+info: Adding system user `nvidia-persistenced' (UID 122) ...
+info: Adding new group `nvidia-persistenced' (GID 124) ...
+info: Adding new user `nvidia-persistenced' (UID 122) with group `nvidia-persistenced' ...
+info: Not creating `/nonexistent'.
+Setting up nvidia-dkms-570 (570.133.07-0ubuntu0.24.04.1) ...
+update-initramfs: deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+INFO:Enable nvidia
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/dell_latitude
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/put_your_quirks_here
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/lenovo_thinkpad
+Loading new nvidia-570.133.07 DKMS files...
+Building for 6.8.0-63-lowlatency 6.15.4-061504-generic
+Building for architecture x86_64
+Building initial module for 6.8.0-63-lowlatency
+Done.
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+depmod....
+Building initial module for 6.15.4-061504-generic
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dpkg: error processing package nvidia-dkms-570 (--configure):
+ installed nvidia-dkms-570 package post-installation script subprocess returned error exit status 10
+Setting up libnvidia-encode-570:amd64 (570.133.07-0ubuntu0.24.04.1) ...
+dpkg: dependency problems prevent configuration of nvidia-driver-570:
+ nvidia-driver-570 depends on nvidia-dkms-570 (<= 570.133.07-1); however:
+  Package nvidia-dkms-570 is not configured yet.
+ nvidia-driver-570 depends on nvidia-dkms-570 (>= 570.133.07); however:
+  Package nvidia-dkms-570 is not configured yet.
+
+dpkg: error processing package nvidia-driver-570 (--configure):
+ dependency problems - leaving unconfigured
+No apport report written because the error message indicates its a followup error from a previous failure.
+                                                                                                          Processing triggers for initramfs-tools (0.142ubuntu25.5) ...
+update-initramfs: Generating /boot/initrd.img-6.11.0-29-generic
+Processing triggers for libc-bin (2.39-0ubuntu8.4) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0=7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0=7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0=7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--configure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Errors were encountered while processing:
+ linux-headers-6.15.4-061504-generic
+ nvidia-dkms-570
+ nvidia-driver-570
+ linux-image-unsigned-6.15.4-061504-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+Broadcast message from root@kim-System-Product-Name on pts/4 (Thu 2025-07-03 16:08:07 KST):
+
+The system will reboot now!
+
+kim@kim-System-Product-Name:~$ Connection to 192.168.5.10 closed by remote host.
+Connection to 192.168.5.10 closed.
+PS C:\Users\parksik> ssh kim@192.168.5.10
+kim@192.168.5.10's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-63-lowlatency x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+Last login: Thu Jul  3 14:28:30 2025 from 192.168.5.11
+kim@kim-System-Product-Name:~$ nvidia-smi
+Thu Jul  3 16:11:21 2025
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce GTX 1050 Ti     Off |   00000000:01:00.0  On |                  N/A |
+| 29%   34C    P0            N/A  /  100W |     442MiB /   4096MiB |     11%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            2121      G   /usr/lib/xorg/Xorg                      101MiB |
+|    0   N/A  N/A            2306      G   /usr/bin/gnome-shell                     91MiB |
+|    0   N/A  N/A            3140      G   /usr/bin/nautilus                        10MiB |
+|    0   N/A  N/A            3177      G   .../5751/usr/lib/firefox/firefox        226MiB |
++-----------------------------------------------------------------------------------------+
+kim@kim-System-Product-Name:~$ # dkms에서 문제가 되는 igc 모듈을 버전까지 정확히 지정하여 제거합니다.
+sudo dkms remove igc/5.4.0=7642.46 --all
+[sudo] password for kim:
+Deleting module igc-5.4.0=7642.46 completely from the DKMS tree.
+kim@kim-System-Product-Name:~$ # 사용되지 않는 패키지들을 자동으로 제거합니다.
+sudo apt autoremove -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages will be REMOVED:
+  linux-headers-6.11.0-17-generic linux-hwe-6.11-headers-6.11.0-17 linux-hwe-6.11-tools-6.11.0-17
+  linux-image-6.11.0-17-generic linux-modules-6.11.0-17-generic linux-modules-extra-6.11.0-17-generic
+  linux-objects-nvidia-550-6.11.0-17-generic linux-signatures-nvidia-6.11.0-17-generic linux-tools-6.11.0-17-generic
+  nvidia-firmware-550-550.120 nvidia-firmware-550-550.144.03
+0 upgraded, 0 newly installed, 11 to remove and 5 not upgraded.
+4 not fully installed or removed.
+After this operation, 578 MB disk space will be freed.
+(Reading database ... 273342 files and directories currently installed.)
+Removing linux-headers-6.11.0-17-generic (6.11.0-17.17~24.04.2) ...
+Removing linux-hwe-6.11-headers-6.11.0-17 (6.11.0-17.17~24.04.2) ...
+Removing linux-tools-6.11.0-17-generic (6.11.0-17.17~24.04.2) ...
+Removing linux-hwe-6.11-tools-6.11.0-17 (6.11.0-17.17~24.04.2) ...
+Removing linux-signatures-nvidia-6.11.0-17-generic (6.11.0-17.17~24.04.2+1) ...
+Removing linux-image-6.11.0-17-generic (6.11.0-17.17~24.04.2) ...
+/etc/kernel/postrm.d/initramfs-tools:
+update-initramfs: Deleting /boot/initrd.img-6.11.0-17-generic
+/etc/kernel/postrm.d/zz-update-grub:
+Sourcing file `/etc/default/grub'
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-6.15.4-061504-generic
+Found linux image: /boot/vmlinuz-6.11.0-29-generic
+Found initrd image: /boot/initrd.img-6.11.0-29-generic
+Found linux image: /boot/vmlinuz-6.8.0-63-lowlatency
+Found initrd image: /boot/initrd.img-6.8.0-63-lowlatency
+Found memtest86+ 64bit EFI image: /boot/memtest86+x64.efi
+Warning: os-prober will be executed to detect other bootable partitions.
+Its output will be used to detect bootable binaries on them and create new boot entries.
+Found Windows Boot Manager on /dev/nvme0n1p1@/EFI/Microsoft/Boot/bootmgfw.efi
+Adding boot menu entry for UEFI Firmware Settings ...
+done
+Removing linux-modules-extra-6.11.0-17-generic (6.11.0-17.17~24.04.2) ...
+Removing linux-modules-6.11.0-17-generic (6.11.0-17.17~24.04.2) ...
+Removing linux-objects-nvidia-550-6.11.0-17-generic (6.11.0-17.17~24.04.2+1) ...
+Removing nvidia-firmware-550-550.120 (550.120-0ubuntu0.24.04.1) ...
+Removing nvidia-firmware-550-550.144.03 (550.144.03-0ubuntu0.24.04.1) ...
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure):
+ installed linux-headers-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Setting up nvidia-dkms-570 (570.133.07-0ubuntu0.24.04.1) ...
+update-initramfs: deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+INFO:Enable nvidia
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/dell_latitude
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/put_your_quirks_here
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/lenovo_thinkpad
+Removing old nvidia-570.133.07 DKMS files...
+Module nvidia-570.133.07 for kernel 6.8.0-63-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod....
+Deleting module nvidia-570.133.07 completely from the DKMS tree.
+Loading new nvidia-570.133.07 DKMS files...
+Building for 6.8.0-63-lowlatency 6.15.4-061504-generic
+Building for architecture x86_64
+Building initial module for 6.8.0-63-lowlatency
+Done.
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+depmod...
+Building initial module for 6.15.4-061504-generic
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dpkg: error processing package nvidia-dkms-570 (--configure):
+ installed nvidia-dkms-570 package post-installation script subprocess returned error exit status 10
+Setting up linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+I: /boot/initrd.img is now a symlink to initrd.img-6.15.4-061504-generic
+dpkg: dependency problems prevent configuration of nvidia-driver-570:
+ nvidia-driver-570 depends on nvidia-dkms-570 (<= 570.133.07-1); however:
+  Package nvidia-dkms-570 is not configured yet.
+ nvidia-driver-570 depends on nvidia-dkms-570 (>= 570.133.07); however:
+  Package nvidia-dkms-570 is not configured yet.
+
+dpkg: error processing package nvidia-driver-570 (--configure):
+ dependency problems - leaving unconfigured
+No apport report written because the error message indicates its a followup error from a previous failure.
+                                                                                                          Processing triggers for initramfs-tools (0.142ubuntu25.5) ...
+update-initramfs: Generating /boot/initrd.img-6.11.0-29-generic
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--configure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Errors were encountered while processing:
+ linux-headers-6.15.4-061504-generic
+ nvidia-dkms-570
+ nvidia-driver-570
+ linux-image-unsigned-6.15.4-061504-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+kim@kim-System-Product-Name:~$ # 패키지 목록 업데이트 및 업그레이드
+sudo apt update && sudo apt upgrade -y
+
+# 필수 도구 설치
+sudo apt install -y wget build-essential
+Hit:1 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:2 https://ppa.launchpadcontent.net/cappelikan/ppa/ubuntu noble InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+5 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Calculating upgrade... Done
+The following upgrades have been deferred due to phasing:
+  dnsmasq-base libnautilus-extension4 nautilus nautilus-data ubuntu-drivers-common
+0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+4 not fully installed or removed.
+After this operation, 0 B of additional disk space will be used.
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure):
+ installed linux-headers-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Setting up nvidia-dkms-570 (570.133.07-0ubuntu0.24.04.1) ...
+update-initramfs: deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+INFO:Enable nvidia
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/dell_latitude
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/put_your_quirks_here
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/lenovo_thinkpad
+Removing old nvidia-570.133.07 DKMS files...
+Module nvidia-570.133.07 for kernel 6.8.0-63-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Deleting module nvidia-570.133.07 completely from the DKMS tree.
+Loading new nvidia-570.133.07 DKMS files...
+Building for 6.8.0-63-lowlatency 6.15.4-061504-generic
+Building for architecture x86_64
+Building initial module for 6.8.0-63-lowlatency
+Done.
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+depmod...
+Building initial module for 6.15.4-061504-generic
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dpkg: error processing package nvidia-dkms-570 (--configure):
+ installed nvidia-dkms-570 package post-installation script subprocess returned error exit status 10
+Setting up linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+dpkg: dependency problems prevent configuration of nvidia-driver-570:
+ nvidia-driver-570 depends on nvidia-dkms-570 (<= 570.133.07-1); however:
+  Package nvidia-dkms-570 is not configured yet.
+ nvidia-driver-570 depends on nvidia-dkms-570 (>= 570.133.07); however:
+  Package nvidia-dkms-570 is not configured yet.
+
+dpkg: error processing package nvidia-driver-570 (--configure):
+ dependency problems - leaving unconfigured
+No apport report written because the error message indicates its a followup error from a previous failure.
+                                                                                                          Processing triggers for initramfs-tools (0.142ubuntu25.5) ...
+update-initramfs: Generating /boot/initrd.img-6.11.0-29-generic
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--configure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Errors were encountered while processing:
+ linux-headers-6.15.4-061504-generic
+ nvidia-dkms-570
+ nvidia-driver-570
+ linux-image-unsigned-6.15.4-061504-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+wget is already the newest version (1.21.4-1ubuntu4.1).
+build-essential is already the newest version (12.10ubuntu1).
+0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+4 not fully installed or removed.
+After this operation, 0 B of additional disk space will be used.
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure):
+ installed linux-headers-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Setting up nvidia-dkms-570 (570.133.07-0ubuntu0.24.04.1) ...
+update-initramfs: deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+INFO:Enable nvidia
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/dell_latitude
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/put_your_quirks_here
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/lenovo_thinkpad
+Removing old nvidia-570.133.07 DKMS files...
+Module nvidia-570.133.07 for kernel 6.8.0-63-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Deleting module nvidia-570.133.07 completely from the DKMS tree.
+Loading new nvidia-570.133.07 DKMS files...
+Building for 6.8.0-63-lowlatency 6.15.4-061504-generic
+Building for architecture x86_64
+Building initial module for 6.8.0-63-lowlatency
+Done.
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+depmod...
+Building initial module for 6.15.4-061504-generic
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dpkg: error processing package nvidia-dkms-570 (--configure):
+ installed nvidia-dkms-570 package post-installation script subprocess returned error exit status 10
+Setting up linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+dpkg: dependency problems prevent configuration of nvidia-driver-570:
+ nvidia-driver-570 depends on nvidia-dkms-570 (<= 570.133.07-1); however:
+  Package nvidia-dkms-570 is not configured yet.
+ nvidia-driver-570 depends on nvidia-dkms-570 (>= 570.133.07); however:
+  Package nvidia-dkms-570 is not configured yet.
+
+dpkg: error processing package nvidia-driver-570 (--configure):
+ dependency problems - leaving unconfigured
+No apport report written because the error message indicates its a followup error from a previous failure.
+                                                                                                          Processing triggers for initramfs-tools (0.142ubuntu25.5) ...
+update-initramfs: Generating /boot/initrd.img-6.11.0-29-generic
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--configure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Errors were encountered while processing:
+ linux-headers-6.15.4-061504-generic
+ nvidia-dkms-570
+ nvidia-driver-570
+ linux-image-unsigned-6.15.4-061504-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+kim@kim-System-Product-Name:~$ # --fix-broken 옵션으로 깨진 의존성을 해결하고 설치를 완료합니다.
+sudo apt --fix-broken install -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+4 not fully installed or removed.
+After this operation, 0 B of additional disk space will be used.
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure):
+ installed linux-headers-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Setting up nvidia-dkms-570 (570.133.07-0ubuntu0.24.04.1) ...
+update-initramfs: deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+INFO:Enable nvidia
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/dell_latitude
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/put_your_quirks_here
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/lenovo_thinkpad
+Removing old nvidia-570.133.07 DKMS files...
+Module nvidia-570.133.07 for kernel 6.8.0-63-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Deleting module nvidia-570.133.07 completely from the DKMS tree.
+Loading new nvidia-570.133.07 DKMS files...
+Building for 6.8.0-63-lowlatency 6.15.4-061504-generic
+Building for architecture x86_64
+Building initial module for 6.8.0-63-lowlatency
+Done.
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+depmod...
+Building initial module for 6.15.4-061504-generic
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dpkg: error processing package nvidia-dkms-570 (--configure):
+ installed nvidia-dkms-570 package post-installation script subprocess returned error exit status 10
+Setting up linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+dpkg: dependency problems prevent configuration of nvidia-driver-570:
+ nvidia-driver-570 depends on nvidia-dkms-570 (<= 570.133.07-1); however:
+  Package nvidia-dkms-570 is not configured yet.
+ nvidia-driver-570 depends on nvidia-dkms-570 (>= 570.133.07); however:
+  Package nvidia-dkms-570 is not configured yet.
+
+dpkg: error processing package nvidia-driver-570 (--configure):
+ dependency problems - leaving unconfigured
+No apport report written because the error message indicates its a followup error from a previous failure.
+                                                                                                          Processing triggers for initramfs-tools (0.142ubuntu25.5) ...
+update-initramfs: Generating /boot/initrd.img-6.11.0-29-generic
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules............(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--configure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Errors were encountered while processing:
+ linux-headers-6.15.4-061504-generic
+ nvidia-dkms-570
+ nvidia-driver-570
+ linux-image-unsigned-6.15.4-061504-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+kim@kim-System-Product-Name:~$ # Miniconda 설치 스크립트 다운로드
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+# 설치 스크립트 실행
+bash Miniconda3-latest-Linux-x86_64.sh
+--2025-07-03 16:24:54--  https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+Resolving repo.anaconda.com (repo.anaconda.com)... 104.16.191.158, 104.16.32.241, 2606:4700::6810:bf9e, ...
+Connecting to repo.anaconda.com (repo.anaconda.com)|104.16.191.158|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 159476510 (152M) [application/octet-stream]
+Saving to: ‘Miniconda3-latest-Linux-x86_64.sh’
+
+Miniconda3-latest-Linux-x86_6 100%[=================================================>] 152.09M  42.5MB/s    in 3.6s
+
+2025-07-03 16:24:57 (42.8 MB/s) - ‘Miniconda3-latest-Linux-x86_64.sh’ saved [159476510/159476510]
+
+
+Welcome to Miniconda3 py313_25.5.1-0
+
+In order to continue the installation process, please review the license
+agreement.
+Please, press ENTER to continue
+>>>
+MINICONDA END USER LICENSE AGREEMENT
+
+Copyright Notice: Miniconda(R) (C) 2015, Anaconda, Inc.
+All rights reserved. Miniconda(R) is licensed, not sold.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the followi
+ng conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disc
+laimer;
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following d
+isclaimer in the documentation and/or other materials provided with the distribution;
+
+3. The name Anaconda, Inc. or Miniconda(R) may not be used to endorse or promote products derived from this software wit
+hout specific prior written permission from Anaconda, Inc.; and
+
+4. Miniconda(R) may not be used to access or allow third parties to access Anaconda package repositories if such use wou
+ld circumvent paid licensing requirements or is otherwise restricted by the Anaconda Terms of Service.
+
+DISCLAIMER: THIS SOFTWARE IS PROVIDED BY ANACONDA "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMI
+TED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE , AND NON-INFRINGEMENT ARE DISCLAIME
+D. IN NO EVENT SHALL ANACONDA BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAG
+ES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINE
+SS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDIN
+G NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF MINICONDA(R), EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+ DAMAGE.
+
+
+Do you accept the license terms? [yes|no]
+>>>
+Please answer 'yes' or 'no':'
+>>>
+Please answer 'yes' or 'no':'
+>>>
+Please answer 'yes' or 'no':'
+>>>
+Please answer 'yes' or 'no':'
+>>> yes
+
+Miniconda3 will now be installed into this location:
+/home/kim/miniconda3
+
+  - Press ENTER to confirm the location
+  - Press CTRL-C to abort the installation
+  - Or specify a different location below
+
+[/home/kim/miniconda3] >>>
+PREFIX=/home/kim/miniconda3
+
+Unpacking payload ...
+
+entry_point.py:256: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+entry_point.py:256: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+
+Installing base environment...
+
+
+Downloading and Extracting Packages:
+
+
+## Package Plan ##
+
+  environment location: /home/kim/miniconda3
+
+  added / updated specs:
+    - defaults/linux-64::_libgcc_mutex==0.1=main[md5=c3473ff8bdb3d124ed5ff11ec380d6f9]
+    - defaults/linux-64::_openmp_mutex==5.1=1_gnu[md5=71d281e9c2192cb3fa425655a8defb85]
+    - defaults/linux-64::anaconda-anon-usage==0.7.1=py313hfc0e8ea_100[md5=8051dd5034cbe000becc368ae14cc5ef]
+    - defaults/linux-64::annotated-types==0.6.0=py313h06a4308_0[md5=4dc276db59e14eaf187426b0040eb209]
+    - defaults/linux-64::boltons==24.1.0=py313h06a4308_0[md5=fc8dcc37f16fbed6bae9d6950df53fe1]
+    - defaults/linux-64::brotli-python==1.0.9=py313h6a678d5_9[md5=48f87f78b5774d723589e95ed14daafe]
+    - defaults/linux-64::bzip2==1.0.8=h5eee18b_6[md5=f21a3ff51c1b271977f53ce956a69297]
+    - defaults/linux-64::c-ares==1.19.1=h5eee18b_0[md5=6cfbce52273a1cb888821f18ceaa83c4]
+    - defaults/linux-64::ca-certificates==2025.2.25=h06a4308_0[md5=495015d24da8ad929e3ae2d18571016d]
+    - defaults/linux-64::certifi==2025.4.26=py313h06a4308_0[md5=d99fbc94185f7af92889b3647b2aae93]
+    - defaults/linux-64::cffi==1.17.1=py313h1fdaa30_1[md5=c5d4f727e7bccd4bd8d599e049853383]
+    - defaults/linux-64::conda-anaconda-telemetry==0.1.2=py313h06a4308_1[md5=2d1b1b3f339fb81ee8a55b778da10a25]
+    - defaults/linux-64::conda-anaconda-tos==0.2.0=py313h06a4308_0[md5=27c954b72f842d68c4df320d8f65213c]
+    - defaults/linux-64::conda-content-trust==0.2.0=py313h06a4308_1[md5=aefc551e21e13ecc1de44ee589aea77d]
+    - defaults/linux-64::conda-package-handling==2.4.0=py313h06a4308_0[md5=76b17c263bc01eaffebcb8ba7ccd6ca9]
+    - defaults/linux-64::conda-package-streaming==0.11.0=py313h06a4308_0[md5=b717717a2265676cc8c9c933c86ec7e1]
+    - defaults/linux-64::conda==25.5.1=py313h06a4308_0[md5=0d4373f00a49a65830e2ea995b654e98]
+    - defaults/linux-64::cpp-expected==1.1.0=hdb19cb5_0[md5=3a195bcf47b691adb4a635a8b7f396f7]
+    - defaults/linux-64::cryptography==45.0.3=py313h2ccb017_0[md5=50a9a59ddbcfe7912aae0a81cd7e31b1]
+    - defaults/linux-64::distro==1.9.0=py313h06a4308_0[md5=1fd7ab065e9958e7bbd4d3fbf175742b]
+    - defaults/linux-64::expat==2.7.1=h6a678d5_0[md5=269942a9f3f943e2e5d8a2516a861f7c]
+    - defaults/linux-64::fmt==9.1.0=hdb19cb5_1[md5=4f12930203ff2d84df5d287af9b29858]
+    - defaults/linux-64::frozendict==2.4.2=py313h06a4308_0[md5=31f7036f9bdd3592e660ecfc631f054f]
+    - defaults/linux-64::icu==73.1=h6a678d5_0[md5=6d09df641fc23f7d277a04dc7ea32dd4]
+    - defaults/linux-64::idna==3.7=py313h06a4308_0[md5=f3e7d3ba37b45ef8782dd643d7e9733b]
+    - defaults/linux-64::jsonpatch==1.33=py313h06a4308_1[md5=8cb4b1755a4a8fd6a57883863236ef2b]
+    - defaults/linux-64::krb5==1.20.1=h143b758_1[md5=cf1accc86321fa25d6b978cc748039ae]
+    - defaults/linux-64::ld_impl_linux-64==2.40=h12ee557_0[md5=ee672b5f635340734f58d618b7bca024]
+    - defaults/linux-64::libarchive==3.7.7=hfab0078_0[md5=c208e4f83c30250d659102b271e8d4e6]
+    - defaults/linux-64::libcurl==8.12.1=hc9e6f67_0[md5=2904da5e450707a95d420b55b6b88d19]
+    - defaults/linux-64::libedit==3.1.20230828=h5eee18b_0[md5=850eb5a9d2d7d3c66cce12e84406ca08]
+    - defaults/linux-64::libev==4.33=h7f8727e_1[md5=5065620db4393fb549f30114a33897d1]
+    - defaults/linux-64::libffi==3.4.4=h6a678d5_1[md5=70646cc713f0c43926cfdcfe9b695fe0]
+    - defaults/linux-64::libgcc-ng==11.2.0=h1234567_1[md5=a87728dabf3151fb9cfa990bd2eb0464]
+    - defaults/linux-64::libgomp==11.2.0=h1234567_1[md5=b372c0eea9b60732fdae4b817a63c8cd]
+    - defaults/linux-64::libmamba==2.0.5=haf1ee3a_1[md5=0f1450592dc7555e315f5d684ce481eb]
+    - defaults/linux-64::libmambapy==2.0.5=py313hdb19cb5_1[md5=c56ed0c34af1a360984e20bf13200007]
+    - defaults/linux-64::libmpdec==4.0.0=h5eee18b_0[md5=feb10f42b1a7b523acbf85461be41a3e]
+    - defaults/linux-64::libnghttp2==1.57.0=h2d74bed_0[md5=674871621300f54e7ffcf93e6e341638]
+    - defaults/linux-64::libsolv==0.7.30=he621ea3_1[md5=6918c29c4b65f21c71aac679b49c02e4]
+    - defaults/linux-64::libssh2==1.11.1=h251f7ec_0[md5=dd68c24355431c0543339dda1404129d]
+    - defaults/linux-64::libstdcxx-ng==11.2.0=h1234567_1[md5=57623d10a70e09e1d048c2b2b6f4e2dd]
+    - defaults/linux-64::libuuid==1.41.5=h5eee18b_0[md5=4a6a2354414c9080327274aa514e5299]
+    - defaults/linux-64::libxcb==1.17.0=h9b100fa_0[md5=fdf0d380fa3809a301e2dbc0d5183883]
+    - defaults/linux-64::libxml2==2.13.8=hfdd30dd_0[md5=6da89b526f12f128af101c3f70d12c6d]
+    - defaults/linux-64::lz4-c==1.9.4=h6a678d5_1[md5=2ee58861f2b92b868ce761abb831819d]
+    - defaults/linux-64::markdown-it-py==2.2.0=py313h06a4308_1[md5=0c3ee40437213e528c99bff0bcc5a942]
+    - defaults/linux-64::mdurl==0.1.0=py313h06a4308_0[md5=5bca585008b9e6ce6997871309117479]
+    - defaults/linux-64::menuinst==2.2.0=py313h06a4308_1[md5=feb4995cd9f70c1925dcf18449ada963]
+    - defaults/linux-64::ncurses==6.4=h6a678d5_0[md5=5558eec6e2191741a92f832ea826251c]
+    - defaults/linux-64::nlohmann_json==3.11.2=h6a678d5_0[md5=36890f7abd98066b607211b1773e6343]
+    - defaults/linux-64::openssl==3.0.16=h5eee18b_0[md5=5875526739afa058cfa84da1fa7a2ef4]
+    - defaults/linux-64::packaging==24.2=py313h06a4308_0[md5=b7961f58a4d39d20c51d6954e74340e8]
+    - defaults/linux-64::pcre2==10.42=hebb0a14_1[md5=727e15c3cfa02b032da4eb0c1123e977]
+    - defaults/linux-64::platformdirs==4.3.7=py313h06a4308_0[md5=6cdbb54f78166c07399004f961726487]
+    - defaults/linux-64::pluggy==1.5.0=py313h06a4308_0[md5=ea142d52281afe8e9a79e4a33c023e41]
+    - defaults/linux-64::pthread-stubs==0.3=h0ce48e5_1[md5=973a642312d2a28927aaf5b477c67250]
+    - defaults/linux-64::pycosat==0.6.6=py313h5eee18b_2[md5=60ea7416e08d78563e31d16c333bd57f]
+    - defaults/linux-64::pydantic-core==2.27.1=py313h4aa5aa6_0[md5=3d619f57beecf895d3601d2ff21bfed9]
+    - defaults/linux-64::pydantic==2.10.3=py313h06a4308_0[md5=3e66cfc68bf5e244f7d983a37d52058f]
+    - defaults/linux-64::pygments==2.19.1=py313h06a4308_0[md5=8fcbba71964f3d4d936e846c3bc9fb13]
+    - defaults/linux-64::pysocks==1.7.1=py313h06a4308_0[md5=a493580ce366b942a8e1c00ee00c4182]
+    - defaults/linux-64::python==3.13.5=h4612cfd_100_cp313[md5=1adf42b71c42a4a540eae2c0026f02c3]
+    - defaults/linux-64::python_abi==3.13=0_cp313[md5=d4009c49dd2b54ffded7f1365b5f6505]
+    - defaults/linux-64::readline==8.2=h5eee18b_0[md5=be42180685cce6e6b0329201d9f48efb]
+    - defaults/linux-64::reproc-cpp==14.2.4=h6a678d5_2[md5=b03aa4903158279f003e7032ab9f5601]
+    - defaults/linux-64::reproc==14.2.4=h6a678d5_2[md5=3c6dbc6c60b3897222d79359343e90fa]
+    - defaults/linux-64::requests==2.32.3=py313h06a4308_1[md5=119859bcf1462b08bc8f8b672877eb85]
+    - defaults/linux-64::rich==13.9.4=py313h06a4308_0[md5=29573c0e57aea86c5d68759975638187]
+    - defaults/linux-64::ruamel.yaml.clib==0.2.12=py313h5eee18b_0[md5=d9da5a7327cd6c9ee11d7b7ac1b7d082]
+    - defaults/linux-64::ruamel.yaml==0.18.10=py313h5eee18b_0[md5=70c6985c0871d511a94afb1e8537943f]
+    - defaults/linux-64::setuptools==78.1.1=py313h06a4308_0[md5=8f8e1c1e3af9d2d371aaa0ee8316ae7c]
+    - defaults/linux-64::simdjson==3.10.1=hdb19cb5_0[md5=7b2a4b5be590071e1b4dce77b413d26a]
+    - defaults/linux-64::spdlog==1.11.0=hdb19cb5_0[md5=023cfe6341f1d90dee2016e608538537]
+    - defaults/linux-64::sqlite==3.45.3=h5eee18b_0[md5=acf93d6aceb74d6110e20b44cc45939e]
+    - defaults/linux-64::tk==8.6.14=h993c535_1[md5=bfe656b29fc64afe5d4bd46dbd5fd240]
+    - defaults/linux-64::tqdm==4.67.1=py313h7040dfc_0[md5=2efb4b3310f058cb95d326989bddc761]
+    - defaults/linux-64::truststore==0.10.0=py313h06a4308_0[md5=ab3e76bdc25cd61781ea691d7ab8fc2c]
+    - defaults/linux-64::typing-extensions==4.12.2=py313h06a4308_0[md5=f011fee76cd912d47567c6cedb0074c9]
+    - defaults/linux-64::typing_extensions==4.12.2=py313h06a4308_0[md5=e1a419944c11dc4592cdce114d0a3063]
+    - defaults/linux-64::urllib3==2.3.0=py313h06a4308_0[md5=293df67437af6ad722c9c7f2ddcf0e2c]
+    - defaults/linux-64::wheel==0.45.1=py313h06a4308_0[md5=29057e876eedce0e37c2388c138a19f9]
+    - defaults/linux-64::xorg-libx11==1.8.12=h9b100fa_1[md5=6298b27afae6f49f03765b2a03df2fcb]
+    - defaults/linux-64::xorg-libxau==1.0.12=h9b100fa_0[md5=a8005a9f6eb903e113cd5363e8a11459]
+    - defaults/linux-64::xorg-libxdmcp==1.1.5=h9b100fa_0[md5=c284a09ddfba81d9c4e740110f09ea06]
+    - defaults/linux-64::xorg-xorgproto==2024.1=h5eee18b_1[md5=412a0d97a7a51d23326e57226189da92]
+    - defaults/linux-64::xz==5.6.4=h5eee18b_1[md5=3581505fa450962d631bd82b8616350e]
+    - defaults/linux-64::yaml-cpp==0.8.0=h6a678d5_1[md5=015d2d74ad3c8e53eec3358637433718]
+    - defaults/linux-64::zlib==1.2.13=h5eee18b_1[md5=92e42d8310108b0a440fb2e60b2b2a25]
+    - defaults/linux-64::zstandard==0.23.0=py313h2c38b39_1[md5=5b4bd26f9d674331122482d3c2ac0afe]
+    - defaults/linux-64::zstd==1.5.6=hc292b87_0[md5=78ae7abd3020b41f827b35085845e1b8]
+    - defaults/noarch::archspec==0.2.3=pyhd3eb1b0_0[md5=13d01ee2d343d8539bb47055a6c0b5b2]
+    - defaults/noarch::charset-normalizer==3.3.2=pyhd3eb1b0_0[md5=c6fea3691e85cf7f568b0618ec29fc4f]
+    - defaults/noarch::conda-libmamba-solver==25.4.0=pyhd3eb1b0_0[md5=77ff27567894c7ea3eb908489e5d3e5c]
+    - defaults/noarch::jsonpointer==2.1=pyhd3eb1b0_0[md5=298ff809e733cb04366e4e629c65aa8d]
+    - defaults/noarch::pip==25.1=pyhc872135_2[md5=2778327d2a700153fefe0e69438b18e1]
+    - defaults/noarch::pybind11-abi==5=hd3eb1b0_0[md5=7f0df6639fdf60ccd3045ee6faedd32f]
+    - defaults/noarch::pycparser==2.21=pyhd3eb1b0_0[md5=135a72ff2a31150a3a3ff0b1edd41ca9]
+    - defaults/noarch::tzdata==2025b=h04d1e81_0[md5=1d027393db3427ab22a02aa44a56f143]
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu
+  anaconda-anon-usa~ pkgs/main/linux-64::anaconda-anon-usage-0.7.1-py313hfc0e8ea_100
+  annotated-types    pkgs/main/linux-64::annotated-types-0.6.0-py313h06a4308_0
+  archspec           pkgs/main/noarch::archspec-0.2.3-pyhd3eb1b0_0
+  boltons            pkgs/main/linux-64::boltons-24.1.0-py313h06a4308_0
+  brotli-python      pkgs/main/linux-64::brotli-python-1.0.9-py313h6a678d5_9
+  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h5eee18b_6
+  c-ares             pkgs/main/linux-64::c-ares-1.19.1-h5eee18b_0
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2025.2.25-h06a4308_0
+  certifi            pkgs/main/linux-64::certifi-2025.4.26-py313h06a4308_0
+  cffi               pkgs/main/linux-64::cffi-1.17.1-py313h1fdaa30_1
+  charset-normalizer pkgs/main/noarch::charset-normalizer-3.3.2-pyhd3eb1b0_0
+  conda              pkgs/main/linux-64::conda-25.5.1-py313h06a4308_0
+  conda-anaconda-te~ pkgs/main/linux-64::conda-anaconda-telemetry-0.1.2-py313h06a4308_1
+  conda-anaconda-tos pkgs/main/linux-64::conda-anaconda-tos-0.2.0-py313h06a4308_0
+  conda-content-tru~ pkgs/main/linux-64::conda-content-trust-0.2.0-py313h06a4308_1
+  conda-libmamba-so~ pkgs/main/noarch::conda-libmamba-solver-25.4.0-pyhd3eb1b0_0
+  conda-package-han~ pkgs/main/linux-64::conda-package-handling-2.4.0-py313h06a4308_0
+  conda-package-str~ pkgs/main/linux-64::conda-package-streaming-0.11.0-py313h06a4308_0
+  cpp-expected       pkgs/main/linux-64::cpp-expected-1.1.0-hdb19cb5_0
+  cryptography       pkgs/main/linux-64::cryptography-45.0.3-py313h2ccb017_0
+  distro             pkgs/main/linux-64::distro-1.9.0-py313h06a4308_0
+  expat              pkgs/main/linux-64::expat-2.7.1-h6a678d5_0
+  fmt                pkgs/main/linux-64::fmt-9.1.0-hdb19cb5_1
+  frozendict         pkgs/main/linux-64::frozendict-2.4.2-py313h06a4308_0
+  icu                pkgs/main/linux-64::icu-73.1-h6a678d5_0
+  idna               pkgs/main/linux-64::idna-3.7-py313h06a4308_0
+  jsonpatch          pkgs/main/linux-64::jsonpatch-1.33-py313h06a4308_1
+  jsonpointer        pkgs/main/noarch::jsonpointer-2.1-pyhd3eb1b0_0
+  krb5               pkgs/main/linux-64::krb5-1.20.1-h143b758_1
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.40-h12ee557_0
+  libarchive         pkgs/main/linux-64::libarchive-3.7.7-hfab0078_0
+  libcurl            pkgs/main/linux-64::libcurl-8.12.1-hc9e6f67_0
+  libedit            pkgs/main/linux-64::libedit-3.1.20230828-h5eee18b_0
+  libev              pkgs/main/linux-64::libev-4.33-h7f8727e_1
+  libffi             pkgs/main/linux-64::libffi-3.4.4-h6a678d5_1
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-11.2.0-h1234567_1
+  libgomp            pkgs/main/linux-64::libgomp-11.2.0-h1234567_1
+  libmamba           pkgs/main/linux-64::libmamba-2.0.5-haf1ee3a_1
+  libmambapy         pkgs/main/linux-64::libmambapy-2.0.5-py313hdb19cb5_1
+  libmpdec           pkgs/main/linux-64::libmpdec-4.0.0-h5eee18b_0
+  libnghttp2         pkgs/main/linux-64::libnghttp2-1.57.0-h2d74bed_0
+  libsolv            pkgs/main/linux-64::libsolv-0.7.30-he621ea3_1
+  libssh2            pkgs/main/linux-64::libssh2-1.11.1-h251f7ec_0
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-11.2.0-h1234567_1
+  libuuid            pkgs/main/linux-64::libuuid-1.41.5-h5eee18b_0
+  libxcb             pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0
+  libxml2            pkgs/main/linux-64::libxml2-2.13.8-hfdd30dd_0
+  lz4-c              pkgs/main/linux-64::lz4-c-1.9.4-h6a678d5_1
+  markdown-it-py     pkgs/main/linux-64::markdown-it-py-2.2.0-py313h06a4308_1
+  mdurl              pkgs/main/linux-64::mdurl-0.1.0-py313h06a4308_0
+  menuinst           pkgs/main/linux-64::menuinst-2.2.0-py313h06a4308_1
+  ncurses            pkgs/main/linux-64::ncurses-6.4-h6a678d5_0
+  nlohmann_json      pkgs/main/linux-64::nlohmann_json-3.11.2-h6a678d5_0
+  openssl            pkgs/main/linux-64::openssl-3.0.16-h5eee18b_0
+  packaging          pkgs/main/linux-64::packaging-24.2-py313h06a4308_0
+  pcre2              pkgs/main/linux-64::pcre2-10.42-hebb0a14_1
+  pip                pkgs/main/noarch::pip-25.1-pyhc872135_2
+  platformdirs       pkgs/main/linux-64::platformdirs-4.3.7-py313h06a4308_0
+  pluggy             pkgs/main/linux-64::pluggy-1.5.0-py313h06a4308_0
+  pthread-stubs      pkgs/main/linux-64::pthread-stubs-0.3-h0ce48e5_1
+  pybind11-abi       pkgs/main/noarch::pybind11-abi-5-hd3eb1b0_0
+  pycosat            pkgs/main/linux-64::pycosat-0.6.6-py313h5eee18b_2
+  pycparser          pkgs/main/noarch::pycparser-2.21-pyhd3eb1b0_0
+  pydantic           pkgs/main/linux-64::pydantic-2.10.3-py313h06a4308_0
+  pydantic-core      pkgs/main/linux-64::pydantic-core-2.27.1-py313h4aa5aa6_0
+  pygments           pkgs/main/linux-64::pygments-2.19.1-py313h06a4308_0
+  pysocks            pkgs/main/linux-64::pysocks-1.7.1-py313h06a4308_0
+  python             pkgs/main/linux-64::python-3.13.5-h4612cfd_100_cp313
+  python_abi         pkgs/main/linux-64::python_abi-3.13-0_cp313
+  readline           pkgs/main/linux-64::readline-8.2-h5eee18b_0
+  reproc             pkgs/main/linux-64::reproc-14.2.4-h6a678d5_2
+  reproc-cpp         pkgs/main/linux-64::reproc-cpp-14.2.4-h6a678d5_2
+  requests           pkgs/main/linux-64::requests-2.32.3-py313h06a4308_1
+  rich               pkgs/main/linux-64::rich-13.9.4-py313h06a4308_0
+  ruamel.yaml        pkgs/main/linux-64::ruamel.yaml-0.18.10-py313h5eee18b_0
+  ruamel.yaml.clib   pkgs/main/linux-64::ruamel.yaml.clib-0.2.12-py313h5eee18b_0
+  setuptools         pkgs/main/linux-64::setuptools-78.1.1-py313h06a4308_0
+  simdjson           pkgs/main/linux-64::simdjson-3.10.1-hdb19cb5_0
+  spdlog             pkgs/main/linux-64::spdlog-1.11.0-hdb19cb5_0
+  sqlite             pkgs/main/linux-64::sqlite-3.45.3-h5eee18b_0
+  tk                 pkgs/main/linux-64::tk-8.6.14-h993c535_1
+  tqdm               pkgs/main/linux-64::tqdm-4.67.1-py313h7040dfc_0
+  truststore         pkgs/main/linux-64::truststore-0.10.0-py313h06a4308_0
+  typing-extensions  pkgs/main/linux-64::typing-extensions-4.12.2-py313h06a4308_0
+  typing_extensions  pkgs/main/linux-64::typing_extensions-4.12.2-py313h06a4308_0
+  tzdata             pkgs/main/noarch::tzdata-2025b-h04d1e81_0
+  urllib3            pkgs/main/linux-64::urllib3-2.3.0-py313h06a4308_0
+  wheel              pkgs/main/linux-64::wheel-0.45.1-py313h06a4308_0
+  xorg-libx11        pkgs/main/linux-64::xorg-libx11-1.8.12-h9b100fa_1
+  xorg-libxau        pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0
+  xorg-libxdmcp      pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0
+  xorg-xorgproto     pkgs/main/linux-64::xorg-xorgproto-2024.1-h5eee18b_1
+  xz                 pkgs/main/linux-64::xz-5.6.4-h5eee18b_1
+  yaml-cpp           pkgs/main/linux-64::yaml-cpp-0.8.0-h6a678d5_1
+  zlib               pkgs/main/linux-64::zlib-1.2.13-h5eee18b_1
+  zstandard          pkgs/main/linux-64::zstandard-0.23.0-py313h2c38b39_1
+  zstd               pkgs/main/linux-64::zstd-1.5.6-hc292b87_0
+
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Executing transaction: done
+entry_point.py:256: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+installation finished.
+Do you wish to update your shell profile to automatically initialize conda?
+This will activate conda on startup and change the command prompt when activated.
+If you'd prefer that conda's base environment not be activated on startup,
+   run the following command when conda is activated:
+
+conda config --set auto_activate_base false
+
+You can undo this by running `conda init --reverse $SHELL`? [yes|no]
+[no] >>>
+You have chosen to not have conda modify your shell scripts at all.
+To activate conda's base environment in your current shell session:
+
+eval "$(/home/kim/miniconda3/bin/conda shell.YOUR_SHELL_NAME hook)"
+
+To install conda's shell functions for easier access, first activate, then:
+
+conda init
+
+Thank you for installing Miniconda3!
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ source ~/.bashrc
+kim@kim-System-Product-Name:~$ # python 3.9 버전으로 tsn_env 라는 이름의 가상 환경 생성
+conda create -n tsn_env python=3.9 -y
+
+# tsn_env 가상 환경 활성화
+conda activate tsn_env
+
+# (이제 터미널 프롬프트 앞에 (tsn_env) 라고 표시됩니다)
+conda: command not found
+conda: command not found
+kim@kim-System-Product-Name:~$ # python 3.9 버전으로 tsn_env 라는 이름의 가상 환경 생성
+conda create -n tsn_env python=3.9 -y
+
+# tsn_env 가상 환경 활성화
+conda activate tsn_env
+
+# (이제 터미널 프롬프트 앞에 (tsn_env) 라고 표시됩니다)
+conda: command not found
+conda: command not found
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ conda create -n tsn_env python=3.9 -y
+conda: command not found
+kim@kim-System-Product-Name:~$ source ~/.bashrc
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ ^C
+kim@kim-System-Product-Name:~$ source ~/.bashrc
+kim@kim-System-Product-Name:~$ # 가상 환경 생성
+conda create -n tsn_env python=3.9 -y
+
+# 가상 환경 활성화
+conda activate tsn_env
+conda: command not found
+conda: command not found
+kim@kim-System-Product-Name:~$ ~/miniconda3/bin/conda init bash
+no change     /home/kim/miniconda3/condabin/conda
+no change     /home/kim/miniconda3/bin/conda
+no change     /home/kim/miniconda3/bin/conda-env
+no change     /home/kim/miniconda3/bin/activate
+no change     /home/kim/miniconda3/bin/deactivate
+no change     /home/kim/miniconda3/etc/profile.d/conda.sh
+no change     /home/kim/miniconda3/etc/fish/conf.d/conda.fish
+no change     /home/kim/miniconda3/shell/condabin/Conda.psm1
+no change     /home/kim/miniconda3/shell/condabin/conda-hook.ps1
+no change     /home/kim/miniconda3/lib/python3.13/site-packages/xontrib/conda.xsh
+no change     /home/kim/miniconda3/etc/profile.d/conda.csh
+modified      /home/kim/.bashrc
+
+==> For changes to take effect, close and re-open your current shell. <==
+
+kim@kim-System-Product-Name:~$ source ~/.bashrc
+(base) kim@kim-System-Product-Name:~$ conda activate tsn_env
+
+EnvironmentNameNotFound: Could not find conda environment: tsn_env
+You can list all discoverable environments with `conda info --envs`.
+
+
+(base) kim@kim-System-Product-Name:~$ conda create -n tsn_env python=3.9 -y
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/kim/miniconda3/envs/tsn_env
+
+  added / updated specs:
+    - python=3.9
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    python-3.9.23              |       he99959a_0        24.7 MB
+    setuptools-78.1.1          |   py39h06a4308_0         1.7 MB
+    wheel-0.45.1               |   py39h06a4308_0         114 KB
+    ------------------------------------------------------------
+                                           Total:        26.5 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu
+  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h5eee18b_6
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2025.2.25-h06a4308_0
+  expat              pkgs/main/linux-64::expat-2.7.1-h6a678d5_0
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.40-h12ee557_0
+  libffi             pkgs/main/linux-64::libffi-3.4.4-h6a678d5_1
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-11.2.0-h1234567_1
+  libgomp            pkgs/main/linux-64::libgomp-11.2.0-h1234567_1
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-11.2.0-h1234567_1
+  libxcb             pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0
+  ncurses            pkgs/main/linux-64::ncurses-6.4-h6a678d5_0
+  openssl            pkgs/main/linux-64::openssl-3.0.16-h5eee18b_0
+  pip                pkgs/main/noarch::pip-25.1-pyhc872135_2
+  pthread-stubs      pkgs/main/linux-64::pthread-stubs-0.3-h0ce48e5_1
+  python             pkgs/main/linux-64::python-3.9.23-he99959a_0
+  readline           pkgs/main/linux-64::readline-8.2-h5eee18b_0
+  setuptools         pkgs/main/linux-64::setuptools-78.1.1-py39h06a4308_0
+  sqlite             pkgs/main/linux-64::sqlite-3.45.3-h5eee18b_0
+  tk                 pkgs/main/linux-64::tk-8.6.14-h993c535_1
+  tzdata             pkgs/main/noarch::tzdata-2025b-h04d1e81_0
+  wheel              pkgs/main/linux-64::wheel-0.45.1-py39h06a4308_0
+  xorg-libx11        pkgs/main/linux-64::xorg-libx11-1.8.12-h9b100fa_1
+  xorg-libxau        pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0
+  xorg-libxdmcp      pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0
+  xorg-xorgproto     pkgs/main/linux-64::xorg-xorgproto-2024.1-h5eee18b_1
+  xz                 pkgs/main/linux-64::xz-5.6.4-h5eee18b_1
+  zlib               pkgs/main/linux-64::zlib-1.2.13-h5eee18b_1
+
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate tsn_env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base) kim@kim-System-Product-Name:~$ nvidia-smi
+Thu Jul  3 16:28:48 2025
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce GTX 1050 Ti     Off |   00000000:01:00.0  On |                  N/A |
+| 28%   29C    P8            N/A  /  100W |     409MiB /   4096MiB |     34%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            2121      G   /usr/lib/xorg/Xorg                      103MiB |
+|    0   N/A  N/A            2306      G   /usr/bin/gnome-shell                    106MiB |
+|    0   N/A  N/A            3140      G   /usr/bin/nautilus                         9MiB |
+|    0   N/A  N/A            3177      G   .../5751/usr/lib/firefox/firefox        134MiB |
+|    0   N/A  N/A           36911      G   /usr/bin/gnome-control-center            41MiB |
++-----------------------------------------------------------------------------------------+
+(base) kim@kim-System-Product-Name:~$
+(base) kim@kim-System-Product-Name:~$
+(base) kim@kim-System-Product-Name:~$ # 1. tsn_env 가상 환경 생성 (python 3.9)
+conda create -n tsn_env python=3.9 -y
+
+# 2. tsn_env 가상 환경 활성화
+conda activate tsn_env
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/kim/miniconda3/envs/tsn_env
+
+  added / updated specs:
+    - python=3.9
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu
+  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h5eee18b_6
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2025.2.25-h06a4308_0
+  expat              pkgs/main/linux-64::expat-2.7.1-h6a678d5_0
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.40-h12ee557_0
+  libffi             pkgs/main/linux-64::libffi-3.4.4-h6a678d5_1
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-11.2.0-h1234567_1
+  libgomp            pkgs/main/linux-64::libgomp-11.2.0-h1234567_1
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-11.2.0-h1234567_1
+  libxcb             pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0
+  ncurses            pkgs/main/linux-64::ncurses-6.4-h6a678d5_0
+  openssl            pkgs/main/linux-64::openssl-3.0.16-h5eee18b_0
+  pip                pkgs/main/noarch::pip-25.1-pyhc872135_2
+  pthread-stubs      pkgs/main/linux-64::pthread-stubs-0.3-h0ce48e5_1
+  python             pkgs/main/linux-64::python-3.9.23-he99959a_0
+  readline           pkgs/main/linux-64::readline-8.2-h5eee18b_0
+  setuptools         pkgs/main/linux-64::setuptools-78.1.1-py39h06a4308_0
+  sqlite             pkgs/main/linux-64::sqlite-3.45.3-h5eee18b_0
+  tk                 pkgs/main/linux-64::tk-8.6.14-h993c535_1
+  tzdata             pkgs/main/noarch::tzdata-2025b-h04d1e81_0
+  wheel              pkgs/main/linux-64::wheel-0.45.1-py39h06a4308_0
+  xorg-libx11        pkgs/main/linux-64::xorg-libx11-1.8.12-h9b100fa_1
+  xorg-libxau        pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0
+  xorg-libxdmcp      pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0
+  xorg-xorgproto     pkgs/main/linux-64::xorg-xorgproto-2024.1-h5eee18b_1
+  xz                 pkgs/main/linux-64::xz-5.6.4-h5eee18b_1
+  zlib               pkgs/main/linux-64::zlib-1.2.13-h5eee18b_1
+
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate tsn_env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(tsn_env) kim@kim-System-Product-Name:~$
+(tsn_env) kim@kim-System-Product-Name:~$
+(tsn_env) kim@kim-System-Product-Name:~$
+(tsn_env) kim@kim-System-Product-Name:~$ # PyTorch, TorchVision, TorchAudio를 CUDA 12.1 툴킷과 함께 설치
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia -y
+Channels:
+ - pytorch
+ - nvidia
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/kim/miniconda3/envs/tsn_env
+
+  added / updated specs:
+    - pytorch
+    - pytorch-cuda=12.1
+    - torchaudio
+    - torchvision
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    blas-1.0                   |              mkl           6 KB
+    brotlicffi-1.0.9.2         |   py39h6a678d5_1         365 KB
+    certifi-2025.6.15          |   py39h06a4308_0         155 KB
+    cffi-1.17.1                |   py39h1fdaa30_1         249 KB
+    cuda-cudart-12.1.105       |                0         189 KB  nvidia
+    cuda-cupti-12.1.105        |                0        15.4 MB  nvidia
+    cuda-libraries-12.1.0      |                0           2 KB  nvidia
+    cuda-nvrtc-12.1.105        |                0        19.7 MB  nvidia
+    cuda-nvtx-12.1.105         |                0          57 KB  nvidia
+    cuda-opencl-12.9.19        |                0          25 KB  nvidia
+    cuda-runtime-12.1.0        |                0           1 KB  nvidia
+    cuda-version-12.9          |                3          17 KB  nvidia
+    ffmpeg-4.3                 |       hf484d3e_0         9.9 MB  pytorch
+    filelock-3.17.0            |   py39h06a4308_0          32 KB
+    freetype-2.13.3            |       h4a9f257_0         686 KB
+    giflib-5.2.2               |       h5eee18b_0          80 KB
+    gmp-6.3.0                  |       h6a678d5_0         608 KB
+    gmpy2-2.2.1                |   py39h5eee18b_0         249 KB
+    gnutls-3.6.15              |       he1e5248_0         1.0 MB
+    idna-3.7                   |   py39h06a4308_0         113 KB
+    intel-openmp-2023.1.0      |   hdb19cb5_46306        17.2 MB
+    jinja2-3.1.6               |   py39h06a4308_0         274 KB
+    jpeg-9e                    |       h5eee18b_3         262 KB
+    lame-3.100                 |       h7b6447c_0         323 KB
+    lcms2-2.16                 |       h92b89f2_1         269 KB
+    lerc-4.0.0                 |       h6a678d5_0         261 KB
+    libcublas-12.1.0.26        |                0       329.0 MB  nvidia
+    libcufft-11.0.2.4          |                0       102.9 MB  nvidia
+    libcufile-1.14.1.1         |                4         946 KB  nvidia
+    libcurand-10.3.10.19       |                0        44.0 MB  nvidia
+    libcusolver-11.4.4.55      |                0        98.3 MB  nvidia
+    libcusparse-12.0.2.55      |                0       163.0 MB  nvidia
+    libdeflate-1.22            |       h5eee18b_0          68 KB
+    libiconv-1.16              |       h5eee18b_3         759 KB
+    libidn2-2.3.4              |       h5eee18b_0         146 KB
+    libjpeg-turbo-2.0.0        |       h9bf148f_0         950 KB  pytorch
+    libnpp-12.0.2.50           |                0       139.8 MB  nvidia
+    libnvjitlink-12.1.105      |                0        16.9 MB  nvidia
+    libnvjpeg-12.1.1.14        |                0         2.9 MB  nvidia
+    libpng-1.6.39              |       h5eee18b_0         304 KB
+    libtasn1-4.19.0            |       h5eee18b_0          63 KB
+    libtiff-4.7.0              |       hde9077f_0         447 KB
+    libunistring-0.9.10        |       h27cfd23_0         536 KB
+    libwebp-1.3.2              |       h9f374a3_1          94 KB
+    libwebp-base-1.3.2         |       h5eee18b_1         425 KB
+    llvm-openmp-14.0.6         |       h9e868ea_0         4.4 MB
+    markupsafe-3.0.2           |   py39h5eee18b_0          24 KB
+    mkl-2023.1.0               |   h213fc3f_46344       171.5 MB
+    mkl-service-2.4.0          |   py39h5eee18b_2          68 KB
+    mkl_fft-1.3.11             |   py39h5eee18b_0         199 KB
+    mkl_random-1.2.8           |   py39h1128e8f_0         319 KB
+    mpc-1.3.1                  |       h5eee18b_0         129 KB
+    mpfr-4.2.1                 |       h5eee18b_0         821 KB
+    mpmath-1.3.0               |   py39h06a4308_0         829 KB
+    nettle-3.7.3               |       hbbd107a_1         809 KB
+    networkx-3.2.1             |   py39h06a4308_0         2.4 MB
+    numpy-2.0.1                |   py39h5f9d8c6_1          11 KB
+    numpy-base-2.0.1           |   py39hb5e798b_1         7.9 MB
+    ocl-icd-2.3.2              |       h5eee18b_1         136 KB
+    openh264-2.1.1             |       h4ff587b_0         711 KB
+    openjpeg-2.5.2             |       h0d4d230_1         373 KB
+    pillow-11.1.0              |   py39hac6e08b_1         809 KB
+    pysocks-1.7.1              |   py39h06a4308_0          31 KB
+    pytorch-2.5.1              |py3.9_cuda12.1_cudnn9.1.0_0        1.35 GB  pytorch
+    pytorch-cuda-12.1          |       ha16c6d3_6           7 KB  pytorch
+    pytorch-mutex-1.0          |             cuda           3 KB  pytorch
+    pyyaml-6.0.2               |   py39h5eee18b_0         192 KB
+    requests-2.32.4            |   py39h06a4308_0         146 KB
+    sympy-1.13.3               |   py39h06a4308_1        11.2 MB
+    tbb-2021.8.0               |       hdb19cb5_0         1.6 MB
+    torchaudio-2.5.1           |       py39_cu121         6.2 MB  pytorch
+    torchtriton-3.1.0          |             py39       233.6 MB  pytorch
+    torchvision-0.20.1         |       py39_cu121         8.1 MB  pytorch
+    typing_extensions-4.12.2   |   py39h06a4308_0          64 KB
+    urllib3-2.5.0              |   py39h06a4308_0         305 KB
+    yaml-0.2.5                 |       h7b6447c_0          75 KB
+    ------------------------------------------------------------
+                                           Total:        2.74 GB
+
+The following NEW packages will be INSTALLED:
+
+  blas               pkgs/main/linux-64::blas-1.0-mkl
+  brotlicffi         pkgs/main/linux-64::brotlicffi-1.0.9.2-py39h6a678d5_1
+  certifi            pkgs/main/linux-64::certifi-2025.6.15-py39h06a4308_0
+  cffi               pkgs/main/linux-64::cffi-1.17.1-py39h1fdaa30_1
+  charset-normalizer pkgs/main/noarch::charset-normalizer-3.3.2-pyhd3eb1b0_0
+  cuda-cudart        nvidia/linux-64::cuda-cudart-12.1.105-0
+  cuda-cupti         nvidia/linux-64::cuda-cupti-12.1.105-0
+  cuda-libraries     nvidia/linux-64::cuda-libraries-12.1.0-0
+  cuda-nvrtc         nvidia/linux-64::cuda-nvrtc-12.1.105-0
+  cuda-nvtx          nvidia/linux-64::cuda-nvtx-12.1.105-0
+  cuda-opencl        nvidia/linux-64::cuda-opencl-12.9.19-0
+  cuda-runtime       nvidia/linux-64::cuda-runtime-12.1.0-0
+  cuda-version       nvidia/noarch::cuda-version-12.9-3
+  ffmpeg             pytorch/linux-64::ffmpeg-4.3-hf484d3e_0
+  filelock           pkgs/main/linux-64::filelock-3.17.0-py39h06a4308_0
+  freetype           pkgs/main/linux-64::freetype-2.13.3-h4a9f257_0
+  giflib             pkgs/main/linux-64::giflib-5.2.2-h5eee18b_0
+  gmp                pkgs/main/linux-64::gmp-6.3.0-h6a678d5_0
+  gmpy2              pkgs/main/linux-64::gmpy2-2.2.1-py39h5eee18b_0
+  gnutls             pkgs/main/linux-64::gnutls-3.6.15-he1e5248_0
+  idna               pkgs/main/linux-64::idna-3.7-py39h06a4308_0
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2023.1.0-hdb19cb5_46306
+  jinja2             pkgs/main/linux-64::jinja2-3.1.6-py39h06a4308_0
+  jpeg               pkgs/main/linux-64::jpeg-9e-h5eee18b_3
+  lame               pkgs/main/linux-64::lame-3.100-h7b6447c_0
+  lcms2              pkgs/main/linux-64::lcms2-2.16-h92b89f2_1
+  lerc               pkgs/main/linux-64::lerc-4.0.0-h6a678d5_0
+  libcublas          nvidia/linux-64::libcublas-12.1.0.26-0
+  libcufft           nvidia/linux-64::libcufft-11.0.2.4-0
+  libcufile          nvidia/linux-64::libcufile-1.14.1.1-4
+  libcurand          nvidia/linux-64::libcurand-10.3.10.19-0
+  libcusolver        nvidia/linux-64::libcusolver-11.4.4.55-0
+  libcusparse        nvidia/linux-64::libcusparse-12.0.2.55-0
+  libdeflate         pkgs/main/linux-64::libdeflate-1.22-h5eee18b_0
+  libiconv           pkgs/main/linux-64::libiconv-1.16-h5eee18b_3
+  libidn2            pkgs/main/linux-64::libidn2-2.3.4-h5eee18b_0
+  libjpeg-turbo      pytorch/linux-64::libjpeg-turbo-2.0.0-h9bf148f_0
+  libnpp             nvidia/linux-64::libnpp-12.0.2.50-0
+  libnvjitlink       nvidia/linux-64::libnvjitlink-12.1.105-0
+  libnvjpeg          nvidia/linux-64::libnvjpeg-12.1.1.14-0
+  libpng             pkgs/main/linux-64::libpng-1.6.39-h5eee18b_0
+  libtasn1           pkgs/main/linux-64::libtasn1-4.19.0-h5eee18b_0
+  libtiff            pkgs/main/linux-64::libtiff-4.7.0-hde9077f_0
+  libunistring       pkgs/main/linux-64::libunistring-0.9.10-h27cfd23_0
+  libwebp            pkgs/main/linux-64::libwebp-1.3.2-h9f374a3_1
+  libwebp-base       pkgs/main/linux-64::libwebp-base-1.3.2-h5eee18b_1
+  llvm-openmp        pkgs/main/linux-64::llvm-openmp-14.0.6-h9e868ea_0
+  lz4-c              pkgs/main/linux-64::lz4-c-1.9.4-h6a678d5_1
+  markupsafe         pkgs/main/linux-64::markupsafe-3.0.2-py39h5eee18b_0
+  mkl                pkgs/main/linux-64::mkl-2023.1.0-h213fc3f_46344
+  mkl-service        pkgs/main/linux-64::mkl-service-2.4.0-py39h5eee18b_2
+  mkl_fft            pkgs/main/linux-64::mkl_fft-1.3.11-py39h5eee18b_0
+  mkl_random         pkgs/main/linux-64::mkl_random-1.2.8-py39h1128e8f_0
+  mpc                pkgs/main/linux-64::mpc-1.3.1-h5eee18b_0
+  mpfr               pkgs/main/linux-64::mpfr-4.2.1-h5eee18b_0
+  mpmath             pkgs/main/linux-64::mpmath-1.3.0-py39h06a4308_0
+  nettle             pkgs/main/linux-64::nettle-3.7.3-hbbd107a_1
+  networkx           pkgs/main/linux-64::networkx-3.2.1-py39h06a4308_0
+  numpy              pkgs/main/linux-64::numpy-2.0.1-py39h5f9d8c6_1
+  numpy-base         pkgs/main/linux-64::numpy-base-2.0.1-py39hb5e798b_1
+  ocl-icd            pkgs/main/linux-64::ocl-icd-2.3.2-h5eee18b_1
+  openh264           pkgs/main/linux-64::openh264-2.1.1-h4ff587b_0
+  openjpeg           pkgs/main/linux-64::openjpeg-2.5.2-h0d4d230_1
+  pillow             pkgs/main/linux-64::pillow-11.1.0-py39hac6e08b_1
+  pycparser          pkgs/main/noarch::pycparser-2.21-pyhd3eb1b0_0
+  pysocks            pkgs/main/linux-64::pysocks-1.7.1-py39h06a4308_0
+  pytorch            pytorch/linux-64::pytorch-2.5.1-py3.9_cuda12.1_cudnn9.1.0_0
+  pytorch-cuda       pytorch/linux-64::pytorch-cuda-12.1-ha16c6d3_6
+  pytorch-mutex      pytorch/noarch::pytorch-mutex-1.0-cuda
+  pyyaml             pkgs/main/linux-64::pyyaml-6.0.2-py39h5eee18b_0
+  requests           pkgs/main/linux-64::requests-2.32.4-py39h06a4308_0
+  sympy              pkgs/main/linux-64::sympy-1.13.3-py39h06a4308_1
+  tbb                pkgs/main/linux-64::tbb-2021.8.0-hdb19cb5_0
+  torchaudio         pytorch/linux-64::torchaudio-2.5.1-py39_cu121
+  torchtriton        pytorch/linux-64::torchtriton-3.1.0-py39
+  torchvision        pytorch/linux-64::torchvision-0.20.1-py39_cu121
+  typing_extensions  pkgs/main/linux-64::typing_extensions-4.12.2-py39h06a4308_0
+  urllib3            pkgs/main/linux-64::urllib3-2.5.0-py39h06a4308_0
+  yaml               pkgs/main/linux-64::yaml-0.2.5-h7b6447c_0
+  zstd               pkgs/main/linux-64::zstd-1.5.6-hc292b87_0
+
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(tsn_env) kim@kim-System-Product-Name:~$ # PyTorch Geometric 및 기타 라이브러리 설치
+pip install torch_geometric networkx pandas matplotlib tqdm pulp
+
+# ILP 솔버(CBC) 설치 (apt 사용)
+sudo apt install -y coinor-cbc
+Collecting torch_geometric
+  Downloading torch_geometric-2.6.1-py3-none-any.whl.metadata (63 kB)
+Requirement already satisfied: networkx in ./miniconda3/envs/tsn_env/lib/python3.9/site-packages (3.2.1)
+Collecting pandas
+  Downloading pandas-2.3.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (91 kB)
+Collecting matplotlib
+  Downloading matplotlib-3.9.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Collecting tqdm
+  Downloading tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+Collecting pulp
+  Downloading pulp-3.2.1-py3-none-any.whl.metadata (6.9 kB)
+Collecting aiohttp (from torch_geometric)
+  Downloading aiohttp-3.12.13-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.6 kB)
+Collecting fsspec (from torch_geometric)
+  Downloading fsspec-2025.5.1-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: jinja2 in ./miniconda3/envs/tsn_env/lib/python3.9/site-packages (from torch_geometric) (3.1.6)
+Requirement already satisfied: numpy in ./miniconda3/envs/tsn_env/lib/python3.9/site-packages (from torch_geometric) (2.0.1)
+Collecting psutil>=5.8.0 (from torch_geometric)
+  Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+Collecting pyparsing (from torch_geometric)
+  Downloading pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+Requirement already satisfied: requests in ./miniconda3/envs/tsn_env/lib/python3.9/site-packages (from torch_geometric) (2.32.4)
+Collecting python-dateutil>=2.8.2 (from pandas)
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2020.1 (from pandas)
+  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas)
+  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting contourpy>=1.0.1 (from matplotlib)
+  Downloading contourpy-1.3.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.4 kB)
+Collecting cycler>=0.10 (from matplotlib)
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib)
+  Downloading fonttools-4.58.4-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (106 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib)
+  Downloading kiwisolver-1.4.7-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (6.3 kB)
+Collecting packaging>=20.0 (from matplotlib)
+  Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: pillow>=8 in ./miniconda3/envs/tsn_env/lib/python3.9/site-packages (from matplotlib) (11.1.0)
+Collecting importlib-resources>=3.2.0 (from matplotlib)
+  Downloading importlib_resources-6.5.2-py3-none-any.whl.metadata (3.9 kB)
+Collecting zipp>=3.1.0 (from importlib-resources>=3.2.0->matplotlib)
+  Downloading zipp-3.23.0-py3-none-any.whl.metadata (3.6 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp->torch_geometric)
+  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.1.2 (from aiohttp->torch_geometric)
+  Downloading aiosignal-1.3.2-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting async-timeout<6.0,>=4.0 (from aiohttp->torch_geometric)
+  Downloading async_timeout-5.0.1-py3-none-any.whl.metadata (5.1 kB)
+Collecting attrs>=17.3.0 (from aiohttp->torch_geometric)
+  Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp->torch_geometric)
+  Downloading frozenlist-1.7.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp->torch_geometric)
+  Downloading multidict-6.6.3-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting propcache>=0.2.0 (from aiohttp->torch_geometric)
+  Downloading propcache-0.3.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp->torch_geometric)
+  Downloading yarl-1.20.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (73 kB)
+Requirement already satisfied: typing-extensions>=4.1.0 in ./miniconda3/envs/tsn_env/lib/python3.9/site-packages (from multidict<7.0,>=4.5->aiohttp->torch_geometric) (4.12.2)
+Requirement already satisfied: idna>=2.0 in ./miniconda3/envs/tsn_env/lib/python3.9/site-packages (from yarl<2.0,>=1.17.0->aiohttp->torch_geometric) (3.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./miniconda3/envs/tsn_env/lib/python3.9/site-packages (from jinja2->torch_geometric) (3.0.2)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./miniconda3/envs/tsn_env/lib/python3.9/site-packages (from requests->torch_geometric) (3.3.2)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./miniconda3/envs/tsn_env/lib/python3.9/site-packages (from requests->torch_geometric) (2.5.0)
+Requirement already satisfied: certifi>=2017.4.17 in ./miniconda3/envs/tsn_env/lib/python3.9/site-packages (from requests->torch_geometric) (2025.6.15)
+Downloading torch_geometric-2.6.1-py3-none-any.whl (1.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 546.9 kB/s eta 0:00:00
+Downloading pandas-2.3.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 798.4 kB/s eta 0:00:00
+Downloading matplotlib-3.9.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 881.7 kB/s eta 0:00:00
+Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+Downloading pulp-3.2.1-py3-none-any.whl (16.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 720.3 kB/s eta 0:00:00
+Downloading contourpy-1.3.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (321 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.58.4-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 670.0 kB/s eta 0:00:00
+Downloading importlib_resources-6.5.2-py3-none-any.whl (37 kB)
+Downloading kiwisolver-1.4.7-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 8.9 MB/s eta 0:00:00
+Downloading packaging-25.0-py3-none-any.whl (66 kB)
+Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+Downloading pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Downloading zipp-3.23.0-py3-none-any.whl (10 kB)
+Downloading aiohttp-3.12.13-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 331.3 kB/s eta 0:00:00
+Downloading async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
+Downloading multidict-6.6.3-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (239 kB)
+Downloading yarl-1.20.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (327 kB)
+Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.3.2-py2.py3-none-any.whl (7.6 kB)
+Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+Downloading frozenlist-1.7.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (225 kB)
+Downloading propcache-0.3.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (200 kB)
+Downloading fsspec-2025.5.1-py3-none-any.whl (199 kB)
+Installing collected packages: pytz, zipp, tzdata, tqdm, six, pyparsing, pulp, psutil, propcache, packaging, multidict, kiwisolver, fsspec, frozenlist, fonttools, cycler, contourpy, attrs, async-timeout, aiohappyeyeballs, yarl, python-dateutil, importlib-resources, aiosignal, pandas, matplotlib, aiohttp, torch_geometric
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torch 2.5.1 requires sympy==1.13.1, but you have sympy 1.13.3 which is incompatible.
+Successfully installed aiohappyeyeballs-2.6.1 aiohttp-3.12.13 aiosignal-1.3.2 async-timeout-5.0.1 attrs-25.3.0 contourpy-1.3.0 cycler-0.12.1 fonttools-4.58.4 frozenlist-1.7.0 fsspec-2025.5.1 importlib-resources-6.5.2 kiwisolver-1.4.7 matplotlib-3.9.4 multidict-6.6.3 packaging-25.0 pandas-2.3.0 propcache-0.3.2 psutil-7.0.0 pulp-3.2.1 pyparsing-3.2.3 python-dateutil-2.9.0.post0 pytz-2025.2 six-1.17.0 torch_geometric-2.6.1 tqdm-4.67.1 tzdata-2025.2 yarl-1.20.1 zipp-3.23.0
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  coinor-libcbc3.1 coinor-libcgl1 coinor-libclp1 coinor-libcoinutils3v5 coinor-libosi1v5 libblas3 libgfortran5
+  liblapack3
+The following NEW packages will be installed:
+  coinor-cbc coinor-libcbc3.1 coinor-libcgl1 coinor-libclp1 coinor-libcoinutils3v5 coinor-libosi1v5 libblas3
+  libgfortran5 liblapack3
+0 upgraded, 9 newly installed, 0 to remove and 5 not upgraded.
+4 not fully installed or removed.
+Need to get 6,712 kB of archives.
+After this operation, 19.2 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libblas3 amd64 3.12.0-3build1.1 [238 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libgfortran5 amd64 14.2.0-4ubuntu2~24.04 [916 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 liblapack3 amd64 3.12.0-3build1.1 [2,646 kB]
+Get:4 http://archive.ubuntu.com/ubuntu noble/universe amd64 coinor-libcoinutils3v5 amd64 2.11.4+repack1-4 [469 kB]
+Get:5 http://archive.ubuntu.com/ubuntu noble/universe amd64 coinor-libosi1v5 amd64 0.108.9+ds-1 [329 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble/universe amd64 coinor-libclp1 amd64 1.17.9+ds-1 [904 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble/universe amd64 coinor-libcgl1 amd64 0.60.8+ds-1 [423 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble/universe amd64 coinor-libcbc3.1 amd64 2.10.11+ds1-2 [772 kB]
+Get:9 http://archive.ubuntu.com/ubuntu noble/universe amd64 coinor-cbc amd64 2.10.11+ds1-2 [14.4 kB]
+Fetched 6,712 kB in 37s (184 kB/s)
+Selecting previously unselected package libblas3:amd64.
+(Reading database ... 234395 files and directories currently installed.)
+Preparing to unpack .../0-libblas3_3.12.0-3build1.1_amd64.deb ...
+Unpacking libblas3:amd64 (3.12.0-3build1.1) ...
+Selecting previously unselected package libgfortran5:amd64.
+Preparing to unpack .../1-libgfortran5_14.2.0-4ubuntu2~24.04_amd64.deb ...
+Unpacking libgfortran5:amd64 (14.2.0-4ubuntu2~24.04) ...
+Selecting previously unselected package liblapack3:amd64.
+Preparing to unpack .../2-liblapack3_3.12.0-3build1.1_amd64.deb ...
+Unpacking liblapack3:amd64 (3.12.0-3build1.1) ...
+Selecting previously unselected package coinor-libcoinutils3v5:amd64.
+Preparing to unpack .../3-coinor-libcoinutils3v5_2.11.4+repack1-4_amd64.deb ...
+Unpacking coinor-libcoinutils3v5:amd64 (2.11.4+repack1-4) ...
+Selecting previously unselected package coinor-libosi1v5:amd64.
+Preparing to unpack .../4-coinor-libosi1v5_0.108.9+ds-1_amd64.deb ...
+Unpacking coinor-libosi1v5:amd64 (0.108.9+ds-1) ...
+Selecting previously unselected package coinor-libclp1:amd64.
+Preparing to unpack .../5-coinor-libclp1_1.17.9+ds-1_amd64.deb ...
+Unpacking coinor-libclp1:amd64 (1.17.9+ds-1) ...
+Selecting previously unselected package coinor-libcgl1:amd64.
+Preparing to unpack .../6-coinor-libcgl1_0.60.8+ds-1_amd64.deb ...
+Unpacking coinor-libcgl1:amd64 (0.60.8+ds-1) ...
+Selecting previously unselected package coinor-libcbc3.1:amd64.
+Preparing to unpack .../7-coinor-libcbc3.1_2.10.11+ds1-2_amd64.deb ...
+Unpacking coinor-libcbc3.1:amd64 (2.10.11+ds1-2) ...
+Selecting previously unselected package coinor-cbc.
+Preparing to unpack .../8-coinor-cbc_2.10.11+ds1-2_amd64.deb ...
+Unpacking coinor-cbc (2.10.11+ds1-2) ...
+Setting up libblas3:amd64 (3.12.0-3build1.1) ...
+update-alternatives: using /usr/lib/x86_64-linux-gnu/blas/libblas.so.3 to provide /usr/lib/x86_64-linux-gnu/libblas.so.3 (libblas.so.3-x86_64-linux-gnu) in auto mode
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules...........(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure):
+ installed linux-headers-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Setting up libgfortran5:amd64 (14.2.0-4ubuntu2~24.04) ...
+Setting up nvidia-dkms-570 (570.133.07-0ubuntu0.24.04.1) ...
+update-initramfs: deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+INFO:Enable nvidia
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/dell_latitude
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/put_your_quirks_here
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/lenovo_thinkpad
+Removing old nvidia-570.133.07 DKMS files...
+Module nvidia-570.133.07 for kernel 6.8.0-63-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Deleting module nvidia-570.133.07 completely from the DKMS tree.
+Loading new nvidia-570.133.07 DKMS files...
+Building for 6.8.0-63-lowlatency 6.15.4-061504-generic
+Building for architecture x86_64
+Building initial module for 6.8.0-63-lowlatency
+Done.
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+depmod...
+Building initial module for 6.15.4-061504-generic
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dpkg: error processing package nvidia-dkms-570 (--configure):
+ installed nvidia-dkms-570 package post-installation script subprocess returned error exit status 10
+Setting up linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+Setting up liblapack3:amd64 (3.12.0-3build1.1) ...
+update-alternatives: using /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3 to provide /usr/lib/x86_64-linux-gnu/liblapack.so.3 (liblapack.so.3-x86_64-linux-gnu) in auto mode
+dpkg: dependency problems prevent configuration of nvidia-driver-570:
+ nvidia-driver-570 depends on nvidia-dkms-570 (<= 570.133.07-1); however:
+  Package nvidia-dkms-570 is not configured yet.
+ nvidia-driver-570 depends on nvidia-dkms-570 (>= 570.133.07); however:
+  Package nvidia-dkms-570 is not configured yet.
+
+dpkg: error processing package nvidia-driver-570 (--configure):
+ dependency problems - leaving unconfigured
+Setting up coinor-libcoinutils3v5:amd64 (2.11.4+repack1-4) ...
+No apport report written because the error message indicates its a followup error from a previous failure.
+                                                                                                          Setting up coinor-libosi1v5:amd64 (0.108.9+ds-1) ...
+Setting up coinor-libclp1:amd64 (1.17.9+ds-1) ...
+Setting up coinor-libcgl1:amd64 (0.60.8+ds-1) ...
+Setting up coinor-libcbc3.1:amd64 (2.10.11+ds1-2) ...
+Setting up coinor-cbc (2.10.11+ds1-2) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.4) ...
+Processing triggers for initramfs-tools (0.142ubuntu25.5) ...
+update-initramfs: Generating /boot/initrd.img-6.11.0-29-generic
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules...........(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--configure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Errors were encountered while processing:
+ linux-headers-6.15.4-061504-generic
+ nvidia-dkms-570
+ nvidia-driver-570
+ linux-image-unsigned-6.15.4-061504-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+(tsn_env) kim@kim-System-Product-Name:~$ nano tsn_final_script.py
+(tsn_env) kim@kim-System-Product-Name:~$ python tsn_final_script.py
+
+===== 1단계: 전문가 모방 학습 (IL) 시작 =====
+모방 학습: 100%|███████████████████████████████| 5000/5000 [08:10<00:00, 10.19it/s, avg_loss=3.4025]
+
+모방 학습 완료. 모델 저장: 'gnn_imitated_v3.pth'
+
+===== 2단계: 비동기 ILP-앵커 온라인 학습 (RL) 시작 =====
+모방 학습 모델 'gnn_imitated_v3.pth'에서 새로 시작.
+/home/kim/tsn_final_script.py:474: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  agent.policy_net.load_state_dict(torch.load(IMITATION_MODEL_PATH, map_location=DEVICE))
+14개의 CPU 생산자 프로세스 시작... GPU 학습 대기 중...
+온라인 학습:   0%|                                                        | 0/10000 [00:00<?, ?it/s]
+Broadcast message from root@kim-System-Product-Name on pts/2 (Thu 2025-07-03 16:55:06 KST):
+
+The system will reboot now!
+
+Connection to 192.168.5.10 closed by remote host.
+Connection to 192.168.5.10 closed.
+PS C:\Users\parksik> ssh kim@192.168.5.10
+kim@192.168.5.10's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-63-lowlatency x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+Last login: Thu Jul  3 16:55:58 2025 from 192.168.5.11
+(base) kim@kim-System-Product-Name:~$ conda activate tsn_env
+(tsn_env) kim@kim-System-Product-Name:~$ python tsn_final_script.py
+모방 학습을 건너뛰거나, 이미 완료된 모델을 사용합니다.
+
+===== 2단계: 비동기 ILP-앵커 온라인 학습 (RL) 시작 =====
+모방 학습 모델 'gnn_imitated_v3.pth'에서 새로 시작.
+/home/kim/tsn_final_script.py:474: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  agent.policy_net.load_state_dict(torch.load(IMITATION_MODEL_PATH, map_location=DEVICE))
+14개의 CPU 생산자 프로세스 시작... GPU 학습 대기 중...
+온라인 학습:   0%|                                                        | 0/10000 [00:00<?, ?it/s]client_loop: send disconnect: Connection reset
+PS C:\Users\parksik> ssh kim@192.168.5.10
+kim@192.168.5.10's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-63-lowlatency x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+Last login: Thu Jul  3 16:56:06 2025 from 192.168.5.11
+(base) kim@kim-System-Product-Name:~$ # 설치
+sudo apt update
+sudo apt install btop
+
+# 실행
+btop
+[sudo] password for kim:
+Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Hit:2 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Hit:4 https://ppa.launchpadcontent.net/cappelikan/ppa/ubuntu noble InRelease
+Get:5 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [970 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:7 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [173 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,221 kB]
+Get:9 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1,347 kB]
+Get:10 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [290 kB]
+Get:11 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [869 kB]
+Get:12 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [191 kB]
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main Translation-en [251 kB]
+Get:14 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [162 kB]
+Get:15 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+Get:16 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,103 kB]
+Get:17 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [377 kB]
+Get:18 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:19 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7,072 B]
+Get:20 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]
+Get:21 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [16.4 kB]
+Get:22 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Fetched 7,358 kB in 4s (1,752 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+5 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+btop is already the newest version (1.3.0-1).
+0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+7 not fully installed or removed.
+After this operation, 0 B of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Setting up linux-image-6.8.0-63-generic (6.8.0-63.66) ...
+I: /boot/initrd.img is now a symlink to initrd.img-6.8.0-63-generic
+Setting up linux-headers-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules.....................(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.15.4-061504-generic (--configure):
+ installed linux-headers-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+Setting up linux-headers-6.8.0-63-generic (6.8.0-63.66) ...
+/etc/kernel/header_postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-63-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Deprecated feature: REMAKE_INITRD (/etc/dkms/framework.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-63-generic -C /lib/modules/6.8.0-63-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-63-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+dkms autoinstall on 6.8.0-63-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-63-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-63-generic
+   ...fail!
+run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-headers-6.8.0-63-generic (--configure):
+ installed linux-headers-6.8.0-63-generic package post-installation script subprocess returned error exit status 11
+Setting up nvidia-dkms-570 (570.133.07-0ubuntu0.24.04.1) ...
+update-initramfs: deferring update (trigger activated)
+update-initramfs: Generating /boot/initrd.img-6.8.0-63-lowlatency
+INFO:Enable nvidia
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/dell_latitude
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/put_your_quirks_here
+DEBUG:Parsing /usr/share/ubuntu-drivers-common/quirks/lenovo_thinkpad
+Removing old nvidia-570.133.07 DKMS files...
+Module nvidia-570.133.07 for kernel 6.8.0-63-generic (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Module nvidia-570.133.07 for kernel 6.8.0-63-lowlatency (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+nvidia.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-modeset.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-drm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-uvm.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+nvidia-peermem.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Deleting module nvidia-570.133.07 completely from the DKMS tree.
+Loading new nvidia-570.133.07 DKMS files...
+Building for 6.8.0-63-lowlatency 6.15.4-061504-generic
+Building for architecture x86_64
+Building initial module for 6.8.0-63-lowlatency
+Done.
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-lowlatency/updates/dkms/
+depmod...
+Building initial module for 6.15.4-061504-generic
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dpkg: error processing package nvidia-dkms-570 (--configure):
+ installed nvidia-dkms-570 package post-installation script subprocess returned error exit status 10
+Setting up linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+I: /boot/initrd.img.old is now a symlink to initrd.img-6.15.4-061504-generic
+dpkg: dependency problems prevent configuration of nvidia-driver-570:
+ nvidia-driver-570 depends on nvidia-dkms-570 (<= 570.133.07-1); however:
+  Package nvidia-dkms-570 is not configured yet.
+ nvidia-driver-570 depends on nvidia-dkms-570 (>= 570.133.07); however:
+  Package nvidia-dkms-570 is not configured yet.
+
+dpkg: error processing package nvidia-driver-570 (--configure):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of linux-headers-generic:
+ linux-headers-generic depends on linux-headers-6.8.0-63-generic; however:
+  Package linux-headers-6.8.0-63-generic is not configured yet.
+
+dpkg: error processing package linux-headers-generic (--configure):
+ dependency problems - leaving unconfigured
+Processing triggers for linux-image-6.8.0-63-generic (6.8.0-63.66) ...
+No apport report written because MaxReports is reached already
+                                                              No apport report written because MaxReports is reached already
+    /etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.8.0-63-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.8.0-63-generic -C /lib/modules/6.8.0-63-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.8.0-63-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.8.0-63-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.8.0-63-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules......................
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-modeset.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-drm.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-uvm.ko
+Signing module /var/lib/dkms/nvidia/570.133.07/build/nvidia-peermem.ko
+Cleaning build area...
+
+nvidia.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-modeset.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-drm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-uvm.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+
+nvidia-peermem.ko.zst:
+Running module version sanity check.
+ - Original module
+   - No original module exists within this kernel
+ - Installation
+   - Installing to /lib/modules/6.8.0-63-generic/updates/dkms/
+depmod...
+dkms autoinstall on 6.8.0-63-generic/x86_64 succeeded for nvidia
+dkms autoinstall on 6.8.0-63-generic/x86_64 failed for igc(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.8.0-63-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-6.8.0-63-generic (--configure):
+ installed linux-image-6.8.0-63-generic package post-installation script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Processing triggers for initramfs-tools (0.142ubuntu25.5) ...
+update-initramfs: Generating /boot/initrd.img-6.11.0-29-generic
+Processing triggers for linux-image-unsigned-6.15.4-061504-generic (6.15.4-061504.202506271452) ...
+/etc/kernel/postinst.d/dkms:
+ * dkms: running auto installation service for kernel 6.15.4-061504-generic
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Deprecated feature: REMAKE_INITRD (/var/lib/dkms/igc/5.4.0-7642.46/source/dkms.conf)
+
+Building module:
+Cleaning build area...
+make -j16 KERNELRELEASE=6.15.4-061504-generic -C /lib/modules/6.15.4-061504-generic/build M=/var/lib/dkms/igc/5.4.0-7642.46/build/src modules...(bad exit status: 2)
+ERROR (dkms apport): binary package for igc: 5.4.0-7642.46 not found
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/igc/5.4.0-7642.46/build/make.log for more information.
+Sign command: /usr/bin/kmodsign
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+
+Building module:
+Cleaning build area...
+unset ARCH; [ ! -h /usr/bin/cc ] && export CC=/usr/bin/gcc; env NV_VERBOSE=1 'make' -j16 NV_EXCLUDE_BUILD_MODULES='' KERNEL_UNAME=6.15.4-061504-generic IGNORE_XEN_PRESENCE=1 IGNORE_CC_MISMATCH=1 SYSSRC=/lib/modules/6.15.4-061504-generic/build LD=/usr/bin/ld.bfd CONFIG_X86_KERNEL_IBT= modules......................(bad exit status: 2)
+ERROR (dkms apport): kernel package linux-headers-6.15.4-061504-generic is not supported
+Error! Bad return status for module build on kernel: 6.15.4-061504-generic (x86_64)
+Consult /var/lib/dkms/nvidia/570.133.07/build/make.log for more information.
+dkms autoinstall on 6.15.4-061504-generic/x86_64 failed for igc(10) nvidia(10)
+Error! One or more modules failed to install during autoinstall.
+Refer to previous errors for more information.
+ * dkms: autoinstall for kernel 6.15.4-061504-generic
+   ...fail!
+run-parts: /etc/kernel/postinst.d/dkms exited with return code 11
+dpkg: error processing package linux-image-unsigned-6.15.4-061504-generic (--configure):
+ installed linux-image-unsigned-6.15.4-061504-generic package post-installation script subprocess returned error exit status 11
+No apport report written because MaxReports is reached already
+                                                              Errors were encountered while processing:
+ linux-headers-6.15.4-061504-generic
+ linux-headers-6.8.0-63-generic
+ nvidia-dkms-570
+ nvidia-driver-570
+ linux-headers-generic
+ linux-image-6.8.0-63-generic
+ linux-image-unsigned-6.15.4-061504-generic
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+(base) kim@kim-System-Product-Name:~$ # 1. 에이전트 전용 사용자 'gemini-agent'를 생성합니다.
+sudo adduser gemini-agent
+# (암호 등을 설정하라는 메시지가 나옵니다. 간단히 설정하고 넘어가세요)
+
+# 2. 이 사용자로 전환합니다.
+su - gemini-agent
+
+# 3. Conda 환경을 만듭니다. (Conda가 /opt/conda 등 시스템에 설치되어 있다고 가정)
+# Python 3.9 환경 'agent_env'를 생성
+conda create -n agent_env python=3.9 -y
+
+# 4. 새로 만든 환경을 활성화합니다.
+conda activate agent_env
+
+# 5. 필요한 파이썬 라이브러리를 설치합니다.
+pip install requests python-dotenv
+[sudo] password for kim:
+info: Adding user `gemini-agent' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `gemini-agent' (1001) ...
+info: Adding new user `gemini-agent' (1001) with group `gemini-agent (1001)' ...
+info: Creating home directory `/home/gemini-agent' ...
+info: Copying files from `/etc/skel' ...
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: password updated successfully
+Changing the user information for gemini-agent
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+'Is the information correct? [Y/n]
+Is the information correct? [Y/n] y
+info: Adding new user `gemini-agent' to supplemental / extra groups `users' ...
+info: Adding user `gemini-agent' to group `users' ...
+Password:
+gemini-agent@kim-System-Product-Name:~$ conda create -n agent_env python=3.9 -y
+conda: command not found
+gemini-agent@kim-System-Product-Name:~$ # 1. Node.js 18.x 이상 버전과 npm을 설치합니다.
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# 2. 설치 확인
+node -v  # v18.x.x 이상이 나와야 함
+npm -v
+[sudo] password for gemini-agent:
+gemini-agent is not in the sudoers file.
+[sudo] password for gemini-agent:
+gemini-agent is not in the sudoers file.
+[sudo] password for gemini-agent: Command 'curl' not found, but can be installed with:
+snap install curl  # version 8.14.1, or
+apt  install curl  # version 8.5.0-2ubuntu10.6
+See 'snap info curl' for additional versions.
+
+
+Sorry, try again.
+[sudo] password for gemini-agent:
+1
+Sorry, try again.
+[sudo] password for gemini-agent:
+gemini-agent is not in the sudoers file.
+[sudo] password for gemini-agent:
+gemini-agent is not in the sudoers file.
+Command 'node' not found, but can be installed with:
+apt install nodejs
+Please ask your administrator.
+Command 'npm' not found, but can be installed with:
+apt install npm
+Please ask your administrator.
+gemini-agent@kim-System-Product-Name:~$ ssh kim@192.168.5.10
+The authenticity of host '192.168.5.10 (192.168.5.10)' can't be established.
+ED25519 key fingerprint is SHA256:d9ZZFGvyAS3AK7N0nH7hlrVWCx03hLf7qL5qi2rczhs.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?

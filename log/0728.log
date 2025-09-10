@@ -1,0 +1,1031 @@
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support1/support/docker$ cd ..
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support1/support$ cd ..
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support1$ cd ..
+(base) kim@kim-System-Product-Name:~$ git clone https://github.com/microchip-ung/velocitydrivesp-support && cd velocitydrivesp-support
+Cloning into 'velocitydrivesp-support'...
+remote: Enumerating objects: 1342, done.
+remote: Counting objects: 100% (1342/1342), done.
+remote: Compressing objects: 100% (1067/1067), done.
+remote: Total 1342 (delta 173), reused 1338 (delta 170), pack-reused 0 (from 0)
+Receiving objects: 100% (1342/1342), 4.86 MiB | 17.23 MiB/s, done.
+Resolving deltas: 100% (173/173), done.
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ cd velocitydrivesp-support
+bash: cd: velocitydrivesp-support: No such file or directory
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ sudo chmod a+rw /dev/ttyACM0 && ls -la /dev/ttyACM0
+[sudo] password for kim: 
+crw-rw-rw- 1 root dialout 166, 0 Jul 28 12:57 /dev/ttyACM0
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ sudo curl -o /usr/local/bin/dr https://raw.githubusercontent.com/microchip-ung/docker-run/refs/heads/main/dr && sudo chmod +x /usr/local/bin/dr
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  6297  100  6297    0     0  18657      0 --:--:-- --:--:-- --:--:-- 18685
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ docker images
+REPOSITORY                                      TAG              IMAGE ID       CREATED          SIZE
+<none>                                          <none>           471961a1fbf2   4 minutes ago    607MB
+<none>                                          <none>           20ecff132a12   11 minutes ago   607MB
+velocitydrivesp-gui                             latest           201e0734ddfe   15 minutes ago   607MB
+<none>                                          <none>           c596fafa93d2   45 minutes ago   607MB
+<none>                                          <none>           30cd7c37a8cd   2 hours ago      1.99GB
+mchp-tools/velocitydrivesp-support              latest           593a0ac16a12   3 hours ago      2GB
+ubuntu                                          22.04            1d3ca894b30c   13 days ago      77.9MB
+ghcr.io/microchip-ung/velocitydrivesp-support   1                05d6c24ecf21   8 months ago     1.99GB
+ubuntu                                          jammy-20240405   7af9ba4f0a47   15 months ago    77.9MB
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ # On Fedora 41
+$ sudo dnf install docker-cli docker-ce containerd
+# On Fedora 40
+$ sudo dnf install moby-engine containerd
+$: command not found
+$: command not found
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-ptp-instance.yaml
+- ? "/ieee1588-ptp:ptp/instances/instance"
+  : instance-index: 0
+    default-ds:
+      external-port-config-enable: true
+    mchp-velocitysp-ptp:automotive:
+      profile: bridge
+    ports:
+      port:
+      - port-index: 12       # Master
+        external-port-config-port-ds:
+          desired-state: master
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-ptp-instance.yaml
+Opening serial port at /dev/ttyACM0
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-servo0.yaml
+- ? "/ieee1588-ptp:ptp/instances/instance[instance-index='0']/mchp-velocitysp-ptp:servos/servo"
+  : servo-index: 0
+    servo-type: pi
+    ltc-index: 0
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-servo0.yaml
+Opening serial port at /dev/ttyACM0
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > fetch-ptp-instance.yaml
+- "/ieee1588-ptp:ptp/instances/instance[instance-index='0']"
+EOF
+sudo dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-ptp-instance.yaml
+Opening serial port at /dev/ttyACM0
+---
+- "/ieee1588-ptp:ptp/instances/instance":
+    instance-index: 0
+    default-ds:
+      clock-identity: 02-06-3F-FF-FE-F5-0E-00
+      priority1: 246
+      priority2: 248
+      domain-number: 0
+      instance-enable: true
+      external-port-config-enable: true
+      max-steps-removed: 255
+      instance-type: relay
+    parent-ds:
+      parent-port-identity:
+        clock-identity: 00-00-00-00-00-00-00-00
+        port-number: 0
+      grandmaster-identity: 02-06-3F-FF-FE-F5-0E-00
+      grandmaster-clock-quality:
+        clock-class: ieee1588-ptp:cc-default
+        clock-accuracy: mchp-velocitysp-ptp:ca-time-accurate-unknown
+      grandmaster-priority1: 246
+      grandmaster-priority2: 248
+      ieee802-dot1as-ptp:cumulative-rate-ratio: 0
+    ports:
+      port:
+      - port-index: 12
+        port-ds:
+          port-state: master
+          mean-link-delay: '0'
+          log-sync-interval: -3
+          log-min-pdelay-req-interval: 0
+          port-enable: true
+          ieee802-dot1as-ptp:as-capable: true
+          ieee802-dot1as-ptp:mean-link-delay-thresh: '52428800'
+          ieee802-dot1as-ptp:neighbor-rate-ratio: 0
+          ieee802-dot1as-ptp:sync-receipt-timeout: 3
+          ieee802-dot1as-ptp:use-mgt-log-gptp-cap-interval: false
+          ieee802-dot1as-ptp:mgt-log-gptp-cap-interval: 0
+          ieee802-dot1as-ptp:use-mgt-one-step-tx-oper: false
+          ieee802-dot1as-ptp:mgt-one-step-tx-oper: 0
+        timestamp-correction-port-ds:
+          egress-latency: '0'
+          ingress-latency: '0'
+        external-port-config-port-ds:
+          desired-state: master
+    mchp-velocitysp-ptp:servos:
+      servo:
+      - servo-index: 0
+        servo-type: pi
+        ltc-index: 0
+        offset: '0'
+        state: 0
+    mchp-velocitysp-ptp:automotive:
+      profile: bridge
+      oper-log-pdelay-req-interval: 1
+      oper-log-sync-interval: 0
+    mchp-velocitysp-ptp:l2:
+      mac-address: 00-00-00-00-00-00
+      mac-address-enable: false
+      vlan: 1
+      vlan-enable: false
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > fetch-ptp-instance.yaml
+- "/ieee1588-ptp:ptp/instances/instance[instance-index='0']"
+EOF
+sudo dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-ptp-instance.yaml
+Opening serial port at /dev/ttyACM0
+---
+- "/ieee1588-ptp:ptp/instances/instance":
+    instance-index: 0
+    default-ds:
+      clock-identity: 02-06-3F-FF-FE-F5-0E-00
+      priority1: 246
+      priority2: 248
+      domain-number: 0
+      instance-enable: true
+      external-port-config-enable: true
+      max-steps-removed: 255
+      instance-type: relay
+    parent-ds:
+      parent-port-identity:
+        clock-identity: 00-00-00-00-00-00-00-00
+        port-number: 0
+      grandmaster-identity: 02-06-3F-FF-FE-F5-0E-00
+      grandmaster-clock-quality:
+        clock-class: ieee1588-ptp:cc-default
+        clock-accuracy: mchp-velocitysp-ptp:ca-time-accurate-unknown
+      grandmaster-priority1: 246
+      grandmaster-priority2: 248
+      ieee802-dot1as-ptp:cumulative-rate-ratio: 0
+    ports:
+      port:
+      - port-index: 12
+        port-ds:
+          port-state: master
+          mean-link-delay: '0'
+          log-sync-interval: -3
+          log-min-pdelay-req-interval: 0
+          port-enable: true
+          ieee802-dot1as-ptp:as-capable: true
+          ieee802-dot1as-ptp:mean-link-delay-thresh: '52428800'
+          ieee802-dot1as-ptp:neighbor-rate-ratio: 0
+          ieee802-dot1as-ptp:sync-receipt-timeout: 3
+          ieee802-dot1as-ptp:use-mgt-log-gptp-cap-interval: false
+          ieee802-dot1as-ptp:mgt-log-gptp-cap-interval: 0
+          ieee802-dot1as-ptp:use-mgt-one-step-tx-oper: false
+          ieee802-dot1as-ptp:mgt-one-step-tx-oper: 0
+        timestamp-correction-port-ds:
+          egress-latency: '0'
+          ingress-latency: '0'
+        external-port-config-port-ds:
+          desired-state: master
+    mchp-velocitysp-ptp:servos:
+      servo:
+      - servo-index: 0
+        servo-type: pi
+        ltc-index: 0
+        offset: '0'
+        state: 0
+    mchp-velocitysp-ptp:automotive:
+      profile: bridge
+      oper-log-pdelay-req-interval: 1
+      oper-log-sync-interval: 0
+    mchp-velocitysp-ptp:l2:
+      mac-address: 00-00-00-00-00-00
+      mac-address-enable: false
+      vlan: 1
+      vlan-enable: false
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ echo '--- {}' > fetch-port-status.yaml
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-port-status.yaml
+Opening serial port at /dev/ttyACM0
+TRACE: "main: start scheduler\n"
+TRACE: "\n"
+TRACE: "\n"
+/home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:516:in `json_seq2cbor': Input is not an Array! (RuntimeError)
+	from /home/kim/velocitydrivesp-support/support/scripts/mup1cc:309:in `<main>'
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ # 1) 삭제·초기화 + 생성·IP 설정
+cat <<EOF > ipatch-reset-set-ip.yaml
+# ——————————————————————————————————————
+# 1) 기존 L3V1 인터페이스 삭제
+- ? "/ietf-interfaces:interfaces/interface[name='L3V1']"
+  :
+
+# 2) L3V1 인터페이스 생성·활성화
+- ? "/ietf-interfaces:interfaces/interface"
+  : name:    "L3V1"
+    type:    iana-if-type:l3ipvlan
+    enabled: true
+
+# 3) IPv4 설정 (포워딩 해제 + 주소 할당)
+- ? "/ietf-interfaces:interfaces/interface[name='L3V1']/ietf-ip:ipv4"
+  : forwarding: false
+    address:
+      - ip:            "169.254.59.100"
+        prefix-length: 16
+EOF
+
+# 적용
+dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-reset-set-ip.yaml
+Opening serial port at /dev/ttyACM0
+TRACE: "main: start scheduler\n"
+TRACE: "\n"
+TRACE: "\n"
+TRACE: "00:00:18-715940 "
+TRACE: "cc/error 1647 : "
+TRACE: "SID 2036 (parent SID 2033) has state = VALID and has not been handled by the module!"
+TRACE: "\n"
+ERROR: response code 5.00
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ ping 169.254.59.100
+PING 169.254.59.100 (169.254.59.100) 56(84) bytes of data.
+64 bytes from 169.254.59.100: icmp_seq=1 ttl=31 time=3.65 ms
+64 bytes from 169.254.59.100: icmp_seq=2 ttl=31 time=2.26 ms
+64 bytes from 169.254.59.100: icmp_seq=3 ttl=31 time=0.911 ms
+64 bytes from 169.254.59.100: icmp_seq=4 ttl=31 time=1.02 ms
+64 bytes from 169.254.59.100: icmp_seq=5 ttl=31 time=0.898 ms
+64 bytes from 169.254.59.100: icmp_seq=6 ttl=31 time=0.506 ms
+64 bytes from 169.254.59.100: icmp_seq=7 ttl=31 time=2.51 ms
+64 bytes from 169.254.59.100: icmp_seq=8 ttl=31 time=2.44 ms
+64 bytes from 169.254.59.100: icmp_seq=9 ttl=31 time=0.648 ms
+64 bytes from 169.254.59.100: icmp_seq=10 ttl=31 time=2.16 ms
+^C
+--- 169.254.59.100 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9140ms
+rtt min/avg/max/mdev = 0.506/1.700/3.651/0.989 ms
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ # management 포트가 enp7s0에 물려 있다면:
+sudo tcpdump -i enp7s0 -w mgmt-port.pcap -n
+[sudo] password for kim: 
+tcpdump: listening on enp7s0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+^[[A
+^C96 packets captured
+96 packets received by filter
+0 packets dropped by kernel
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ ^C
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ ping 169.254.59.100
+PING 169.254.59.100 (169.254.59.100) 56(84) bytes of data.
+64 bytes from 169.254.59.100: icmp_seq=1 ttl=31 time=1.26 ms
+64 bytes from 169.254.59.100: icmp_seq=2 ttl=31 time=1.09 ms
+64 bytes from 169.254.59.100: icmp_seq=3 ttl=31 time=1.90 ms
+64 bytes from 169.254.59.100: icmp_seq=4 ttl=31 time=1.52 ms
+64 bytes from 169.254.59.100: icmp_seq=5 ttl=31 time=2.08 ms
+64 bytes from 169.254.59.100: icmp_seq=6 ttl=31 time=1.14 ms
+64 bytes from 169.254.59.100: icmp_seq=7 ttl=31 time=1.41 ms
+64 bytes from 169.254.59.100: icmp_seq=8 ttl=31 time=2.24 ms
+64 bytes from 169.254.59.100: icmp_seq=9 ttl=31 time=1.41 ms
+64 bytes from 169.254.59.100: icmp_seq=10 ttl=31 time=0.635 ms
+64 bytes from 169.254.59.100: icmp_seq=11 ttl=31 time=1.85 ms
+64 bytes from 169.254.59.100: icmp_seq=12 ttl=31 time=1.46 ms
+64 bytes from 169.254.59.100: icmp_seq=13 ttl=31 time=2.78 ms
+64 bytes from 169.254.59.100: icmp_seq=14 ttl=31 time=1.48 ms
+64 bytes from 169.254.59.100: icmp_seq=15 ttl=31 time=1.57 ms
+64 bytes from 169.254.59.100: icmp_seq=16 ttl=31 time=1.90 ms
+64 bytes from 169.254.59.100: icmp_seq=17 ttl=31 time=2.25 ms
+64 bytes from 169.254.59.100: icmp_seq=18 ttl=31 time=2.54 ms
+64 bytes from 169.254.59.100: icmp_seq=19 ttl=31 time=0.772 ms
+64 bytes from 169.254.59.100: icmp_seq=20 ttl=31 time=0.410 ms
+64 bytes from 169.254.59.100: icmp_seq=21 ttl=31 time=0.483 ms
+64 bytes from 169.254.59.100: icmp_seq=22 ttl=31 time=1.96 ms
+64 bytes from 169.254.59.100: icmp_seq=23 ttl=31 time=0.461 ms
+64 bytes from 169.254.59.100: icmp_seq=24 ttl=31 time=1.05 ms
+64 bytes from 169.254.59.100: icmp_seq=25 ttl=31 time=1.75 ms
+64 bytes from 169.254.59.100: icmp_seq=26 ttl=31 time=1.94 ms
+64 bytes from 169.254.59.100: icmp_seq=27 ttl=31 time=0.827 ms
+64 bytes from 169.254.59.100: icmp_seq=28 ttl=31 time=1.13 ms
+64 bytes from 169.254.59.100: icmp_seq=29 ttl=31 time=1.62 ms
+64 bytes from 169.254.59.100: icmp_seq=30 ttl=31 time=1.47 ms
+64 bytes from 169.254.59.100: icmp_seq=31 ttl=31 time=1.01 ms
+64 bytes from 169.254.59.100: icmp_seq=32 ttl=31 time=1.00 ms
+64 bytes from 169.254.59.100: icmp_seq=33 ttl=31 time=2.29 ms
+64 bytes from 169.254.59.100: icmp_seq=34 ttl=31 time=1.40 ms
+64 bytes from 169.254.59.100: icmp_seq=35 ttl=31 time=0.858 ms
+64 bytes from 169.254.59.100: icmp_seq=36 ttl=31 time=1.01 ms
+64 bytes from 169.254.59.100: icmp_seq=37 ttl=31 time=0.774 ms
+64 bytes from 169.254.59.100: icmp_seq=38 ttl=31 time=0.993 ms
+64 bytes from 169.254.59.100: icmp_seq=39 ttl=31 time=1.52 ms
+64 bytes from 169.254.59.100: icmp_seq=40 ttl=31 time=2.36 ms
+64 bytes from 169.254.59.100: icmp_seq=41 ttl=31 time=2.17 ms
+64 bytes from 169.254.59.100: icmp_seq=42 ttl=31 time=0.832 ms
+64 bytes from 169.254.59.100: icmp_seq=43 ttl=31 time=0.894 ms
+64 bytes from 169.254.59.100: icmp_seq=44 ttl=31 time=2.14 ms
+64 bytes from 169.254.59.100: icmp_seq=45 ttl=31 time=1.53 ms
+^C
+--- 169.254.59.100 ping statistics ---
+45 packets transmitted, 45 received, 0% packet loss, time 44405ms
+rtt min/avg/max/mdev = 0.410/1.447/2.778/0.590 ms
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+(base) kim@kim-System-Product-Name:~$ sudo tcpdump -i enp9s0 -w tas_10us.pcap -nn -tt
+[sudo] password for kim: 
+tcpdump: listening on enp9s0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+^C98 packets captured
+98 packets received by filter
+0 packets dropped by kernel
+(base) kim@kim-System-Product-Name:~$ ^C
+(base) kim@kim-System-Product-Name:~$ sudo tcpdump -i enp9s0 -w tas_10us.pcap -nn -tt
+# (2µs면 파일명을 tas_2us.pcap으로 변경)
+[sudo] password for kim: 
+tcpdump: listening on enp9s0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+tcpdump: pcap_loop: The interface disappeared
+613 packets captured
+613 packets received by filter
+0 packets dropped by kernel
+(base) kim@kim-System-Product-Name:~$ sudo ip netns exec ns1 ~/setup_tas.sh 10
+# → “base-time=…” 메시지 출력
+#    3초 기다렸다가 실제 스케줄링이 시작됩니다.
+Warning: sch_taprio: Size table not specified, frame length estimations may be inaccurate.
+TAS on enp7s0: cycle=10µs (open=5000ns/close=5000ns) starting at base-time=1753685089439843758
+(base) kim@kim-System-Product-Name:~$ sudo ip netns exec ns2 tcpdump -i enp9s0 -w toggle_test.pcap -nn -tt
+tcpdump: listening on enp9s0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+^C0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+(base) kim@kim-System-Product-Name:~$ ^C
+(base) kim@kim-System-Product-Name:~$ # 예: 총 3회 반복 × (10s+10s) = 60초 캡처
+sudo ./capture_ns2.sh $((3* (10+10) + 1)) toggle_test.pcap
+./capture_ns2.sh: line 3: [[: $#: syntax error: operand expected (error token is "$#")
+[Capture] ns2 enp9s0 for $DUR sec → $OUT
+timeout: invalid time interval ‘$DUR’
+Try 'timeout --help' for more information.
+Capture done → $OUT
+(base) kim@kim-System-Product-Name:~$ sudo ip netns exec ns2 tcpdump -i enp9s0 -w toggle_test.pcap -nn -tt
+tcpdump: listening on enp9s0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+^C1 packet captured
+1 packet received by filter
+0 packets dropped by kernel
+(base) kim@kim-System-Product-Name:~$ ^C
+(base) kim@kim-System-Product-Name:~$ sudo ip netns exec ns1 ./send_hping3.sh 10
+# → 10µs 간격으로 계속 송신, 토글 중에도 그대로 놔둡니다. 
+[Sender] UDP @ 10µs → 169.254.59.100 on enp7s0 (infinite)
+HPING 169.254.59.100 (enp7s0 169.254.59.100): udp mode set, 28 headers + 0 data bytes
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=2179 seq=0
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=2180 seq=1
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=2181 seq=2
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=2182 seq=3
+ICMP Port Unreachable from ip=169.254.59.100 get hostname...status=0 port=2183 seq=4
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=2184 seq=5
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=1489 seq=64846
+ICMP Port Unreachable from ipname=UNKNOWN   
+status=0 port=888 seq=129781
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=65249 seq=194142
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=65373 seq=259802
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=279 seq=325780
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=848 seq=391885
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=1006 seq=457579
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=28 seq=522137
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=757 seq=588402
+ICMP Port Unreachable from ip=169.254.59.100 get hostname...status=0 port=1237 seq=654418
+ICMP Port Unreachable from ipname=UNKNOWN   
+status=0 port=1629 seq=720346
+ name=UNKNOWN   
+status=0 port=1191 seq=785444
+ICMP Port Unreachable from ip=169.254.59.100 get hostname...status=0 port=65430 seq=849683
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=225 seq=915550
+ name=UNKNOWN   
+status=0 port=477 seq=981338
+ name=UNKNOWN   
+status=0 port=681 seq=1047078
+ name=UNKNOWN   
+status=0 port=241 seq=1112174
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=63949 seq=1175882
+ICMP Port Unreachable from ip=169.254.59.100 get hostname...status=0 port=61977 seq=1239446
+ICMP Port Unreachable from ip=169.254.59.100 get hostname...status=0 port=62269 seq=1305274
+^C
+--- 169.254.59.100 hping statistic ---
+1358895 packets transmitted, 26 packets received, 100% packet loss
+round-trip min/avg/max = 1.0/1.7/3.1 ms
+(base) kim@kim-System-Product-Name:~$ sudo ./toggle_tas.sh 3 10
+[16:01:00] Iter 1 – TAS 10µs (open=5000ns)
+Warning: sch_taprio: Size table not specified, frame length estimations may be inaccurate.
+ → holding for 10s
+[16:01:10] Iter 1 – TAS 2µs (open=1000ns)
+Warning: sch_taprio: Size table not specified, frame length estimations may be inaccurate.
+ → holding for 10s
+[16:01:20] Iter 2 – TAS 10µs (open=5000ns)
+Warning: sch_taprio: Size table not specified, frame length estimations may be inaccurate.
+ → holding for 10s
+[16:01:30] Iter 2 – TAS 2µs (open=1000ns)
+Warning: sch_taprio: Size table not specified, frame length estimations may be inaccurate.
+ → holding for 10s
+[16:01:40] Iter 3 – TAS 10µs (open=5000ns)
+Warning: sch_taprio: Size table not specified, frame length estimations may be inaccurate.
+ → holding for 10s
+^C
+(base) kim@kim-System-Product-Name:~$ # enp7s0 확인
+sudo ip link set dev enp7s0 down
+sudo ip link set dev enp7s0 up
+ip link show enp7s0
+sudo ethtool enp7s0 | grep "Link detected"
+
+# enp9s0 확인
+sudo ip link set dev enp9s0 down
+sudo ip link set dev enp9s0 up
+ip link show enp9s0
+sudo ethtool enp9s0 | grep "Link detected"
+[sudo] password for kim: 
+Cannot find device "enp7s0"
+Cannot find device "enp7s0"
+Device "enp7s0" does not exist.
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+Cannot find device "enp9s0"
+Cannot find device "enp9s0"
+Device "enp9s0" does not exist.
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+(base) kim@kim-System-Product-Name:~$ # 호스트에서
+sudo ip link set dev enp9s0 down
+sudo ip link set dev enp9s0 netns ns2
+
+# ns2 에서
+sudo ip netns exec ns2 ethtool -r enp9s0   # PHY 리셋 (가능한 경우)
+sudo ip netns exec ns2 ip link set dev enp9s0 up
+sudo ip netns exec ns2 ethtool enp9s0 | grep "Link detected"
+Cannot find device "enp9s0"
+Cannot find device "enp9s0"
+	Link detected: no
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ tshark -r toggle_test.pcap \
+  -q \
+  -T fields \
+    -e frame.time_epoch \
+    -e frame.time_delta_displayed \
+  -E header=y -E separator=, \
+> toggle_test.csv
+
+# 확인 (헤더 + 몇 줄)
+head -n5 toggle_test.csv
+frame.time_epoch,frame.time_delta_displayed
+1753686058.943628000,0.000000000
+1753686058.943643000,0.000015000
+1753686058.943671000,0.000028000
+1753686058.943672000,0.000001000
+(base) kim@kim-System-Product-Name:~$ python3 - << 'EOF'
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# CSV 로드
+df = pd.read_csv("toggle_test.csv")
+
+# 나노초 단위 변환
+df["time_ns"]    = df["frame.time_epoch"] * 1e9
+df["delta_ns"]   = df["frame.time_delta_displayed"] * 1e9
+
+for cycle_us in [10, 2]:
+    cycle_ns = cycle_us * 1000
+    df["mod_ns"] = df["time_ns"] % cycle_ns
+
+    plt.figure(figsize=(6,4))
+    plt.scatter(df["mod_ns"], df["delta_ns"], s=5)
+    plt.title(f"Qbv {cycle_us}µs cycle")
+    plt.xlabel("time mod cycle (ns)")
+    plt.ylabel("inter‑arrival (ns)")
+    plt.grid(True)
+
+plt.show()
+EOF
+(base) kim@kim-System-Product-Name:~$ # 1) ns1 안에서 enp7s0을 기본 네임스페이스(1)로 복귀
+sudo ip netns exec ns1 ip link set dev enp7s0 netns 1
+
+# 2) ns2 안에서 enp9s0을 기본 네임스페이스(1)로 복귀
+sudo ip netns exec ns2 ip link set dev enp9s0 netns 1
+
+# 3) 네임스페이스 삭제
+sudo ip netns del ns1
+sudo ip netns del ns2
+
+# 4) 호스트 네임스페이스에서 인터페이스 업 및 확인
+sudo ip link set dev enp7s0 up
+sudo ip link set dev enp9s0 up
+
+ip link show enp7s0
+ip link show enp9s0
+8: enp7s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+    link/ether 68:05:ca:bd:96:e7 brd ff:ff:ff:ff:ff:ff
+9: enp9s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+    link/ether d4:5d:64:b2:5d:c3 brd ff:ff:ff:ff:ff:ff
+(base) kim@kim-System-Product-Name:~$ sudo ethtool -T enp7s0   # 타임스탬프 지원 확인
+sudo ethtool -T enp9s0
+Time stamping parameters for enp7s0:
+Capabilities:
+	hardware-transmit
+	software-transmit
+	hardware-receive
+	software-receive
+	software-system-clock
+	hardware-raw-clock
+PTP Hardware Clock: 0
+Hardware Transmit Timestamp Modes:
+	off
+	on
+Hardware Receive Filter Modes:
+	none
+	all
+Time stamping parameters for enp9s0:
+Capabilities:
+	hardware-transmit
+	software-transmit
+	hardware-receive
+	software-receive
+	software-system-clock
+	hardware-raw-clock
+PTP Hardware Clock: 1
+Hardware Transmit Timestamp Modes:
+	off
+	on
+Hardware Receive Filter Modes:
+	none
+	all
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ sudo ethtool -T enp9s0
+Time stamping parameters for enp9s0:
+Capabilities:
+	hardware-transmit
+	software-transmit
+	hardware-receive
+	software-receive
+	software-system-clock
+	hardware-raw-clock
+PTP Hardware Clock: 1
+Hardware Transmit Timestamp Modes:
+	off
+	on
+Hardware Receive Filter Modes:
+	none
+	all
+(base) kim@kim-System-Product-Name:~$ sudo ip netns del ns1 2>/dev/null; sudo ip netns del ns2 2>/dev/null
+sudo ip netns add ns1; sudo ip netns add ns2
+(base) kim@kim-System-Product-Name:~$ # 3) 물리 NIC을 네임스페이스로 이동
+sudo ip link set dev enp7s0 down
+sudo ip link set dev enp9s0 down
+sudo ip link set dev enp7s0 netns ns1
+sudo ip link set dev enp9s0 netns ns2
+
+# 4) 각 네임스페이스에서 인터페이스 UP & IP 할당
+sudo ip netns exec ns1 ip link set lo up
+sudo ip netns exec ns1 ip link set dev enp7s0 up
+sudo ip netns exec ns1 ip addr add 169.254.59.170/16 dev enp7s0
+
+sudo ip netns exec ns2 ip link set lo up
+sudo ip netns exec ns2 ip link set dev enp9s0 up
+sudo ip netns exec ns2 ip addr add 169.254.59.100/16 dev enp9s0
+
+# 5) 링크 검증
+sudo ip netns exec ns1 ethtool enp7s0 | grep "Link detected"
+sudo ip netns exec ns2 ethtool enp9s0 | grep "Link detected"
+	Link detected: no
+	Link detected: no
+(base) kim@kim-System-Product-Name:~$ # 호스트 기본 네임스페이스
+sudo ip link set enp7s0 up
+sudo ip link set enp9s0 up
+sudo ethtool enp7s0 | grep "Link detected"
+sudo ethtool enp9s0 | grep "Link detected"
+Cannot find device "enp7s0"
+Cannot find device "enp9s0"
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+(base) kim@kim-System-Product-Name:~$ # 1) 기본 네임스페이스에서 두 NIC 모두 완전 재설정
+sudo ip link set dev enp7s0 down
+sudo ip link set dev enp9s0 down
+
+# 2) PHY 재협상(강제) → autoneg 끄고 100 Mb/s full‑duplex로 고정
+sudo ethtool -s enp7s0 speed 100 duplex full autoneg off
+sudo ethtool -s enp9s0 speed 100 duplex full autoneg off
+
+# 3) 다시 UP
+sudo ip link set dev enp7s0 up
+sudo ip link set dev enp9s0 up
+
+# 4) 상태 확인
+ip link show enp7s0
+sudo ethtool enp7s0 | grep "Link detected"
+ip link show enp9s0
+sudo ethtool enp9s0 | grep "Link detected"
+Cannot find device "enp7s0"
+Cannot find device "enp9s0"
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+Cannot find device "enp7s0"
+Cannot find device "enp9s0"
+Device "enp7s0" does not exist.
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+Device "enp9s0" does not exist.
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+(base) kim@kim-System-Product-Name:~$ ^C
+(base) kim@kim-System-Product-Name:~$ # 1) ns1 안에서 enp7s0 복귀
+sudo ip netns exec ns1 ip link set dev enp7s0 netns 1
+
+# 2) ns2 안에서 enp9s0 복귀
+sudo ip netns exec ns2 ip link set dev enp9s0 netns 1
+
+# 3) 네임스페이스 삭제
+sudo ip netns del ns1
+sudo ip netns del ns2
+
+# 4) 호스트 네임스페이스에서 인터페이스 UP
+sudo ip link set dev enp7s0 up
+sudo ip link set dev enp9s0 up
+
+# 5) 복귀 확인
+ip link show enp7s0
+ip link show enp9s0
+8: enp7s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+    link/ether 68:05:ca:bd:96:e7 brd ff:ff:ff:ff:ff:ff
+9: enp9s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+    link/ether d4:5d:64:b2:5d:c3 brd ff:ff:ff:ff:ff:ff
+(base) kim@kim-System-Product-Name:~$ # 1) autoneg 켜기 → 기본 negotiation 모드로 복귀
+sudo ethtool -s enp7s0 autoneg on
+sudo ethtool -s enp9s0 autoneg on
+
+# 2) PHY 리셋을 위해 링크 down/up
+sudo ip link set dev enp7s0 down
+sudo ip link set dev enp7s0 up
+sudo ip link set dev enp9s0 down
+sudo ip link set dev enp9s0 up
+
+# 3) 링크 상태 확인
+sudo ethtool enp7s0 | grep "Link detected"
+sudo ethtool enp9s0 | grep "Link detected"
+	Link detected: no
+	Link detected: no
+(base) kim@kim-System-Product-Name:~$ # 1) ns1 안에서 enp7s0 복귀
+sudo ip netns exec ns1 ip link set dev enp7s0 netns 1
+
+# 2) ns2 안에서 enp9s0 복귀
+sudo ip netns exec ns2 ip link set dev enp9s0 netns 1
+
+# 3) 네임스페이스 삭제
+sudo ip netns del ns1
+sudo ip netns del ns2
+
+# 4) 호스트 네임스페이스에서 인터페이스 UP
+sudo ip link set dev enp7s0 up
+sudo ip link set dev enp9s0 up
+
+# 5) 복귀 확인
+ip link show enp7s0
+ip link show enp9s0
+Cannot open network namespace "ns1": No such file or directory
+Cannot open network namespace "ns2": No such file or directory
+Cannot remove namespace file "/run/netns/ns1": No such file or directory
+Cannot remove namespace file "/run/netns/ns2": No such file or directory
+8: enp7s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 68:05:ca:bd:96:e7 brd ff:ff:ff:ff:ff:ff
+9: enp9s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether d4:5d:64:b2:5d:c3 brd ff:ff:ff:ff:ff:ff
+(base) kim@kim-System-Product-Name:~$ # 1) ns1 안에서 enp7s0 복귀
+sudo ip netns exec ns1 ip link set dev enp7s0 netns 1
+
+# 2) ns2 안에서 enp9s0 복귀
+sudo ip netns exec ns2 ip link set dev enp9s0 netns 1
+
+# 3) 네임스페이스 삭제
+sudo ip netns del ns1
+sudo ip netns del ns2
+
+# 4) 호스트 네임스페이스에서 인터페이스 UP
+sudo ip link set dev enp7s0 up
+sudo ip link set dev enp9s0 up
+
+# 5) 복귀 확인
+ip link show enp7s0
+ip link show enp9s0
+Cannot open network namespace "ns1": No such file or directory
+Cannot open network namespace "ns2": No such file or directory
+Cannot remove namespace file "/run/netns/ns1": No such file or directory
+Cannot remove namespace file "/run/netns/ns2": No such file or directory
+8: enp7s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 68:05:ca:bd:96:e7 brd ff:ff:ff:ff:ff:ff
+9: enp9s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether d4:5d:64:b2:5d:c3 brd ff:ff:ff:ff:ff:ff
+(base) kim@kim-System-Product-Name:~$ sudo ethtool -s enp7s0 autoneg on
+sudo ethtool -s enp9s0 autoneg on
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ # 1) 기존 네임스페이스 삭제
+sudo ip netns del ns1 2>/dev/null
+sudo ip netns del ns2 2>/dev/null
+
+# 2) 네임스페이스 생성
+sudo ip netns add ns1
+sudo ip netns add ns2
+
+# 3) 물리 NIC down → 네임스페이스로 이동
+sudo ip link set dev enp7s0 down
+sudo ip link set dev enp9s0 down
+sudo ip link set dev enp7s0 netns ns1
+sudo ip link set dev enp9s0 netns ns2
+
+# 4) 각 네임스페이스에서 lo, NIC up 및 IP 할당
+sudo ip netns exec ns1 ip link set lo up
+sudo ip netns exec ns1 ip link set dev enp7s0 up
+sudo ip netns exec ns1 ip addr add 169.254.59.170/16 dev enp7s0
+
+sudo ip netns exec ns2 ip link set lo up
+sudo ip netns exec ns2 ip link set dev enp9s0 up
+sudo ip netns exec ns2 ip addr add 169.254.59.100/16 dev enp9s0
+
+# 5) 링크 검증
+sudo ip netns exec ns1 ethtool enp7s0 | grep "Link detected"
+sudo ip netns exec ns2 ethtool enp9s0 | grep "Link detected"
+	Link detected: no
+	Link detected: no
+(base) kim@kim-System-Product-Name:~$ ^C
+(base) kim@kim-System-Product-Name:~$ sudo ip netns exec ns1 ethtool enp7s0 | grep "Link detected"
+sudo ip netns exec ns2 ethtool enp9s0 | grep "Link detected"
+	Link detected: yes
+	Link detected: yes
+(base) kim@kim-System-Product-Name:~$ sudo ip netns exec ns1 ethtool enp7s0 | grep "Link detected"
+sudo ip netns exec ns2 ethtool enp9s0 | grep "Link detected"
+	Link detected: yes
+	Link detected: yes
+(base) kim@kim-System-Product-Name:~$ sudo ip netns exec ns1 tc qdisc replace dev enp7s0 root handle 100: taprio \
+  clockid CLOCK_TAI \
+  num_tc 1 \
+  map 0 0 0 0 0 0 0 0 \
+  queues 1@0 \
+  base-time $(($(date +%s%N)+3000000000)) \
+  sched-entry S 01 5000 \
+  sched-entry S 00 5000
+
+echo "TAS 10µs cycle 설정됨 (3초 뒤 작동 시작)"
+Warning: sch_taprio: Size table not specified, frame length estimations may be inaccurate.
+TAS 10µs cycle 설정됨 (3초 뒤 작동 시작)
+(base) kim@kim-System-Product-Name:~$ sudo ip netns exec ns1 hping3 --udp -I enp7s0 -p 54321 169.254.59.100 -i u10
+# → 10µs 간격 무한 송신, Ctrl‑C로 중지
+HPING 169.254.59.100 (enp7s0 169.254.59.100): udp mode set, 28 headers + 0 data bytes
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=2921 seq=0
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=2923 seq=2
+ICMP Port Unreachable from ipname=UNKNOWN   
+status=0 port=2924 seq=3
+ICMP Port Unreachable from ipname=UNKNOWN   
+status=0 port=2922 seq=1
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=2925 seq=4
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=2926 seq=5
+ name=UNKNOWN   
+status=0 port=2341 seq=64956
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=1617 seq=129768
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=789 seq=194476
+ICMP Port Unreachable from ip=169.254.59.100 get hostname...status=0 port=65445 seq=259132
+ name=UNKNOWN   
+status=0 port=64532 seq=323755
+ name=UNKNOWN   
+status=0 port=63361 seq=388120
+ICMP Port Unreachable from ipname=UNKNOWN   
+status=0 port=61233 seq=451528
+ name=UNKNOWN   
+status=0 port=59310 seq=515141
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=59113 seq=580480
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=57345 seq=644248
+ICMP Port Unreachable from ip=169.254.59.100 name=UNKNOWN   
+status=0 port=54950 seq=707389
+ name=UNKNOWN   
+status=0 port=52737 seq=770712
+^C
+--- 169.254.59.100 hping statistic ---
+780931 packets transmitted, 18 packets received, 100% packet loss
+round-trip min/avg/max = 1.0/1.7/3.0 ms
+(base) kim@kim-System-Product-Name:~$ sudo ip netns exec ns2 tcpdump -i enp9s0 -tt -nn -l \
+  | awk 'BEGIN{OFS=","}{
+      split($1,t,".");
+      ts_ns = t[1]*1e9 + t[2];
+      if(NR>1) print ts_ns, ts_ns-prev;
+      prev = ts_ns
+    }' \
+  > times.csv
+# 이 창은 패킷 수집이 끝난 후 Ctrl‑C 로 중지하세요.
+[sudo] password for kim: 
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on enp9s0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+^C1143981 packets captured
+1143981 packets received by filter
+0 packets dropped by kernel
+
+(base) kim@kim-System-Product-Name:~$ ^C
+(base) kim@kim-System-Product-Name:~$ sudo ip netns exec ns2 tcpdump -i enp9s0 -tt -nn -l \
+  | awk 'BEGIN{OFS=","}{
+      split($1,t,".");
+      ts_ns = t[1]*1e9 + t[2];
+      if (NR>1) print ts_ns, ts_ns-prev;
+      prev = ts_ns
+    }' \
+  > times.csv
+
+# 이 터미널은 Ctrl‑C 하기 전까지 그대로 두세요.
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on enp9s0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+^C1885878 packets captured
+1885878 packets received by filter
+0 packets dropped by kernel
+
+(base) kim@kim-System-Product-Name:~$ python3 - << 'EOF'
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("times.csv", names=["time_ns","delta_ns"])
+df["mod_ns"] = df.time_ns % (10*1000)
+
+plt.figure()
+plt.scatter(df.mod_ns, df.delta_ns, s=5)
+plt.title("Qbv 10µs cycle (TXTIME‑assist)")
+plt.xlabel("time mod cycle (ns)")
+plt.ylabel("inter-arrival (ns)")
+plt.grid(True)
+plt.show()
+EOF
+(base) kim@kim-System-Product-Name:~$ # 예: 10µs 간격, 20000개 전송
+sudo ip netns exec ns1 ./sender.py 10 20000 169.254.59.100
+(base) kim@kim-System-Product-Name:~$ # 예: 10µs 간격, 20000개 전송
+sudo ip netns exec ns1 ./sender.py 10 20000 169.254.59.100
+(base) kim@kim-System-Product-Name:~$ python3 - << 'EOF'
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("latencies.csv")
+for cycle_us in [10, 2]:
+    cycle_ns = cycle_us * 1000
+    df_sub = df[df.tx_time_ns.notna()]
+    df_sub["mod_ns"] = df_sub["tx_time_ns"] % cycle_ns
+    plt.figure(figsize=(6,4))
+    plt.scatter(df_sub["mod_ns"], df_sub["latency_ns"], s=5)
+    plt.title(f"Qbv {cycle_us}µs cycle (payload TS)")
+    plt.xlabel("tx_time mod cycle (ns)")
+    plt.ylabel("latency (ns)")
+    plt.grid(True)
+plt.show()
+EOF
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+  File "/home/kim/miniconda3/lib/python3.13/site-packages/pandas/core/generic.py", line 6318, in __getattr__
+    return object.__getattribute__(self, name)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AttributeError: 'DataFrame' object has no attribute 'tx_time_ns'
+(base) kim@kim-System-Product-Name:~$ python3 - << 'EOF'
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# 1) CSV를 header 없이 읽고, 직접 컬럼 이름을 붙입니다.
+df = pd.read_csv("latencies.csv",
+                 header=0,       # 첫 줄을 건너뛰고
+                 names=["tx_time_ns","latency_ns"])
+
+# 2) cycle 별로 모듈로 계산 및 플롯
+for cycle_us in [10, 2]:
+    cycle_ns = cycle_us * 1000
+    # 잔여 시간 계산
+    df["mod_ns"] = df["tx_time_ns"] % cycle_ns
+
+    plt.figure(figsize=(6,4))
+    plt.scatter(df["mod_ns"], df["latency_ns"], s=5)
+    plt.title(f"Qbv {cycle_us}µs cycle (payload TS)")
+    plt.xlabel("tx_time mod cycle (ns)")
+    plt.ylabel("latency (ns)")
+    plt.grid(True)
+
+plt.show()
+EOF
+
+
+^V^C^C^C^C^CTraceback (most recent call last):
+  File "<stdin>", line 22, in <module>
+  File "/home/kim/miniconda3/lib/python3.13/site-packages/matplotlib/pyplot.py", line 614, in show
+    return _get_backend_mod().show(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/kim/miniconda3/lib/python3.13/site-packages/matplotlib/backend_bases.py", line 3548, in show
+    cls.mainloop()
+    ~~~~~~~~~~~~^^
+  File "/home/kim/miniconda3/lib/python3.13/site-packages/matplotlib/backends/_backend_tk.py", line 544, in start_main_loop
+    first_manager.window.mainloop()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/kim/miniconda3/lib/python3.13/tkinter/__init__.py", line 1599, in mainloop
+    self.tk.mainloop(n)
+    ~~~~~~~~~~~~~~~~^^^
+KeyboardInterrupt
+
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ echo "1) ns1→호스트 네임스페이스로 enp7s0 복귀..."
+sudo ip netns exec ns1 ip link set dev enp7s0 netns 1
+
+echo "2) ns2→호스트 네임스페이스로 enp9s0 복귀..."
+sudo ip netns exec ns2 ip link set dev enp9s0 netns 1
+
+echo "3) ns1, ns2 네임스페이스 삭제..."
+sudo ip netns del ns1
+sudo ip netns del ns2
+
+echo "4) 호스트 네임스페이스에서 NIC up..."
+sudo ip link set dev enp7s0 up
+sudo ip link set dev enp9s0 up
+1) ns1→호스트 네임스페이스로 enp7s0 복귀...
+[sudo] password for kim: 
+Cannot find device "enp7s0"
+2) ns2→호스트 네임스페이스로 enp9s0 복귀...
+Cannot find device "enp9s0"
+3) ns1, ns2 네임스페이스 삭제...
+4) 호스트 네임스페이스에서 NIC up...
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ 
+(base) kim@kim-System-Product-Name:~$ 

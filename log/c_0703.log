@@ -1,0 +1,514 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\parksik> ping 192.168.5.10
+
+Pinging 192.168.5.10 with 32 bytes of data:
+Reply from 192.168.5.10: bytes=32 time=1ms TTL=64
+Reply from 192.168.5.10: bytes=32 time<1ms TTL=64
+
+192.168.5.10에 대한 Ping 통계:
+    패킷: 보냄 = 2, 받음 = 2, 손실 = 0 (0% 손실),
+왕복 시간(밀리초):
+    최소 = 0ms, 최대 = 1ms, 평균 = 0ms
+Control-C
+PS C:\Users\parksik> ssh kim@192.168.5.10
+The authenticity of host '192.168.5.10 (192.168.5.10)' can't be established.
+ED25519 key fingerprint is SHA256:d9ZZFGvyAS3AK7N0nH7hlrVWCx03hLf7qL5qi2rczhs.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+Host key verification failed.
+PS C:\Users\parksik> ssh kim@192.168.5.10
+The authenticity of host '192.168.5.10 (192.168.5.10)' can't be established.
+ED25519 key fingerprint is SHA256:d9ZZFGvyAS3AK7N0nH7hlrVWCx03hLf7qL5qi2rczhs.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.5.10' (ED25519) to the list of known hosts.
+kim@192.168.5.10's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-63-lowlatency x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+kim@kim-System-Product-Name:~$ sudo ip addr add 10.10.10.1/24 dev enp5s0
+[sudo] password for kim:
+kim@kim-System-Product-Name:~$ sudo ip link set enp5s0 up
+kim@kim-System-Product-Name:~$ ping 10.10.10.2
+PING 10.10.10.2 (10.10.10.2) 56(84) bytes of data.
+64 bytes from 10.10.10.2: icmp_seq=1 ttl=64 time=0.089 ms
+64 bytes from 10.10.10.2: icmp_seq=2 ttl=64 time=0.125 ms
+64 bytes from 10.10.10.2: icmp_seq=3 ttl=64 time=0.156 ms
+64 bytes from 10.10.10.2: icmp_seq=4 ttl=64 time=0.097 ms
+64 bytes from 10.10.10.2: icmp_seq=5 ttl=64 time=0.131 ms
+64 bytes from 10.10.10.2: icmp_seq=6 ttl=64 time=0.113 ms
+64 bytes from 10.10.10.2: icmp_seq=7 ttl=64 time=0.124 ms
+64 bytes from 10.10.10.2: icmp_seq=8 ttl=64 time=0.122 ms
+64 bytes from 10.10.10.2: icmp_seq=9 ttl=64 time=0.225 ms
+^C
+--- 10.10.10.2 ping statistics ---
+9 packets transmitted, 9 received, 0% packet loss, time 8197ms
+rtt min/avg/max/mdev = 0.089/0.131/0.225/0.037 ms
+kim@kim-System-Product-Name:~$ # -2: L2 전송 모드, -A: 자동으로 BMCA 실행, -i: 인터페이스, -m: 메시지 출력
+sudo ptp4l -2 -A -i enp5s0 -m
+ptp4l[2175.861]: selected /dev/ptp1 as PTP clock
+ptp4l[2175.877]: port 1 (enp5s0): INITIALIZING to LISTENING on INIT_COMPLETE
+ptp4l[2175.877]: port 0 (/var/run/ptp4l): INITIALIZING to LISTENING on INIT_COMPLETE
+ptp4l[2175.877]: port 0 (/var/run/ptp4lro): INITIALIZING to LISTENING on INIT_COMPLETE
+ptp4l[2183.144]: port 1 (enp5s0): LISTENING to MASTER on ANNOUNCE_RECEIPT_TIMEOUT_EXPIRES
+ptp4l[2183.144]: selected local clock d45d64.fffe.b25dc3 as best master
+ptp4l[2183.144]: port 1 (enp5s0): assuming the grand master role
+^Ckim@kim-System-Product-Name:~sudo tc qdisc replace dev enpXs0 parent root handle 100 mqprio num_tc 8 map 0 1 2 3 4 5 6 7 hw 0 0
+sudo tc qdisc replace dev enpXs0 parent 100:4 cbs idleslope 20000000 sendslope -980000000
+Cannot find device "enpXs0"
+Cannot find device "enpXs0"
+kim@kim-System-Product-Name:~$ sudo tc qdisc replace dev enp5s0 parent root handle 100 mqprio num_tc 8 map 0 1 2 3 4 5 6
+ 7 hw 0
+sudo tc qdisc replace dev enp5s0 parent 100:4 cbs idleslope 20000000 sendslope -980000000
+Error: sch_mqprio_lib: No queues for TC 0.
+Error: Failed to find specified qdisc.
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# enp5s0 위에 vlan10 이라는 가상 인터페이스를 만듭니다.
+sudo ip link add link enp5s0 name vlan10 type vlan id 10
+
+# vlan10 인터페이스로 나가는 패킷의 우선순위(PCP)를 TC 3에 매핑합니다.
+# egress-qos-map: 나가는 패킷의 우선순위를 0~7까지 어떻게 매길지 정합니다.
+# 0:3 -> 내부 우선순위 0번 패킷을 VLAN PCP 3으로 매핑
+# 1:3 -> 내부 우선순위 1번 패킷을 VLAN PCP 3으로 매핑 ...
+# 즉, vlan10을 통과하는 모든 패킷의 VLAN 우선순위를 3으로 고정합니다.
+sudo ip link set dev vlan10 type vlan egress-qos-map 0:3 1:3 2:3 3:3 4:3 5:3 6:3 7:3
+
+# vlan10 인터페이스에 IP 주소를 할당하고 활성화합니다.
+sudo ip addr add 10.10.10.1/24 dev vlan10
+sudo ip link set vlan10 up
+[sudo] password for kim:
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+sudo tc qdisc del dev enp5s0 root
+Error: Cannot delete qdisc with handle of zero.
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# enp5s0의 root qdisc로 cbs를 바로 설정합니다.
+# idleslope: 20Mbps, sendslope: -980Mbps (1G 링크 기준)
+sudo tc qdisc add dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# 30Mbps (설정한 20Mbps 초과)로 트래픽을 보냅니다.
+sockperf under-load -i 10.10.10.2 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.2      PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: Test end (interrupted by timer)
+sockperf: Test ended
+sockperf: No messages were received from the server. Is the server down?
+sockperf: Test end (interrupted by signal 2)
+kim@kim-System-Product-Name:~$ sudo tc qdisc add dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+Error: Exclusivity flag on, cannot modify.
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # 리눅스 PC 터미널
+sockperf under-load -i 10.10.10.2 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.2      PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: Test end (interrupted by timer)
+sockperf: Test ended
+sockperf: No messages were received from the server. Is the server down?
+sockperf: Test end (interrupted by signal 2)
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+sudo tc qdisc add dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+Error: Exclusivity flag on, cannot modify.
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# -i 10.10.10.255: 브로드캐스트 주소로 패킷을 전송
+sockperf ping-pong -i 10.10.10.255 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.255    PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: ERROR: sendto() Failed sending on fd[3] to 10.10.10.255:11111 msg size of 1472 bytes (errno=13 Permission denied)
+sockperf: ERROR: program exits because of an error. (errno=13 Permission denied)
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# add -> replace 로 변경
+sudo tc qdisc replace dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# 명령어 앞에 sudo 추가
+sudo sockperf ping-pong -i 10.10.10.255 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.255    PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: ERROR: sendto() Failed sending on fd[3] to 10.10.10.255:11111 msg size of 1472 bytes (errno=13 Permission denied)
+sockperf: ERROR: program exits because of an error. (errno=13 Permission denied)
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# --allow-broadcast 옵션 추가
+sockperf ping-pong -i 10.10.10.255 --allow-broadcast -t 10 -m 1472 --pps 2500
+ping-pong (pp): Run sockperf client for latency test in ping pong mode.
+
+Usage: sockperf ping-pong [options] [args]...
+ sockperf ping-pong -i ip  [-p port] [-m message_size] [-t time]
+ sockperf ping-pong -f file [-F s/p/e] [-m message_size] [-r msg_size_range] [-t time]
+
+Options:
+ -h,-?   --help,--usage         -Show the help message and exit.
+         --tcp                  -Use TCP protocol (default UDP).
+ -i      --ip                   -Listen on/send to ip <ip>.
+ -p      --port                 -Listen on/connect to port <port> (default 11111).
+ -f      --file                 -Read list of connections from file (used in pair with -F option).
+ -F      --iomux-type           -Type of multiple file descriptors handle [s|select|p|poll|e|epoll|r|recvfrom|x|socketxtreme](default epoll).
+         --timeout              -Set select/poll/epoll timeout to <msec>, -1 for infinite (default is 10 msec).
+ -a      --activity             -Measure activity by printing a '.' for the last <N> messages processed.
+ -A      --Activity             -Measure activity by printing the duration for last <N>  messages processed.
+         --tcp-avoid-nodelay    -Stop/Start delivering TCP Messages Immediately (Enable/Disable Nagel). Default is Nagel Disabled except in Throughput where the default is Nagel enabled.
+         --tcp-skip-blocking-send
+                                -Enables non-blocking send operation (default OFF).
+         --tos                  -Allows setting tos
+         --mc-rx-if             -Set address <ip> of interface on which to receive mulitcast messages (can be other then route table).
+         --mc-tx-if             -Set address <ip> of interface on which to transmit mulitcast messages (can be other then route table).
+         --mc-loopback-enable   -Enables mc loopback (default disabled).
+         --mc-ttl               -Limit the lifetime of the message (default 2).
+         --mc-source-filter     -Set address <ip, hostname> of mulitcast messages source which is allowed to receive from.
+         --uc-reuseaddr         -Enables unicast reuse address (default disabled).
+         --lls                  -Turn on LLS via socket option (value = usec to poll).
+         --buffer-size          -Set total socket receive/send buffer <size> in bytes (system defined by default).
+         --nonblocked           -Open non-blocked sockets.
+         --recv_looping_num     -Set sockperf to loop over recvfrom() until EAGAIN or <N> good received packets, -1 for infinite, must be used with --nonblocked (default 1).
+         --dontwarmup           -Don't send warm up messages on start.
+         --pre-warmup-wait      -Time to wait before sending warm up messages (seconds).
+         --vmazcopyread         -Use VMA's zero copy reads API (See VMA's readme).
+         --daemonize            -Run as daemon.
+         --no-rdtsc             -Don't use register when taking time; instead use monotonic clock.
+         --load-vma             -Load VMA dynamically even when LD_PRELOAD was not used.
+         --rate-limit           -use rate limit (packet-pacing), with VMA must be run with VMA_RING_ALLOCATION_LOGIC_TX mode.
+         --set-sock-accl        -Set socket accleration before run (available for some of Mellanox systems)
+ -d      --debug                -Print extra debug information.
+
+Valid arguments:
+         --srv-num              -Set num of servers the client works with to N.
+         --sender-affinity      -Set sender thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --receiver-affinity    -Set receiver thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --full-log             -Dump full log of all messages send/receive time to the given file in CSV format.
+         --full-rtt             -Show results in round-trip-time instead of latency.
+         --giga-size            -Print sizes in GigaByte.
+         --increase_output_precision
+                                -Increase number of digits after decimal point of the throughput output (from 3 to 9).
+         --dummy-send           -Use VMA's dummy send API instead of busy wait, must be higher than regular msg rate.
+                                 optional: set dummy-send rate per second (default 10,000), usage: --dummy-send [<rate>|max]
+ -t      --time                 -Run for <sec> seconds (default 1, max = 36000000).
+         --client_port          -Force the client side to bind to a specific port (default = 0).
+         --client_ip            -Force the client side to bind to a specific ip address (default = 0).
+ -b      --burst                -Control the client's number of a messages sent in every burst.
+         --mps                  -Set number of messages-per-second (default = 10000 - for under-load mode, or max - for ping-pong and throughput modes; for maximum use --mps=max;
+                                 support --pps for old compatibility).
+ -m      --msg-size             -Use messages of size <size> bytes (minimum default 14).
+ -r      --range                -comes with -m <size>, randomly change the messages size in range: <size> +- <N>.
+         --data-integrity       -Perform data integrity test.
+
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# 명령어 앞에 sudo 추가
+sudo sockperf ping-pong -i 10.10.10.255 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.255    PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: ERROR: sendto() Failed sending on fd[3] to 10.10.10.255:11111 msg size of 1472 bytes (errno=13 Permission denied)
+sockperf: ERROR: program exits because of an error. (errno=13 Permission denied)
+kim@kim-System-Product-Name:~$ sudo tc qdisc replace dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$ sudo sockperf ping-pong -i 10.10.10.255 -t 10 -m 1472 --pps 2500
+sockperf: == version #3.7-no.git ==
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.255    PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: ERROR: sendto() Failed sending on fd[3] to 10.10.10.255:11111 msg size of 1472 bytes (errno=13 Permission denied)
+sockperf: ERROR: program exits because of an error. (errno=13 Permission denied)
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# --tx-if enp5s0 : 전송할 인터페이스를 명시적으로 지정
+sudo sockperf ping-pong -i 10.10.10.255 --tx-if enp5s0 -t 10 -m 1472 --pps 2500
+ping-pong (pp): Run sockperf client for latency test in ping pong mode.
+
+Usage: sockperf ping-pong [options] [args]...
+ sockperf ping-pong -i ip  [-p port] [-m message_size] [-t time]
+ sockperf ping-pong -f file [-F s/p/e] [-m message_size] [-r msg_size_range] [-t time]
+
+Options:
+ -h,-?   --help,--usage         -Show the help message and exit.
+         --tcp                  -Use TCP protocol (default UDP).
+ -i      --ip                   -Listen on/send to ip <ip>.
+ -p      --port                 -Listen on/connect to port <port> (default 11111).
+ -f      --file                 -Read list of connections from file (used in pair with -F option).
+ -F      --iomux-type           -Type of multiple file descriptors handle [s|select|p|poll|e|epoll|r|recvfrom|x|socketxtreme](default epoll).
+         --timeout              -Set select/poll/epoll timeout to <msec>, -1 for infinite (default is 10 msec).
+ -a      --activity             -Measure activity by printing a '.' for the last <N> messages processed.
+ -A      --Activity             -Measure activity by printing the duration for last <N>  messages processed.
+         --tcp-avoid-nodelay    -Stop/Start delivering TCP Messages Immediately (Enable/Disable Nagel). Default is Nagel Disabled except in Throughput where the default is Nagel enabled.
+         --tcp-skip-blocking-send
+                                -Enables non-blocking send operation (default OFF).
+         --tos                  -Allows setting tos
+         --mc-rx-if             -Set address <ip> of interface on which to receive mulitcast messages (can be other then route table).
+         --mc-tx-if             -Set address <ip> of interface on which to transmit mulitcast messages (can be other then route table).
+         --mc-loopback-enable   -Enables mc loopback (default disabled).
+         --mc-ttl               -Limit the lifetime of the message (default 2).
+         --mc-source-filter     -Set address <ip, hostname> of mulitcast messages source which is allowed to receive from.
+         --uc-reuseaddr         -Enables unicast reuse address (default disabled).
+         --lls                  -Turn on LLS via socket option (value = usec to poll).
+         --buffer-size          -Set total socket receive/send buffer <size> in bytes (system defined by default).
+         --nonblocked           -Open non-blocked sockets.
+         --recv_looping_num     -Set sockperf to loop over recvfrom() until EAGAIN or <N> good received packets, -1 for infinite, must be used with --nonblocked (default 1).
+         --dontwarmup           -Don't send warm up messages on start.
+         --pre-warmup-wait      -Time to wait before sending warm up messages (seconds).
+         --vmazcopyread         -Use VMA's zero copy reads API (See VMA's readme).
+         --daemonize            -Run as daemon.
+         --no-rdtsc             -Don't use register when taking time; instead use monotonic clock.
+         --load-vma             -Load VMA dynamically even when LD_PRELOAD was not used.
+         --rate-limit           -use rate limit (packet-pacing), with VMA must be run with VMA_RING_ALLOCATION_LOGIC_TX mode.
+         --set-sock-accl        -Set socket accleration before run (available for some of Mellanox systems)
+ -d      --debug                -Print extra debug information.
+
+Valid arguments:
+         --srv-num              -Set num of servers the client works with to N.
+         --sender-affinity      -Set sender thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --receiver-affinity    -Set receiver thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --full-log             -Dump full log of all messages send/receive time to the given file in CSV format.
+         --full-rtt             -Show results in round-trip-time instead of latency.
+         --giga-size            -Print sizes in GigaByte.
+         --increase_output_precision
+                                -Increase number of digits after decimal point of the throughput output (from 3 to 9).
+         --dummy-send           -Use VMA's dummy send API instead of busy wait, must be higher than regular msg rate.
+                                 optional: set dummy-send rate per second (default 10,000), usage: --dummy-send [<rate>|max]
+ -t      --time                 -Run for <sec> seconds (default 1, max = 36000000).
+         --client_port          -Force the client side to bind to a specific port (default = 0).
+         --client_ip            -Force the client side to bind to a specific ip address (default = 0).
+ -b      --burst                -Control the client's number of a messages sent in every burst.
+         --mps                  -Set number of messages-per-second (default = 10000 - for under-load mode, or max - for ping-pong and throughput modes; for maximum use --mps=max;
+                                 support --pps for old compatibility).
+ -m      --msg-size             -Use messages of size <size> bytes (minimum default 14).
+ -r      --range                -comes with -m <size>, randomly change the messages size in range: <size> +- <N>.
+         --data-integrity       -Perform data integrity test.
+
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# --tx-if enp5s0 : 전송할 인터페이스를 명시적으로 지정
+sudo sockperf ping-pong -i 10.10.10.255 --tx-if enp5s0 -t 10 -m 1472 --pps 2500
+ping-pong (pp): Run sockperf client for latency test in ping pong mode.
+
+Usage: sockperf ping-pong [options] [args]...
+ sockperf ping-pong -i ip  [-p port] [-m message_size] [-t time]
+ sockperf ping-pong -f file [-F s/p/e] [-m message_size] [-r msg_size_range] [-t time]
+
+Options:
+ -h,-?   --help,--usage         -Show the help message and exit.
+         --tcp                  -Use TCP protocol (default UDP).
+ -i      --ip                   -Listen on/send to ip <ip>.
+ -p      --port                 -Listen on/connect to port <port> (default 11111).
+ -f      --file                 -Read list of connections from file (used in pair with -F option).
+ -F      --iomux-type           -Type of multiple file descriptors handle [s|select|p|poll|e|epoll|r|recvfrom|x|socketxtreme](default epoll).
+         --timeout              -Set select/poll/epoll timeout to <msec>, -1 for infinite (default is 10 msec).
+ -a      --activity             -Measure activity by printing a '.' for the last <N> messages processed.
+ -A      --Activity             -Measure activity by printing the duration for last <N>  messages processed.
+         --tcp-avoid-nodelay    -Stop/Start delivering TCP Messages Immediately (Enable/Disable Nagel). Default is Nagel Disabled except in Throughput where the default is Nagel enabled.
+         --tcp-skip-blocking-send
+                                -Enables non-blocking send operation (default OFF).
+         --tos                  -Allows setting tos
+         --mc-rx-if             -Set address <ip> of interface on which to receive mulitcast messages (can be other then route table).
+         --mc-tx-if             -Set address <ip> of interface on which to transmit mulitcast messages (can be other then route table).
+         --mc-loopback-enable   -Enables mc loopback (default disabled).
+         --mc-ttl               -Limit the lifetime of the message (default 2).
+         --mc-source-filter     -Set address <ip, hostname> of mulitcast messages source which is allowed to receive from.
+         --uc-reuseaddr         -Enables unicast reuse address (default disabled).
+         --lls                  -Turn on LLS via socket option (value = usec to poll).
+         --buffer-size          -Set total socket receive/send buffer <size> in bytes (system defined by default).
+         --nonblocked           -Open non-blocked sockets.
+         --recv_looping_num     -Set sockperf to loop over recvfrom() until EAGAIN or <N> good received packets, -1 for infinite, must be used with --nonblocked (default 1).
+         --dontwarmup           -Don't send warm up messages on start.
+         --pre-warmup-wait      -Time to wait before sending warm up messages (seconds).
+         --vmazcopyread         -Use VMA's zero copy reads API (See VMA's readme).
+         --daemonize            -Run as daemon.
+         --no-rdtsc             -Don't use register when taking time; instead use monotonic clock.
+         --load-vma             -Load VMA dynamically even when LD_PRELOAD was not used.
+         --rate-limit           -use rate limit (packet-pacing), with VMA must be run with VMA_RING_ALLOCATION_LOGIC_TX mode.
+         --set-sock-accl        -Set socket accleration before run (available for some of Mellanox systems)
+ -d      --debug                -Print extra debug information.
+
+Valid arguments:
+         --srv-num              -Set num of servers the client works with to N.
+         --sender-affinity      -Set sender thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --receiver-affinity    -Set receiver thread affinity to the given core ids in list format (see: cat /proc/cpuinfo).
+         --full-log             -Dump full log of all messages send/receive time to the given file in CSV format.
+         --full-rtt             -Show results in round-trip-time instead of latency.
+         --giga-size            -Print sizes in GigaByte.
+         --increase_output_precision
+                                -Increase number of digits after decimal point of the throughput output (from 3 to 9).
+         --dummy-send           -Use VMA's dummy send API instead of busy wait, must be higher than regular msg rate.
+                                 optional: set dummy-send rate per second (default 10,000), usage: --dummy-send [<rate>|max]
+ -t      --time                 -Run for <sec> seconds (default 1, max = 36000000).
+         --client_port          -Force the client side to bind to a specific port (default = 0).
+         --client_ip            -Force the client side to bind to a specific ip address (default = 0).
+ -b      --burst                -Control the client's number of a messages sent in every burst.
+         --mps                  -Set number of messages-per-second (default = 10000 - for under-load mode, or max - for ping-pong and throughput modes; for maximum use --mps=max;
+                                 support --pps for old compatibility).
+ -m      --msg-size             -Use messages of size <size> bytes (minimum default 14).
+ -r      --range                -comes with -m <size>, randomly change the messages size in range: <size> +- <N>.
+         --data-integrity       -Perform data integrity test.
+
+kim@kim-System-Product-Name:~$ ^C
+kim@kim-System-Product-Name:~$ ^C
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# -c 10.10.10.255: 클라이언트 모드, 목적지는 브로드캐스트 주소
+# -u: UDP 모드
+# -b 30M: 대역폭을 30Mbps로 지정 (2500 pps * 1472 bytes * 8 bits/byte ≈ 29.44Mbps)
+# -l 1472: 패킷 크기
+# -t 10: 10초 동안 실행
+# -S 0: 서비스 품질(TOS) 필드를 0으로 설정 (CBS 테스트에서는 우선순위가 중요하지 않음)
+iperf3 -c 10.10.10.255 -u -b 30M -l 1472 -t 10 -S 0
+iperf3: error - unable to connect to server - server may have stopped running or use a different port, firewall issue, etc.: Network is unreachable
+kim@kim-System-Product-Name:~$ sudo iperf3 -c 10.10.10.255 -u -b 30M -l 1472 -t 10 -S 0
+iperf3: error - unable to connect to server - server may have stopped running or use a different port, firewall issue, etc.: Network is unreachable
+kim@kim-System-Product-Name:~$ sudo modprobe pktgen
+kim@kim-System-Product-Name:~$ # pktgen_script.sh 라는 파일을 만듭니다.
+#!/bin/bash
+
+# pktgen을 제어할 스레드를 CPU 0에 할당
+echo "rem_device_all" > /proc/net/pktgen/kpktgend_0
+
+# enp5s0 인터페이스 추가
+echo "add_device enp5s0" > /proc/net/pktgen/kpktgend_0
+
+# enp5s0 인터페이스에 대한 설정
+PGDEV=/proc/net/pktgen/enp5s0
+echo "count 25000" > $PGDEV       # 총 25000개 패킷 (2500 pps * 10초)
+echo "delay 400000" > $PGDEV       # 패킷 간 지연 (ns). 1/2500s = 400,000ns
+echo "pkt_size 1472" > $PGDEV
+echo "dst 10.10.10.255" > $PGDEV  # 목적지 IP
+echo "dst_mac 00:04:9f:be:ef:00" > $PGDEV # GoldBox의 pfe0 MAC 주소
+
+# pktgen 시작
+echo "start" > /proc/net/pktgen/pgctrl
+
+echo "Pktgen started..."
+sleep 10
+echo "Pktgen stopped."
+-bash: /proc/net/pktgen/kpktgend_0: Permission denied
+-bash: /proc/net/pktgen/kpktgend_0: Permission denied
+-bash: /proc/net/pktgen/enp5s0: No such file or directory
+-bash: /proc/net/pktgen/enp5s0: No such file or directory
+-bash: /proc/net/pktgen/enp5s0: No such file or directory
+-bash: /proc/net/pktgen/enp5s0: No such file or directory
+-bash: /proc/net/pktgen/enp5s0: No such file or directory
+-bash: /proc/net/pktgen/pgctrl: Permission denied
+Pktgen started...
+
+
+
+
+Pktgen stopped.
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$
+kim@kim-System-Product-Name:~$ ^C
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+sudo tc qdisc replace dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# -c 10.10.10.255: 클라이언트 모드, 브로드캐스트 주소로
+# -u: UDP 모드
+# -b 30M: 대역폭 30Mbps
+# -l 1472: 패킷 페이로드 크기
+# -t 10: 10초간 실행
+# --bind 10.10.10.1: 10.10.10.1 IP를 가진 enp5s0 인터페이스를 통해 보내도록 강제
+iperf3 -c 10.10.10.255 -u -b 30M -l 1472 -t 10 --bind 10.10.10.1
+iperf3: error - unable to connect to server - server may have stopped running or use a different port, firewall issue, etc.: Network is unreachable
+kim@kim-System-Product-Name:~$ sudo iperf3 -c 10.10.10.255 -u -b 30M -l 1472 -t 10 --bind 10.10.10.1
+iperf3: error - unable to connect to server - server may have stopped running or use a different port, firewall issue, etc.: Network is unreachable
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+# -c 10.10.10.2: 목적지를 GoldBox의 유니캐스트 IP로 다시 변경
+# -B: 브로드캐스트 옵션 추가 (iperf3가 내부적으로 처리)
+# sudo: 브로드캐스트를 위한 권한 획득
+sudo iperf3 -c 10.10.10.2 -u -b 30M -l 1472 -t 10 --bind 10.10.10.1 -B
+iperf3: option requires an argument -- 'B'
+
+Usage: iperf3 [-s|-c host] [options]
+Try `iperf3 --help' for more information.
+kim@kim-System-Product-Name:~$ sudo tc qdisc replace dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$ sudo iperf3 -c 10.10.10.2 -u -b 30M -l 1472 -t 10 --bind 10.10.10.1 -B
+iperf3: option requires an argument -- 'B'
+
+Usage: iperf3 [-s|-c host] [options]
+Try `iperf3 --help' for more information.
+kim@kim-System-Product-Name:~$ ping 10.10.10.1
+PING 10.10.10.1 (10.10.10.1) 56(84) bytes of data.
+64 bytes from 10.10.10.1: icmp_seq=1 ttl=64 time=0.014 ms
+64 bytes from 10.10.10.1: icmp_seq=2 ttl=64 time=0.020 ms
+64 bytes from 10.10.10.1: icmp_seq=3 ttl=64 time=0.019 ms
+64 bytes from 10.10.10.1: icmp_seq=4 ttl=64 time=0.025 ms
+^C
+--- 10.10.10.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3077ms
+rtt min/avg/max/mdev = 0.014/0.019/0.025/0.004 ms
+kim@kim-System-Product-Name:~$ ping 10.10.10.2
+PING 10.10.10.2 (10.10.10.2) 56(84) bytes of data.
+64 bytes from 10.10.10.2: icmp_seq=1 ttl=64 time=0.243 ms
+64 bytes from 10.10.10.2: icmp_seq=2 ttl=64 time=0.128 ms
+64 bytes from 10.10.10.2: icmp_seq=3 ttl=64 time=0.163 ms
+64 bytes from 10.10.10.2: icmp_seq=4 ttl=64 time=0.126 ms
+^C
+--- 10.10.10.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3090ms
+rtt min/avg/max/mdev = 0.126/0.165/0.243/0.047 ms
+kim@kim-System-Product-Name:~$ # Ubuntu PC 터미널
+sudo modprobe pktgen
+kim@kim-System-Product-Name:~$ nano run_pktgen.sh
+kim@kim-System-Product-Name:~$ nano run_pktgen.sh
+kim@kim-System-Product-Name:~$ sudo tc qdisc replace dev enp5s0 root cbs idleslope 20000000 sendslope -980000000
+kim@kim-System-Product-Name:~$ chmod +x run_pktgen.sh
+kim@kim-System-Product-Name:~$ sudo ./run_pktgen.sh
+Setting up pktgen...
+Starting pktgen...
+Stopping pktgen...
+Done.
+kim@kim-System-Product-Name:~$ # CBS의 속도 제한을 5Mbps로 설정합니다.
+sudo tc qdisc replace dev enp5s0 root cbs idleslope 5000000 sendslope -995000000
+[sudo] password for kim:
+kim@kim-System-Product-Name:~$ nano run_pktgen.sh
+kim@kim-System-Product-Name:~$ # 이전에 실행 권한을 줬으므로 바로 실행하면 됩니다.
+sudo ./run_pktgen.sh
+Setting up pktgen...
+Starting pktgen...
+Stopping pktgen...
+Done.
+kim@kim-System-Product-Name:~$

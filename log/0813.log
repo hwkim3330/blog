@@ -1,0 +1,1906 @@
+kim@kim-System-Product-Name:~$ cat <<EOF > ipatch-set-cbs-tc0.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 10000
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-cbs-tc0.yaml
+[sudo] password for kim: 
+No .docker.env file found in parent directories
+kim@kim-System-Product-Name:~$ cd velocitydrivesp-support
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-cbs-tc0.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 10000
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-cbs-tc0.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-cbs-tc0.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 100
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-cbs-tc0.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-cbs-tc0.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 100
+  : traffic-class: 1
+    credit-based:
+      idle-slope: 100
+  : traffic-class: 2
+    credit-based:
+      idle-slope: 100
+  : traffic-class: 3
+    credit-based:
+      idle-slope: 100
+  : traffic-class: 4
+    credit-based:
+      idle-slope: 100
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-cbs-tc0.yaml
+Opening serial port at /dev/ttyACM0
+/usr/lib/ruby/3.0.0/psych.rb:456:in `parse': (<unknown>): did not find expected key while parsing a block mapping at line 1 column 3 (Psych::SyntaxError)
+	from /usr/lib/ruby/3.0.0/psych.rb:456:in `parse_stream'
+	from /usr/lib/ruby/3.0.0/psych.rb:390:in `parse'
+	from /usr/lib/ruby/3.0.0/psych.rb:280:in `load'
+	from /home/kim/velocitydrivesp-support/support/scripts/mup1cc:264:in `<main>'
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-pcp-decoding.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/ieee802-dot1q-bridge:bridge-port/pcp-decoding-table/pcp-decoding-map"
+  : pcp: 8P0D
+- ? "/ietf-interfaces:interfaces/interface[name='1']/ieee802-dot1q-bridge:bridge-port/pcp-decoding-table/pcp-decoding-map[pcp='8P0D']/priority-map"
+  : priority-code-point: 1
+    priority: 0
+    drop-eligible: false
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-pcp-decoding.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-cbs-tc0.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 100000
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-cbs-tc0.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-cbs-all.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 1
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 2
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 3
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-cbs-all.yamlp-port:eth-qo
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-cbs-all.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 1
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 2
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 3
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-cbs-all.yamlp-port:eth-qo
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-cbs-all.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 1
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 2
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 3
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-cbs-all.yamlp-port:eth-qo
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-cbs-all.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 1
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 2
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 3
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+EOF   idle-slope: 100000hapers"s/interface[name='1']/mchp-velocitysp-port:eth-qo
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-set-cbs-all.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 1
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 2
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 3
+    credit-based:
+      idle-slope: 100000
+- ? "/ietf-interfaces:interfaces/interface[name='1']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+EOF   idle-slope: 100000hapers"s/interface[name='1']/mchp-velocitysp-port:eth-qo
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-cbs-all.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-cbs-all.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-set-cbs-all.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-decoding-prio0.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/ieee802-dot1q-bridge:bridge-port/pcp-decoding-table/pcp-decoding-map"
+  : pcp: 8P0D
+- ? "/ietf-interfaces:interfaces/interface[name='2']/ieee802-dot1q-bridge:bridge-port/default-priority"
+  : 0
+# (선택) PCP 0도 확실히 Prio 0으로
+- ? "/ietf-interfaces:interfaces/interface[name='2']/ieee802-dot1q-bridge:bridge-port/pcp-decoding-table/pcp-decoding-map[pcp='8P0D']/priority-map"
+  : priority-code-point: 0
+    priority: 0
+    drop-eligible: false
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-decoding-prio0.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc0-20m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 20000   # kbps 단위 → 20 Mbps
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc0-20m.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-port-leaky-20m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    single-leaky:
+      rate: 20000
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-port-leaky-20m.yaml
+Opening serial port at /dev/ttyACM0
+root is not of type: array
+property '/single-leaky' is invalid: error_type=schema
+/home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:490:in `json_validate': Errors in JSON data (RuntimeError)
+	from /home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:505:in `instance2cbor'
+	from /home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:527:in `block in json_seq2cbor'
+	from /home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:527:in `each'
+	from /home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:527:in `json_seq2cbor'
+	from /home/kim/velocitydrivesp-support/support/scripts/mup1cc:313:in `<main>'
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-wrr.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/wrr"
+  : enabled: true
+    traffic-class-weight:
+      - {traffic-class: 0, weight: 1}
+      - {traffic-class: 1, weight: 1}
+      - {traffic-class: 2, weight: 1}
+      - {traffic-class: 3, weight: 1}
+      - {traffic-class: 4, weight: 1}
+      - {traffic-class: 5, weight: 1}
+      - {traffic-class: 6, weight: 1}
+      - {traffic-class: 7, weight: 1}
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-wrr.yaml
+Opening serial port at /dev/ttyACM0
+/home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:462:in `block in iid2cbor': Could not find /ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/wrr in schema tree (RuntimeError)
+	from /home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:459:in `each'
+	from /home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:459:in `iid2cbor'
+	from /home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:502:in `instance2cbor'
+	from /home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:527:in `block in json_seq2cbor'
+	from /home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:527:in `each'
+	from /home/kim/velocitydrivesp-support/support/yang-enc/yang-enc.rb:527:in `json_seq2cbor'
+	from /home/kim/velocitydrivesp-support/support/scripts/mup1cc:313:in `<main>'
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc0-20m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 40000   # kbps 단위 → 20 Mbps
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc0-20m.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc0-20m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 10000   # kbps 단위 →  Mbps
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc0-20m.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc0-20m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 5000   # kbps 단위 →  Mbps
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc0-20m.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc3-0m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 3
+    credit-based:
+      idle-slope: 5000   # kbps 단위 →  Mbps
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc3-0m.yaml
+[sudo] password for kim: 
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc0-0m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 9000   # kbps 단위 →  Mbps
+EOF
+
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc0-0m.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc0-3_5m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 3500
+EOF
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc0-3_5m.yaml
+[sudo] password for kim: 
+Sorry, try again.
+[sudo] password for kim: 
+Sorry, try again.
+[sudo] password for kim: 
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc0-8m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 8000
+EOF
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc0-8m.yaml
+[sudo] password for kim: 
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc0-20m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 20000
+EOF
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc0-20m.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc0-80m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 80000
+EOF
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc0-80m.yaml
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc0-80m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 1000
+EOF
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc0-80m.yaml
+[sudo] password for kim: 
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<'EOF' > ipatch-p2-cbs-tc0-80m.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='2']/mchp-velocitysp-port:eth-qos/config/traffic-class-shapers"
+  : traffic-class: 0
+    credit-based:
+      idle-slope: 5000
+EOF
+sudo dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-p2-cbs-tc0-80m.yaml
+[sudo] password for kim: 
+Opening serial port at /dev/ttyACM0
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ ^C
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~$ cd velocitydrivesp-support
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ # 2) cat으로 Python 코드 작성
+cat > make_vlan_pcap.py << 'EOF'
+from scapy.all import Ether, Dot1Q, IP, UDP, Raw, wrpcap
+
+pkt = Ether(src="00:11:22:33:44:55", dst="68:05:ca:bd:96:e7") / \
+      Dot1Q(prio=3, vlan=10) / \
+      IP(src="169.254.59.200", dst="169.254.59.170") / \
+      UDP(sport=5201, dport=5202) / \
+      Raw(load=b"A"*500)
+
+wrpcap("vlan_udp.pcap", [pkt]*1000)  # 1000 packets
+EOF
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ # 3) 실행
+python3 make_vlan_pcap.py
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ ls -lh vlan_udp.pcap
+-rw-rw-r-- 1 kim kim 549K Aug 12 10:53 vlan_udp.pcap
+kim@kim-System-Product-Name:~/velocitydrivesp-support$ 
+kim@kim-System-Product-Name:~$ iperf3 -s
+iperf3: error - unable to start listener for connections: Address already in use
+iperf3: exiting
+kim@kim-System-Product-Name:~$ iperf3 -s -p 5202
+-----------------------------------------------------------
+Server listening on 5202 (test #1)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 60338
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 42175
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   129 KBytes  1.05 Mbits/sec  0.176 ms  0/91 (0%)  
+[  5]   1.00-2.00   sec   127 KBytes  1.04 Mbits/sec  0.170 ms  0/90 (0%)  
+[  5]   2.00-3.00   sec   129 KBytes  1.05 Mbits/sec  0.238 ms  0/91 (0%)  
+[  5]   3.00-4.00   sec   127 KBytes  1.04 Mbits/sec  0.181 ms  0/90 (0%)  
+[  5]   4.00-5.00   sec   129 KBytes  1.05 Mbits/sec  0.218 ms  0/91 (0%)  
+[  5]   5.00-6.00   sec   129 KBytes  1.05 Mbits/sec  0.160 ms  0/91 (0%)  
+[  5]   6.00-7.00   sec   127 KBytes  1.04 Mbits/sec  0.175 ms  0/90 (0%)  
+[  5]   7.00-8.00   sec   129 KBytes  1.05 Mbits/sec  0.164 ms  0/91 (0%)  
+[  5]   8.00-9.00   sec   127 KBytes  1.04 Mbits/sec  0.225 ms  0/90 (0%)  
+[  5]   9.00-10.00  sec   129 KBytes  1.05 Mbits/sec  0.163 ms  0/91 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.01  sec  1.25 MBytes  1.05 Mbits/sec  0.163 ms  0/906 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #2)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 37124
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 48318
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  11.9 MBytes  99.9 Mbits/sec  0.037 ms  0/8626 (0%)  
+[  5]   1.00-2.00   sec  11.9 MBytes   100 Mbits/sec  0.024 ms  0/8633 (0%)  
+[  5]   2.00-3.00   sec  11.9 MBytes   100 Mbits/sec  0.042 ms  0/8632 (0%)  
+[  5]   3.00-4.00   sec  11.9 MBytes   100 Mbits/sec  0.046 ms  0/8633 (0%)  
+[  5]   4.00-5.00   sec  11.9 MBytes   100 Mbits/sec  0.037 ms  0/8632 (0%)  
+[  5]   5.00-6.00   sec  11.9 MBytes   100 Mbits/sec  0.046 ms  0/8633 (0%)  
+[  5]   6.00-7.00   sec  11.9 MBytes  99.9 Mbits/sec  0.054 ms  0/8626 (0%)  
+[  5]   7.00-8.00   sec  11.9 MBytes   100 Mbits/sec  0.045 ms  0/8634 (0%)  
+[  5]   8.00-9.00   sec  11.9 MBytes   100 Mbits/sec  0.042 ms  0/8630 (0%)  
+[  5]   9.00-10.00  sec  11.9 MBytes   100 Mbits/sec  0.035 ms  0/8641 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec   119 MBytes   100 Mbits/sec  0.035 ms  0/86320 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #3)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 49082
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 45466
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  11.9 MBytes  99.9 Mbits/sec  0.037 ms  0/8627 (0%)  
+[  5]   1.00-2.00   sec  11.9 MBytes   100 Mbits/sec  0.051 ms  0/8631 (0%)  
+[  5]   2.00-3.00   sec  11.9 MBytes   100 Mbits/sec  0.037 ms  0/8633 (0%)  
+[  5]   3.00-4.00   sec  11.9 MBytes   100 Mbits/sec  0.047 ms  0/8633 (0%)  
+[  5]   4.00-5.00   sec  11.9 MBytes   100 Mbits/sec  0.034 ms  0/8632 (0%)  
+[  5]   5.00-6.00   sec  11.9 MBytes   100 Mbits/sec  0.033 ms  0/8633 (0%)  
+[  5]   6.00-7.00   sec  11.9 MBytes   100 Mbits/sec  0.033 ms  0/8633 (0%)  
+[  5]   7.00-8.00   sec  11.9 MBytes   100 Mbits/sec  0.040 ms  0/8629 (0%)  
+[  5]   8.00-9.00   sec  11.9 MBytes  99.9 Mbits/sec  0.041 ms  0/8628 (0%)  
+[  5]   9.00-10.00  sec  11.9 MBytes   100 Mbits/sec  0.046 ms  0/8633 (0%)  
+[  5]  10.00-10.00  sec  9.90 KBytes  46.6 Mbits/sec  0.041 ms  0/7 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec   119 MBytes   100 Mbits/sec  0.041 ms  0/86319 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #4)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 49778
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 42516
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  11.9 MBytes  99.9 Mbits/sec  0.037 ms  0/8626 (0%)  
+[  5]   1.00-2.00   sec  11.9 MBytes   100 Mbits/sec  0.035 ms  0/8633 (0%)  
+[  5]   2.00-3.00   sec  11.9 MBytes   100 Mbits/sec  0.038 ms  0/8633 (0%)  
+[  5]   3.00-4.00   sec  11.9 MBytes   100 Mbits/sec  0.032 ms  0/8632 (0%)  
+[  5]   4.00-5.00   sec  11.9 MBytes   100 Mbits/sec  0.043 ms  0/8628 (0%)  
+[  5]   5.00-6.00   sec  11.9 MBytes  99.9 Mbits/sec  0.038 ms  0/8629 (0%)  
+[  5]   6.00-7.00   sec  11.9 MBytes   100 Mbits/sec  0.035 ms  0/8633 (0%)  
+[  5]   7.00-8.00   sec  11.9 MBytes   100 Mbits/sec  0.040 ms  0/8633 (0%)  
+[  5]   8.00-9.00   sec  11.9 MBytes   100 Mbits/sec  0.043 ms  0/8632 (0%)  
+[  5]   9.00-10.00  sec  11.9 MBytes   100 Mbits/sec  0.041 ms  0/8633 (0%)  
+[  5]  10.00-10.00  sec  11.3 KBytes  51.1 Mbits/sec  0.039 ms  0/8 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec   119 MBytes   100 Mbits/sec  0.039 ms  0/86320 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #5)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 48666
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 37562
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   129 KBytes  1.05 Mbits/sec  0.202 ms  0/91 (0%)  
+[  5]   1.00-2.00   sec   127 KBytes  1.04 Mbits/sec  0.178 ms  0/90 (0%)  
+[  5]   2.00-3.00   sec   129 KBytes  1.05 Mbits/sec  0.145 ms  0/91 (0%)  
+[  5]   3.00-4.00   sec   127 KBytes  1.04 Mbits/sec  0.150 ms  0/90 (0%)  
+[  5]   4.00-5.00   sec   129 KBytes  1.05 Mbits/sec  0.220 ms  0/91 (0%)  
+[  5]   5.00-6.00   sec   129 KBytes  1.05 Mbits/sec  0.186 ms  0/91 (0%)  
+[  5]   6.00-7.00   sec   127 KBytes  1.04 Mbits/sec  0.137 ms  0/90 (0%)  
+[  5]   7.00-8.00   sec   129 KBytes  1.05 Mbits/sec  0.173 ms  0/91 (0%)  
+[  5]   8.00-9.00   sec   127 KBytes  1.04 Mbits/sec  0.148 ms  0/90 (0%)  
+[  5]   9.00-10.00  sec   129 KBytes  1.05 Mbits/sec  0.243 ms  0/91 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec  1.25 MBytes  1.05 Mbits/sec  0.243 ms  0/906 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #6)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 54708
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 33452
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   126 KBytes  1.03 Mbits/sec  0.173 ms  0/89 (0%)  
+[  5]   1.00-2.00   sec   129 KBytes  1.05 Mbits/sec  0.160 ms  0/91 (0%)  
+[  5]   2.00-3.00   sec   127 KBytes  1.04 Mbits/sec  0.162 ms  0/90 (0%)  
+[  5]   3.00-4.00   sec   129 KBytes  1.05 Mbits/sec  0.139 ms  0/91 (0%)  
+[  5]   4.00-5.00   sec   127 KBytes  1.04 Mbits/sec  0.138 ms  0/90 (0%)  
+[  5]   5.00-6.00   sec   127 KBytes  1.04 Mbits/sec  0.181 ms  0/90 (0%)  
+[  5]   6.00-7.00   sec   129 KBytes  1.05 Mbits/sec  0.122 ms  0/91 (0%)  
+[  5]   7.00-8.00   sec   129 KBytes  1.05 Mbits/sec  0.175 ms  0/91 (0%)  
+[  5]   8.00-9.00   sec   127 KBytes  1.04 Mbits/sec  0.205 ms  0/90 (0%)  
+[  5]   9.00-10.00  sec   129 KBytes  1.06 Mbits/sec  0.226 ms  0/91 (0%)  
+[  5]  10.00-10.02  sec  2.83 KBytes   969 Kbits/sec  0.228 ms  0/2 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  1.25 MBytes  1.05 Mbits/sec  0.228 ms  0/906 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #7)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 60746
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 32912
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  80.6 MBytes   676 Mbits/sec  0.025 ms  0/58401 (0%)  
+[  5]   1.00-2.00   sec  80.4 MBytes   675 Mbits/sec  0.024 ms  0/58249 (0%)  
+[  5]   2.00-3.00   sec  80.5 MBytes   675 Mbits/sec  0.025 ms  0/58293 (0%)  
+[  5]   3.00-4.00   sec  80.5 MBytes   675 Mbits/sec  0.029 ms  0/58264 (0%)  
+[  5]   4.00-5.00   sec  80.4 MBytes   675 Mbits/sec  0.025 ms  0/58255 (0%)  
+[  5]   5.00-6.00   sec  81.6 MBytes   684 Mbits/sec  0.023 ms  0/59088 (0%)  
+[  5]   6.00-7.00   sec  81.8 MBytes   686 Mbits/sec  0.022 ms  0/59222 (0%)  
+[  5]   7.00-8.00   sec  81.8 MBytes   686 Mbits/sec  0.023 ms  0/59223 (0%)  
+[  5]   8.00-9.00   sec  81.8 MBytes   686 Mbits/sec  0.024 ms  0/59223 (0%)  
+[  5]   9.00-10.00  sec  81.8 MBytes   686 Mbits/sec  0.024 ms  0/59250 (0%)  
+[  5]  10.00-10.00  sec  84.8 KBytes   367 Mbits/sec  0.031 ms  0/60 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec   811 MBytes   680 Mbits/sec  0.031 ms  0/587528 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #8)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 40996
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 48062
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  81.0 MBytes   680 Mbits/sec  0.033 ms  0/58675 (0%)  
+[  5]   1.00-2.00   sec  81.0 MBytes   680 Mbits/sec  0.026 ms  0/58672 (0%)  
+[  5]   2.00-3.00   sec  80.7 MBytes   677 Mbits/sec  0.021 ms  0/58426 (0%)  
+[  5]   3.00-4.00   sec  80.5 MBytes   676 Mbits/sec  0.026 ms  0/58315 (0%)  
+[  5]   4.00-5.00   sec  80.6 MBytes   676 Mbits/sec  0.023 ms  0/58335 (0%)  
+[  5]   5.00-6.00   sec  81.5 MBytes   684 Mbits/sec  0.028 ms  0/59008 (0%)  
+[  5]   6.00-7.00   sec  81.7 MBytes   686 Mbits/sec  0.023 ms  0/59184 (0%)  
+[  5]   7.00-8.00   sec  81.6 MBytes   685 Mbits/sec  0.026 ms  0/59122 (0%)  
+[  5]   8.00-9.00   sec  81.7 MBytes   685 Mbits/sec  0.034 ms  0/59172 (0%)  
+[  5]   9.00-10.00  sec  81.7 MBytes   685 Mbits/sec  0.022 ms  0/59138 (0%)  
+[  5]  10.00-10.00  sec  77.8 KBytes   354 Mbits/sec  0.036 ms  0/55 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec   812 MBytes   681 Mbits/sec  0.036 ms  0/588102 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #9)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 38870
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 45800
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  81.6 MBytes   684 Mbits/sec  0.022 ms  0/59063 (0%)  
+[  5]   1.00-2.00   sec  81.5 MBytes   684 Mbits/sec  0.027 ms  0/59052 (0%)  
+[  5]   2.00-3.00   sec  81.2 MBytes   681 Mbits/sec  0.035 ms  0/58811 (0%)  
+[  5]   3.00-4.00   sec  81.1 MBytes   680 Mbits/sec  0.023 ms  0/58710 (0%)  
+[  5]   4.00-5.00   sec  80.9 MBytes   679 Mbits/sec  0.028 ms  0/58613 (0%)  
+[  5]   5.00-6.00   sec  82.0 MBytes   688 Mbits/sec  0.026 ms  0/59407 (0%)  
+[  5]   6.00-7.00   sec  82.1 MBytes   689 Mbits/sec  0.022 ms  0/59441 (0%)  
+[  5]   7.00-8.00   sec  82.0 MBytes   688 Mbits/sec  0.030 ms  0/59393 (0%)  
+[  5]   8.00-9.00   sec  82.1 MBytes   688 Mbits/sec  0.023 ms  0/59427 (0%)  
+[  5]   9.00-10.00  sec  82.0 MBytes   688 Mbits/sec  0.023 ms  0/59392 (0%)  
+[  5]  10.00-10.00  sec  80.6 KBytes   371 Mbits/sec  0.040 ms  0/57 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec   817 MBytes   685 Mbits/sec  0.040 ms  0/591366 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #10)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 34496
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 52642
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  81.0 MBytes   679 Mbits/sec  0.023 ms  0/58622 (0%)  
+[  5]   1.00-2.00   sec  81.3 MBytes   682 Mbits/sec  0.027 ms  0/58903 (0%)  
+[  5]   2.00-3.00   sec  81.3 MBytes   682 Mbits/sec  0.022 ms  0/58841 (0%)  
+[  5]   3.00-4.00   sec  81.3 MBytes   682 Mbits/sec  0.033 ms  0/58857 (0%)  
+[  5]   4.00-5.00   sec  81.0 MBytes   679 Mbits/sec  0.025 ms  0/58636 (0%)  
+[  5]   5.00-6.00   sec  81.8 MBytes   686 Mbits/sec  0.032 ms  0/59203 (0%)  
+[  5]   6.00-7.00   sec  82.0 MBytes   688 Mbits/sec  0.027 ms  0/59364 (0%)  
+[  5]   7.00-8.00   sec  82.0 MBytes   687 Mbits/sec  0.024 ms  0/59346 (0%)  
+[  5]   8.00-9.00   sec  81.9 MBytes   687 Mbits/sec  0.025 ms  0/59300 (0%)  
+[  5]   9.00-10.00  sec  81.9 MBytes   687 Mbits/sec  0.029 ms  0/59320 (0%)  
+[  5]  10.00-10.00  sec   106 KBytes   412 Mbits/sec  0.033 ms  0/76 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec   815 MBytes   684 Mbits/sec  0.033 ms  0/590468 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #11)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 51732
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 59026
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  79.9 MBytes   670 Mbits/sec  0.023 ms  0/57846 (0%)  
+[  5]   1.00-2.00   sec  81.5 MBytes   684 Mbits/sec  0.023 ms  0/59047 (0%)  
+[  5]   2.00-3.00   sec  81.8 MBytes   686 Mbits/sec  0.032 ms  0/59208 (0%)  
+[  5]   3.00-4.00   sec  81.9 MBytes   687 Mbits/sec  0.024 ms  0/59307 (0%)  
+[  5]   4.00-5.00   sec  81.9 MBytes   687 Mbits/sec  0.028 ms  0/59321 (0%)  
+[  5]   5.00-6.00   sec  82.0 MBytes   688 Mbits/sec  0.024 ms  0/59355 (0%)  
+[  5]   6.00-7.00   sec  81.9 MBytes   687 Mbits/sec  0.024 ms  0/59309 (0%)  
+[  5]   7.00-8.00   sec  81.9 MBytes   687 Mbits/sec  0.031 ms  0/59328 (0%)  
+[  5]   8.00-9.00   sec  81.8 MBytes   687 Mbits/sec  0.031 ms  0/59270 (0%)  
+[  5]   9.00-10.00  sec  81.6 MBytes   685 Mbits/sec  0.029 ms  0/59100 (0%)  
+[  5]  10.00-10.02  sec  1.89 MBytes   660 Mbits/sec  0.021 ms  0/1368 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec   818 MBytes   685 Mbits/sec  0.021 ms  0/592460 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #12)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 40404
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 56674
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  2.26 MBytes  19.0 Mbits/sec  0.023 ms  53612/55248 (97%)  
+[  5]   1.00-2.00   sec  2.31 MBytes  19.4 Mbits/sec  0.020 ms  56669/58343 (97%)  
+[  5]   2.00-3.00   sec  2.31 MBytes  19.4 Mbits/sec  0.029 ms  56656/58330 (97%)  
+[  5]   3.00-4.00   sec  2.31 MBytes  19.4 Mbits/sec  0.223 ms  56467/58140 (97%)  
+[  5]   4.00-5.00   sec  2.31 MBytes  19.4 Mbits/sec  0.099 ms  56351/58025 (97%)  
+[  5]   5.00-6.00   sec  2.31 MBytes  19.4 Mbits/sec  0.163 ms  56445/58118 (97%)  
+[  5]   6.00-7.00   sec  2.31 MBytes  19.4 Mbits/sec  0.024 ms  56489/58163 (97%)  
+[  5]   7.00-8.00   sec  2.31 MBytes  19.4 Mbits/sec  0.023 ms  56479/58153 (97%)  
+[  5]   8.00-9.00   sec  2.31 MBytes  19.4 Mbits/sec  0.024 ms  55299/56972 (97%)  
+[  5]   9.00-10.00  sec  2.31 MBytes  19.4 Mbits/sec  0.030 ms  57385/59059 (97%)  
+[  5]  10.00-10.05  sec   122 KBytes  19.2 Mbits/sec  0.020 ms  2942/3028 (97%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.05  sec  23.2 MBytes  19.3 Mbits/sec  0.020 ms  564794/581579 (97%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #13)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 41052
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 56769
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  2.26 MBytes  19.0 Mbits/sec  0.064 ms  54500/56136 (97%)  
+[  5]   1.00-2.00   sec  2.31 MBytes  19.4 Mbits/sec  0.023 ms  57481/59155 (97%)  
+[  5]   2.00-3.00   sec  2.31 MBytes  19.4 Mbits/sec  0.019 ms  57521/59195 (97%)  
+[  5]   3.00-4.00   sec  2.31 MBytes  19.4 Mbits/sec  0.017 ms  57456/59129 (97%)  
+[  5]   4.00-5.00   sec  2.31 MBytes  19.4 Mbits/sec  0.020 ms  57501/59175 (97%)  
+[  5]   5.00-6.00   sec  2.31 MBytes  19.4 Mbits/sec  0.093 ms  57475/59149 (97%)  
+[  5]   6.00-7.00   sec  2.31 MBytes  19.4 Mbits/sec  0.027 ms  57474/59147 (97%)  
+[  5]   7.00-8.00   sec  2.31 MBytes  19.4 Mbits/sec  0.009 ms  57653/59327 (97%)  
+[  5]   8.00-9.00   sec  2.31 MBytes  19.4 Mbits/sec  0.025 ms  57572/59246 (97%)  
+[  5]   9.00-10.00  sec  2.31 MBytes  19.4 Mbits/sec  0.017 ms  57513/59187 (97%)  
+[  5]  10.00-10.05  sec   120 KBytes  19.3 Mbits/sec  0.020 ms  2925/3010 (97%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.05  sec  23.2 MBytes  19.3 Mbits/sec  0.020 ms  575071/591856 (97%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #14)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 34418
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 56693
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  2.26 MBytes  19.0 Mbits/sec  0.123 ms  54630/56266 (97%)  
+[  5]   1.00-2.00   sec  2.31 MBytes  19.4 Mbits/sec  0.034 ms  57587/59261 (97%)  
+[  5]   2.00-3.00   sec  2.31 MBytes  19.4 Mbits/sec  0.276 ms  57564/59237 (97%)  
+[  5]   3.00-4.00   sec  2.31 MBytes  19.4 Mbits/sec  0.020 ms  57622/59296 (97%)  
+[  5]   4.00-5.00   sec  2.31 MBytes  19.4 Mbits/sec  0.017 ms  57587/59261 (97%)  
+[  5]   5.00-6.00   sec  2.31 MBytes  19.4 Mbits/sec  0.025 ms  57690/59364 (97%)  
+[  5]   6.00-7.00   sec  2.31 MBytes  19.4 Mbits/sec  0.017 ms  57646/59319 (97%)  
+[  5]   7.00-8.00   sec  2.31 MBytes  19.4 Mbits/sec  0.026 ms  57674/59348 (97%)  
+[  5]   8.00-9.00   sec  2.31 MBytes  19.4 Mbits/sec  0.027 ms  57631/59304 (97%)  
+[  5]   9.00-10.00  sec  2.31 MBytes  19.4 Mbits/sec  0.210 ms  57664/59338 (97%)  
+[  5]  10.00-10.05  sec   122 KBytes  19.3 Mbits/sec  0.176 ms  2964/3050 (97%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.05  sec  23.2 MBytes  19.3 Mbits/sec  0.176 ms  576259/593044 (97%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #15)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 40532
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 39297
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  4.52 MBytes  37.9 Mbits/sec  0.021 ms  53712/56983 (94%)  
+[  5]   1.00-2.00   sec  4.62 MBytes  38.8 Mbits/sec  0.022 ms  55924/59272 (94%)  
+[  5]   2.00-3.00   sec  4.62 MBytes  38.8 Mbits/sec  0.022 ms  55887/59234 (94%)  
+[  5]   3.00-4.00   sec  4.62 MBytes  38.8 Mbits/sec  0.030 ms  55942/59289 (94%)  
+[  5]   4.00-5.00   sec  4.62 MBytes  38.8 Mbits/sec  0.016 ms  55887/59234 (94%)  
+[  5]   5.00-6.00   sec  4.62 MBytes  38.8 Mbits/sec  0.026 ms  55929/59277 (94%)  
+[  5]   6.00-7.00   sec  4.62 MBytes  38.8 Mbits/sec  0.021 ms  55878/59225 (94%)  
+[  5]   7.00-8.00   sec  4.62 MBytes  38.8 Mbits/sec  0.025 ms  55925/59272 (94%)  
+[  5]   8.00-9.00   sec  4.62 MBytes  38.8 Mbits/sec  0.031 ms  55871/59218 (94%)  
+[  5]   9.00-10.00  sec  4.62 MBytes  38.8 Mbits/sec  0.018 ms  55909/59257 (94%)  
+[  5]  10.00-10.04  sec   177 KBytes  38.6 Mbits/sec  0.024 ms  2091/2216 (94%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.04  sec  46.3 MBytes  38.7 Mbits/sec  0.024 ms  558955/592477 (94%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #16)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 45836
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 59785
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  4.52 MBytes  37.9 Mbits/sec  0.024 ms  52676/55948 (94%)  
+[  5]   1.00-2.00   sec  4.62 MBytes  38.8 Mbits/sec  0.030 ms  54753/58100 (94%)  
+[  5]   2.00-3.00   sec  4.62 MBytes  38.8 Mbits/sec  0.021 ms  54753/58101 (94%)  
+[  5]   3.00-4.00   sec  4.62 MBytes  38.8 Mbits/sec  0.018 ms  54786/58133 (94%)  
+[  5]   4.00-5.00   sec  4.62 MBytes  38.8 Mbits/sec  0.028 ms  54817/58164 (94%)  
+[  5]   5.00-6.00   sec  4.62 MBytes  38.8 Mbits/sec  0.030 ms  54856/58203 (94%)  
+[  5]   6.00-7.00   sec  4.62 MBytes  38.8 Mbits/sec  0.025 ms  54832/58180 (94%)  
+[  5]   7.00-8.00   sec  4.62 MBytes  38.8 Mbits/sec  0.021 ms  54823/58170 (94%)  
+[  5]   8.00-9.00   sec  4.62 MBytes  38.8 Mbits/sec  0.018 ms  54736/58082 (94%)  
+[  5]   9.00-10.00  sec  4.62 MBytes  38.8 Mbits/sec  0.019 ms  55967/59315 (94%)  
+[  5]  10.00-10.04  sec   175 KBytes  38.5 Mbits/sec  0.020 ms  2067/2191 (94%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.04  sec  46.3 MBytes  38.7 Mbits/sec  0.020 ms  549066/582587 (94%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #17)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 58508
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 57232
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  1.13 MBytes  9.48 Mbits/sec  0.313 ms  7114/7932 (90%)  
+[  5]   1.00-2.00   sec  1.16 MBytes  9.70 Mbits/sec  0.319 ms  7800/8637 (90%)  
+[  5]   2.00-3.00   sec  1.16 MBytes  9.70 Mbits/sec  0.302 ms  7796/8633 (90%)  
+[  5]   3.00-4.00   sec  1.16 MBytes  9.70 Mbits/sec  0.347 ms  7796/8633 (90%)  
+[  5]   4.00-5.00   sec  1.15 MBytes  9.68 Mbits/sec  0.370 ms  7787/8623 (90%)  
+[  5]   5.00-6.00   sec  1.16 MBytes  9.70 Mbits/sec  0.311 ms  7796/8633 (90%)  
+[  5]   6.00-7.00   sec  1.16 MBytes  9.70 Mbits/sec  0.342 ms  7795/8632 (90%)  
+[  5]   7.00-8.00   sec  1.16 MBytes  9.70 Mbits/sec  0.387 ms  7805/8642 (90%)  
+[  5]   8.00-9.00   sec   420 KBytes  3.44 Mbits/sec  0.293 ms  2761/3058 (90%)  
+[  5]   9.00-10.00  sec   807 KBytes  6.62 Mbits/sec  0.333 ms  13627/14198 (96%)  
+[  5]  10.00-10.08  sec  94.7 KBytes  9.64 Mbits/sec  0.367 ms  624/691 (90%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.08  sec  10.5 MBytes  8.75 Mbits/sec  0.367 ms  78701/86312 (91%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #18)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 39110
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 54335
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   578 KBytes  4.74 Mbits/sec  0.477 ms  7018/7427 (94%)  
+[  5]   1.00-2.00   sec   592 KBytes  4.85 Mbits/sec  0.421 ms  8222/8641 (95%)  
+[  5]   2.00-3.00   sec   591 KBytes  4.84 Mbits/sec  0.411 ms  8206/8624 (95%)  
+[  5]   3.00-4.00   sec   591 KBytes  4.84 Mbits/sec  0.392 ms  8207/8625 (95%)  
+[  5]   4.00-5.00   sec   592 KBytes  4.85 Mbits/sec  0.367 ms  8231/8650 (95%)  
+[  5]   5.00-6.00   sec   591 KBytes  4.84 Mbits/sec  0.428 ms  8206/8624 (95%)  
+[  5]   6.00-7.00   sec   592 KBytes  4.86 Mbits/sec  0.519 ms  8221/8640 (95%)  
+[  5]   7.00-8.00   sec   591 KBytes  4.84 Mbits/sec  0.456 ms  8206/8624 (95%)  
+[  5]   8.00-9.00   sec   129 KBytes  1.05 Mbits/sec  0.472 ms  1788/1879 (95%)  
+[  5]   9.00-10.00  sec   518 KBytes  4.24 Mbits/sec  0.480 ms  15021/15387 (98%)  
+[  5]  10.00-10.14  sec  80.6 KBytes  4.81 Mbits/sec  0.476 ms  1125/1182 (95%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.14  sec  5.32 MBytes  4.40 Mbits/sec  0.476 ms  82451/86303 (96%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #19)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 37516
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 35827
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   478 KBytes  3.92 Mbits/sec  0.137 ms  0/338 (0%)  
+[  5]   1.00-2.00   sec   488 KBytes  4.00 Mbits/sec  0.164 ms  0/345 (0%)  
+[  5]   2.00-3.00   sec   488 KBytes  4.00 Mbits/sec  0.174 ms  0/345 (0%)  
+[  5]   3.00-4.00   sec   489 KBytes  4.01 Mbits/sec  0.172 ms  0/346 (0%)  
+[  5]   4.00-5.00   sec   488 KBytes  4.00 Mbits/sec  0.167 ms  0/345 (0%)  
+[  5]   5.00-6.00   sec   488 KBytes  4.00 Mbits/sec  0.212 ms  0/345 (0%)  
+[  5]   6.00-7.00   sec   489 KBytes  4.01 Mbits/sec  0.170 ms  0/346 (0%)  
+[  5]   7.00-8.00   sec   488 KBytes  4.00 Mbits/sec  0.174 ms  0/345 (0%)  
+[  5]   8.00-9.00   sec   488 KBytes  4.00 Mbits/sec  0.231 ms  0/345 (0%)  
+[  5]   9.00-10.00  sec   488 KBytes  4.00 Mbits/sec  0.246 ms  0/345 (0%)  
+[  5]  10.00-10.02  sec  11.3 KBytes  3.86 Mbits/sec  0.214 ms  0/8 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  4.77 MBytes  3.99 Mbits/sec  0.214 ms  0/3453 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #20)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 37930
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 55571
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   120 KBytes   985 Kbits/sec  0.167 ms  0/85 (0%)  
+[  5]   1.00-2.00   sec   122 KBytes   996 Kbits/sec  0.168 ms  0/86 (0%)  
+[  5]   2.00-3.00   sec   122 KBytes   996 Kbits/sec  0.165 ms  0/86 (0%)  
+[  5]   3.00-4.00   sec   123 KBytes  1.01 Mbits/sec  0.226 ms  0/87 (0%)  
+[  5]   4.00-5.00   sec   122 KBytes   996 Kbits/sec  0.149 ms  0/86 (0%)  
+[  5]   5.00-6.00   sec   122 KBytes   997 Kbits/sec  0.166 ms  0/86 (0%)  
+[  5]   6.00-7.00   sec   123 KBytes  1.01 Mbits/sec  0.190 ms  0/87 (0%)  
+[  5]   7.00-8.00   sec   122 KBytes   996 Kbits/sec  0.221 ms  0/86 (0%)  
+[  5]   8.00-9.00   sec   122 KBytes   996 Kbits/sec  0.165 ms  0/86 (0%)  
+[  5]   9.00-10.00  sec   123 KBytes  1.01 Mbits/sec  0.189 ms  0/87 (0%)  
+[  5]  10.00-10.02  sec  2.83 KBytes   958 Kbits/sec  0.211 ms  0/2 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  1.19 MBytes   998 Kbits/sec  0.211 ms  0/864 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #21)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 52358
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 38345
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   239 KBytes  1.96 Mbits/sec  0.206 ms  0/169 (0%)  
+[  5]   1.00-2.00   sec   245 KBytes  2.00 Mbits/sec  0.124 ms  0/173 (0%)  
+[  5]   2.00-3.00   sec   243 KBytes  1.99 Mbits/sec  0.187 ms  0/172 (0%)  
+[  5]   3.00-4.00   sec   245 KBytes  2.00 Mbits/sec  0.140 ms  0/173 (0%)  
+[  5]   4.00-5.00   sec   245 KBytes  2.00 Mbits/sec  0.173 ms  0/173 (0%)  
+[  5]   5.00-6.00   sec   243 KBytes  1.99 Mbits/sec  0.114 ms  0/172 (0%)  
+[  5]   6.00-7.00   sec   245 KBytes  2.00 Mbits/sec  0.225 ms  0/173 (0%)  
+[  5]   7.00-8.00   sec   245 KBytes  2.00 Mbits/sec  0.215 ms  0/173 (0%)  
+[  5]   8.00-9.00   sec   243 KBytes  1.99 Mbits/sec  0.142 ms  0/172 (0%)  
+[  5]   9.00-10.00  sec   245 KBytes  2.00 Mbits/sec  0.193 ms  0/173 (0%)  
+[  5]  10.00-10.02  sec  5.66 KBytes  1.94 Mbits/sec  0.205 ms  0/4 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  2.38 MBytes  2.00 Mbits/sec  0.205 ms  0/1727 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #22)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 36882
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 50175
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   359 KBytes  2.94 Mbits/sec  0.158 ms  0/254 (0%)  
+[  5]   1.00-2.00   sec   366 KBytes  3.00 Mbits/sec  0.108 ms  0/259 (0%)  
+[  5]   2.00-3.00   sec   365 KBytes  2.99 Mbits/sec  0.242 ms  0/258 (0%)  
+[  5]   3.00-4.00   sec   366 KBytes  3.00 Mbits/sec  0.192 ms  0/259 (0%)  
+[  5]   4.00-5.00   sec   366 KBytes  3.00 Mbits/sec  0.117 ms  0/259 (0%)  
+[  5]   5.00-6.00   sec   366 KBytes  3.00 Mbits/sec  0.192 ms  0/259 (0%)  
+[  5]   6.00-7.00   sec   366 KBytes  3.00 Mbits/sec  0.196 ms  0/259 (0%)  
+[  5]   7.00-8.00   sec   366 KBytes  3.00 Mbits/sec  0.128 ms  0/259 (0%)  
+[  5]   8.00-9.00   sec   366 KBytes  3.00 Mbits/sec  0.128 ms  0/259 (0%)  
+[  5]   9.00-10.00  sec   366 KBytes  3.00 Mbits/sec  0.116 ms  0/259 (0%)  
+[  5]  10.00-10.02  sec  8.48 KBytes  2.88 Mbits/sec  0.116 ms  0/6 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  3.58 MBytes  2.99 Mbits/sec  0.116 ms  0/2590 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #23)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 57852
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 36463
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   478 KBytes  3.92 Mbits/sec  0.153 ms  0/338 (0%)  
+[  5]   1.00-2.00   sec   488 KBytes  4.00 Mbits/sec  0.241 ms  0/345 (0%)  
+[  5]   2.00-3.00   sec   488 KBytes  3.99 Mbits/sec  0.240 ms  0/345 (0%)  
+[  5]   3.00-4.00   sec   489 KBytes  4.01 Mbits/sec  0.198 ms  0/346 (0%)  
+[  5]   4.00-5.00   sec   488 KBytes  4.00 Mbits/sec  0.258 ms  0/345 (0%)  
+[  5]   5.00-6.00   sec   488 KBytes  4.00 Mbits/sec  0.227 ms  0/345 (0%)  
+[  5]   6.00-7.00   sec   489 KBytes  4.01 Mbits/sec  0.180 ms  0/346 (0%)  
+[  5]   7.00-8.00   sec   488 KBytes  4.00 Mbits/sec  0.205 ms  0/345 (0%)  
+[  5]   8.00-9.00   sec   488 KBytes  4.00 Mbits/sec  0.174 ms  0/345 (0%)  
+[  5]   9.00-10.00  sec   488 KBytes  3.99 Mbits/sec  0.191 ms  0/345 (0%)  
+[  5]  10.00-10.02  sec  11.3 KBytes  3.87 Mbits/sec  0.210 ms  0/8 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  4.77 MBytes  3.99 Mbits/sec  0.210 ms  0/3453 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #24)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 35376
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 58662
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   578 KBytes  4.74 Mbits/sec  0.458 ms  0/409 (0%)  
+[  5]   1.00-2.00   sec   591 KBytes  4.84 Mbits/sec  0.486 ms  0/418 (0%)  
+[  5]   2.00-3.00   sec   592 KBytes  4.85 Mbits/sec  0.482 ms  0/419 (0%)  
+[  5]   3.00-4.00   sec   591 KBytes  4.84 Mbits/sec  0.523 ms  4/422 (0.95%)  
+[  5]   4.00-5.00   sec   591 KBytes  4.84 Mbits/sec  0.613 ms  13/431 (3%)  
+[  5]   5.00-6.00   sec   592 KBytes  4.85 Mbits/sec  0.510 ms  13/432 (3%)  
+[  5]   6.00-7.00   sec   591 KBytes  4.84 Mbits/sec  0.638 ms  14/432 (3.2%)  
+[  5]   7.00-8.00   sec   592 KBytes  4.85 Mbits/sec  0.562 ms  13/432 (3%)  
+[  5]   8.00-9.00   sec   591 KBytes  4.84 Mbits/sec  0.568 ms  13/431 (3%)  
+[  5]   9.00-10.00  sec   591 KBytes  4.84 Mbits/sec  0.485 ms  13/431 (3%)  
+[  5]  10.00-10.14  sec  80.6 KBytes  4.83 Mbits/sec  0.514 ms  2/59 (3.4%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.14  sec  5.84 MBytes  4.84 Mbits/sec  0.514 ms  85/4316 (2%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #25)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 48948
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 38404
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   578 KBytes  4.74 Mbits/sec  0.630 ms  38/447 (8.5%)  
+[  5]   1.00-2.00   sec   592 KBytes  4.85 Mbits/sec  0.715 ms  100/519 (19%)  
+[  5]   2.00-3.00   sec   591 KBytes  4.84 Mbits/sec  0.743 ms  99/517 (19%)  
+[  5]   3.00-4.00   sec   592 KBytes  4.85 Mbits/sec  0.619 ms  100/519 (19%)  
+[  5]   4.00-5.00   sec   591 KBytes  4.84 Mbits/sec  0.589 ms  99/517 (19%)  
+[  5]   5.00-6.00   sec   591 KBytes  4.84 Mbits/sec  0.633 ms  100/518 (19%)  
+[  5]   6.00-7.00   sec   592 KBytes  4.85 Mbits/sec  0.725 ms  99/518 (19%)  
+[  5]   7.00-8.00   sec   591 KBytes  4.84 Mbits/sec  0.705 ms  100/518 (19%)  
+[  5]   8.00-9.00   sec   592 KBytes  4.85 Mbits/sec  0.724 ms  100/519 (19%)  
+[  5]   9.00-10.00  sec   591 KBytes  4.84 Mbits/sec  0.615 ms  99/517 (19%)  
+[  5]  10.00-10.14  sec  80.6 KBytes  4.80 Mbits/sec  0.729 ms  14/71 (20%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.14  sec  5.84 MBytes  4.84 Mbits/sec  0.729 ms  948/5180 (18%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #26)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 37596
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 36458
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   578 KBytes  4.74 Mbits/sec  0.812 ms  112/521 (21%)  
+[  5]   1.00-2.00   sec   592 KBytes  4.85 Mbits/sec  0.770 ms  187/606 (31%)  
+[  5]   2.00-3.00   sec   591 KBytes  4.84 Mbits/sec  0.749 ms  185/603 (31%)  
+[  5]   3.00-4.00   sec   591 KBytes  4.84 Mbits/sec  0.771 ms  186/604 (31%)  
+[  5]   4.00-5.00   sec   592 KBytes  4.85 Mbits/sec  0.645 ms  186/605 (31%)  
+[  5]   5.00-6.00   sec   591 KBytes  4.84 Mbits/sec  0.573 ms  186/604 (31%)  
+[  5]   6.00-7.00   sec   592 KBytes  4.85 Mbits/sec  0.617 ms  186/605 (31%)  
+[  5]   7.00-8.00   sec   591 KBytes  4.84 Mbits/sec  0.877 ms  185/603 (31%)  
+[  5]   8.00-9.00   sec   591 KBytes  4.84 Mbits/sec  0.559 ms  186/604 (31%)  
+[  5]   9.00-10.00  sec   592 KBytes  4.85 Mbits/sec  0.721 ms  186/605 (31%)  
+[  5]  10.00-10.14  sec  80.6 KBytes  4.81 Mbits/sec  0.670 ms  26/83 (31%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.14  sec  5.84 MBytes  4.84 Mbits/sec  0.670 ms  1811/6043 (30%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #27)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 58742
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 46318
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   578 KBytes  4.74 Mbits/sec  0.746 ms  186/595 (31%)  
+[  5]   1.00-2.00   sec   592 KBytes  4.85 Mbits/sec  0.717 ms  273/692 (39%)  
+[  5]   2.00-3.00   sec   591 KBytes  4.84 Mbits/sec  0.810 ms  272/690 (39%)  
+[  5]   3.00-4.00   sec   592 KBytes  4.85 Mbits/sec  0.698 ms  273/692 (39%)  
+[  5]   4.00-5.00   sec   591 KBytes  4.84 Mbits/sec  0.782 ms  272/690 (39%)  
+[  5]   5.00-6.00   sec   591 KBytes  4.84 Mbits/sec  0.670 ms  272/690 (39%)  
+[  5]   6.00-7.00   sec   592 KBytes  4.85 Mbits/sec  0.691 ms  272/691 (39%)  
+[  5]   7.00-8.00   sec   591 KBytes  4.84 Mbits/sec  0.764 ms  272/690 (39%)  
+[  5]   8.00-9.00   sec   591 KBytes  4.84 Mbits/sec  0.643 ms  272/690 (39%)  
+[  5]   9.00-10.00  sec   592 KBytes  4.85 Mbits/sec  0.635 ms  273/692 (39%)  
+[  5]  10.00-10.14  sec  80.6 KBytes  4.81 Mbits/sec  0.646 ms  37/94 (39%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.14  sec  5.84 MBytes  4.84 Mbits/sec  0.646 ms  2674/6906 (39%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #28)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 44428
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 60117
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   578 KBytes  4.74 Mbits/sec  0.654 ms  261/670 (39%)  
+[  5]   1.00-2.00   sec   592 KBytes  4.85 Mbits/sec  0.700 ms  359/778 (46%)  
+[  5]   2.00-3.00   sec   591 KBytes  4.84 Mbits/sec  0.728 ms  358/776 (46%)  
+[  5]   3.00-4.00   sec   591 KBytes  4.84 Mbits/sec  0.773 ms  359/777 (46%)  
+[  5]   4.00-5.00   sec   592 KBytes  4.85 Mbits/sec  0.690 ms  358/777 (46%)  
+[  5]   5.00-6.00   sec   591 KBytes  4.84 Mbits/sec  0.689 ms  358/776 (46%)  
+[  5]   6.00-7.00   sec   592 KBytes  4.85 Mbits/sec  0.691 ms  359/778 (46%)  
+[  5]   7.00-8.00   sec   591 KBytes  4.84 Mbits/sec  0.725 ms  358/776 (46%)  
+[  5]   8.00-9.00   sec   592 KBytes  4.85 Mbits/sec  0.658 ms  360/779 (46%)  
+[  5]   9.00-10.00  sec   591 KBytes  4.84 Mbits/sec  0.710 ms  358/776 (46%)  
+[  5]  10.00-10.14  sec  80.6 KBytes  4.79 Mbits/sec  0.671 ms  49/106 (46%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.14  sec  5.84 MBytes  4.84 Mbits/sec  0.671 ms  3537/7769 (46%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #29)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 56566
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 34648
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   578 KBytes  4.74 Mbits/sec  0.505 ms  336/745 (45%)  
+[  5]   1.00-2.00   sec   591 KBytes  4.84 Mbits/sec  0.579 ms  444/862 (52%)  
+[  5]   2.00-3.00   sec   592 KBytes  4.85 Mbits/sec  0.659 ms  445/864 (52%)  
+[  5]   3.00-4.00   sec   591 KBytes  4.84 Mbits/sec  0.531 ms  445/863 (52%)  
+[  5]   4.00-5.00   sec   592 KBytes  4.85 Mbits/sec  0.508 ms  446/865 (52%)  
+[  5]   5.00-6.00   sec   591 KBytes  4.84 Mbits/sec  0.470 ms  444/862 (52%)  
+[  5]   6.00-7.00   sec   591 KBytes  4.84 Mbits/sec  0.671 ms  445/863 (52%)  
+[  5]   7.00-8.00   sec   592 KBytes  4.85 Mbits/sec  0.772 ms  445/864 (52%)  
+[  5]   8.00-9.00   sec   591 KBytes  4.84 Mbits/sec  0.678 ms  444/862 (52%)  
+[  5]   9.00-10.00  sec   592 KBytes  4.85 Mbits/sec  0.567 ms  445/864 (52%)  
+[  5]  10.00-10.14  sec  80.6 KBytes  4.79 Mbits/sec  0.533 ms  61/118 (52%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.14  sec  5.84 MBytes  4.84 Mbits/sec  0.533 ms  4400/8632 (51%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #30)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 56582
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 52320
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   578 KBytes  4.74 Mbits/sec  0.575 ms  335/744 (45%)  
+[  5]   1.00-2.00   sec   592 KBytes  4.85 Mbits/sec  0.645 ms  446/865 (52%)  
+[  5]   2.00-3.00   sec   591 KBytes  4.85 Mbits/sec  0.490 ms  444/862 (52%)  
+[  5]   3.00-4.00   sec   591 KBytes  4.84 Mbits/sec  0.432 ms  445/863 (52%)  
+[  5]   4.00-5.00   sec   592 KBytes  4.85 Mbits/sec  0.555 ms  445/864 (52%)  
+[  5]   5.00-6.00   sec   591 KBytes  4.84 Mbits/sec  0.696 ms  444/862 (52%)  
+[  5]   6.00-7.00   sec   592 KBytes  4.85 Mbits/sec  0.750 ms  445/864 (52%)  
+[  5]   7.00-8.00   sec   591 KBytes  4.84 Mbits/sec  0.593 ms  446/864 (52%)  
+[  5]   8.00-9.00   sec   591 KBytes  4.84 Mbits/sec  0.658 ms  443/861 (51%)  
+[  5]   9.00-10.00  sec   592 KBytes  4.85 Mbits/sec  0.526 ms  446/865 (52%)  
+[  5]  10.00-10.14  sec  80.6 KBytes  4.78 Mbits/sec  0.577 ms  61/118 (52%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.14  sec  5.84 MBytes  4.84 Mbits/sec  0.577 ms  4400/8632 (51%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #31)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 37500
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 33927
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  1.02 MBytes  8.53 Mbits/sec  0.465 ms  53/789 (6.7%)  
+[  5]   1.00-2.00   sec  1.04 MBytes  8.72 Mbits/sec  0.457 ms  110/863 (13%)  
+[  5]   2.00-3.00   sec  1.04 MBytes  8.72 Mbits/sec  0.503 ms  111/864 (13%)  
+[  5]   3.00-4.00   sec  1.04 MBytes  8.72 Mbits/sec  0.501 ms  110/863 (13%)  
+[  5]   4.00-5.00   sec  1.04 MBytes  8.73 Mbits/sec  0.478 ms  110/864 (13%)  
+[  5]   5.00-6.00   sec  1.04 MBytes  8.72 Mbits/sec  0.503 ms  110/863 (13%)  
+[  5]   6.00-7.00   sec  1.04 MBytes  8.72 Mbits/sec  0.491 ms  110/863 (13%)  
+[  5]   7.00-8.00   sec  1.04 MBytes  8.72 Mbits/sec  0.477 ms  110/863 (13%)  
+[  5]   8.00-9.00   sec  1.04 MBytes  8.72 Mbits/sec  0.479 ms  110/863 (13%)  
+[  5]   9.00-10.00  sec  1.04 MBytes  8.72 Mbits/sec  0.452 ms  110/863 (13%)  
+[  5]  10.00-10.09  sec  90.5 KBytes  8.70 Mbits/sec  0.546 ms  10/74 (14%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.09  sec  10.5 MBytes  8.70 Mbits/sec  0.546 ms  1054/8632 (12%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #32)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 39126
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 38178
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  1.02 MBytes  8.53 Mbits/sec  0.446 ms  53/789 (6.7%)  
+[  5]   1.00-2.00   sec  1.04 MBytes  8.72 Mbits/sec  0.444 ms  110/863 (13%)  
+[  5]   2.00-3.00   sec  1.04 MBytes  8.72 Mbits/sec  0.528 ms  111/864 (13%)  
+[  5]   3.00-4.00   sec  1.04 MBytes  8.72 Mbits/sec  0.441 ms  110/863 (13%)  
+[  5]   4.00-5.00   sec  1.04 MBytes  8.72 Mbits/sec  0.458 ms  109/862 (13%)  
+[  5]   5.00-6.00   sec  1.04 MBytes  8.73 Mbits/sec  0.475 ms  111/865 (13%)  
+[  5]   6.00-7.00   sec  1.04 MBytes  8.72 Mbits/sec  0.434 ms  110/863 (13%)  
+[  5]   7.00-8.00   sec  1.04 MBytes  8.72 Mbits/sec  0.474 ms  110/863 (13%)  
+[  5]   8.00-9.00   sec  1.04 MBytes  8.72 Mbits/sec  0.454 ms  110/863 (13%)  
+[  5]   9.00-10.00  sec  1.04 MBytes  8.72 Mbits/sec  0.397 ms  110/863 (13%)  
+[  5]  10.00-10.09  sec  90.5 KBytes  8.72 Mbits/sec  0.504 ms  10/74 (14%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.09  sec  10.5 MBytes  8.70 Mbits/sec  0.504 ms  1054/8632 (12%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #33)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 49510
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 47201
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   322 KBytes  2.64 Mbits/sec  0.131 ms  0/228 (0%)  
+[  5]   1.00-2.00   sec   329 KBytes  2.70 Mbits/sec  0.131 ms  0/233 (0%)  
+[  5]   2.00-3.00   sec   329 KBytes  2.70 Mbits/sec  0.121 ms  0/233 (0%)  
+[  5]   3.00-4.00   sec   329 KBytes  2.70 Mbits/sec  0.118 ms  0/233 (0%)  
+[  5]   4.00-5.00   sec   331 KBytes  2.71 Mbits/sec  0.107 ms  0/234 (0%)  
+[  5]   5.00-6.00   sec   329 KBytes  2.70 Mbits/sec  0.188 ms  0/233 (0%)  
+[  5]   6.00-7.00   sec   329 KBytes  2.70 Mbits/sec  0.151 ms  0/233 (0%)  
+[  5]   7.00-8.00   sec   329 KBytes  2.70 Mbits/sec  0.152 ms  0/233 (0%)  
+[  5]   8.00-9.00   sec   329 KBytes  2.70 Mbits/sec  0.143 ms  0/233 (0%)  
+[  5]   9.00-10.00  sec   329 KBytes  2.70 Mbits/sec  0.147 ms  0/233 (0%)  
+[  5]  10.00-10.02  sec  7.07 KBytes  2.46 Mbits/sec  0.172 ms  0/5 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  3.22 MBytes  2.69 Mbits/sec  0.172 ms  0/2331 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #34)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 58332
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 51928
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   359 KBytes  2.94 Mbits/sec  0.211 ms  0/254 (0%)  
+[  5]   1.00-2.00   sec   366 KBytes  3.00 Mbits/sec  0.194 ms  0/259 (0%)  
+[  5]   2.00-3.00   sec   365 KBytes  2.99 Mbits/sec  0.213 ms  0/258 (0%)  
+[  5]   3.00-4.00   sec   366 KBytes  3.00 Mbits/sec  0.207 ms  0/259 (0%)  
+[  5]   4.00-5.00   sec   366 KBytes  3.00 Mbits/sec  0.187 ms  0/259 (0%)  
+[  5]   5.00-6.00   sec   366 KBytes  3.00 Mbits/sec  0.270 ms  0/259 (0%)  
+[  5]   6.00-7.00   sec   366 KBytes  3.00 Mbits/sec  0.267 ms  0/259 (0%)  
+[  5]   7.00-8.00   sec   366 KBytes  3.00 Mbits/sec  0.212 ms  0/259 (0%)  
+[  5]   8.00-9.00   sec   366 KBytes  3.00 Mbits/sec  0.220 ms  0/259 (0%)  
+[  5]   9.00-10.00  sec   366 KBytes  3.00 Mbits/sec  0.227 ms  0/259 (0%)  
+[  5]  10.00-10.02  sec  8.48 KBytes  2.89 Mbits/sec  0.215 ms  0/6 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  3.58 MBytes  2.99 Mbits/sec  0.215 ms  0/2590 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #35)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 52646
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 45213
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   404 KBytes  3.31 Mbits/sec  0.436 ms  0/286 (0%)  
+[  5]   1.00-2.00   sec   414 KBytes  3.39 Mbits/sec  0.450 ms  0/293 (0%)  
+[  5]   2.00-3.00   sec   414 KBytes  3.39 Mbits/sec  0.621 ms  3/296 (1%)  
+[  5]   3.00-4.00   sec   414 KBytes  3.40 Mbits/sec  0.640 ms  18/311 (5.8%)  
+[  5]   4.00-5.00   sec   414 KBytes  3.39 Mbits/sec  0.666 ms  18/311 (5.8%)  
+[  5]   5.00-6.00   sec   414 KBytes  3.39 Mbits/sec  0.503 ms  17/310 (5.5%)  
+[  5]   6.00-7.00   sec   414 KBytes  3.39 Mbits/sec  0.550 ms  18/311 (5.8%)  
+[  5]   7.00-8.00   sec   414 KBytes  3.39 Mbits/sec  0.625 ms  18/311 (5.8%)  
+[  5]   8.00-9.00   sec   414 KBytes  3.40 Mbits/sec  0.595 ms  18/311 (5.8%)  
+[  5]   9.00-10.00  sec   413 KBytes  3.38 Mbits/sec  0.612 ms  18/310 (5.8%)  
+[  5]  10.00-10.19  sec  77.8 KBytes  3.38 Mbits/sec  0.586 ms  3/58 (5.2%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.19  sec  4.11 MBytes  3.38 Mbits/sec  0.586 ms  131/3108 (4.2%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #36)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 45788
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 40944
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   406 KBytes  3.32 Mbits/sec  0.809 ms  136/423 (32%)  
+[  5]   1.00-2.00   sec   413 KBytes  3.38 Mbits/sec  0.851 ms  224/516 (43%)  
+[  5]   2.00-3.00   sec   414 KBytes  3.39 Mbits/sec  0.781 ms  225/518 (43%)  
+[  5]   3.00-4.00   sec   414 KBytes  3.39 Mbits/sec  0.802 ms  225/518 (43%)  
+[  5]   4.00-5.00   sec   414 KBytes  3.39 Mbits/sec  0.811 ms  225/518 (43%)  
+[  5]   5.00-6.00   sec   414 KBytes  3.39 Mbits/sec  0.814 ms  225/518 (43%)  
+[  5]   6.00-7.00   sec   414 KBytes  3.40 Mbits/sec  0.841 ms  226/519 (44%)  
+[  5]   7.00-8.00   sec   414 KBytes  3.39 Mbits/sec  0.784 ms  225/518 (43%)  
+[  5]   8.00-9.00   sec   414 KBytes  3.39 Mbits/sec  0.747 ms  225/518 (43%)  
+[  5]   9.00-10.00  sec   413 KBytes  3.38 Mbits/sec  0.737 ms  224/516 (43%)  
+[  5]  10.00-10.23  sec  77.8 KBytes  2.78 Mbits/sec  0.831 ms  43/98 (44%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.23  sec  4.11 MBytes  3.37 Mbits/sec  0.831 ms  2203/5180 (43%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #37)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 54654
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 57793
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   376 KBytes  3.08 Mbits/sec  0.443 ms  0/266 (0%)  
+[  5]   1.00-2.00   sec   385 KBytes  3.15 Mbits/sec  0.331 ms  0/272 (0%)  
+[  5]   2.00-3.00   sec   385 KBytes  3.15 Mbits/sec  0.355 ms  0/272 (0%)  
+[  5]   3.00-4.00   sec   385 KBytes  3.15 Mbits/sec  0.354 ms  0/272 (0%)  
+[  5]   4.00-5.00   sec   385 KBytes  3.15 Mbits/sec  0.403 ms  0/272 (0%)  
+[  5]   5.00-6.00   sec   385 KBytes  3.15 Mbits/sec  0.309 ms  0/272 (0%)  
+[  5]   6.00-7.00   sec   383 KBytes  3.14 Mbits/sec  0.340 ms  0/271 (0%)  
+[  5]   7.00-8.00   sec   385 KBytes  3.15 Mbits/sec  0.389 ms  0/272 (0%)  
+[  5]   8.00-9.00   sec   385 KBytes  3.15 Mbits/sec  0.358 ms  0/272 (0%)  
+[  5]   9.00-10.00  sec   385 KBytes  3.15 Mbits/sec  0.302 ms  0/272 (0%)  
+[  5]  10.00-10.03  sec  9.90 KBytes  3.12 Mbits/sec  0.337 ms  0/7 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.03  sec  3.76 MBytes  3.14 Mbits/sec  0.337 ms  0/2720 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #38)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 56472
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 41953
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   406 KBytes  3.32 Mbits/sec  0.481 ms  0/287 (0%)  
+[  5]   1.00-2.00   sec   413 KBytes  3.38 Mbits/sec  0.460 ms  0/292 (0%)  
+[  5]   2.00-3.00   sec   414 KBytes  3.39 Mbits/sec  0.449 ms  0/293 (0%)  
+[  5]   3.00-4.00   sec   414 KBytes  3.39 Mbits/sec  0.394 ms  0/293 (0%)  
+[  5]   4.00-5.00   sec   414 KBytes  3.39 Mbits/sec  0.497 ms  0/293 (0%)  
+[  5]   5.00-6.00   sec   414 KBytes  3.40 Mbits/sec  0.481 ms  6/299 (2%)  
+[  5]   6.00-7.00   sec   414 KBytes  3.39 Mbits/sec  0.611 ms  10/303 (3.3%)  
+[  5]   7.00-8.00   sec   414 KBytes  3.39 Mbits/sec  0.570 ms  9/302 (3%)  
+[  5]   8.00-9.00   sec   414 KBytes  3.39 Mbits/sec  0.561 ms  9/302 (3%)  
+[  5]   9.00-10.00  sec   413 KBytes  3.38 Mbits/sec  0.563 ms  9/301 (3%)  
+[  5]  10.00-10.19  sec  77.8 KBytes  3.38 Mbits/sec  0.573 ms  2/57 (3.5%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.19  sec  4.11 MBytes  3.38 Mbits/sec  0.573 ms  45/3022 (1.5%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #39)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 56994
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 33394
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   335 KBytes  2.75 Mbits/sec  0.164 ms  0/237 (0%)  
+[  5]   1.00-2.00   sec   341 KBytes  2.79 Mbits/sec  0.187 ms  0/241 (0%)  
+[  5]   2.00-3.00   sec   342 KBytes  2.80 Mbits/sec  0.174 ms  0/242 (0%)  
+[  5]   3.00-4.00   sec   342 KBytes  2.80 Mbits/sec  0.128 ms  0/242 (0%)  
+[  5]   4.00-5.00   sec   342 KBytes  2.80 Mbits/sec  0.104 ms  0/242 (0%)  
+[  5]   5.00-6.00   sec   341 KBytes  2.79 Mbits/sec  0.212 ms  0/241 (0%)  
+[  5]   6.00-7.00   sec   342 KBytes  2.80 Mbits/sec  0.129 ms  0/242 (0%)  
+[  5]   7.00-8.00   sec   342 KBytes  2.80 Mbits/sec  0.158 ms  0/242 (0%)  
+[  5]   8.00-9.00   sec   341 KBytes  2.79 Mbits/sec  0.213 ms  0/241 (0%)  
+[  5]   9.00-10.00  sec   342 KBytes  2.80 Mbits/sec  0.177 ms  0/242 (0%)  
+[  5]  10.00-10.02  sec  7.07 KBytes  2.40 Mbits/sec  0.165 ms  0/5 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  3.34 MBytes  2.79 Mbits/sec  0.165 ms  0/2417 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #40)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 55752
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 50687
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   334 KBytes  2.74 Mbits/sec  0.131 ms  0/285 (0%)  
+[  5]   1.00-2.00   sec   342 KBytes  2.80 Mbits/sec  0.105 ms  0/292 (0%)  
+[  5]   2.00-3.00   sec   342 KBytes  2.80 Mbits/sec  0.154 ms  0/292 (0%)  
+[  5]   3.00-4.00   sec   341 KBytes  2.79 Mbits/sec  0.144 ms  0/291 (0%)  
+[  5]   4.00-5.00   sec   342 KBytes  2.80 Mbits/sec  0.133 ms  0/292 (0%)  
+[  5]   5.00-6.00   sec   342 KBytes  2.80 Mbits/sec  0.150 ms  0/292 (0%)  
+[  5]   6.00-7.00   sec   341 KBytes  2.79 Mbits/sec  0.140 ms  0/291 (0%)  
+[  5]   7.00-8.00   sec   342 KBytes  2.80 Mbits/sec  0.196 ms  0/292 (0%)  
+[  5]   8.00-9.00   sec   342 KBytes  2.80 Mbits/sec  0.188 ms  0/292 (0%)  
+[  5]   9.00-10.00  sec   341 KBytes  2.80 Mbits/sec  0.133 ms  0/291 (0%)  
+[  5]  10.00-11.00  sec   342 KBytes  2.80 Mbits/sec  0.099 ms  0/292 (0%)  
+[  5]  11.00-12.00  sec   342 KBytes  2.80 Mbits/sec  0.128 ms  0/292 (0%)  
+[  5]  12.00-13.00  sec   341 KBytes  2.79 Mbits/sec  0.143 ms  0/291 (0%)  
+[  5]  13.00-14.00  sec   342 KBytes  2.80 Mbits/sec  0.163 ms  0/292 (0%)  
+[  5]  14.00-15.00  sec   341 KBytes  2.79 Mbits/sec  0.125 ms  0/291 (0%)  
+[  5]  15.00-16.00  sec   342 KBytes  2.80 Mbits/sec  0.188 ms  0/292 (0%)  
+[  5]  16.00-17.00  sec   342 KBytes  2.80 Mbits/sec  0.117 ms  0/292 (0%)  
+[  5]  17.00-18.00  sec   341 KBytes  2.79 Mbits/sec  0.139 ms  0/291 (0%)  
+[  5]  18.00-19.00  sec   342 KBytes  2.80 Mbits/sec  0.126 ms  0/292 (0%)  
+[  5]  18.00-19.00  sec   342 KBytes  2.80 Mbits/sec  0.126 ms  0/292 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-19.00  sec  6.46 MBytes  2.85 Mbits/sec  0.162 ms  0/5648 (0%)  receiver
+iperf3: the client has terminated
+-----------------------------------------------------------
+Server listening on 5202 (test #41)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 46756
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 33879
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-11911.88 sec  51.6 KBytes  35.5 bits/sec  0.105 ms  0/44 (0%)  receiver
+iperf3: the client has terminated
+-----------------------------------------------------------
+Server listening on 5202 (test #42)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 46764
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 40180
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-11912.07 sec  57.4 KBytes  39.5 bits/sec  0.356 ms  0/49 (0%)  receiver
+iperf3: the client has terminated
+-----------------------------------------------------------
+Server listening on 5202 (test #43)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 46774
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 40009
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   403 KBytes  3.30 Mbits/sec  0.525 ms  0/344 (0%)  
+[  5]   1.00-2.00   sec   411 KBytes  3.37 Mbits/sec  0.796 ms  37/388 (9.5%)  
+[  5]   2.00-3.00   sec   411 KBytes  3.37 Mbits/sec  0.918 ms  50/401 (12%)  
+[  5]   2.00-3.00   sec   411 KBytes  3.37 Mbits/sec  0.918 ms  50/401 (12%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-3.00   sec  1.38 MBytes  3.85 Mbits/sec  0.804 ms  109/1312 (8.3%)  receiver
+iperf3: the client has terminated
+-----------------------------------------------------------
+Server listening on 5202 (test #44)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 44360
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 46243
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   334 KBytes  2.73 Mbits/sec  0.153 ms  0/236 (0%)  
+[  5]   1.00-2.00   sec   342 KBytes  2.80 Mbits/sec  0.115 ms  0/242 (0%)  
+[  5]   2.00-3.00   sec   342 KBytes  2.80 Mbits/sec  0.118 ms  0/242 (0%)  
+[  5]   2.00-3.00   sec   342 KBytes  2.80 Mbits/sec  0.118 ms  0/242 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-3.00   sec  1.28 MBytes  3.58 Mbits/sec  0.088 ms  0/928 (0%)  receiver
+iperf3: the client has terminated
+-----------------------------------------------------------
+Server listening on 5202 (test #45)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 44372
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 45600
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-11938.29 sec  56.6 KBytes  38.8 bits/sec  0.533 ms  0/40 (0%)  receiver
+iperf3: the client has terminated
+-----------------------------------------------------------
+Server listening on 5202 (test #46)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 44386
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 41993
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-11938.47 sec  62.2 KBytes  42.7 bits/sec  0.502 ms  0/44 (0%)  receiver
+iperf3: the client has terminated
+-----------------------------------------------------------
+Server listening on 5202 (test #47)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 44398
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 45043
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-11938.69 sec  97.6 KBytes  67.0 bits/sec  0.627 ms  0/69 (0%)  receiver
+iperf3: the client has terminated
+-----------------------------------------------------------
+Server listening on 5202 (test #48)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 34080
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 37640
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   335 KBytes  2.74 Mbits/sec  0.134 ms  0/237 (0%)  
+[  5]   1.00-2.00   sec   341 KBytes  2.79 Mbits/sec  0.139 ms  0/241 (0%)  
+[  5]   2.00-3.00   sec   342 KBytes  2.80 Mbits/sec  0.137 ms  0/242 (0%)  
+[  5]   3.00-4.00   sec   342 KBytes  2.80 Mbits/sec  0.188 ms  0/242 (0%)  
+[  5]   4.00-5.00   sec   341 KBytes  2.79 Mbits/sec  0.152 ms  0/241 (0%)  
+[  5]   5.00-6.00   sec   342 KBytes  2.80 Mbits/sec  0.157 ms  0/242 (0%)  
+[  5]   6.00-7.00   sec   342 KBytes  2.80 Mbits/sec  0.125 ms  0/242 (0%)  
+[  5]   7.00-8.00   sec   341 KBytes  2.79 Mbits/sec  0.185 ms  0/241 (0%)  
+[  5]   8.00-9.00   sec   342 KBytes  2.80 Mbits/sec  0.105 ms  0/242 (0%)  
+[  5]   9.00-10.00  sec   342 KBytes  2.80 Mbits/sec  0.110 ms  0/242 (0%)  
+[  5]  10.00-10.02  sec  7.07 KBytes  2.35 Mbits/sec  0.124 ms  0/5 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  3.34 MBytes  2.79 Mbits/sec  0.124 ms  0/2417 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #49)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 57520
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 34128
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   376 KBytes  3.08 Mbits/sec  0.400 ms  0/266 (0%)  
+[  5]   1.00-2.00   sec   385 KBytes  3.15 Mbits/sec  0.310 ms  0/272 (0%)  
+[  5]   2.00-3.00   sec   385 KBytes  3.15 Mbits/sec  0.381 ms  0/272 (0%)  
+[  5]   3.00-4.00   sec   385 KBytes  3.15 Mbits/sec  0.324 ms  0/272 (0%)  
+[  5]   4.00-5.00   sec   385 KBytes  3.15 Mbits/sec  0.333 ms  0/272 (0%)  
+[  5]   5.00-6.00   sec   385 KBytes  3.15 Mbits/sec  0.205 ms  0/272 (0%)  
+[  5]   6.00-7.00   sec   383 KBytes  3.14 Mbits/sec  0.311 ms  0/271 (0%)  
+[  5]   7.00-8.00   sec   385 KBytes  3.15 Mbits/sec  0.182 ms  0/272 (0%)  
+[  5]   8.00-9.00   sec   385 KBytes  3.15 Mbits/sec  0.333 ms  0/272 (0%)  
+[  5]   9.00-10.00  sec   385 KBytes  3.15 Mbits/sec  0.378 ms  0/272 (0%)  
+[  5]  10.00-10.03  sec  9.90 KBytes  3.11 Mbits/sec  0.399 ms  0/7 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.03  sec  3.76 MBytes  3.14 Mbits/sec  0.399 ms  0/2720 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #50)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 53460
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 43270
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   406 KBytes  3.32 Mbits/sec  0.418 ms  0/287 (0%)  
+[  5]   1.00-2.00   sec   414 KBytes  3.39 Mbits/sec  0.554 ms  0/293 (0%)  
+[  5]   2.00-3.00   sec   414 KBytes  3.39 Mbits/sec  0.447 ms  0/293 (0%)  
+[  5]   3.00-4.00   sec   414 KBytes  3.39 Mbits/sec  0.480 ms  0/293 (0%)  
+[  5]   4.00-5.00   sec   414 KBytes  3.40 Mbits/sec  0.402 ms  0/293 (0%)  
+[  5]   5.00-6.00   sec   413 KBytes  3.38 Mbits/sec  0.494 ms  9/301 (3%)  
+[  5]   6.00-7.00   sec   414 KBytes  3.39 Mbits/sec  0.637 ms  10/303 (3.3%)  
+[  5]   7.00-8.00   sec   414 KBytes  3.39 Mbits/sec  0.587 ms  9/302 (3%)  
+[  5]   8.00-9.00   sec   414 KBytes  3.39 Mbits/sec  0.478 ms  9/302 (3%)  
+[  5]   9.00-10.00  sec   414 KBytes  3.39 Mbits/sec  0.500 ms  9/302 (3%)  
+[  5]  10.00-10.18  sec  72.1 KBytes  3.35 Mbits/sec  0.504 ms  2/53 (3.8%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.18  sec  4.11 MBytes  3.39 Mbits/sec  0.504 ms  48/3022 (1.6%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #51)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 45164
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 43350
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   406 KBytes  3.32 Mbits/sec  0.404 ms  0/287 (0%)  
+[  5]   1.00-2.00   sec   414 KBytes  3.39 Mbits/sec  0.714 ms  27/320 (8.4%)  
+[  5]   2.00-3.00   sec   414 KBytes  3.40 Mbits/sec  0.774 ms  40/333 (12%)  
+[  5]   3.00-4.00   sec   413 KBytes  3.38 Mbits/sec  0.701 ms  39/331 (12%)  
+[  5]   4.00-5.00   sec   414 KBytes  3.40 Mbits/sec  0.785 ms  40/333 (12%)  
+[  5]   5.00-6.00   sec   414 KBytes  3.39 Mbits/sec  0.638 ms  39/332 (12%)  
+[  5]   6.00-7.00   sec   414 KBytes  3.39 Mbits/sec  0.754 ms  40/333 (12%)  
+[  5]   7.00-8.00   sec   414 KBytes  3.39 Mbits/sec  0.648 ms  39/332 (12%)  
+[  5]   8.00-9.00   sec   414 KBytes  3.39 Mbits/sec  0.701 ms  40/333 (12%)  
+[  5]   9.00-10.00  sec   414 KBytes  3.39 Mbits/sec  0.676 ms  39/332 (12%)  
+[  5]  10.00-10.18  sec  72.1 KBytes  3.35 Mbits/sec  0.751 ms  7/58 (12%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.18  sec  4.11 MBytes  3.39 Mbits/sec  0.751 ms  350/3324 (11%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #52)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 36612
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 58597
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   406 KBytes  3.32 Mbits/sec  0.991 ms  9/296 (3%)  
+[  5]   1.00-2.00   sec   414 KBytes  3.39 Mbits/sec  0.875 ms  70/363 (19%)  
+[  5]   2.00-3.00   sec   413 KBytes  3.38 Mbits/sec  0.890 ms  69/361 (19%)  
+[  5]   3.00-4.00   sec   414 KBytes  3.39 Mbits/sec  0.929 ms  70/363 (19%)  
+[  5]   4.00-5.00   sec   414 KBytes  3.40 Mbits/sec  0.962 ms  69/362 (19%)  
+[  5]   5.00-6.00   sec   414 KBytes  3.39 Mbits/sec  0.849 ms  70/363 (19%)  
+[  5]   6.00-7.00   sec   414 KBytes  3.39 Mbits/sec  0.931 ms  70/363 (19%)  
+[  5]   7.00-8.00   sec   414 KBytes  3.39 Mbits/sec  0.879 ms  70/363 (19%)  
+[  5]   8.00-9.00   sec   414 KBytes  3.40 Mbits/sec  0.840 ms  69/362 (19%)  
+[  5]   9.00-10.00  sec   414 KBytes  3.39 Mbits/sec  0.841 ms  70/363 (19%)  
+[  5]  10.00-10.19  sec  76.4 KBytes  3.33 Mbits/sec  0.862 ms  13/67 (19%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.19  sec  4.11 MBytes  3.38 Mbits/sec  0.862 ms  649/3626 (18%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #53)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 57194
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 34472
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   764 KBytes  6.25 Mbits/sec  0.257 ms  0/540 (0%)  
+[  5]   1.00-2.00   sec   782 KBytes  6.41 Mbits/sec  0.243 ms  0/553 (0%)  
+[  5]   2.00-3.00   sec   781 KBytes  6.39 Mbits/sec  0.205 ms  0/552 (0%)  
+[  5]   3.00-4.00   sec   782 KBytes  6.41 Mbits/sec  0.148 ms  0/553 (0%)  
+[  5]   4.00-5.00   sec   781 KBytes  6.39 Mbits/sec  0.263 ms  0/552 (0%)  
+[  5]   5.00-6.00   sec   782 KBytes  6.41 Mbits/sec  0.255 ms  0/553 (0%)  
+[  5]   6.00-7.00   sec   781 KBytes  6.39 Mbits/sec  0.215 ms  0/552 (0%)  
+[  5]   7.00-8.00   sec   782 KBytes  6.41 Mbits/sec  0.265 ms  0/553 (0%)  
+[  5]   8.00-9.00   sec   781 KBytes  6.39 Mbits/sec  0.283 ms  0/552 (0%)  
+[  5]   9.00-10.00  sec   781 KBytes  6.39 Mbits/sec  0.331 ms  0/552 (0%)  
+[  5]  10.00-10.02  sec  18.4 KBytes  6.29 Mbits/sec  0.306 ms  0/13 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  7.63 MBytes  6.38 Mbits/sec  0.306 ms  0/5525 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #54)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 35504
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 48142
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   858 KBytes  7.03 Mbits/sec  0.224 ms  0/607 (0%)  
+[  5]   1.00-2.00   sec   880 KBytes  7.21 Mbits/sec  0.245 ms  0/622 (0%)  
+[  5]   2.00-3.00   sec   878 KBytes  7.19 Mbits/sec  0.320 ms  0/621 (0%)  
+[  5]   3.00-4.00   sec   880 KBytes  7.21 Mbits/sec  0.366 ms  0/622 (0%)  
+[  5]   4.00-5.00   sec   880 KBytes  7.21 Mbits/sec  0.388 ms  0/622 (0%)  
+[  5]   5.00-6.00   sec   878 KBytes  7.19 Mbits/sec  0.486 ms  0/621 (0%)  
+[  5]   6.00-7.00   sec   878 KBytes  7.19 Mbits/sec  0.492 ms  0/621 (0%)  
+[  5]   7.00-8.00   sec   880 KBytes  7.21 Mbits/sec  0.531 ms  0/622 (0%)  
+[  5]   8.00-9.00   sec   880 KBytes  7.21 Mbits/sec  0.423 ms  0/622 (0%)  
+[  5]   9.00-10.00  sec   878 KBytes  7.19 Mbits/sec  0.381 ms  0/621 (0%)  
+[  5]  10.00-10.02  sec  19.8 KBytes  6.68 Mbits/sec  0.479 ms  0/14 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  8.58 MBytes  7.18 Mbits/sec  0.479 ms  0/6215 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #55)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 33634
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 58741
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   925 KBytes  7.57 Mbits/sec  0.577 ms  0/654 (0%)  
+[  5]   1.00-2.00   sec   947 KBytes  7.76 Mbits/sec  0.485 ms  0/670 (0%)  
+[  5]   2.00-3.00   sec   946 KBytes  7.75 Mbits/sec  0.584 ms  14/683 (2%)  
+[  5]   3.00-4.00   sec   946 KBytes  7.75 Mbits/sec  0.328 ms  21/690 (3%)  
+[  5]   4.00-5.00   sec   947 KBytes  7.76 Mbits/sec  0.482 ms  21/691 (3%)  
+[  5]   5.00-6.00   sec   946 KBytes  7.75 Mbits/sec  0.540 ms  22/691 (3.2%)  
+[  5]   6.00-7.00   sec   947 KBytes  7.76 Mbits/sec  0.675 ms  21/691 (3%)  
+[  5]   7.00-8.00   sec   946 KBytes  7.75 Mbits/sec  0.576 ms  21/690 (3%)  
+[  5]   8.00-9.00   sec   947 KBytes  7.76 Mbits/sec  0.578 ms  21/691 (3%)  
+[  5]   9.00-10.00  sec   946 KBytes  7.75 Mbits/sec  0.593 ms  21/690 (3%)  
+[  5]  10.00-10.09  sec  89.1 KBytes  7.73 Mbits/sec  0.631 ms  2/65 (3.1%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.09  sec  9.31 MBytes  7.74 Mbits/sec  0.631 ms  164/6906 (2.4%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #56)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 35448
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 46604
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   926 KBytes  7.59 Mbits/sec  0.641 ms  42/697 (6%)  
+[  5]   1.00-2.00   sec   946 KBytes  7.75 Mbits/sec  0.635 ms  90/759 (12%)  
+[  5]   2.00-3.00   sec   947 KBytes  7.76 Mbits/sec  0.549 ms  90/760 (12%)  
+[  5]   3.00-4.00   sec   946 KBytes  7.75 Mbits/sec  0.654 ms  91/760 (12%)  
+[  5]   4.00-5.00   sec   947 KBytes  7.76 Mbits/sec  0.573 ms  90/760 (12%)  
+[  5]   5.00-6.00   sec   946 KBytes  7.75 Mbits/sec  0.528 ms  90/759 (12%)  
+[  5]   6.00-7.00   sec   947 KBytes  7.76 Mbits/sec  0.589 ms  90/760 (12%)  
+[  5]   7.00-8.00   sec   946 KBytes  7.75 Mbits/sec  0.535 ms  90/759 (12%)  
+[  5]   8.00-9.00   sec   947 KBytes  7.76 Mbits/sec  0.618 ms  90/760 (12%)  
+[  5]   9.00-10.00  sec   946 KBytes  7.75 Mbits/sec  0.659 ms  91/760 (12%)  
+[  5]  10.00-10.08  sec  77.8 KBytes  7.72 Mbits/sec  0.672 ms  7/62 (11%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.08  sec  9.30 MBytes  7.74 Mbits/sec  0.672 ms  861/7596 (11%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #57)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 40956
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 50317
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   925 KBytes  7.58 Mbits/sec  0.578 ms  97/751 (13%)  
+[  5]   1.00-2.00   sec   947 KBytes  7.76 Mbits/sec  0.579 ms  159/829 (19%)  
+[  5]   2.00-3.00   sec   946 KBytes  7.75 Mbits/sec  0.499 ms  159/828 (19%)  
+[  5]   3.00-4.00   sec   947 KBytes  7.76 Mbits/sec  0.674 ms  160/830 (19%)  
+[  5]   4.00-5.00   sec   946 KBytes  7.75 Mbits/sec  0.627 ms  159/828 (19%)  
+[  5]   5.00-6.00   sec   946 KBytes  7.75 Mbits/sec  0.477 ms  159/828 (19%)  
+[  5]   6.00-7.00   sec   947 KBytes  7.76 Mbits/sec  0.571 ms  159/829 (19%)  
+[  5]   7.00-8.00   sec   946 KBytes  7.75 Mbits/sec  0.448 ms  159/828 (19%)  
+[  5]   8.00-9.00   sec   947 KBytes  7.76 Mbits/sec  0.643 ms  160/830 (19%)  
+[  5]   9.00-10.00  sec   946 KBytes  7.75 Mbits/sec  0.542 ms  159/828 (19%)  
+[  5]  10.00-10.09  sec  89.1 KBytes  7.74 Mbits/sec  0.681 ms  15/78 (19%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.09  sec  9.31 MBytes  7.74 Mbits/sec  0.681 ms  1545/8287 (19%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #58)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 41488
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 48809
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  1.86 MBytes  15.6 Mbits/sec  0.356 ms  0/1349 (0%)  
+[  5]   1.00-2.00   sec  1.91 MBytes  16.0 Mbits/sec  0.265 ms  0/1382 (0%)  
+[  5]   2.00-3.00   sec  1.91 MBytes  16.0 Mbits/sec  0.314 ms  0/1381 (0%)  
+[  5]   3.00-4.00   sec  1.91 MBytes  16.0 Mbits/sec  0.303 ms  0/1381 (0%)  
+[  5]   4.00-5.00   sec  1.91 MBytes  16.0 Mbits/sec  0.303 ms  0/1381 (0%)  
+[  5]   5.00-6.00   sec  1.91 MBytes  16.0 Mbits/sec  0.308 ms  0/1381 (0%)  
+[  5]   6.00-7.00   sec  1.91 MBytes  16.0 Mbits/sec  0.315 ms  0/1381 (0%)  
+[  5]   7.00-8.00   sec  1.91 MBytes  16.0 Mbits/sec  0.324 ms  0/1381 (0%)  
+[  5]   8.00-9.00   sec  1.91 MBytes  16.0 Mbits/sec  0.270 ms  0/1381 (0%)  
+[  5]   9.00-10.00  sec  1.91 MBytes  16.0 Mbits/sec  0.327 ms  0/1382 (0%)  
+[  5]  10.00-10.02  sec  43.8 KBytes  14.8 Mbits/sec  0.348 ms  0/31 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  19.1 MBytes  16.0 Mbits/sec  0.348 ms  0/13811 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #59)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 56568
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 55975
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  2.12 MBytes  17.8 Mbits/sec  0.442 ms  0/1536 (0%)  
+[  5]   1.00-2.00   sec  2.15 MBytes  18.0 Mbits/sec  0.430 ms  0/1554 (0%)  
+[  5]   2.00-3.00   sec  2.14 MBytes  18.0 Mbits/sec  0.395 ms  0/1553 (0%)  
+[  5]   3.00-4.00   sec  2.15 MBytes  18.0 Mbits/sec  0.406 ms  0/1554 (0%)  
+[  5]   4.00-5.00   sec  2.15 MBytes  18.0 Mbits/sec  0.402 ms  0/1554 (0%)  
+[  5]   5.00-6.00   sec  2.15 MBytes  18.0 Mbits/sec  0.416 ms  0/1554 (0%)  
+[  5]   6.00-7.00   sec  2.14 MBytes  18.0 Mbits/sec  0.388 ms  0/1553 (0%)  
+[  5]   7.00-8.00   sec  2.15 MBytes  18.0 Mbits/sec  0.395 ms  0/1554 (0%)  
+[  5]   8.00-9.00   sec  2.15 MBytes  18.0 Mbits/sec  0.394 ms  0/1554 (0%)  
+[  5]   9.00-10.00  sec  2.15 MBytes  18.0 Mbits/sec  0.359 ms  0/1554 (0%)  
+[  5]  10.00-10.01  sec  25.5 KBytes  16.4 Mbits/sec  0.399 ms  0/18 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.01  sec  21.5 MBytes  18.0 Mbits/sec  0.399 ms  0/15538 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #60)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 48148
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 44711
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  2.26 MBytes  18.9 Mbits/sec  0.480 ms  4/1639 (0.24%)  
+[  5]   1.00-2.00   sec  2.31 MBytes  19.4 Mbits/sec  0.470 ms  53/1727 (3.1%)  
+[  5]   2.00-3.00   sec  2.31 MBytes  19.4 Mbits/sec  0.472 ms  53/1726 (3.1%)  
+[  5]   3.00-4.00   sec  2.31 MBytes  19.4 Mbits/sec  0.448 ms  52/1725 (3%)  
+[  5]   4.00-5.00   sec  2.31 MBytes  19.4 Mbits/sec  0.463 ms  53/1728 (3.1%)  
+[  5]   5.00-6.00   sec  2.31 MBytes  19.4 Mbits/sec  0.361 ms  53/1726 (3.1%)  
+[  5]   6.00-7.00   sec  2.31 MBytes  19.4 Mbits/sec  0.460 ms  53/1727 (3.1%)  
+[  5]   7.00-8.00   sec  2.31 MBytes  19.4 Mbits/sec  0.467 ms  53/1727 (3.1%)  
+[  5]   8.00-9.00   sec  2.31 MBytes  19.4 Mbits/sec  0.450 ms  53/1726 (3.1%)  
+[  5]   9.00-10.00  sec  2.31 MBytes  19.4 Mbits/sec  0.461 ms  52/1726 (3%)  
+[  5]  10.00-10.05  sec   119 KBytes  19.2 Mbits/sec  0.476 ms  3/87 (3.4%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.05  sec  23.2 MBytes  19.3 Mbits/sec  0.476 ms  482/17264 (2.8%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #61)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 60148
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 43344
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  2.26 MBytes  18.9 Mbits/sec  0.394 ms  167/1802 (9.3%)  
+[  5]   1.00-2.00   sec  2.31 MBytes  19.4 Mbits/sec  0.471 ms  225/1899 (12%)  
+[  5]   2.00-3.00   sec  2.31 MBytes  19.4 Mbits/sec  0.465 ms  226/1900 (12%)  
+[  5]   3.00-4.00   sec  2.31 MBytes  19.4 Mbits/sec  0.462 ms  226/1899 (12%)  
+[  5]   4.00-5.00   sec  2.31 MBytes  19.4 Mbits/sec  0.466 ms  225/1899 (12%)  
+[  5]   5.00-6.00   sec  2.31 MBytes  19.4 Mbits/sec  0.470 ms  225/1899 (12%)  
+[  5]   6.00-7.00   sec  2.31 MBytes  19.4 Mbits/sec  0.466 ms  226/1899 (12%)  
+[  5]   7.00-8.00   sec  2.31 MBytes  19.4 Mbits/sec  0.460 ms  225/1899 (12%)  
+[  5]   8.00-9.00   sec  2.31 MBytes  19.4 Mbits/sec  0.469 ms  226/1900 (12%)  
+[  5]   9.00-10.00  sec  2.31 MBytes  19.4 Mbits/sec  0.485 ms  225/1898 (12%)  
+[  5]  10.00-10.05  sec   119 KBytes  19.1 Mbits/sec  0.463 ms  12/96 (12%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.05  sec  23.2 MBytes  19.3 Mbits/sec  0.463 ms  2208/18990 (12%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #62)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 34804
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 42992
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  2.26 MBytes  18.9 Mbits/sec  0.468 ms  331/1966 (17%)  
+[  5]   1.00-2.00   sec  2.31 MBytes  19.4 Mbits/sec  0.468 ms  398/2072 (19%)  
+[  5]   2.00-3.00   sec  2.31 MBytes  19.4 Mbits/sec  0.473 ms  397/2071 (19%)  
+[  5]   3.00-4.00   sec  2.31 MBytes  19.4 Mbits/sec  0.476 ms  398/2071 (19%)  
+[  5]   4.00-5.00   sec  2.31 MBytes  19.4 Mbits/sec  0.464 ms  399/2073 (19%)  
+[  5]   5.00-6.00   sec  2.31 MBytes  19.4 Mbits/sec  0.472 ms  398/2071 (19%)  
+[  5]   6.00-7.00   sec  2.31 MBytes  19.4 Mbits/sec  0.450 ms  398/2072 (19%)  
+[  5]   7.00-8.00   sec  2.31 MBytes  19.4 Mbits/sec  0.461 ms  399/2073 (19%)  
+[  5]   8.00-9.00   sec  2.31 MBytes  19.4 Mbits/sec  0.471 ms  397/2070 (19%)  
+[  5]   9.00-10.00  sec  2.31 MBytes  19.4 Mbits/sec  0.469 ms  398/2072 (19%)  
+[  5]  10.00-10.05  sec   120 KBytes  19.2 Mbits/sec  0.470 ms  20/105 (19%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.05  sec  23.2 MBytes  19.3 Mbits/sec  0.470 ms  3933/20716 (19%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #63)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 41022
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 46622
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  2.80 MBytes  23.5 Mbits/sec  0.175 ms  0/2025 (0%)  
+[  5]   1.00-2.00   sec  2.86 MBytes  24.0 Mbits/sec  0.178 ms  0/2072 (0%)  
+[  5]   2.00-3.00   sec  2.86 MBytes  24.0 Mbits/sec  0.063 ms  0/2072 (0%)  
+[  5]   3.00-4.00   sec  2.86 MBytes  24.0 Mbits/sec  0.157 ms  0/2071 (0%)  
+[  5]   4.00-5.00   sec  2.86 MBytes  24.0 Mbits/sec  0.174 ms  0/2072 (0%)  
+[  5]   5.00-6.00   sec  2.86 MBytes  24.0 Mbits/sec  0.176 ms  0/2072 (0%)  
+[  5]   6.00-7.00   sec  2.86 MBytes  24.0 Mbits/sec  0.181 ms  0/2072 (0%)  
+[  5]   7.00-8.00   sec  2.86 MBytes  24.0 Mbits/sec  0.183 ms  0/2072 (0%)  
+[  5]   8.00-9.00   sec  2.86 MBytes  24.0 Mbits/sec  0.096 ms  0/2069 (0%)  
+[  5]   9.00-10.00  sec  2.86 MBytes  24.0 Mbits/sec  0.186 ms  0/2073 (0%)  
+[  5]  10.00-10.02  sec  66.5 KBytes  22.8 Mbits/sec  0.174 ms  0/47 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  28.6 MBytes  23.9 Mbits/sec  0.174 ms  0/20717 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #64)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 40896
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 55845
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  2.80 MBytes  23.5 Mbits/sec  0.180 ms  0/2025 (0%)  
+[  5]   1.00-2.00   sec  2.86 MBytes  24.0 Mbits/sec  0.180 ms  0/2072 (0%)  
+[  5]   2.00-3.00   sec  2.86 MBytes  24.0 Mbits/sec  0.168 ms  0/2072 (0%)  
+[  5]   3.00-4.00   sec  2.86 MBytes  24.0 Mbits/sec  0.176 ms  0/2071 (0%)  
+[  5]   4.00-5.00   sec  2.86 MBytes  24.0 Mbits/sec  0.176 ms  0/2072 (0%)  
+[  5]   5.00-6.00   sec  2.86 MBytes  24.0 Mbits/sec  0.163 ms  0/2072 (0%)  
+[  5]   6.00-7.00   sec  2.86 MBytes  24.0 Mbits/sec  0.174 ms  0/2072 (0%)  
+[  5]   7.00-8.00   sec  2.86 MBytes  24.0 Mbits/sec  0.102 ms  0/2071 (0%)  
+[  5]   8.00-9.00   sec  2.86 MBytes  24.0 Mbits/sec  0.176 ms  0/2071 (0%)  
+[  5]   9.00-10.00  sec  2.86 MBytes  24.0 Mbits/sec  0.170 ms  0/2072 (0%)  
+[  5]  10.00-10.02  sec  66.5 KBytes  22.7 Mbits/sec  0.172 ms  0/47 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  28.6 MBytes  23.9 Mbits/sec  0.172 ms  0/20717 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #65)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 46038
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 34736
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  7.45 MBytes  62.5 Mbits/sec  0.213 ms  0/5398 (0%)  
+[  5]   1.00-2.00   sec  7.63 MBytes  64.0 Mbits/sec  0.237 ms  0/5524 (0%)  
+[  5]   2.00-3.00   sec  7.63 MBytes  64.0 Mbits/sec  0.238 ms  0/5525 (0%)  
+[  5]   3.00-4.00   sec  7.63 MBytes  64.0 Mbits/sec  0.221 ms  0/5523 (0%)  
+[  5]   4.00-5.00   sec  7.63 MBytes  64.0 Mbits/sec  0.232 ms  0/5525 (0%)  
+[  5]   5.00-6.00   sec  7.63 MBytes  64.0 Mbits/sec  0.241 ms  0/5524 (0%)  
+[  5]   6.00-7.00   sec  7.63 MBytes  64.0 Mbits/sec  0.236 ms  0/5525 (0%)  
+[  5]   7.00-8.00   sec  7.63 MBytes  64.0 Mbits/sec  0.212 ms  0/5524 (0%)  
+[  5]   8.00-9.00   sec  7.63 MBytes  64.0 Mbits/sec  0.240 ms  0/5525 (0%)  
+[  5]   9.00-10.00  sec  7.63 MBytes  64.0 Mbits/sec  0.210 ms  0/5524 (0%)  
+[  5]  10.00-10.02  sec   181 KBytes  61.8 Mbits/sec  0.209 ms  0/128 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  76.3 MBytes  63.8 Mbits/sec  0.209 ms  0/55245 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #66)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 48674
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 54891
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  8.46 MBytes  70.9 Mbits/sec  0.221 ms  18/6141 (0.29%)  
+[  5]   1.00-2.00   sec  8.58 MBytes  72.0 Mbits/sec  0.222 ms  0/6215 (0%)  
+[  5]   2.00-3.00   sec  8.58 MBytes  72.0 Mbits/sec  0.217 ms  0/6216 (0%)  
+[  5]   3.00-4.00   sec  8.58 MBytes  72.0 Mbits/sec  0.222 ms  0/6214 (0%)  
+[  5]   4.00-5.00   sec  8.58 MBytes  72.0 Mbits/sec  0.231 ms  0/6216 (0%)  
+[  5]   5.00-6.00   sec  8.58 MBytes  72.0 Mbits/sec  0.239 ms  0/6214 (0%)  
+[  5]   6.00-7.00   sec  8.58 MBytes  72.0 Mbits/sec  0.249 ms  0/6215 (0%)  
+[  5]   7.00-8.00   sec  8.58 MBytes  72.0 Mbits/sec  0.240 ms  0/6215 (0%)  
+[  5]   8.00-9.00   sec  8.58 MBytes  72.0 Mbits/sec  0.240 ms  0/6216 (0%)  
+[  5]   9.00-10.00  sec  8.58 MBytes  72.0 Mbits/sec  0.215 ms  0/6213 (0%)  
+[  5]  10.00-10.01  sec   106 KBytes  68.1 Mbits/sec  0.210 ms  0/75 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.01  sec  85.8 MBytes  71.9 Mbits/sec  0.210 ms  18/62150 (0.029%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #67)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 49040
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 54786
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  9.04 MBytes  75.8 Mbits/sec  0.249 ms  231/6778 (3.4%)  
+[  5]   1.00-2.00   sec  9.25 MBytes  77.6 Mbits/sec  0.243 ms  211/6906 (3.1%)  
+[  5]   2.00-3.00   sec  9.24 MBytes  77.5 Mbits/sec  0.222 ms  211/6905 (3.1%)  
+[  5]   3.00-4.00   sec  9.25 MBytes  77.6 Mbits/sec  0.260 ms  212/6907 (3.1%)  
+[  5]   4.00-5.00   sec  9.24 MBytes  77.5 Mbits/sec  0.222 ms  210/6904 (3%)  
+[  5]   5.00-6.00   sec  9.24 MBytes  77.5 Mbits/sec  0.213 ms  211/6905 (3.1%)  
+[  5]   6.00-7.00   sec  9.25 MBytes  77.6 Mbits/sec  0.205 ms  212/6907 (3.1%)  
+[  5]   7.00-8.00   sec  9.24 MBytes  77.5 Mbits/sec  0.232 ms  211/6905 (3.1%)  
+[  5]   8.00-9.00   sec  9.25 MBytes  77.6 Mbits/sec  0.221 ms  211/6906 (3.1%)  
+[  5]   9.00-10.00  sec  9.24 MBytes  77.5 Mbits/sec  0.225 ms  211/6905 (3.1%)  
+[  5]  10.00-10.02  sec   173 KBytes  77.0 Mbits/sec  0.207 ms  4/127 (3.1%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.02  sec  92.4 MBytes  77.4 Mbits/sec  0.207 ms  2135/69055 (3.1%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #68)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 44320
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 37147
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  9.03 MBytes  75.8 Mbits/sec  0.244 ms  832/7372 (11%)  
+[  5]   1.00-2.00   sec  9.24 MBytes  77.5 Mbits/sec  0.258 ms  902/7596 (12%)  
+[  5]   2.00-3.00   sec  9.25 MBytes  77.6 Mbits/sec  0.257 ms  902/7597 (12%)  
+[  5]   3.00-4.00   sec  9.24 MBytes  77.5 Mbits/sec  0.225 ms  900/7594 (12%)  
+[  5]   4.00-5.00   sec  9.25 MBytes  77.6 Mbits/sec  0.212 ms  902/7597 (12%)  
+[  5]   5.00-6.00   sec  9.24 MBytes  77.5 Mbits/sec  0.214 ms  901/7595 (12%)  
+[  5]   6.00-7.00   sec  9.24 MBytes  77.5 Mbits/sec  0.235 ms  903/7597 (12%)  
+[  5]   7.00-8.00   sec  9.25 MBytes  77.6 Mbits/sec  0.213 ms  902/7597 (12%)  
+[  5]   8.00-9.00   sec  9.24 MBytes  77.5 Mbits/sec  0.227 ms  901/7595 (12%)  
+[  5]   9.00-10.00  sec  9.25 MBytes  77.6 Mbits/sec  0.227 ms  902/7597 (12%)  
+[  5]  10.00-10.03  sec   279 KBytes  77.4 Mbits/sec  0.219 ms  26/223 (12%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.03  sec  92.5 MBytes  77.4 Mbits/sec  0.219 ms  8973/75960 (12%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #69)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 40692
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 47575
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  9.03 MBytes  75.8 Mbits/sec  0.207 ms  1499/8039 (19%)  
+[  5]   1.00-2.00   sec  9.25 MBytes  77.6 Mbits/sec  0.258 ms  1595/8290 (19%)  
+[  5]   2.00-3.00   sec  9.25 MBytes  77.6 Mbits/sec  0.206 ms  1591/8286 (19%)  
+[  5]   3.00-4.00   sec  9.24 MBytes  77.5 Mbits/sec  0.217 ms  1592/8285 (19%)  
+[  5]   4.00-5.00   sec  9.25 MBytes  77.6 Mbits/sec  0.223 ms  1593/8288 (19%)  
+[  5]   5.00-6.00   sec  9.25 MBytes  77.6 Mbits/sec  0.211 ms  1592/8287 (19%)  
+[  5]   6.00-7.00   sec  9.24 MBytes  77.5 Mbits/sec  0.240 ms  1592/8286 (19%)  
+[  5]   7.00-8.00   sec  9.24 MBytes  77.5 Mbits/sec  0.216 ms  1593/8287 (19%)  
+[  5]   8.00-9.00   sec  9.25 MBytes  77.6 Mbits/sec  0.237 ms  1592/8287 (19%)  
+[  5]   9.00-10.00  sec  9.24 MBytes  77.5 Mbits/sec  0.222 ms  1593/8286 (19%)  
+[  5]  10.00-10.03  sec   281 KBytes  77.9 Mbits/sec  0.231 ms  45/244 (18%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.03  sec  92.5 MBytes  77.4 Mbits/sec  0.231 ms  15877/82865 (19%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #70)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 48314
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 34144
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  6.03 MBytes  50.6 Mbits/sec  7.395 ms  0/4365 (0%)  
+[  5]   1.00-2.00   sec   119 KBytes   973 Kbits/sec  0.648 ms  3271/3355 (97%)  
+[  5]   2.00-3.00   sec   119 KBytes   973 Kbits/sec  0.200 ms  5463/5547 (98%)  
+[  5]   3.00-4.00   sec   117 KBytes   962 Kbits/sec  0.198 ms  5393/5476 (98%)  
+[  5]   4.00-5.00   sec   119 KBytes   973 Kbits/sec  0.229 ms  5463/5547 (98%)  
+[  5]   5.00-6.00   sec   119 KBytes   973 Kbits/sec  0.229 ms  5463/5547 (98%)  
+[  5]   6.00-7.00   sec   117 KBytes   961 Kbits/sec  0.228 ms  5397/5480 (98%)  
+[  5]   7.00-8.00   sec   119 KBytes   973 Kbits/sec  0.248 ms  5461/5545 (98%)  
+[  5]   8.00-9.00   sec  84.8 KBytes   695 Kbits/sec  0.281 ms  3899/3959 (98%)  
+[  5]   9.00-10.00  sec   100 KBytes   823 Kbits/sec  3.345 ms  7050/7121 (99%)  
+[  5]  10.00-10.60  sec  69.3 KBytes   952 Kbits/sec  0.371 ms  3188/3237 (98%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.60  sec  7.09 MBytes  5.61 Mbits/sec  0.371 ms  50048/55179 (91%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #71)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 36706
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 56502
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   116 KBytes   949 Kbits/sec  1.570 ms  2369/2451 (97%)  
+[  5]   1.00-2.00   sec   119 KBytes   973 Kbits/sec  0.230 ms  6157/6241 (99%)  
+[  5]   2.00-3.00   sec   119 KBytes   973 Kbits/sec  0.190 ms  6156/6240 (99%)  
+[  5]   3.00-4.00   sec   117 KBytes   962 Kbits/sec  0.201 ms  6083/6166 (99%)  
+[  5]   4.00-5.00   sec   119 KBytes   973 Kbits/sec  0.165 ms  6156/6240 (99%)  
+[  5]   5.00-6.00   sec   119 KBytes   973 Kbits/sec  0.173 ms  6156/6240 (99%)  
+[  5]   6.00-7.00   sec   117 KBytes   962 Kbits/sec  0.161 ms  6077/6160 (99%)  
+[  5]   7.00-8.00   sec   119 KBytes   973 Kbits/sec  0.232 ms  6156/6240 (99%)  
+[  5]   8.00-9.00   sec   119 KBytes   973 Kbits/sec  0.244 ms  6157/6241 (99%)  
+[  5]   9.00-10.00  sec   117 KBytes   962 Kbits/sec  0.220 ms  6082/6165 (99%)  
+[  5]  10.00-10.60  sec  70.7 KBytes   966 Kbits/sec  0.222 ms  3661/3711 (99%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.60  sec  1.22 MBytes   967 Kbits/sec  0.222 ms  61210/62095 (99%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #72)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 57238
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 42176
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   116 KBytes   950 Kbits/sec  1.587 ms  2717/2799 (97%)  
+[  5]   1.00-2.00   sec   119 KBytes   973 Kbits/sec  0.303 ms  6847/6931 (99%)  
+[  5]   2.00-3.00   sec   119 KBytes   973 Kbits/sec  0.231 ms  6846/6930 (99%)  
+[  5]   3.00-4.00   sec   117 KBytes   961 Kbits/sec  0.219 ms  6768/6851 (99%)  
+[  5]   4.00-5.00   sec   119 KBytes   973 Kbits/sec  0.211 ms  6850/6934 (99%)  
+[  5]   5.00-6.00   sec   119 KBytes   973 Kbits/sec  0.268 ms  6849/6933 (99%)  
+[  5]   6.00-7.00   sec   117 KBytes   962 Kbits/sec  0.216 ms  6761/6844 (99%)  
+[  5]   7.00-8.00   sec   119 KBytes   973 Kbits/sec  0.214 ms  6850/6934 (99%)  
+[  5]   8.00-9.00   sec   119 KBytes   973 Kbits/sec  0.208 ms  6850/6934 (99%)  
+[  5]   9.00-10.00  sec   117 KBytes   961 Kbits/sec  0.227 ms  6767/6850 (99%)  
+[  5]  10.00-10.59  sec  69.3 KBytes   968 Kbits/sec  0.181 ms  3991/4040 (99%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.59  sec  1.22 MBytes   967 Kbits/sec  0.181 ms  68096/68980 (99%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #73)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 60900
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 38874
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   116 KBytes   950 Kbits/sec  1.628 ms  2914/2996 (97%)  
+[  5]   1.00-2.00   sec   119 KBytes   973 Kbits/sec  0.251 ms  7543/7627 (99%)  
+[  5]   2.00-3.00   sec   119 KBytes   973 Kbits/sec  0.200 ms  7543/7627 (99%)  
+[  5]   3.00-4.00   sec   117 KBytes   962 Kbits/sec  0.249 ms  7451/7534 (99%)  
+[  5]   4.00-5.00   sec   119 KBytes   972 Kbits/sec  0.266 ms  7537/7621 (99%)  
+[  5]   5.00-6.00   sec   119 KBytes   974 Kbits/sec  0.244 ms  7544/7628 (99%)  
+[  5]   6.00-7.00   sec   117 KBytes   961 Kbits/sec  0.207 ms  7452/7535 (99%)  
+[  5]   7.00-8.00   sec   119 KBytes   973 Kbits/sec  0.202 ms  7543/7627 (99%)  
+[  5]   8.00-9.00   sec   119 KBytes   973 Kbits/sec  0.218 ms  7536/7620 (99%)  
+[  5]   9.00-10.00  sec   117 KBytes   961 Kbits/sec  0.245 ms  7453/7536 (99%)  
+[  5]  10.00-10.60  sec  70.7 KBytes   967 Kbits/sec  0.184 ms  4493/4543 (99%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.60  sec  1.22 MBytes   967 Kbits/sec  0.184 ms  75009/75894 (99%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #74)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 37206
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 34245
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   116 KBytes   950 Kbits/sec  1.503 ms  3194/3276 (97%)  
+[  5]   1.00-2.00   sec   119 KBytes   973 Kbits/sec  0.272 ms  8236/8320 (99%)  
+[  5]   2.00-3.00   sec   119 KBytes   973 Kbits/sec  0.238 ms  8230/8314 (99%)  
+[  5]   3.00-4.00   sec   117 KBytes   962 Kbits/sec  0.200 ms  8138/8221 (99%)  
+[  5]   4.00-5.00   sec   119 KBytes   973 Kbits/sec  0.217 ms  8235/8319 (99%)  
+[  5]   5.00-6.00   sec   119 KBytes   973 Kbits/sec  0.181 ms  8237/8321 (99%)  
+[  5]   6.00-7.00   sec   117 KBytes   961 Kbits/sec  0.263 ms  8130/8213 (99%)  
+[  5]   7.00-8.00   sec   119 KBytes   973 Kbits/sec  0.192 ms  8236/8320 (99%)  
+[  5]   8.00-9.00   sec   119 KBytes   973 Kbits/sec  0.219 ms  8237/8321 (99%)  
+[  5]   9.00-10.00  sec   117 KBytes   961 Kbits/sec  0.228 ms  8137/8220 (99%)  
+[  5]  10.00-10.60  sec  70.7 KBytes   966 Kbits/sec  0.267 ms  4898/4948 (99%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.60  sec  1.22 MBytes   967 Kbits/sec  0.267 ms  81908/82793 (99%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #75)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 60598
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 34925
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   578 KBytes  4.74 Mbits/sec  0.479 ms  4345/4754 (91%)  
+[  5]   1.00-2.00   sec   592 KBytes  4.85 Mbits/sec  0.475 ms  5111/5530 (92%)  
+[  5]   2.00-3.00   sec   591 KBytes  4.84 Mbits/sec  0.452 ms  5101/5519 (92%)  
+[  5]   3.00-4.00   sec   592 KBytes  4.85 Mbits/sec  0.417 ms  5117/5536 (92%)  
+[  5]   4.00-5.00   sec   591 KBytes  4.84 Mbits/sec  0.418 ms  5102/5520 (92%)  
+[  5]   5.00-6.00   sec   591 KBytes  4.84 Mbits/sec  0.353 ms  5101/5519 (92%)  
+[  5]   6.00-7.00   sec   592 KBytes  4.85 Mbits/sec  0.418 ms  5111/5530 (92%)  
+[  5]   7.00-8.00   sec   591 KBytes  4.84 Mbits/sec  0.397 ms  5102/5520 (92%)  
+[  5]   8.00-9.00   sec   591 KBytes  4.84 Mbits/sec  0.559 ms  5101/5519 (92%)  
+[  5]   9.00-10.00  sec   592 KBytes  4.85 Mbits/sec  0.493 ms  5117/5536 (92%)  
+[  5]  10.00-10.14  sec  80.6 KBytes  4.81 Mbits/sec  0.501 ms  694/751 (92%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.14  sec  5.84 MBytes  4.84 Mbits/sec  0.501 ms  51002/55234 (92%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #76)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 59580
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 49680
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   578 KBytes  4.74 Mbits/sec  0.525 ms  4939/5348 (92%)  
+[  5]   1.00-2.00   sec   592 KBytes  4.86 Mbits/sec  0.466 ms  5802/6221 (93%)  
+[  5]   2.00-3.00   sec   591 KBytes  4.84 Mbits/sec  0.474 ms  5792/6210 (93%)  
+[  5]   3.00-4.00   sec   592 KBytes  4.85 Mbits/sec  0.396 ms  5809/6228 (93%)  
+[  5]   4.00-5.00   sec   591 KBytes  4.84 Mbits/sec  0.467 ms  5791/6209 (93%)  
+[  5]   5.00-6.00   sec   591 KBytes  4.84 Mbits/sec  0.446 ms  5791/6209 (93%)  
+[  5]   6.00-7.00   sec   592 KBytes  4.85 Mbits/sec  0.390 ms  5803/6222 (93%)  
+[  5]   7.00-8.00   sec   591 KBytes  4.84 Mbits/sec  0.429 ms  5791/6209 (93%)  
+[  5]   8.00-9.00   sec   592 KBytes  4.85 Mbits/sec  0.361 ms  5805/6224 (93%)  
+[  5]   9.00-10.00  sec   591 KBytes  4.84 Mbits/sec  0.458 ms  5790/6208 (93%)  
+[  5]  10.00-10.14  sec  80.6 KBytes  4.79 Mbits/sec  0.353 ms  793/850 (93%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.14  sec  5.84 MBytes  4.84 Mbits/sec  0.353 ms  57906/62138 (93%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #77)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 55754
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 59563
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   578 KBytes  4.74 Mbits/sec  0.446 ms  5533/5942 (93%)  
+[  5]   1.00-2.00   sec   592 KBytes  4.85 Mbits/sec  0.401 ms  6494/6913 (94%)  
+[  5]   2.00-3.00   sec   591 KBytes  4.84 Mbits/sec  0.509 ms  6481/6899 (94%)  
+[  5]   3.00-4.00   sec   592 KBytes  4.86 Mbits/sec  0.468 ms  6501/6920 (94%)  
+[  5]   4.00-5.00   sec   591 KBytes  4.84 Mbits/sec  0.415 ms  6481/6899 (94%)  
+[  5]   5.00-6.00   sec   591 KBytes  4.84 Mbits/sec  0.368 ms  6481/6899 (94%)  
+[  5]   6.00-7.00   sec   592 KBytes  4.86 Mbits/sec  0.479 ms  6495/6914 (94%)  
+[  5]   7.00-8.00   sec   591 KBytes  4.84 Mbits/sec  0.505 ms  6481/6899 (94%)  
+[  5]   8.00-9.00   sec   592 KBytes  4.85 Mbits/sec  0.482 ms  6493/6912 (94%)  
+[  5]   9.00-10.00  sec   591 KBytes  4.84 Mbits/sec  0.487 ms  6481/6899 (94%)  
+[  5]  10.00-10.14  sec  80.6 KBytes  4.80 Mbits/sec  0.552 ms  890/947 (94%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.14  sec  5.84 MBytes  4.84 Mbits/sec  0.552 ms  64811/69043 (94%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #78)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 54452
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 44132
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   580 KBytes  4.75 Mbits/sec  0.520 ms  6225/6635 (94%)  
+[  5]   1.00-2.00   sec   591 KBytes  4.84 Mbits/sec  0.404 ms  7171/7589 (94%)  
+[  5]   2.00-3.00   sec   592 KBytes  4.85 Mbits/sec  0.453 ms  7185/7604 (94%)  
+[  5]   3.00-4.00   sec   591 KBytes  4.84 Mbits/sec  0.403 ms  7171/7589 (94%)  
+[  5]   4.00-5.00   sec   591 KBytes  4.84 Mbits/sec  0.469 ms  7171/7589 (94%)  
+[  5]   5.00-6.00   sec   592 KBytes  4.86 Mbits/sec  0.501 ms  7185/7604 (94%)  
+[  5]   6.00-7.00   sec   591 KBytes  4.84 Mbits/sec  0.449 ms  7179/7597 (94%)  
+[  5]   7.00-8.00   sec   591 KBytes  4.84 Mbits/sec  0.512 ms  7171/7589 (94%)  
+[  5]   8.00-9.00   sec   591 KBytes  4.84 Mbits/sec  0.481 ms  7185/7604 (94%)  
+[  5]   9.00-10.00  sec   591 KBytes  4.84 Mbits/sec  0.445 ms  7172/7590 (94%)  
+[  5]  10.00-10.13  sec  74.9 KBytes  4.84 Mbits/sec  0.580 ms  911/964 (95%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.13  sec  5.84 MBytes  4.84 Mbits/sec  0.580 ms  71726/75954 (94%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #79)
+-----------------------------------------------------------
+Accepted connection from 169.254.59.200, port 37962
+[  5] local 169.254.59.170 port 5202 connected to 169.254.59.200 port 38720
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec   580 KBytes  4.75 Mbits/sec  0.440 ms  6821/7231 (94%)  
+[  5]   1.00-2.00   sec   591 KBytes  4.84 Mbits/sec  0.513 ms  7868/8286 (95%)  
+[  5]   2.00-3.00   sec   591 KBytes  4.84 Mbits/sec  0.536 ms  7862/8280 (95%)  
+[  5]   3.00-4.00   sec   592 KBytes  4.85 Mbits/sec  0.531 ms  7875/8294 (95%)  
+[  5]   4.00-5.00   sec   591 KBytes  4.84 Mbits/sec  0.541 ms  7861/8279 (95%)  
+[  5]   5.00-6.00   sec   592 KBytes  4.85 Mbits/sec  0.465 ms  7880/8299 (95%)  
+[  5]   6.00-7.00   sec   591 KBytes  4.84 Mbits/sec  0.555 ms  7863/8281 (95%)  
+[  5]   7.00-8.00   sec   592 KBytes  4.85 Mbits/sec  0.486 ms  7881/8300 (95%)  
+[  5]   8.00-9.00   sec   591 KBytes  4.84 Mbits/sec  0.450 ms  7860/8278 (95%)  
+[  5]   9.00-10.00  sec   591 KBytes  4.84 Mbits/sec  0.493 ms  7861/8279 (95%)  
+[  5]  10.00-10.13  sec  74.9 KBytes  4.83 Mbits/sec  0.470 ms  994/1047 (95%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.13  sec  5.84 MBytes  4.84 Mbits/sec  0.470 ms  78626/82854 (95%)  receiver
+-----------------------------------------------------------
+Server listening on 5202 (test #80)
+-----------------------------------------------------------
+

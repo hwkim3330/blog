@@ -1,0 +1,1030 @@
+.42.0.20240723) #1 SMP PREEMPT Wed May 14 13:40:03 UTC 2025
+[    0.000000] Machine model: NXP S32G2 Reference Design Board 2 (S32G-VNP-RDB2)
+[    0.000000] earlycon: linflex0 at MMIO 0x00000000401c8000 (options '')
+[    0.000000] printk: legacy bootconsole [linflex0] enabled
+[    0.000000] OF: reserved mem: 0x0000000034000000..0x000000003407ffff (512 KiB) nomap non-reusable pfebufs@34000000
+[    0.000000] OF: reserved mem: 0x0000000034080000..0x000000003409ffff (128 KiB) nomap non-reusable pfebufs@34080000
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000083200000, size 3 MiB
+[    0.000000] OF: reserved mem: initialized node pfebufs@83200000, compatible id shared-dma-pool
+[    0.000000] OF: reserved mem: 0x0000000083200000..0x00000000835dffff (3968 KiB) nomap non-reusable pfebufs@83200000
+[    0.000000] OF: reserved mem: 0x00000000835e0000..0x00000000835fffff (128 KiB) map non-reusable pfebufs@835e0000
+[    0.000000] OF: reserved mem: 0x0000000084000000..0x0000000084ffffff (16384 KiB) nomap non-reusable shm@84000000
+[    0.000000] OF: reserved mem: 0x00000000c0000000..0x00000000c03fffff (4096 KiB) nomap non-reusable shm@c0000000
+[    0.000000] OF: reserved mem: 0x00000000c0400000..0x00000000c07fffff (4096 KiB) nomap non-reusable shm@c0400000
+[    0.000000] OF: reserved mem: 0x00000000d0000000..0x00000000d000007f (0 KiB) nomap non-reusable shm@d0000000
+[    0.000000] OF: reserved mem: 0x00000000d0000080..0x00000000d00000ff (0 KiB) nomap non-reusable shm@d0000080
+[    0.000000] OF: reserved mem: 0x00000000ff600000..0x00000000ff7fffff (2048 KiB) nomap non-reusable atf@ff600000
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000080000000-0x00000000ffffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   [mem 0x0000000100000000-0x00000008ffffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080000000-0x00000000831fffff]
+[    0.000000]   node   0: [mem 0x0000000083200000-0x00000000835dffff]
+[    0.000000]   node   0: [mem 0x00000000835e0000-0x0000000083ffffff]
+[    0.000000]   node   0: [mem 0x0000000084000000-0x0000000084ffffff]
+[    0.000000]   node   0: [mem 0x0000000085000000-0x00000000bfffffff]
+[    0.000000]   node   0: [mem 0x00000000c0000000-0x00000000c07fffff]
+[    0.000000]   node   0: [mem 0x00000000c0800000-0x00000000cfffffff]
+[    0.000000]   node   0: [mem 0x00000000d0001000-0x00000000ff5fffff]
+[    0.000000]   node   0: [mem 0x00000000ff600000-0x00000000ff7fffff]
+[    0.000000]   node   0: [mem 0x00000000ff800000-0x00000000ffffffff]
+[    0.000000]   node   0: [mem 0x0000000880000000-0x00000008ffffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080000000-0x00000008ffffffff]
+[    0.000000] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.000000] cma: Reserved 256 MiB at 0x00000000ef600000 on node -1
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.4
+[    0.000000] percpu: Embedded 19 pages/cpu s40104 r8192 d29528 u77824
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] CPU features: detected: NXP erratum ERR050481 (TLBI by VA handled incorrectly)
+[    0.000000] CPU features: detected: ARM errata 1165522, 1319367, 1530923, or 1530924
+[    0.000000] alternatives: applying boot alternatives
+[    0.000000] Kernel command line: console=ttyLF0,115200 root=/dev/mmcblk0p3 rootwait rw earlycon
+[    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 1032191
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] software IO TLB: area num 4.
+[    0.000000] software IO TLB: mapped [mem 0x00000000eb600000-0x00000000ef600000] (64MB)
+[    0.000000] Memory: 3737540K/4194300K available (10688K kernel code, 738K rwdata, 3220K rodata, 1984K init, 233K bss, 194616K reserved, 262144K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu:     RCU event tracing is enabled.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000]  Trampoline variant of Tasks RCU enabled.
+[    0.000000]  Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 544 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] GICv3: MBI range [167:182]
+[    0.000000] GICv3: Using MBI frame 0x0000000050800000
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GICv3: GICv3 features: 16 PPIs
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x0000000050880000
+[    0.000000] ITS: No ITS available, not enabling LPIs
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] arch_timer: cp15 timer(s) running at 5.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x127350b88, max_idle_ns: 440795202120 ns
+[    0.000001] sched_clock: 56 bits at 5MHz, resolution 200ns, wraps every 4398046511100ns
+[    0.008462] Console: colour dummy device 80x25
+[    0.012521] Calibrating delay loop (skipped), value calculated using timer frequency.. 10.00 BogoMIPS (lpj=20000)
+[    0.022724] pid_max: default: 32768 minimum: 301
+[    0.027452] Mount-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.034716] Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.044330] RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.052699] RCU Tasks Trace: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.062053] rcu: Hierarchical SRCU implementation.
+[    0.066587] rcu:     Max phase no-delay instances is 1000.
+[    0.072872] smp: Bringing up secondary CPUs ...
+[    0.077711] Detected VIPT I-cache on CPU1
+[    0.077795] GICv3: CPU1: found redistributor 1 region 0:0x00000000508a0000
+[    0.077849] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.078640] Detected VIPT I-cache on CPU2
+[    0.078718] GICv3: CPU2: found redistributor 100 region 0:0x00000000508c0000
+[    0.078757] CPU2: Booted secondary processor 0x0000000100 [0x410fd034]
+[    0.079461] Detected VIPT I-cache on CPU3
+[    0.079511] GICv3: CPU3: found redistributor 101 region 0:0x00000000508e0000
+[    0.079536] CPU3: Booted secondary processor 0x0000000101 [0x410fd034]
+[    0.079627] smp: Brought up 1 node, 4 CPUs
+[    0.135750] SMP: Total of 4 processors activated.
+[    0.140417] CPU features: detected: 32-bit EL0 Support
+[    0.145559] CPU features: detected: CRC32 instructions
+[    0.150743] CPU: All CPU(s) started at EL2
+[    0.154751] alternatives: applying system-wide alternatives
+[    0.162490] devtmpfs: initialized
+[    0.176303] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.185665] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.201849] pinctrl core: initialized pinctrl subsystem
+[    0.207674] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.214314] DMA: preallocated 512 KiB GFP_KERNEL pool for atomic allocations
+[    0.221210] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.229001] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.237038] thermal_sys: Registered thermal governor 'step_wise'
+[    0.237187] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.249630] ASID allocator initialised with 65536 entries
+[    0.255051] Serial: AMBA PL011 UART driver
+[    0.259059] scmi_core: SCMI protocol bus registered
+[    0.265172] scmi_protocol scmi_dev.1: Enabled polling mode TX channel - prot_id:16
+[    0.272743] arm-scmi firmware:scmi: SCMI Notifications - Core Enabled.
+[    0.278914] arm-scmi firmware:scmi: SCMI Protocol v2.0 'NXP:S32G274A' Firmware version 0x0
+[    0.296096] /soc/interrupt-controller@50800000: Fixed dependency cycle(s) with /soc/interrupt-controller@50800000
+[    0.308286] /soc/siul2@4009c000/siul2-pinctrl@4009c240: Fixed dependency cycle(s) with /soc/siul2@4009c000/siul2-pinctrl@4009c240/jtag_pins
+[    0.330905] Modules: 28512 pages in range for non-PLT usage
+[    0.330927] Modules: 520032 pages in range for PLT usage
+[    0.336690] HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.348345] HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+[    0.354594] HugeTLB: registered 32.0 MiB page size, pre-allocated 0 pages
+[    0.361362] HugeTLB: 0 KiB vmemmap can be freed for a 32.0 MiB page
+[    0.367616] HugeTLB: registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.374382] HugeTLB: 0 KiB vmemmap can be freed for a 2.00 MiB page
+[    0.380634] HugeTLB: registered 64.0 KiB page size, pre-allocated 0 pages
+[    0.387402] HugeTLB: 0 KiB vmemmap can be freed for a 64.0 KiB page
+[    0.403369] SCSI subsystem initialized
+[    0.406927] usbcore: registered new interface driver usbfs
+[    0.412207] usbcore: registered new interface driver hub
+[    0.417509] usbcore: registered new device driver usb
+[    0.423269] pps_core: LinuxPPS API ver. 1 registered
+[    0.427803] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.436929] PTP clock support registered
+[    0.442092] vgaarb: loaded
+[    0.444736] clocksource: Switched to clocksource arch_sys_counter
+[    0.458658] NET: Registered PF_INET protocol family
+[    0.463406] IP idents hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.473857] tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes, linear)
+[    0.482048] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.489695] TCP established hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.497839] TCP bind hash table entries: 32768 (order: 8, 1048576 bytes, linear)
+[    0.506117] TCP: Hash tables configured (established 32768 bind 32768)
+[    0.512448] UDP hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.519020] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.526314] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.532217] RPC: Registered named UNIX socket transport module.
+[    0.537716] RPC: Registered udp transport module.
+[    0.542395] RPC: Registered tcp transport module.
+[    0.547079] RPC: Registered tcp-with-tls transport module.
+[    0.552550] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.559007] PCI: CLS 0 bytes, default 64
+[    0.564323] workingset: timestamp_bits=62 max_order=20 bucket_order=0
+[    0.571006] fuse: init (API version 7.39)
+[    0.574790] NET: Registered PF_ALG protocol family
+[    0.579415] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    0.586746] io scheduler mq-deadline registered
+[    0.591254] io scheduler kyber registered
+[    0.595257] io scheduler bfq registered
+[    0.603552] s32cc-siul2-pinctrl 4009c240.siul2-pinctrl: initialized s32 pinctrl driver
+[    0.612942] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.620843] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.629331] gpio gpiochip0: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.638897] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.646734] s32cc-siul2-gpio 4009d700.siul2-gpio: No cache defaults, reading back from HW
+[    0.666819] printk: legacy console [ttyLF0] enabled000 (irq = 23, base_baud = 7812500) is a FSL_LINFLEX
+[    0.666819] printk: legacy console [ttyLF0] enabled
+[    0.676734] printk: legacy bootconsole [linflex0] disabled
+[    0.676734] printk: legacy bootconsole [linflex0] disabled
+[    0.689653] 401cc000.serial: ttyLF1 at MMIO 0x401cc000 (irq = 24, base_baud = 7812500) is a FSL_LINFLEX
+[    0.701023] s32cc_fccu 4030c000.fccu: FCCU status is 0 (normal)
+[    0.710227] sja1110-sw@1 enforce active low on GPIO handle
+[    0.718800] spi-nor spi6.0: mx25uw51245g (65536 Kbytes)
+[    0.724710] 8 fixed-partitions partitions found on MTD device 0.spi
+[    0.731103] Creating 8 MTD partitions on "0.spi":
+[    0.735883] 0x000000000000-0x000004000000 : "Flash-Image"
+[    0.741749] 0x000000000000-0x0000000d0000 : "BL2"
+[    0.746858] 0x0000000d0000-0x0000002a0000 : "FIP"
+[    0.751965] 0x0000002a0000-0x0000002b0000 : "U-Boot-Env"
+[    0.757687] 0x0000002b0000-0x000001380000 : "Kernel"
+[    0.763052] 0x000001380000-0x0000013b0000 : "DTB"
+[    0.768178] 0x0000013b0000-0x0000032c0000 : "Rootfs"
+[    0.773553] 0x0000032c0000-0x000004000000 : "PFE-Firmware"
+[    0.781786] vcan: Virtual CAN interface driver
+[    0.786313] slcan: serial line CAN interface driver
+[    0.791266] CAN device driver interface
+[    0.796504] flexcan 401b4000.can: device registered (reg_base=(____ptrval____), irq(s):
+[    0.804651] flexcan 401b4000.can:  30
+[    0.808382] flexcan 401b4000.can:  31
+[    0.812102] flexcan 401b4000.can:  32
+[    0.815823] flexcan 401b4000.can:  33
+[    0.819542] flexcan 401b4000.can: )
+[    0.824119] flexcan 401be000.can: device registered (reg_base=(____ptrval____), irq(s):
+[    0.832262] flexcan 401be000.can:  34
+[    0.835994] flexcan 401be000.can:  35
+[    0.839714] flexcan 401be000.can:  36
+[    0.843434] flexcan 401be000.can:  37
+[    0.847151] flexcan 401be000.can: )
+[    0.851037] e100: Intel(R) PRO/100 Network Driver
+[    0.855815] e100: Copyright(c) 1999-2006 Intel Corporation
+[    0.861412] e1000: Intel(R) PRO/1000 Network Driver
+[    0.866364] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    0.872226] e1000e: Intel(R) PRO/1000 Network Driver
+[    0.877264] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    0.883301] igb: Intel(R) Gigabit Ethernet Network Driver
+[    0.888789] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    0.895746] hse-uio 40210000.mu0b: firmware not found
+[    0.901505] usbcore: registered new interface driver uas
+[    0.906942] usbcore: registered new interface driver usb-storage
+[    0.914192] imx_usb 44064000.usb: No over current polarity defined
+[    0.933123] ci_hdrc ci_hdrc.0: EHCI Host Controller
+[    0.938262] ci_hdrc ci_hdrc.0: new USB bus registered, assigned bus number 1
+[    0.960745] ci_hdrc ci_hdrc.0: USB 2.0 started, EHCI 1.00
+[    0.966410] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.06
+[    0.974805] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.982140] usb usb1: Product: EHCI Host Controller
+[    0.987095] usb usb1: Manufacturer: Linux 6.6.85-rt53-g6208e1d0d7b5 ehci_hcd
+[    0.994256] usb usb1: SerialNumber: ci_hdrc.0
+[    0.999281] hub 1-0:1.0: USB hub found
+[    1.003124] hub 1-0:1.0: 1 port detected
+[    1.009050] s32cc-rtc 40060000.rtc: registered as rtc0
+[    1.014304] s32cc-rtc 40060000.rtc: setting system clock to 1970-01-01T00:00:00 UTC (0)
+[    1.022643] i2c_dev: i2c /dev entries driver
+[    1.027569] s32cc-wdt 4010c000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.037651] s32cc-wdt 40200000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.046945] s32cc-wdt 40204000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.056222] s32cc-wdt 40208000.watchdog: S32CC Watchdog Timer Registered. timeout=30s (nowayout=0)
+[    1.067327] sdhci: Secure Digital Host Controller Interface driver
+[    1.073636] sdhci: Copyright(c) Pierre Ossman
+[    1.078067] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.084112] SMCCC: SOC_ID: ARCH_SOC_ID not implemented, skipping ....
+[    1.091363] hse 40211000.mu1b: interface mu1b not active
+[    1.097461] usbcore: registered new interface driver usbhid
+[    1.103143] usbhid: USB HID core driver
+[    1.116488] mmc0: SDHCI controller on 402f0000.mmc [402f0000.mmc] using ADMA
+[    1.123823] s32-adc 401f8000.adc: using dma0chan4 for ADC DMA transfers
+[    1.131284] s32-adc 401f8000.adc: Device initialized successfully.
+[    1.149023] s32-adc 402e8000.adc: using dma1chan16 for ADC DMA transfers
+[    1.156401] s32-adc 402e8000.adc: Device initialized successfully.
+[    1.163445] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 7 counters available
+[    1.173605] s32-siul2-nvmem 4009c000.nvram: Initialized s32cc siul2 nvmem driver
+[    1.181393] s32-siul2-nvmem 44010000.nvram: Initialized s32cc siul2 nvmem driver
+[    1.189604] GACT probability on
+[    1.192865] Mirror/redirect action on
+[    1.196626] Simple TC action Loaded
+[    1.200316] mmc0: new high speed SDHC card at address 0001
+[    1.200772] netem: version 1.3
+[    1.206597] mmcblk0: mmc0:0001 SD32G 28.8 GiB
+[    1.209052] u32 classifier
+[    1.216241]     Performance counters on
+[    1.216256]  mmcblk0: p1 p2 p3
+[    1.220155]     input device check on
+[    1.226962]     Actions configured
+[    1.231785] xt_time: kernel timezone is -0000
+[    1.236468] NET: Registered PF_INET6 protocol family
+[    1.242489] Segment Routing with IPv6
+[    1.246299] In-situ OAM (IOAM) with IPv6
+[    1.250399] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    1.256984] NET: Registered PF_PACKET protocol family
+[    1.262284] can: controller area network core
+[    1.266754] NET: Registered PF_CAN protocol family
+[    1.271626] can: raw protocol
+[    1.274647] can: broadcast manager protocol
+[    1.278903] can: netlink gateway - max_hops=1
+[    1.283397] 8021q: 802.1Q VLAN Support v1.8
+[    1.307942] i2c i2c-0: using pinctrl states for GPIO recovery
+[    1.313930] i2c i2c-0: using generic GPIOs for recovery
+[    1.320010] pca953x 0-0022: using AI
+[    1.330589] rtc-pcf85063 0-0051: registered as rtc1
+[    1.335616] i2c i2c-0: IMX I2C adapter registered
+[    1.340449] i2c i2c-0: using dma0chan5 (tx) and dma0chan6 (rx) for DMA transfers
+[    1.348848] i2c i2c-2: using pinctrl states for GPIO recovery
+[    1.354776] i2c i2c-2: using generic GPIOs for recovery
+[    1.360166] i2c i2c-2: IMX I2C adapter registered
+[    1.364995] i2c i2c-2: using dma1chan17 (tx) and dma1chan18 (rx) for DMA transfers
+[    1.373453] i2c i2c-4: using pinctrl states for GPIO recovery
+[    1.379359] i2c i2c-4: using generic GPIOs for recovery
+[    1.386243] ina2xx 4-0040: power monitor ina231 (Rshunt = 1000 uOhm)
+[    1.392758] i2c i2c-4: IMX I2C adapter registered
+[    1.397591] i2c i2c-4: using dma1chan19 (tx) and dma1chan20 (rx) for DMA transfers
+[    1.426348] phy-s32cc-serdes 40480000.serdes: Using mode 0 for SerDes subsystem
+[    1.434263] phy-s32cc-serdes 44180000.serdes: Using mode 4 for SerDes subsystem
+[    1.764589] s32cc-pcie 40400000.pcie: Failed to stabilize PHY link
+[    1.770877] s32cc-pcie 40400000.pcie: Configuring as RootComplex
+[    1.777024] s32cc-pcie 40400000.pcie: host bridge /soc/pcie@40400000 ranges:
+[    1.784212] s32cc-pcie 40400000.pcie:       IO 0x5ffffe0000..0x5ffffeffff -> 0x0000000000
+[    1.792536] s32cc-pcie 40400000.pcie:      MEM 0x5800000000..0x5ffffdffff -> 0x0000000000
+[    1.800861] s32cc-pcie 40400000.pcie: Memory resource size exceeds max for 32 bits
+[    2.808714] s32cc-pcie 40400000.pcie: Phy link never came up
+[    2.814497] s32cc-pcie 40400000.pcie: Link Up failed, EndPoint may not be connected
+[    2.822296] s32cc-pcie 40400000.pcie: iATU: unroll T, 6 ob, 4 ib, align 4K, limit 1024G
+[    3.830620] s32cc-pcie 40400000.pcie: Phy link never came up
+[    3.836378] s32cc-pcie 40400000.pcie: Link Up failed, EndPoint may not be connected
+[    4.836854] s32cc-pcie 40400000.pcie: Phy link never came up
+[    4.843201] s32cc-pcie 40400000.pcie: PCI host bridge to bus 0000:00
+[    4.849666] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    4.855244] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    4.861525] pci_bus 0000:00: root bus resource [mem 0x5800000000-0x5ffffdffff] (bus address [0x00000000-0x7fffdffff])
+[    4.872333] pci 0000:00:00.0: [1957:4002] type 01 class 0x060400
+[    4.878450] pci 0000:00:00.0: reg 0x10: [mem 0x5800000000-0x58000fffff]
+[    4.885182] pci 0000:00:00.0: reg 0x38: [mem 0x5800000000-0x580000ffff pref]
+[    4.892433] pci 0000:00:00.0: supports D1
+[    4.896509] pci 0000:00:00.0: PME# supported from D0 D1 D3hot D3cold
+[    4.906646] pci 0000:00:00.0: BAR 0: assigned [mem 0x5800000000-0x58000fffff]
+[    4.913908] pci 0000:00:00.0: BAR 6: assigned [mem 0x5800100000-0x580010ffff pref]
+[    4.921602] pci 0000:00:00.0: PCI bridge to [bus 01-ff]
+[    4.927287] pcieport 0000:00:00.0: PME: Signaling with IRQ 51
+[    4.934492] s32cc-dwmac 4033c000.ethernet: IRQ eth_wake_irq not found
+[    4.941063] s32cc-dwmac 4033c000.ethernet: IRQ eth_lpi not found
+[    4.948152] s32cc-dwmac 4033c000.ethernet: User ID: 0x10, Synopsys ID: 0x51
+[    4.955249] s32cc-dwmac 4033c000.ethernet:   DWMAC4/5
+[    4.960304] s32cc-dwmac 4033c000.ethernet: DMA HW capability register supported
+[    4.967736] s32cc-dwmac 4033c000.ethernet: RX Checksum Offload Engine supported
+[    4.975158] s32cc-dwmac 4033c000.ethernet: TX Checksum insertion supported
+[    4.982140] s32cc-dwmac 4033c000.ethernet: Wake-Up On Lan supported
+[    4.988564] s32cc-dwmac 4033c000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    4.996516] s32cc-dwmac 4033c000.ethernet: Enabled L3L4 Flow TC (entries=8)
+[    5.003606] s32cc-dwmac 4033c000.ethernet: Enabled RFS Flow TC (entries=10)
+[    5.010728] s32cc-dwmac 4033c000.ethernet: Enabling HW TC (entries=256, max_off=256)
+[    5.018599] s32cc-dwmac 4033c000.ethernet: Using 32/32 bits DMA host/device width
+[    5.032824] hwmon hwmon1: temp1_input not attached to any thermal zone
+[    5.042228] qoriq_thermal 400a8000.tmu: Critical rising/falling temperature threshold = 5 degree(s)
+[    5.056938] nxp_s32cc_ddr_perf 403e0000.ddr-perf: probing device
+[    5.063416] nxp_s32cc_ddr_perf 403e0000.ddr-perf: device initialized successfully
+[    5.071344] clk: Disabling unused clocks
+[    5.149871] EXT4-fs (mmcblk0p3): recovery complete
+[    5.155783] EXT4-fs (mmcblk0p3): mounted filesystem 7998e1b8-8d1a-412f-8924-0a57aa6bfd99 r/w with ordered data mode. Quota mode: disabled.
+[    5.167885] VFS: Mounted root (ext4 filesystem) on device 179:3.
+[    5.174724] devtmpfs: mounted
+[    5.178126] Freeing unused kernel memory: 1984K
+[    5.182542] Run /sbin/init as init process
+[    5.714968] systemd[1]: System time before build time, advancing clock.
+[    5.800538] systemd[1]: systemd 255.13^ running in system mode (+PAM -AUDIT -SELINUX -APPARMOR +IMA -SMACK +SECCOMP -GCRYPT -GNUTLS -OPENSSL +ACL +BLKID -CURL -ELFUTILS -FIDO2 -IDN2 -IDN -IPTC +KMOD -LIBCRYPTSETUP +LIBFDISK -PCRE2 -PWQUALITY -P11KIT -QRENCODE -TPM2 -BZIP2 -LZ4 -XZ -ZLIB +ZSTD -BPF_FRAMEWORK +XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[    5.832154] systemd[1]: Detected architecture arm64.
+
+Welcome to Auto Linux BSP 44.0 (scarthgap)!
+
+[    5.859084] systemd[1]: Hostname set to <s32g274ardb2>.
+[    6.461046] systemd[1]: Queued start job for default target Multi-User System.
+[    6.473317] systemd[1]: Created slice Slice /system/getty.
+[  OK  ] Created slice Slice /system/getty.
+[    6.498319] systemd[1]: Created slice Slice /system/modprobe.
+[  OK  ] Created slice Slice /system/modprobe.
+[    6.522283] systemd[1]: Created slice Slice /system/serial-getty.
+[  OK  ] Created slice Slice /system/serial-getty.
+[    6.545680] systemd[1]: Created slice User and Session Slice.
+[  OK  ] Created slice User and Session Slice.
+[    6.569216] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.
+[  OK  ] Started Dispatch Password Requests to Console Directory Watch.
+[    6.597105] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[  OK  ] Started Forward Password Requests to Wall Directory Watch.
+[    6.621105] systemd[1]: Reached target Path Units.
+[  OK  ] Reached target Path Units.
+[    6.640909] systemd[1]: Reached target Remote File Systems.
+[  OK  ] Reached target Remote File Systems.
+[    6.660889] systemd[1]: Reached target Slice Units.
+[  OK  ] Reached target Slice Units.
+[    6.680912] systemd[1]: Reached target Swaps.
+[  OK  ] Reached target Swaps.
+[    6.737799] systemd[1]: Listening on RPCbind Server Activation Socket.
+[  OK  ] Listening on RPCbind Server Activation Socket.
+[    6.761082] systemd[1]: Reached target RPC Port Mapper.
+[  OK  ] Reached target RPC Port Mapper.
+[    6.781628] systemd[1]: Listening on Syslog Socket.
+[  OK  ] Listening on Syslog Socket.
+[    6.801275] systemd[1]: Listening on initctl Compatibility Named Pipe.
+[  OK  ] Listening on initctl Compatibility Named Pipe.
+[    6.831766] systemd[1]: Journal Audit Socket was skipped because of an unmet condition check (ConditionSecurity=audit).
+[    6.842989] systemd[1]: Listening on Journal Socket (/dev/log).
+[  OK  ] Listening on Journal Socket (/dev/log).
+[    6.865637] systemd[1]: Listening on Journal Socket.
+[  OK  ] Listening on Journal Socket.
+[    6.885869] systemd[1]: Listening on Network Service Netlink Socket.
+[  OK  ] Listening on Network Service Netlink Socket.
+[    6.922137] systemd[1]: Listening on udev Control Socket.
+[  OK  ] Listening on udev Control Socket.
+[    6.945545] systemd[1]: Listening on udev Kernel Socket.
+[  OK  ] Listening on udev Kernel Socket.
+[    6.965551] systemd[1]: Listening on User Database Manager Socket.
+[  OK  ] Listening on User Database Manager Socket.
+[    7.020967] systemd[1]: Mounting Huge Pages File System...
+        [    7.026768] systemd[1]: POSIX Message Queue File System was skipped because of an unmet condition check (ConditionPathExists=/proc/sys/fs/mqueue).
+ Mounting Huge Pages File S[    7.042962] systemd[1]: Mounting Kernel Debug File System...
+ystem...
+         Mounting Kernel Debug File System...
+[    7.077279] systemd[1]: Kernel Trace File System was skipped because of an unmet condition check (ConditionPathExists=/sys/kernel/tracing).
+[    7.090015] systemd[1]: Create List of Static Device Nodes was skipped because of an unmet condition check (ConditionFileNotEmpty=/lib/modules/6.6.85-rt53-g6208e1d0d7b5/modules.devname).
+[    7.109922] systemd[1]: Starting Load Kernel Module configfs...
+         Starting Load Kernel Module configfs...
+[    7.136489] systemd[1]: Starting Load Kernel Module drm...
+         Starting Load Kernel Module drm...
+[    7.160651] systemd[1]: Starting Load Kernel Module fuse...
+         Starting Load Kernel Module fuse...
+[    7.193336] systemd[1]: Starting RPC Bind...
+         Starting RPC Bind...
+[    7.213099] systemd[1]: File System Check on Root Device was skipped because of an unmet condition check (ConditionPathIsReadWrite=!/).
+[    7.232197] systemd[1]: Starting Journal Service...
+         Starting Journal Service...
+[    7.289364] systemd[1]: Starting Load Kernel Modules...
+         Starting Load Kernel Modules...
+[    7.312630] systemd[1]: Starting Generate network units from Kernel command line...
+         Starting Ge[    7.323172] sja1110: loading out-of-tree module taints kernel.
+nerate network[    7.330215] SPI driver sja1110 has no spi_device_id for nxp,sja1110-switch
+ u[    7.337215] SPI driver sja1110 has no spi_device_id for nxp,sja1110-uc
+nit[    7.344010] sja1110 spi5.0: probing uc
+s fr[    7.348055] sja1110 spi5.1: probing switch
+om Kerne[    7.352876] sja1110 spi5.1: Could not get GPIO from device tree
+l co[    7.359064] sja1110 spi5.1: [sja1110_post_probe_upload_worker] Trying to initialize switch
+mmand line...
+[    7.369571] sja1110 spi5.1: [sja1110_init_hw] loaded fw 'sja1110_switch.bin'
+[    7.376363] sja1110 spi5.1: [sja1110_pre_switch_upload] Found switch config of size 2236
+[    7.384763] sja1110 spi5.1: Uploading config...
+[    7.391478] systemd-journald[124]: Collecting audit messages is disabled.
+[    7.409403] sja1110 spi5.1: Successfully configured!
+[    7.414006] sja1110 spi5.0: [sja1110_post_probe_upload_worker] Trying to initialize uC
+[    7.437547] sja1110 spi5.0: [sja1110_init_hw] loaded fw 'sja1110_uc.bin'
+[    7.441659] systemd[1]: Starting Remount Root and Kernel File Systems...
+[    7.443922] sja1110 spi5.0: [sja1110_pre_uc_upload] Found firmware of size 320280
+[    7.458150] sja1110 spi5.0: [sja1110_pre_uc_upload] firmware appears to be valid
+  [    7.465593] sja1110 spi5.0: [sja1110_pre_uc_upload] µC not ready for download (Status=0x31)
+      [    7.474493] sja1110 spi5.0: Uploading firmware...
+ Starting Remount Root and Kernel File Systems...
+[    7.495932] systemd[1]: Starting Create Static Device Nodes in /dev gracefully...
+         Starting Create Static Device Nodes in /dev gracefully...
+[    7.517427] EXT4-fs (mmcblk0p3): re-mounted 7998e1b8-8d1a-412f-8924-0a57aa6bfd99 r/w. Quota mode: disabled.
+[    7.580241] systemd[1]: Starting Coldplug All udev Devices...
+         Starting Coldplug All udev Devices...
+[    7.616366] systemd[1]: Started RPC Bind.
+[  OK  ] Started RPC Bind.
+[    7.634045] systemd[1]: Started Journal Service.
+[  OK  ] Started Journal Service.
+[  OK  ] Mounted Huge Pages File System.
+[  OK  ] Mounted Kernel Debug File System.
+[  OK  ] Finished Load Kernel Module configfs.
+[  OK  ] Finished Load Kernel Module drm.
+[  OK  ] Finished Load Kernel Module fuse.
+[  OK  ] Finished Load Kernel Modules.
+[    7.788797] random: crng init done
+[  OK  ] Finished Generate network units from Kernel command line.
+[  OK  ] Finished Remount Root and Kernel File Systems.
+[  OK  ] Finished Create Static Device Nodes in /dev gracefully.
+         Mounting FUSE Control File System...
+         Mounting Kernel Configuration File System...
+         Starting Flush Journal to Persistent Storage...
+         Starting Apply Kernel Variables...
+         Starting Create Static Device Nodes in /dev...
+[  OK  ] Mounted     8.032220] systemd-journald[124]: Received client request to flush runtime journal.
+;1;39mFUSE Control File System.
+[  OK  ] Mounted Kernel Configuration File System.
+[  OK  ] Finished Flush Journal to Persistent Storage.
+[  OK  ] Finished Apply Kernel Variables.
+[  OK  ] Finished Coldplug All udev Devices.
+[  OK  ] Finished Create Static Device Nodes in /dev.
+[  OK  ] Reached target Preparation for Local File Systems.
+         Mounting /tmp...
+         Mounting /var/volatile...
+[    8.284703] sja1110 spi5.0: Upload successfully verified!
+         Starting Rule-based Manager for Device Events and Files...
+[  OK  ] Mounted /tmp.
+[  OK  ] Mounted /var/volatile.
+         Mounting /var/volatile/tmp...
+         Starting Load/Save OS Random Seed...
+[  OK  ] Mounted /var/volatile/tmp.
+[  OK  ] Reached target Local File Systems.
+         Starting Create System Files and Directories...
+[  OK  ] Finished Load/Save OS Random Seed.
+[  OK  ] Started Rule-based Manager for Device Events and Files.
+[  OK  ] Finished Create System Files and Directories.
+         Starting Network Name Resolution...
+[    8.613176] s32cc-dwmac 4033c000.ethernet end0: renamed from eth0
+         Starting Network Time Synchronization...
+         Starting Record System Boot/Shutdown in UTMP...
+         Starting User Database Manager...
+[  OK  ] Finished Record System Boot/Shutdown in UTMP.
+[  OK  ] Started User Database Manager.
+[    9.218822] pfeng 46000000.pfe: PFEng ethernet driver loading ...
+[    9.228821] pfeng 46000000.pfe: Version: 1.9.0
+[    9.238539] pfeng 46000000.pfe: Driver commit hash: M4_DRIVER_COMMIT_HASH
+[    9.245292] pfeng 46000000.pfe: Multi instance support: disabled (standalone)
+[    9.252066] pfeng 46000000.pfe: Compiled by: 13.3.0
+[    9.257027] pfeng 46000000.pfe: Cbus addr 0x46000000 size 0x1000000
+[    9.263235] pfeng 46000000.pfe: nxp,fw-class-name: s32g_pfe_class.fw
+[    9.270727] pfeng 46000000.pfe: nxp,fw-util-name: s32g_pfe_util.fw
+[    9.276911] pfeng 46000000.pfe: netif name: pfe0
+[    9.281177] pfeng 46000000.pfe: DT mac addr: 00:04:9f:be:ef:00
+[    9.287057] pfeng 46000000.pfe: netif(pfe0) linked phyif: 0
+[    9.292555] pfeng 46000000.pfe: netif(pfe0) mode: std
+[    9.292732] pfeng 46000000.pfe: netif(pfe0) HIFs: count 1 map 01
+[    9.292759] pfeng 46000000.pfe: EMAC0 interface mode: 4
+[    9.297712] pfeng 46000000.pfe: netif name: pfe1
+[    9.297733] pfeng 46000000.pfe: DT mac addr: 00:04:9f:be:ef:01
+[    9.297744] pfeng 46000000.pfe: netif(pfe1) linked phyif: 1
+[    9.297753] pfeng 46000000.pfe: netif(pfe1) mode: std
+ [    9.310524] pfeng 46000000.pfe: netif(pfe1) HIFs: count 1 map 02
+  [    9.336821] pfeng 46000000.pfe: EMAC1 interface mode: 4
+    [    9.342412] pfeng 46000000.pfe: netif name: pfe2
+ [    9.347105] pfeng 46000000.pfe: DT mac addr: 00:04:9f:be:ef:02
+ S[    9.353028] pfeng 46000000.pfe: netif(pfe2) linked phyif: 2
+ta[    9.358789] pfeng 46000000.pfe: netif(pfe2) mode: std
+rti[    9.364100] pfeng 46000000.pfe: netif(pfe2) HIFs: count 1 map 04
+ng[    9.370216] pfeng 46000000.pfe: EMAC2 interface mode: 10
+  pfeng 46000000.pfe: HIF channels mask: 0x0007
+[0[    9.381278] pfeng 46000000.pfe: PFE port coherency enabled, mask 0x1e
+;1;3[    9.388071] pfeng 46000000.pfe: Clocks: sys=300MHz pe=600MHz
+9mVirtu[    9.394338] pfeng 46000000.pfe: Interface selected: EMAC0: 0x4 EMAC1: 0x4 EMAC2: 0xa
+al [    9.402313] pfeng 46000000.pfe: PFE controller reset done
+Co[    9.407842] pfeng 46000000.pfe: TX clock on EMAC0 for interface sgmii installed
+ns[    9.415311] pfeng 46000000.pfe: RX clock on EMAC0 for interface sgmii installed
+ol[    9.422748] pfeng 46000000.pfe: TX clock on EMAC1 for interface sgmii installed
+e [    9.430216] pfeng 46000000.pfe: RX clock on EMAC1 for interface sgmii installed
+Se[    9.437687] pfeng 46000000.pfe: TX clock on EMAC2 for interface rgmii-id installed
+tup...
+[    9.446508] pfeng 46000000.pfe: RX clock on EMAC2 for interface rgmii-id installed
+[    9.454512] pfeng 46000000.pfe: assigned reserved memory node pfebufs@34000000
+[    9.463973] pfeng 46000000.pfe: assigned reserved memory node pfebufs@34080000
+[    9.471293] pfeng 46000000.pfe: assigned reserved memory node pfebufs@83200000
+[    9.478208] pfeng 46000000.pfe: assigned reserved memory node pfebufs@835e0000
+[    9.497795] pfeng 46000000.pfe: Firmware: CLASS s32g_pfe_class.fw [45724 bytes]
+[    9.504776] pfeng 46000000.pfe: Firmware: UTIL s32g_pfe_util.fw [23352 bytes]
+[    9.511924] pfeng 46000000.pfe: PFE CBUS p0x46000000 mapped @ v0xffffffc082000000 (0x1000000 bytes)
+[    9.520938] pfeng 46000000.pfe: Silicon S32G2
+[    9.526427] pfeng 46000000.pfe: PFE_ERRORS:Parity instance created
+[    9.532347] pfeng 46000000.pfe: PFE_ERRORS:Watchdog instance created
+[    9.538571] pfeng 46000000.pfe: BMU1 buffer base: p0xc0000000
+[    9.544357] pfeng 46000000.pfe: BMU2 buffer base: p0x34000000 (0x80000 bytes)
+[    9.552740] pfeng 46000000.pfe: register IRQ 67 by name 'PFE BMU IRQ'
+[    9.559112] pfeng 46000000.pfe: Firmware .elf detected
+[    9.559224] pfeng 46000000.pfe: BMU_EMPTY_INT (BMU @ p0x000000006373e489). Pool ready.
+[    9.563925] pfeng 46000000.pfe: Uploading CLASS firmware
+[    9.563946] pfeng 46000000.pfe: Selected FW loading OPs to load 8 PEs in parallel
+[    9.583483] pfeng 46000000.pfe: pfe_ct.h file version"92367c0e25f21f49217a9b08168ad2c8"
+[    9.584581] pfeng 46000000.pfe: BMU_EMPTY_INT (BMU @ p0x00000000eecc0f05). Pool ready.
+[    9.608047] pfeng 46000000.pfe: [FW VERSION] 1.11.0, Build: Apr  8 2025, 21:02:36 (nogitaaa), ID: 0x31454650
+[    9.617854] pfeng 46000000.pfe: EMAC timestamp external mode bitmap: 0
+;3[    9.624520] pfeng 46000000.pfe: Uploading UTIL firmware
+2[    9.629819] pfeng 46000000.pfe: Selected FW loading OPs to load 1 PEs in parallel
+m  OK  ] Started     9.639816] pfeng 46000000.pfe: pfe_ct.h file version"92367c0e25f21f49217a9b08168ad2c8"
+mNetwork Time Sy[    9.649169] pfeng 46000000.pfe: FW feature: drv_run_on_g3
+n[    9.654654] pfeng 46000000.pfe: FW feature: jumbo_frames
+c[    9.660047] pfeng 46000000.pfe: FW feature: ptp_qos_mapping
+h[    9.665689] pfeng 46000000.pfe: FW feature: software_vlan_table
+ro[    9.671707] pfeng 46000000.pfe: FW feature: timestamping
+ni[    9.677167] pfeng 46000000.pfe: FW feature: qos_mapping
+z[    9.677185] pfeng 46000000.pfe: FW feature: core_functionality
+a[    9.677192] pfeng 46000000.pfe: FW feature: extended_features
+t[    9.677199] pfeng 46000000.pfe: FW feature: flexible_router
+i[    9.699864] pfeng 46000000.pfe: FW feature: validate_hif_csum
+o[    9.705678] pfeng 46000000.pfe: FW feature: err051211_workaround
+n[    9.711756] pfeng 46000000.pfe: FW feature: IPsec
+ pfeng 46000000.pfe: FW feature: l2_bridge_aging
+[[    9.716543] pfeng 46000000.pfe: FW feature: receive_malformed
+0[    9.716550] pfeng 46000000.pfe: FW feature: ptp_conf_check
+m[    9.733538] pfeng 46000000.pfe: FW feature: vlan_conf_check
+.[    9.739182] pfeng 46000000.pfe: FW feature: hash_load_spread
+[    9.744921] pfeng 46000000.pfe: FW feature: ingress_vlan
+[    9.750295] pfeng 46000000.pfe: FW feature: safety
+
+[  OK  ] Reached [    9.757564] pfeng 46000000.pfe: VLAN ID incorrect or not set. Using default VLAN ID = 0x01.
+t[    9.766024] pfeng 46000000.pfe: VLAN stats size incorrect or not set. Using default VLAN stats size = 20.
+ar[    9.775738] pfeng 46000000.pfe: Software vlan hash table @ p0x20001288
+get[    9.782498] pfeng 46000000.pfe: Fall-back bridge domain @ 0x20000a8c (class)
+ [    9.789622] pfeng 46000000.pfe: Default bridge domain @ 0x20000a84 (class)
+    9.797074] pfeng 46000000.pfe: Routing table created, Hash Table @ p0x34080000, Pool @ p0x34088000 (65536 bytes)
+9mSy[    9.807711] pfeng 46000000.pfe: Feature err051211_workaround: DISABLED
+stem Time Set.
+[  OK  ] Started     9.818789] pfeng 46000000.pfe: HIF0 enabled
+1;39mNe[    9.823595] pfeng 46000000.pfe: HIF1 enabled
+twork[    9.828326] pfeng 46000000.pfe: HIF2 enabled
+ [    9.832691] pfeng 46000000.pfe: HIF3 not configured, skipped
+N[    9.838428] pfeng 46000000.pfe: MDIO bus 0 disabled: Not found in DT
+a[    9.844826] pfeng 46000000.pfe: MDIO bus 1 disabled: Not found in DT
+me Resolution.
+[  OK  ] Reached target Host and Network Name Lookups.[    9.859705] pfeng 46000000.pfe: MDIO bus 2 enabled
+[    9.864730] pfeng 46000000.pfe pfe0 (uninitialized): fixed link full duplex 2500Mbps not recognised
+
+[    9.873859] phy-s32cc-serdes 44180000.serdes: Stable RX detected on XPCS0 after 0 µs
+[    9.881632] pfeng 46000000.pfe pfe0 (uninitialized): Subscribe to HIF0
+[    9.888123] pfeng 46000000.pfe pfe0 (uninitialized): Host LLTX disabled
+[    9.894892] pfeng 46000000.pfe pfe0 (uninitialized): Enable HIF0
+[    9.900717] pfeng 46000000.pfe pfe0 (uninitialized): setting MAC addr: 00:04:9f:be:ef:00
+[    9.908993] pfeng 46000000.pfe pfe0 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+[    9.919062] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+[    9.929280] pfeng 46000000.pfe pfe0 (uninitialized): Registered PTP HW clock successfully on EMAC0
+[  [    9.938663] pfeng 46000000.pfe pfe0: registered
+OK[    9.943432] phy-s32cc-serdes 44180000.serdes: Unstable RX detected on XPCS1
+ [    9.950439] pfeng 46000000.pfe pfe1 (uninitialized): Subscribe to HIF1
+ [    9.957034] pfeng 46000000.pfe pfe1 (uninitialized): Host LLTX disabled
+    9.963882] pfeng 46000000.pfe pfe1 (uninitialized): Enable HIF1
+m[    9.969963] pfeng 46000000.pfe pfe1 (uninitialized): setting MAC addr: 00:04:9f:be:ef:01
+][    9.978136] pfeng 46000000.pfe pfe1 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+ [    9.988452] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+Finished [    9.998762] pfeng 46000000.pfe pfe1 (uninitialized): Registered PTP HW clock successfully on EMAC1
+[   10.008495] pfeng 46000000.pfe pfe1: registered
+Vi[   10.013165] pfeng 46000000.pfe pfe2 (uninitialized): Subscribe to HIF2
+r[   10.019790] pfeng 46000000.pfe pfe2 (uninitialized): Host LLTX disabled
+tua[   10.026647] pfeng 46000000.pfe pfe2 (uninitialized): Enable HIF2
+l[   10.032718] pfeng 46000000.pfe pfe2 (uninitialized): setting MAC addr: 00:04:9f:be:ef:02
+ [   10.040897] pfeng 46000000.pfe pfe2 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+C[   10.051209] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+onsole S[   10.061467] pfeng 46000000.pfe pfe2 (uninitialized): Registered PTP HW clock successfully on EMAC2
+etup.[   10.071185] pfeng 46000000.pfe pfe2: registered
+
+[  OK  ] Created slice Slice /system/systemd-fsck.
+[  OK  ] Reached target System Initialization.
+[  OK  ] Started Daily rotation of log files.
+[  OK  ] Started Daily Cleanup of Temporary Directories.
+[  OK  ] Reached target Timer Units.
+[  OK  ] Listening on D-Bus System Message Bus Socket.
+         Starting sshd.socket...
+         Starting File System Check on /dev/mmcblk0p2...
+[  OK  ] Listening on sshd.socket.
+[  OK  ] Reached target Socket Units.
+[  OK  ] Reached target Basic System.
+[  OK  ] Started Job spooling tools.
+[  OK  ] Started Periodic Command Scheduler.
+         Starting D-Bus System Message Bus...
+         Starting IPv6 Packet Filtering Framework...
+         Starting IPv4 Packet Filtering Framework...
+[  OK  ] Started irqbalance daemon.
+[  OK  ] Started Hardware RNG Entropy Gatherer Daemon.
+[  OK  ] Started System Logging Service.
+         Starting Resets System Activity Logs...
+         Starting User Login Management...
+         Starting OpenSSH Key Generation...
+[  OK  ] Finished IPv6 Packet Filtering Framework.
+[  OK  ] Finished IPv4 Packet Filtering Framework.
+[  OK  ] Reached target Preparation for Network.
+         Starting Network Configuration...
+[  OK  ] Finished Resets System Activity Logs.
+[  OK  ] Finished File System Check on /dev/mmcblk0p2.
+         Mounting /run/media/boot_s32g2-mmcblk0p2...
+[  OK  ] Started User Login Management.
+[  OK  ] Started D-Bus System Message Bus.
+[  OK  ] Mounted /run/media/boot_s32g2-mmcblk0p2.
+[  OK  ] Started Network Configuration.
+[  OK  ] Finished OpenSSH Key Generation.
+[  OK  ] Reached target Network.
+[  OK  ] Started Netperf Benchmark Server.
+         Starting Permit User Sessions...
+[  OK  ] Started Xinetd A Powerful Replacement For Inetd.
+[  OK  ] Finished Permit User Sessions.
+[  OK  ] Started Getty on tty1.
+[  OK  ] Started Serial Getty on ttyLF0.
+[  OK  ] Reached target Login Prompts.
+[  OK  ] Reached target Multi-User System.
+         Starting Record Runlevel Change in UTMP...
+[  OK  ] Finished Record Runlevel Change in UTMP.
+
+Auto Linux BSP 44.0 s32g274ardb2 ttyLF0
+
+s32g274ardb2 login: root
+root@s32g274ardb2:~# ./board_send_cbs.sh 
+warning: UDP block size 1470 exceeds TCP MSS 1448, may result in fragmentation / drops
+warning: UDP block size 1470 exceeds TCP MSS 1448, may result in fragmentation / drops
+Connecting to host 169.254.13.30, port 6001
+Connecting to host 169.254.13.30, port 6002
+[  5] local 169.254.13.31 port 43815 connected to 169.254.13.30 port 6002
+[  5] local 169.254.13.31 port 47641 connected to 169.254.13.30 port 6001
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-40.01  sec   477 MBytes   100 Mbits/sec  340130  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-40.01  sec   477 MBytes   100 Mbits/sec  0.000 ms  0/340130 (0%)  sender
+[  5]   0.00-36.01  sec   477 MBytes   111 Mbits/sec  0.037 ms  0/340130 (0%)  receiver
+
+iperf Done.
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-40.02  sec  45.7 MBytes  9.57 Mbits/sec  32573  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-40.02  sec  45.7 MBytes  9.57 Mbits/sec  0.000 ms  0/32573 (0%)  sender
+[  5]   0.00-36.02  sec  45.6 MBytes  10.6 Mbits/sec  1.915 ms  0/32503 (0%)  receiver
+
+iperf Done.
+=== 송신 완료. 'tc -s qdisc show dev end0' 로 드롭 확인 ===
+root@s32g274ardb2:~# 
+[ERROR] Read loop failed: Break received
+
+[SYSTEM] Disconnected
+
+[ERROR] Failed to execute 'requestPort' on 'Serial': No port selected by the user.
+
+[ERROR] Failed to execute 'requestPort' on 'Serial': No port selected by the user.
+[SYSTEM] KETI-NXP S32G Connected
+ uname -a
+Password: 
+uname -a
+
+Login incorrect
+s32g274ardb2 login: uname -a
+Password: 
+uname -a
+
+Login incorrect
+s32g274ardb2 login: root
+root@s32g274ardb2:~# uname -a
+Linux s32g274ardb2 6.6.85-rt53-g6208e1d0d7b5 #1 SMP PREEMPT Wed May 14 13:40:03 UTC 2025 aarch64 GNU/Linux
+root@s32g274ardb2:~# lscpu | grep 'Model name'
+Model name:                           Cortex-A53
+root@s32g274ardb2:~# free -h
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       108Mi       3.7Gi       8.8Mi        62Mi       3.7Gi
+Swap:             0B          0B          0B
+root@s32g274ardb2:~# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       665M  509M  106M  83% /
+devtmpfs        1.8G     0  1.8G   0% /dev
+tmpfs           2.0G     0  2.0G   0% /dev/shm
+tmpfs           782M  8.6M  773M   2% /run
+tmpfs           2.0G  4.0K  2.0G   1% /tmp
+tmpfs           2.0G  184K  2.0G   1% /var/volatile
+tmpfs           2.0G     0  2.0G   0% /var/volatile/tmp
+/dev/mmcblk0p2   64M   17M   48M  26% /run/media/boot_s32g2-mmcblk0p2
+tmpfs           391M  4.0K  391M   1% /run/user/0
+root@s32g274ardb2:~# ethtool -T eth0
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+root@s32g274ardb2:~# tsntool status
+-sh: tsntool: command not found
+root@s32g274ardb2:~# ethtool -I end0
+Settings for end0:
+        Supported ports: [ TP    MII ]
+        Supported link modes:   10baseT/Full
+                                100baseT/Full
+                                1000baseT/Full
+        Supported pause frame use: Symmetric
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  10baseT/Full
+                                100baseT/Full
+                                1000baseT/Full
+        Advertised pause frame use: Symmetric
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Link partner advertised link modes:  10baseT/Half 10baseT/Full
+                                             100baseT/Half 100baseT/Full
+                                             1000baseT/Full
+        Link partner advertised pause frame use: Symmetric Receive-only
+        Link partner advertised auto-negotiation: Yes
+        Link partner advertised FEC modes: Not reported
+        Speed: 1000Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        master-slave cfg: preferred slave
+        master-slave status: slave
+        Port: Twisted Pair
+        PHYAD: 1
+        Transceiver: external
+        MDI-X: Unknown
+        Supports Wake-on: ug
+        Wake-on: d
+        Current message level: 0x0000003f (63)
+                               drv probe link timer ifdown ifup
+        Link detected: yes
+        Link Down Events: 1
+root@s32g274ardb2:~# ethtool -T eth0
+netlink error: no device matches name (offset 24)
+netlink error: No such device
+root@s32g274ardb2:~# tsntool status
+-sh: tsntool: command not found
+root@s32g274ardb2:~# systemctl status ptp4l
+Unit ptp4l.service could not be found.
+root@s32g274ardb2:~# systemctl status phc2sys
+Unit phc2sys.service could not be found.
+root@s32g274ardb2:~# top -b -n 1
+top - 05:17:11 up  1:37,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks: 120 total,   1 running, 119 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  5.9 sy,  0.0 ni, 94.1 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :   3907.9 total,   3782.1 free,    109.7 used,     64.0 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   3798.1 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    529 root      20   0    7384   4096   2176 R   8.3   0.1   0:00.03 top
+      1 root      20   0   18860  10240   7680 S   0.0   0.3   0:03.59 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.01 kthreadd
+      3 root      20   0       0      0      0 S   0.0   0.0   0:00.00 pool_workqueue_release
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-rcu_g
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-rcu_p
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-slub_
+      7 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-netns
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.02 kworker/u8:0-ext4-rsv-conversion
+     12 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-mm_pe
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tasks_kthread
+     14 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tasks_trace_kthread
+     15 root      20   0       0      0      0 S   0.0   0.0   0:00.01 ksoftirqd/0
+     16 root      20   0       0      0      0 I   0.0   0.0   0:00.08 rcu_preempt
+     17 root      rt   0       0      0      0 S   0.0   0.0   0:00.00 migration/0
+     18 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/0
+     19 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/1
+     20 root      rt   0       0      0      0 S   0.0   0.0   0:00.00 migration/1
+     21 root      20   0       0      0      0 S   0.0   0.0   0:00.01 ksoftirqd/1
+     24 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/2
+     25 root      rt   0       0      0      0 S   0.0   0.0   0:00.00 migration/2
+     26 root      20   0       0      0      0 S   0.0   0.0   0:00.01 ksoftirqd/2
+     29 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/3
+     30 root      rt   0       0      0      0 S   0.0   0.0   0:00.00 migration/3
+     31 root      20   0       0      0      0 S   0.0   0.0   0:00.01 ksoftirqd/3
+     33 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/3:0H-events_highpri
+     34 root      20   0       0      0      0 I   0.0   0.0   0:00.58 kworker/u9:0-events_unbound
+     35 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/u10:0-events_unbound
+     36 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kdevtmpfs
+     37 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-inet_
+     38 root      20   0       0      0      0 S   0.0   0.0   0:00.00 oom_reaper
+     39 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-write
+     40 root      20   0       0      0      0 S   0.0   0.0   0:00.12 kcompactd0
+     41 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-kbloc
+     42 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 watchdogd
+     44 root       0 -20       0      0      0 I   0.0   0.0   0:00.11 kworker/0:1H-mmc_complete
+     45 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-rpcio
+     46 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-xprti
+     48 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kswapd0
+     49 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-nfsio
+     51 root      20   0       0      0      0 I   0.0   0.0   0:00.48 kworker/2:1-events_power_efficient
+     52 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 irq/25-fccu_alarm
+     53 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 irq/26-fccu_misc
+     54 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-nvme-
+     55 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-nvme-
+     56 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-nvme-
+     57 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-nvmet
+     58 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-nvmet
+     59 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-nvmet
+     60 root      20   0       0      0      0 S   0.0   0.0   0:00.00 spi1
+     61 root      20   0       0      0      0 S   0.0   0.0   0:00.00 spi5
+     65 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-uas
+     67 root       0 -20       0      0      0 I   0.0   0.0   0:00.12 kworker/u11:0-pfe_mbox_intr/1
+     68 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/u12:0
+     69 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/u13:0
+     70 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-sdhci
+     71 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 irq/42-mmc0
+     74 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-mmc_c
+     75 root       0 -20       0      0      0 I   0.0   0.0   0:00.02 kworker/1:1H-kblockd
+     76 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-mld
+     77 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-ipv6_
+     78 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-dsa_o
+     79 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/u9:2-events_unbound
+     80 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 irq/52-s32cc-pcie-hot-unplug
+     81 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 irq/53-s32cc-pcie-hotplug
+     82 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-stmma
+     91 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 irq/65-400a8000.tmu
+     92 root      20   0       0      0      0 S   0.0   0.0   0:00.03 jbd2/mmcblk0p3-8
+     93 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-ext4-
+     96 root       0 -20       0      0      0 I   0.0   0.0   0:00.01 kworker/2:1H-kblockd
+     97 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/u10:1-events_unbound
+    109 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/1:2H
+    110 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/0:2H-mmc_complete
+    123 rpc       20   0    4644   2176   2048 S   0.0   0.1   0:00.05 rpcbind
+    124 root      20   0   23464   6912   6144 S   0.0   0.2   0:00.53 systemd-journal
+    128 root      20   0       0      0      0 I   0.0   0.0   0:01.57 kworker/0:2-events_power_efficient
+    147 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/3:2-events
+    148 root      20   0       0      0      0 I   0.0   0.0   0:00.05 kworker/3:3-events
+    162 root      20   0   27072   7552   5888 S   0.0   0.2   0:00.44 systemd-udevd
+    170 root      -2   0       0      0      0 S   0.0   0.0   0:00.00 psimon
+    196 root       0 -20       0      0      0 I   0.0   0.0   0:00.01 kworker/3:2H-kblockd
+    207 systemd+  20   0   15448   6784   6016 S   0.0   0.2   0:00.35 systemd-resolve
+    211 systemd+  20   0   89120   6400   5632 S   0.0   0.2   0:01.86 systemd-timesyn
+    228 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/2:2H
+    230 root      20   0   14968   5376   4608 S   0.0   0.1   0:00.26 systemd-userdbd
+    292 root      -2   0       0      0      0 S   0.0   0.0   0:00.00 psimon
+    304 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-PFE B
+    305 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/u8:1
+    313 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-pfe_m
+    314 root      20   0       0      0      0 S   0.0   0.0   0:00.07 rtable worker
+    315 root      20   0       0      0      0 S   0.0   0.0   0:03.04 Global polling thread
+    354 root      20   0    2476   1536   1408 S   0.0   0.0   0:00.02 atd
+    355 root      20   0    2896   1664   1408 S   0.0   0.0   0:00.05 crond
+    356 message+  20   0    6984   3328   3072 S   0.0   0.1   0:00.17 dbus-daemon
+    359 root      20   0   78732   2048   2048 S   0.0   0.1   0:01.22 irqbalance
+    360 root      20   0    2204   1024   1024 S   0.0   0.0   0:00.02 rngd
+    361 root      20   0    2392   1664   1536 S   0.0   0.0   0:00.11 syslogd
+    363 root      20   0   15368   6400   5632 S   0.0   0.2   0:00.23 systemd-logind
+    375 systemd+  20   0   16792   7808   6784 S   0.0   0.2   0:00.33 systemd-network
+    376 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/u11:1
+    387 root      20   0    3100   1536   1536 S   0.0   0.0   0:00.02 netserver
+    388 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-end0-
+    390 root      20   0    6888   1792   1664 S   0.0   0.0   0:00.30 xinetd
+    392 root      20   0    2264   1280   1280 S   0.0   0.0   0:00.02 agetty
+    393 root      20   0    6724   3328   2944 S   0.0   0.1   0:00.06 login
+    399 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/u10:2-events_unbound
+    464 root      -2   0       0      0      0 S   0.0   0.0   0:00.00 psimon
+    466 root      20   0   17492   9472   7936 S   0.0   0.2   0:00.43 systemd
+    468 root      20   0       0      0      0 I   0.0   0.0   0:00.38 kworker/1:3-pm
+    470 root      20   0   19332   2780   1536 S   0.0   0.1   0:00.00 (sd-pam)
+    473 root      -2   0       0      0      0 S   0.0   0.0   0:00.00 psimon
+    476 root      20   0    4184   3200   2816 S   0.0   0.1   0:00.04 sh
+    504 root      20   0       0      0      0 I   0.0   0.0   0:00.32 kworker/0:0-events_power_efficient
+    510 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/0:3
+    511 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/2:2-mm_percpu_wq
+    515 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/1:0-events
+    525 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/2:0-events
+    526 root      20   0   15492   4992   4224 S   0.0   0.1   0:00.01 systemd-userwor
+    527 root      20   0   15492   4992   4224 S   0.0   0.1   0:00.01 systemd-userwor
+    528 root      20   0   15492   5120   4352 S   0.0   0.1   0:00.01 systemd-userwor
+dmesg | tail -n 50
+root@s32g274ardb2:~# dmesg | tail -n 50
+[    9.768832] phy-s32cc-serdes 44180000.serdes: Stable RX detected on XPCS0 after 0 \xc2\xb5s
+[    9.776792] pfeng 46000000.pfe pfe0 (uninitialized): Subscribe to HIF0
+[    9.783228] pfeng 46000000.pfe pfe0 (uninitialized): Host LLTX disabled
+[    9.789917] pfeng 46000000.pfe pfe0 (uninitialized): Enable HIF0
+[    9.795705] pfeng 46000000.pfe pfe0 (uninitialized): setting MAC addr: 00:04:9f:be:ef:00
+[    9.803786] pfeng 46000000.pfe pfe0 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+[    9.814016] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+[    9.824206] pfeng 46000000.pfe pfe0 (uninitialized): Registered PTP HW clock successfully on EMAC0
+[    9.833543] pfeng 46000000.pfe pfe0: registered
+[    9.837818] phy-s32cc-serdes 44180000.serdes: Unstable RX detected on XPCS1
+[    9.844649] pfeng 46000000.pfe pfe1 (uninitialized): Subscribe to HIF1
+[    9.851131] pfeng 46000000.pfe pfe1 (uninitialized): Host LLTX disabled
+[    9.857908] pfeng 46000000.pfe pfe1 (uninitialized): Enable HIF1
+[    9.863732] pfeng 46000000.pfe pfe1 (uninitialized): setting MAC addr: 00:04:9f:be:ef:01
+[    9.871795] pfeng 46000000.pfe pfe1 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+[    9.882052] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+[    9.892272] pfeng 46000000.pfe pfe1 (uninitialized): Registered PTP HW clock successfully on EMAC1
+[    9.901639] pfeng 46000000.pfe pfe1: registered
+[    9.906353] pfeng 46000000.pfe pfe2 (uninitialized): Subscribe to HIF2
+[    9.913006] pfeng 46000000.pfe pfe2 (uninitialized): Host LLTX disabled
+[    9.919866] pfeng 46000000.pfe pfe2 (uninitialized): Enable HIF2
+[    9.925932] pfeng 46000000.pfe pfe2 (uninitialized): setting MAC addr: 00:04:9f:be:ef:02
+[    9.934207] pfeng 46000000.pfe pfe2 (uninitialized): PTP HW addend 0x80000000, max_adj configured to 46566128 ppb
+[    9.944710] pfeng 46000000.pfe: IEEE1588: Input Clock: 200000000Hz, Output: 100000000Hz, Accuracy: 10.0ns
+[    9.954970] pfeng 46000000.pfe pfe2 (uninitialized): Registered PTP HW clock successfully on EMAC2
+[    9.965156] pfeng 46000000.pfe pfe2: registered
+[   11.252131] s32cc-dwmac 4033c000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-0
+[   11.252499] s32cc-dwmac 4033c000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-1
+[   11.252871] s32cc-dwmac 4033c000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-2
+[   11.253182] s32cc-dwmac 4033c000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-3
+[   11.253492] s32cc-dwmac 4033c000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-4
+[   11.319287] s32cc-dwmac 4033c000.ethernet end0: PHY [stmmac-0:01] driver [Micrel KSZ9031 Gigabit PHY] (irq=POLL)
+[   11.329351] dwmac4: Master AXI performs any burst length
+[   11.329478] s32cc-dwmac 4033c000.ethernet end0: Enabling Safety Features
+[   11.329560] s32cc-dwmac 4033c000.ethernet end0: IEEE 1588-2008 Advanced Timestamp supported
+[   11.329917] s32cc-dwmac 4033c000.ethernet end0: registered PTP clock
+[   11.330442] s32cc-dwmac 4033c000.ethernet end0: FPE workqueue start
+[   11.330470] s32cc-dwmac 4033c000.ethernet end0: configuring for phy/rgmii-id link mode
+[   11.333994] 8021q: adding VLAN 0 to HW filter on device end0
+[   11.340514] pfeng 46000000.pfe: HIF0 started
+[   11.340549] pfeng 46000000.pfe pfe0: configuring for fixed/sgmii link mode
+[   11.341500] pfeng 46000000.pfe pfe0: Link is Up - 2.5Gbps/Full - flow control off
+[   11.344682] pfeng 46000000.pfe: HIF1 started
+[   11.349151] pfeng 46000000.pfe pfe1: PHY [stmmac-0:08] driver [Aquantia AQR113C] (irq=POLL)
+[   11.349186] pfeng 46000000.pfe pfe1: configuring for phy/sgmii link mode
+[   11.358592] pfeng 46000000.pfe: HIF2 started
+[   11.424828] pfeng 46000000.pfe pfe2: PHY [pfeng-emac-2:04] driver [Micrel KSZ9031 Gigabit PHY] (irq=POLL)
+[   11.424869] pfeng 46000000.pfe pfe2: configuring for phy/rgmii-id link mode
+[   14.405607] s32cc-dwmac 4033c000.ethernet: Setting TX clock to 125000000 Hz
+[   14.405695] s32cc-dwmac 4033c000.ethernet end0: Link is Up - 1Gbps/Full - flow control rx/tx
+root@s32g274ardb2:~# 
+root@s32g274ardb2:~# 
+root@s32g274ardb2:~# 
+root@s32g274ardb2:~# 
+root@s32g274ardb2:~# 
+root@s32g274ardb2:~# cat <<'EOF' > board_cbs_setup.sh
+> #!/bin/sh
+> ###############################################################################
+> # Board : S32G (end0) → PC 로 트래픽 송출
+> # - IP   : 169.254.13.31/16
+> # - mqprio map 1 1 2 3 4  (메뉴얼 예시 그대로)
+> # - CBS  : TC2 = 20 Mb/s, TC3 = 10 Mb/s  (queue 1@2, 1@3)
+> # - flower 필터로 포트 6001→TC2, 6002→TC3
+> ###############################################################################
+> IF=end0
+> PC_IP=169.254.13.30
+> BOARD_IP=169.254.13.31
+> 
+> ## 0. IP 설정
+> ip addr flush dev $IF
+> ip addr add ${BOARD_IP}/16 dev $IF
+> ip link set $IF up
+> 
+> ## 1. mqprio
+> tc qdisc del dev $IF root 2>/dev/null
+> tc qdisc add dev $IF root handle 1: mqprio \
+>     hw 0 num_tc 5 \
+>     map 1 1 2 3 4 \
+>     queues 1@0 1@1 1@2 1@3 1@4
+> 
+> ## 2. CBS (TC2 20 Mb/s, TC3 10 Mb/s)  ※offload=0 호환 모드
+> tc qdisc replace dev $IF parent 1:2 cbs \
+>     idleslope 20000 sendslope -980000 offload 0 \
+>     hicredit 2147483647 locredit -2147483648
+> tc qdisc replace dev $IF parent 1:3 cbs \
+>     idleslope 10000 sendslope -990000 offload 0 \
+>     hicredit 2147483647 locredit -2147483648
+> 
+> ## 3. clsact + flower : 포트별 SKB prio
+> tc qdisc add dev $IF clsact 2>/dev/null
+> tc filter replace dev $IF egress protocol ip prio 10 flower \
+>       ip_proto udp dst_port 6001 action skbedit priority 2   # →TC2
+> tc filter replace dev $IF egress protocol ip prio 11 flower \
+>       ip_proto udp dst_port 6002 action skbedit priority 3   # →TC3
+> 
+> ## 4. iperf3 클라이언트 – 100 Mb/s × 2 스트림 (40 s)
+> iperf3 -c ${PC_IP} -p 6001 -u -b 100M -l 1470 -t 40 -i 0 -f m &
+> iperf3 -c ${PC_IP} -p 6002 -u -b 100M -l 1470 -t 40 -i 0 -f m &
+> wait
+> echo "=== board done → 'tc -s qdisc show dev $IF' 로 드롭 확인 ==="
+> EOF
+root@s32g274ardb2:~# 
+root@s32g274ardb2:~# chmod +x board_cbs_setup.sh
+root@s32g274ardb2:~# # 실행 :  sudo ./board_cbs_setup.sh
+root@s32g274ardb2:~# ./board_cbs_setup.sh 
+warning: UDP block size 1470 exceeds TCP MSS 1448, may result in fragmentation / drops
+warning: UDP block size 1470 exceeds TCP MSS 1448, may result in fragmentation / drops
+Connecting to host 169.254.13.30, port 6002
+Connecting to host 169.254.13.30, port 6001
+[  5] local 169.254.13.31 port 47549 connected to 169.254.13.30 port 6002
+[  5] local 169.254.13.31 port 60398 connected to 169.254.13.30 port 6001
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-40.01  sec   477 MBytes   100 Mbits/sec  340130  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-40.01  sec   477 MBytes   100 Mbits/sec  0.000 ms  0/340130 (0%)  sender
+[  5]   0.00-36.01  sec   477 MBytes   111 Mbits/sec  0.045 ms  0/340130 (0%)  receiver
+
+iperf Done.
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-40.03  sec  46.5 MBytes  9.74 Mbits/sec  33138  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-40.03  sec  46.5 MBytes  9.74 Mbits/sec  0.000 ms  0/33138 (0%)  sender
+[  5]   0.00-36.03  sec  46.4 MBytes  10.8 Mbits/sec  1.328 ms  0/33086 (0%)  receiver
+
+iperf Done.
+=== board done → 'tc -s qdisc show dev end0' 로 드롭 확인 ===
+root@s32g274ardb2:~# 
+[ERROR] Read loop failed: Break received
+
+[SYSTEM] Disconnected

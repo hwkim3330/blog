@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSN 네트워크 자원 최적화 연구</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+        .slide {
+            width: 1280px;
+            height: 720px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide bg-gray-800 text-white p-12 flex flex-col">
+        <!-- Slide Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-cyan-400">802.1Qbv TSN 네트워크의 자원 최적화 연구</h1>
+            <p class="text-xl text-gray-300 mt-2">대역폭 활용도 및 게이트 제어 목록(GCL) 구성 최적화 방안</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="grid grid-cols-3 gap-8 flex-grow">
+            <!-- Column 1: Background & Problem -->
+            <div class="bg-gray-700 p-6 rounded-xl flex flex-col">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-network-wired text-3xl text-red-400"></i>
+                    <h2 class="text-2xl font-semibold ml-3">배경 및 문제점</h2>
+                </div>
+                <ul class="space-y-3 text-gray-200 text-lg list-disc list-inside">
+                    <li>TSN(Time-Sensitive Networking)은 자율주행 등 실시간 시스템의 핵심 기술입니다.</li>
+                    <li>핵심 기술인 TAS(Time-Aware Shaper)는 전용 시간 슬롯을 할당하여 중요 데이터의 정시 전송을 보장합니다.</li>
+                    <li class="font-semibold text-red-300">문제점: 기존 스케줄링 연구는 '전송 지연' 최소화에만 집중하여, 하드웨어 슬롯 수 제한이나 비-중요 트래픽의 '대역폭 활용도'는 고려하지 않았습니다.</li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Research Goal -->
+            <div class="bg-gray-700 p-6 rounded-xl flex flex-col">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-bullseye text-3xl text-green-400"></i>
+                    <h2 class="text-2xl font-semibold ml-3">연구 목표</h2>
+                </div>
+                <ul class="space-y-3 text-gray-200 text-lg list-disc list-inside">
+                    <li>기존 스케줄링 알고리즘이 네트워크 자원(슬롯, 대역폭)에 미치는 영향을 분석합니다.</li>
+                    <li>TAS 설정을 개선하기 위한 '압축 알고리즘' 및 데이터 정렬/스케줄링 대안을 제시합니다.</li>
+                    <li class="font-semibold text-green-300">궁극적 목표: 중요 트래픽에 필요한 전송 슬롯 수를 줄이고, 전체 네트워크의 대역폭 활용도를 극대화하는 것입니다.</li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Key Findings -->
+            <div class="bg-gray-700 p-6 rounded-xl flex flex-col">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-chart-line text-3xl text-yellow-400"></i>
+                    <h2 class="text-2xl font-semibold ml-3">핵심 결과 및 의의</h2>
+                </div>
+                <ul class="space-y-3 text-gray-200 text-lg list-disc list-inside">
+                    <li>제안된 수정 방안들이 대역폭 활용도를 개선하고, 중요 트래픽 슬롯 수를 <span class="font-bold text-yellow-300">상당히</span> 감소시켰습니다.</li>
+                    <li>'압축 알고리즘'은 특정 시나리오에서 <span class="font-bold text-yellow-300">주목할 만한</span> 성능 향상을 보였습니다.</li>
+                    <li class="font-semibold text-yellow-300">의의: TAS 설정 최적화를 통해 한정된 네트워크 자원을 훨씬 더 효율적으로 사용할 수 있음을 입증했습니다.</li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm mt-8">
+            Source: Arestova, A., Hielscher, K. S. J., & German, R. (2023). Optimization of Bandwidth Utilization and Gate Control List Configuration in 802.1Qbv Networks.
+        </footer>
+    </div>
+</body>
+</html>

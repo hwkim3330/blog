@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldBox S32G2: PFE 및 SJA1110 스위치 활성화 기술 가이드</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+        :root {
+            --color-primary: #004a99;
+            --color-secondary: #1c7ed6;
+            --color-background: #f8f9fa;
+            --color-surface: #ffffff;
+            --color-text: #212529;
+            --color-border: #dee2e6;
+            --color-highlight: #e06c75;
+            --color-warning-bg: #fff9db;
+            --color-warning-border: #fcc419;
+            --font-main: 'Noto Sans KR', sans-serif;
+            --font-code: 'Roboto Mono', monospace;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.8;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            background-color: var(--color-surface);
+            padding: 25px 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+        }
+
+        h1, h2, h3 {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-border);
+            padding-bottom: 12px;
+            margin-top: 35px;
+        }
+        h1 { text-align: center; font-size: 2.2em; border-bottom-width: 3px; }
+
+        .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 18px;
+            border-radius: 6px;
+            font-family: var(--font-code);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .highlight { color: var(--color-highlight); font-weight: bold; }
+
+        /* --- Diagram Styles --- */
+        .diagram-wrapper {
+            margin: 40px 0;
+            padding: 20px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background: #fdfdfd;
+        }
+        .diagram-title { font-weight: bold; font-size: 1.3em; margin-bottom: 30px; color: #343a40; text-align: center; }
+
+        .diagram { display: flex; justify-content: space-between; align-items: stretch; }
+        .column { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 15px; position: relative; }
+        
+        .block {
+            border: 2px solid var(--color-primary);
+            background-color: #e7f5ff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px 0;
+            font-size: 0.9em;
+            min-width: 120px;
+            position: relative;
+        }
+        .soc { background-color: #d0ebff; border-width: 3px; padding: 15px; }
+        .switch { background-color: #cde2f3; font-weight: bold; }
+        .phy { background-color: #e3f2fd; }
+        .rj45 { background-color: #f1f3f5; border-color: #adb5bd; }
+
+        .sub-block { font-size: 0.8em; padding: 5px 10px; border-style: dashed; margin-top: 15px; }
+        
+        /* Connector Lines and Arrows */
+        .connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+        }
+        .arrow {
+            width: 50px;
+            height: 2px;
+            background-color: #333;
+            position: relative;
+        }
+        .arrow::after {
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: -4px;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 7px solid #333;
+        }
+
+        /* Vertical Connection Lines */
+        .block.connect-down::after {
+            content: '';
+            position: absolute;
+            bottom: -22px; /* margin(10) * 2 + border(2) */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px; /* margin(10) * 2 */
+            background: #333;
+        }
+
+        .multi-connect-down {
+            position: relative;
+        }
+        .multi-connect-down::after {
+            content: '';
+            position: absolute;
+            bottom: -12px; /* margin-bottom(10) + border(2) */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 10px; /* half of margin */
+            background: #333;
+        }
+        .phy-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding-top: 20px; /* Space for horizontal line */
+        }
+        .phy-group::before {
+             content: '';
+             position: absolute;
+             top: 10px;
+             left: 15%; /* Adjust based on number of items */
+             right: 15%;
+             height: 2px;
+             background: #333;
+        }
+        .phy-item .block::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 12px;
+            background: #333;
+        }
+
+        /* Problem Path */
+        .firmware-block {
+            border: 2px dashed var(--color-highlight);
+            background-color: #fff0f0;
+            color: var(--color-highlight);
+            font-weight: bold;
+            padding: 15px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .problem-arrow {
+            width: 2px;
+            height: 40px;
+            background: repeating-linear-gradient(
+                0deg,
+                var(--color-highlight),
+                var(--color-highlight) 5px,
+                transparent 5px,
+                transparent 10px
+            );
+            position: relative;
+        }
+        .problem-arrow::after {
+            content: '❌';
+            font-size: 20px;
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .label {
+            font-weight: bold;
+            font-size: 0.8em;
+            color: #555;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>GoldBox S32G2: PFE 및 이더넷 스위치 활성화 가이드</h1>
+
+        <h2>1. 개요: 왜 PFE 포트가 동작하지 않는가?</h2>
+        <p>
+            GoldBox S32G2 보드에서 TSN(시간 민감형 네트워킹)을 위한 핵심 요소는 <strong>PFE(Packet Forwarding Engine)</strong>와 <strong>SJA1110A 이더넷 스위치</strong>입니다. 일반 <code>eth</code> 포트는 SoC의 GMAC(기가비트 MAC)에 직접 연결되어 정상 동작하지만, PFE 포트들은 SJA1110A 스위치를 거치도록 설계되어 있습니다.
+        </p>
+        <p>
+            현재 PFE 포트들이 비활성화된 근본적인 원인은, 리눅스 커널이 부팅 과정에서 <strong>SJA1110A 스위치를 제어하는 데 필요한 펌웨어(Firmware)를 찾지 못하여</strong> 스위치 초기화에 실패했기 때문입니다.
+        </p>
+
+        <h2>2. 하드웨어 연결 구조 및 문제 지점 분석</h2>
+        <p>아래 다이어그램은 S32G2 SoC, PFE, SJA1110A 스위치, 그리고 물리적 포트(RJ45) 간의 데이터 흐름을 보여줍니다.</p>
+        
+        <div class="diagram-wrapper">
+            <div class="diagram-title">GoldBox S32G2 이더넷 데이터 경로 다이어그램</div>
+            <div class="diagram">
+                <!-- Column 1: SoC -->
+                <div class="column">
+                    <div class="block soc">
+                        <strong>S32G274A SoC</strong>
+                        <div class="block sub-block">PFE_MAC0</div>
+                        <div class="block sub-block">PFE_MAC1</div>
+                        <div class="block sub-block">GMAC0</div>
+                    </div>
+                </div>
+
+                <!-- Connector 1 -->
+                <div class="connector">
+                    <div class="arrow"></div>
+                </div>
+
+                <!-- Column 2: Switch & PHYs -->
+                <div class="column">
+                    <div class="block switch multi-connect-down">
+                        Automotive Ethernet Switch<br><strong>(SJA1110A)</strong>
+                    </div>
+                    <div class="phy-group">
+                        <div class="phy-item"><div class="block phy">100BASE-T1 PHY x6</div></div>
+                        <div class="phy-item"><div class="block phy">100BASE-TX PHY x1</div></div>
+                        <div class="phy-item"><div class="block phy">Ethernet PHY 1x</div></div>
+                    </div>
+
+                    <div class="block phy connect-down" style="margin-top:40px;">Ethernet PHY 1x</div>
+                </div>
+
+                <!-- Connector 2 -->
+                <div class="connector">
+                    <div class="arrow"></div>
+                </div>
+
+                <!-- Column 3: Physical Ports -->
+                <div class="column">
+                    <div class="phy-group" style="padding-top:60px;">
+                        <div class="phy-item"><div class="block rj45">6-ch. 100BASE-T1</div></div>
+                        <div class="phy-item"><div class="block rj45">1-ch. RJ45</div></div>
+                        <div class="phy-item"><div class="block rj45">1-ch. RJ45</div></div>
+                    </div>
+                    <div class="block rj45" style="margin-top:40px;">1-ch. RJ45</div>
+                </div>
+
+                <!-- Problem Area -->
+                <div class="column">
+                    <div class="block firmware-block">
+                        <strong>펌웨어 로딩 실패</strong><br>
+                        /lib/firmware/<br>sja1110_switch.bin
+                    </div>
+                    <div class="connector">
+                        <div class="problem-arrow"></div>
+                    </div>
+                    <div class="block switch">
+                        <strong>SJA1110A 초기화 실패</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>다이어그램 해설</h3>
+        <ol>
+            <li><strong>S32G2 SoC:</strong> 중앙 처리 장치로, 내부에 PFE와 GMAC 같은 여러 이더넷 MAC(Media Access Control)을 포함합니다.</li>
+            <li><strong>PFE_MAC0:</strong> PFE의 MAC 포트로, SJA1110A 스위치와 직접 통신하여 다수의 이더넷 포트를 제어합니다. <strong>이 경로가 현재 문제의 핵심입니다.</strong></li>
+            <li><strong>GMAC0:</strong> 일반 기가비트 이더넷 MAC으로, 단일 PHY와 직접 연결되어 <code>ethX</code> 인터페이스를 제공합니다. 이 경로는 스위치와 무관하게 동작하므로 현재 정상 작동합니다.</li>
+            <li><strong>Automotive Ethernet Switch (SJA1110A):</strong> TSN 기능을 지원하는 고성능 스위치 칩입니다. 이 칩이 동작하려면 커널이 부팅 시점에 적절한 <strong>펌웨어(<code>sja1110_switch.bin</code>)</strong>를 로드하여 초기화해야 합니다.</li>
+            <li><strong style="color:var(--color-highlight);">문제 지점 (❌):</strong> 커널이 <code>/lib/firmware</code> 경로에서 펌웨어 파일을 찾지 못해 스위치 초기화에 실패합니다. 결과적으로 SJA1110A와 연결된 모든 PHY 및 RJ45 포트(100BASE-T1, 하단 RJ45 등)가 활성화되지 않습니다.</li>
+        </ol>
+
+        <h2>3. 해결 방안: PFE 및 스위치 기능 활성화 단계</h2>
+        <p>
+            PFE와 SJA1110A 스위치의 모든 기능을 활성화하려면, 보드와 BSP 버전에 맞는 스위치 펌웨어 파일을 시스템에 설치해야 합니다.
+        </p>
+        <div class="solution-step">
+            <h4>1단계: 올바른 펌웨어 파일 확보</h4>
+            <p>
+                NXP 공식 웹사이트, SDK 또는 Yocto 빌드 결과물에서 <strong>S32G274A용 <code>sja1110_switch.bin</code> 펌웨어 파일</strong>을 확보해야 합니다. GoldBox 3(S32G3)용 펌웨어는 호환되지 않으므로, 반드시 S32G2 보드 모델에 맞는 버전을 사용해야 합니다.
+                <br><em>(필요 시, NXP에 보드 시리얼과 BSP 버전을 명시하여 기술 지원을 요청하는 것이 가장 확실합니다.)</em>
+            </p>
+        </div>
+        <div class="solution-step">
+            <h4>2단계: 펌웨어 파일 시스템에 복사</h4>
+            <p>
+                확보한 펌웨어 파일을 SD카드나 네트워크(scp)를 통해 GoldBox 2 보드의 지정된 경로로 복사합니다.
+            </p>
+            <div class="code-block">
+# (PC에서 보드로 복사하는 예시)
+scp ./sja1110_switch.bin root@<goldbox-ip-address>:/lib/firmware/
+
+# (보드에서 직접 확인)
+ls -l /lib/firmware/sja1110_switch.bin
+            </div>
+        </div>
+        <div class="solution-step">
+            <h4>3단계: 재부팅 및 기능 검증</h4>
+            <p>
+                보드를 재부팅하면 커널이 자동으로 펌웨어를 로드하여 SJA1110A 스위치를 초기화합니다. 부팅 후 아래 명령어로 정상 활성화 여부를 검증합니다.
+            </p>
+            <div class="code-block">
+# 1. 펌웨어 로딩 성공 로그 확인 (에러 메시지가 없어야 함)
+dmesg | grep sja1110
+
+# 2. PFE 네트워크 인터페이스 확인 (Link 감지 및 IP 할당 가능)
+ip link show
+
+# 3. TSN 하드웨어 가속 기능 활성화 여부 확인 (hw-tc-offload: on)
+ethtool -k pfe0
+            </div>
+            <p>위 3단계 검증이 모두 성공하면, PFE와 SJA1110A 스위치가 정상적으로 활성화되어 TSN 기능을 포함한 모든 이더넷 포트를 사용할 수 있게 됩니다.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

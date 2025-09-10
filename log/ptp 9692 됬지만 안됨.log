@@ -1,0 +1,223 @@
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ # 1) 기존 PTP 인스턴스 삭제
+cat <<EOF > ipatch-delete-ptp.yaml
+- ? "/ieee1588-ptp:ptp/instances/instance[instance-index='0']"
+  : 
+EOF
+dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-delete-ptp.yaml
+
+# 2) PTP 인스턴스 생성 (automotive grandmaster 프로파일, 포트 12만 master)
+cat <<EOF > ipatch-create-ptp-gm.yaml
+- ? "/ieee1588-ptp:ptp/instances/instance"
+  : instance-index: 0
+    default-ds:
+      external-port-config-enable: true
+    mchp-velocitysp-ptp:automotive:
+      profile: gm
+    ports:
+      port:
+      - port-index: 12
+        external-port-config-port-ds:
+          desired-state: master
+EOF
+dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-create-ptp-gm.yaml
+
+# 3) 설정 확인
+cat <<EOF > fetch-ptp-instance.yaml
+- "/ieee1588-ptp:ptp/instances/instance"
+EOF
+dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-ptp-instance.yaml -q d=a
+Opening serial port at /dev/ttyACM0
+Opening serial port at /dev/ttyACM0
+Opening serial port at /dev/ttyACM0
+---
+- "/ieee1588-ptp:ptp/instances/instance":
+  - instance-index: 0
+    default-ds:
+      clock-identity: 02-06-3F-FF-FE-F5-0E-00
+      priority1: 246
+      priority2: 248
+      domain-number: 0
+      instance-enable: true
+      external-port-config-enable: true
+      max-steps-removed: 255
+      instance-type: relay
+    parent-ds:
+      parent-port-identity:
+        clock-identity: 00-00-00-00-00-00-00-00
+        port-number: 0
+      grandmaster-identity: 02-06-3F-FF-FE-F5-0E-00
+      grandmaster-clock-quality:
+        clock-class: ieee1588-ptp:cc-default
+        clock-accuracy: mchp-velocitysp-ptp:ca-time-accurate-unknown
+      grandmaster-priority1: 246
+      grandmaster-priority2: 248
+      ieee802-dot1as-ptp:cumulative-rate-ratio: 0
+    ports:
+      port:
+      - port-index: 12
+        port-ds:
+          port-state: master
+          mean-link-delay: '0'
+          log-sync-interval: -3
+          log-min-pdelay-req-interval: 0
+          port-enable: true
+          ieee802-dot1as-ptp:as-capable: true
+          ieee802-dot1as-ptp:mean-link-delay-thresh: '52428800'
+          ieee802-dot1as-ptp:neighbor-rate-ratio: 0
+          ieee802-dot1as-ptp:sync-receipt-timeout: 3
+          ieee802-dot1as-ptp:use-mgt-log-gptp-cap-interval: false
+          ieee802-dot1as-ptp:mgt-log-gptp-cap-interval: 0
+          ieee802-dot1as-ptp:use-mgt-one-step-tx-oper: false
+          ieee802-dot1as-ptp:mgt-one-step-tx-oper: 0
+        timestamp-correction-port-ds:
+          egress-latency: '0'
+          ingress-latency: '0'
+        external-port-config-port-ds:
+          desired-state: master
+    mchp-velocitysp-ptp:servos:
+      servo: []
+    mchp-velocitysp-ptp:automotive:
+      profile: gm
+      oper-log-pdelay-req-interval: 1
+      oper-log-sync-interval: 0
+    mchp-velocitysp-ptp:l2:
+      mac-address: 00-00-00-00-00-00
+      mac-address-enable: false
+      vlan: 1
+      vlan-enable: false
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-ptp-instance.yaml -q d=a
+Opening serial port at /dev/ttyACM0
+---
+- "/ieee1588-ptp:ptp/instances/instance":
+  - instance-index: 0
+    default-ds:
+      clock-identity: 02-06-3F-FF-FE-F5-0E-00
+      priority1: 246
+      priority2: 248
+      domain-number: 0
+      instance-enable: true
+      external-port-config-enable: true
+      max-steps-removed: 255
+      instance-type: relay
+    parent-ds:
+      parent-port-identity:
+        clock-identity: 00-00-00-00-00-00-00-00
+        port-number: 0
+      grandmaster-identity: 02-06-3F-FF-FE-F5-0E-00
+      grandmaster-clock-quality:
+        clock-class: ieee1588-ptp:cc-default
+        clock-accuracy: mchp-velocitysp-ptp:ca-time-accurate-unknown
+      grandmaster-priority1: 246
+      grandmaster-priority2: 248
+      ieee802-dot1as-ptp:cumulative-rate-ratio: 0
+    ports:
+      port:
+      - port-index: 12
+        port-ds:
+          port-state: master
+          mean-link-delay: '0'
+          log-sync-interval: -3
+          log-min-pdelay-req-interval: 1
+          port-enable: true
+          ieee802-dot1as-ptp:as-capable: true
+          ieee802-dot1as-ptp:mean-link-delay-thresh: '52428800'
+          ieee802-dot1as-ptp:neighbor-rate-ratio: 0
+          ieee802-dot1as-ptp:sync-receipt-timeout: 3
+          ieee802-dot1as-ptp:use-mgt-log-gptp-cap-interval: false
+          ieee802-dot1as-ptp:mgt-log-gptp-cap-interval: 0
+          ieee802-dot1as-ptp:use-mgt-one-step-tx-oper: false
+          ieee802-dot1as-ptp:mgt-one-step-tx-oper: 0
+        timestamp-correction-port-ds:
+          egress-latency: '0'
+          ingress-latency: '0'
+        external-port-config-port-ds:
+          desired-state: master
+    mchp-velocitysp-ptp:servos:
+      servo: []
+    mchp-velocitysp-ptp:automotive:
+      profile: gm
+      oper-log-pdelay-req-interval: 1
+      oper-log-sync-interval: 0
+    mchp-velocitysp-ptp:l2:
+      mac-address: 00-00-00-00-00-00
+      mac-address-enable: false
+      vlan: 1
+      vlan-enable: false
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-ptp-l2-vlan10.yaml
+- ? "/ieee1588-ptp:ptp/instances/instance[instance-index='0']/mchp-velocitysp-ptp:l2"
+  : vlan: 10
+    vlan-enable: true
+EOF
+dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-ptp-l2-vlan10.yaml
+
+# 변경 확인
+cat <<EOF > fetch-ptp-l2.yaml
+- "/ieee1588-ptp:ptp/instances/instance[instance-index='0']/mchp-velocitysp-ptp:l2"
+EOF
+dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-ptp-l2.yaml -q d=a
+Opening serial port at /dev/ttyACM0
+Opening serial port at /dev/ttyACM0
+---
+- "/ieee1588-ptp:ptp/instances/instance/mchp-velocitysp-ptp:l2":
+    mac-address: 00-00-00-00-00-00
+    mac-address-enable: false
+    vlan: 10
+    vlan-enable: true
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-reset-vlan-port12.yaml
+- ? "/ietf-interfaces:interfaces/interface[name='12']/ieee802-dot1q-bridge:bridge-port/acceptable-frame"
+  : admit-all-frames
+- ? "/ietf-interfaces:interfaces/interface[name='12']/ieee802-dot1q-bridge:bridge-port/enable-ingress-filtering"
+  : false
+- ? "/ietf-interfaces:interfaces/interface[name='12']/ieee802-dot1q-bridge:bridge-port/pvid"
+  : 1
+EOF
+dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-reset-vlan-port12.yaml
+
+# 변경 확인
+dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-vlan-ptp-port12.yaml -q d=a
+Opening serial port at /dev/ttyACM0
+Opening serial port at /dev/ttyACM0
+---
+- "/ietf-interfaces:interfaces/interface/ieee802-dot1q-bridge:bridge-port/port-type": ieee802-dot1q-bridge:c-vlan-bridge-port
+- "/ietf-interfaces:interfaces/interface/ieee802-dot1q-bridge:bridge-port/acceptable-frame": admit-all-frames
+- "/ietf-interfaces:interfaces/interface/ieee802-dot1q-bridge:bridge-port/enable-ingress-filtering": false
+- "/ietf-interfaces:interfaces/interface/ieee802-dot1q-bridge:bridge-port/pvid": 1
+- "/ieee802-dot1q-bridge:bridges/bridge/component/filtering-database/vlan-registration-entry":
+  - database-id: 0
+    vids: '10'
+    entry-type: static
+    port-map:
+    - port-ref: 12
+      static-vlan-registration-entries:
+        vlan-transmitted: tagged
+(base) kim@kim-System-Product-Name:~/velocitydrivesp-support$ cat <<EOF > ipatch-reset-vlan-port12.yaml
+# 1) Tagged‑only → admit‑all‑frames
+- ? "/ietf-interfaces:interfaces/interface[name='12']/ieee802-dot1q-bridge:bridge-port/acceptable-frame"
+  : admit-all-frames
+# 2) Ingress 필터링 끄기
+- ? "/ietf-interfaces:interfaces/interface[name='12']/ieee802-dot1q-bridge:bridge-port/enable-ingress-filtering"
+  : false
+# 3) PVID 를 기본 VLAN 1 로 복구
+- ? "/ietf-interfaces:interfaces/interface[name='12']/ieee802-dot1q-bridge:bridge-port/pvid"
+  : 1
+EOF
+
+dr mup1cc -d /dev/ttyACM0 -m ipatch -i ipatch-reset-vlan-port12.yaml
+
+# 확인
+dr mup1cc -d /dev/ttyACM0 -m fetch -i fetch-vlan-ptp-port12.yaml -q d=a
+Opening serial port at /dev/ttyACM0
+Opening serial port at /dev/ttyACM0
+---
+- "/ietf-interfaces:interfaces/interface/ieee802-dot1q-bridge:bridge-port/port-type": ieee802-dot1q-bridge:c-vlan-bridge-port
+- "/ietf-interfaces:interfaces/interface/ieee802-dot1q-bridge:bridge-port/acceptable-frame": admit-all-frames
+- "/ietf-interfaces:interfaces/interface/ieee802-dot1q-bridge:bridge-port/enable-ingress-filtering": false
+- "/ietf-interfaces:interfaces/interface/ieee802-dot1q-bridge:bridge-port/pvid": 1
+- "/ieee802-dot1q-bridge:bridges/bridge/component/filtering-database/vlan-registration-entry":
+  - database-id: 0
+    vids: '10'
+    entry-type: static
+    port-map:
+    - port-ref: 12
+      static-vlan-registration-entries:
+        vlan-transmitted: tagged

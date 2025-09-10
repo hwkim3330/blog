@@ -1,0 +1,211 @@
+Skip to main contentSkip to footer
+Log in to myMicrochip to access tools and benefits. Sign up in just one minute.
+
+
+All
+Enter keyword, item, model or part #
+
+myMicrochip
+Support
+Search Our Knowledge Base to Find Answers to Common Questions
+Search for Knowledge Articles, Files and Cases
+
+Do You Have Questions?
+We're Here to Help.
+
+Click here to chat with a live agent
+Create a support ticket
+Call us directly at 1-888-624-7435
+Click here for international phone numbers
+Our Services
+Technical and Design Support
+Technical Support Portal (Create or View a Support Ticket)
+Design Check Services (MicroCHECK)
+FPGA Design Services and Check
+Request Access to Secure Technical Documents
+Professional Embedded Design Services
+Knowledge Base Article Search
+Design Resources Search (Tools, Reference Designs, Training, Related Products)
+Purchasing and Sales Support
+Purchasing Support Services
+Support Choosing a Product
+Sample Requests
+Product Change Notifications (PCNs)
+Development Tool Replacement Services
+Microchip Sales Office and Distribution Directory
+Request Access to Secure Documents  
+Frequency and Timing Systems (FTS) Files, Tools, Software, RMA Services and More
+Quality and Component Data
+Quality and Reliability Documents and Certifications
+RoHS/REACH/Material Declarations
+Product Change Notifications (PCNs)
+End of Life (EOL) Policy
+Package Drawings
+Export Control Data (Country of Origin)
+Package Qualification Summary (MSL)
+Longevity Practice
+Reliability Reports (MTBF, FIT)
+Component Age/Shelf-Life Policy
+Self-Service and Community Forums
+Knowledge Base Articles Search
+Developer Help Wiki
+Product Selection Tools
+Microchip University
+Code Examples
+Development Tools and Software 
+AVR Freaks® Forum
+Microchip Community Forum
+Additional Resources and Support
+Technical support, software downloads, RMA service requests and other information for our FTS products are available only through your myMicrochip account. 
+
+New User: Learn How to Register
+Registered User: Go to myMicrochip
+220428-fts-bnr-timeprovider-4100-v2-3-feature-358x205
+Other Helpful Links
+Design Partners
+Mineral Sourcing
+Shopping Direct
+Training and Webinars
+SDE User Guide
+Member-only benefits with myMicrochip
+Register to unleash and personalize the Microchip experience.
+
+Sign In/Sign Up
+Access your support cases and call logs
+Choose preferences and set alerts
+Track your order history
+Secure access to documentation and software tools
+Chat Icon Footer
+Support at Every Step
+
+We are committed to partnering with you and making sure you have what you need to succeed.
+
+Learn About Support
+About
+
+Company
+Careers
+Contact Us
+Media Center
+Investor Relations
+Corporate Responsibility
+Support
+
+Microchip Forums
+AVR Freaks
+Design Help
+Technical Support
+Export Control Data
+PCNs
+Quick Links
+
+microchipDIRECT.com
+Microchip University
+myMicrochip
+Blogs
+Reference Designs
+Parametric Search
+Microchip Logo
+Microchip Technology Inc.
+
+2355 West Chandler Blvd.
+
+Chandler, Arizona, USA
+
+Follow Microchip on Facebook
+Follow Microchip on LinkedIn
+Follow Microchip on Twitter
+Follow Microchip on Youtube
+Follow Microchip on Instagram
+Follow Microchip on Weibo
+© Copyright 1998-2025 Microchip Technology Inc. All rights reserved. Shanghai ICP Recordal No.09049794
+
+
+Terms Of Use
+Privacy Notice
+Legal
+Your Privacy Choices California Consumer Privacy Act (CCPA) Opt-Out Icon
+Embedded Chat
+logo
+Erwin
+Minimize chat
+Close dialog
+
+Chat started at 10:46 AM
+E
+Hi my name is Erwin. How can I assist you?
+Erwin
+hello
+about lan9692
+E
+Hi Hyunwoo, what is the concern with this device?
+Erwin
+Hello,
+I'm currently working with the LAN9692 board and would like to confirm whether it supports IEEE 802.1CB (Frame Replication and Elimination for Reliability).
+
+Specifically, could you please provide any documentation, manuals, or example configurations related to 802.1CB support on this board?
+
+If 802.1CB is not supported yet, is there a roadmap or planned support for this feature in future firmware releases?
+
+Thank you.
+E
+Let me check this details for a moment. Please wait for a while.
+Erwin
+10:47 AM
+I’ve reviewed the latest VelocityDRIVE-SP 2025.06 documentation and noticed that the LAN9692 board supports stream identification mechanisms aligned with IEEE 802.1CB (e.g., Null, SMAC, and IP-based identification).
+
+I would like to confirm:
+
+Does the current firmware fully support IEEE 802.1CB, including frame replication and elimination mechanisms (FRER)?
+
+If not fully supported yet, is FRER support (e.g., sequence generation, elimination, recovery) planned for future firmware versions?
+
+Are there any example configurations or test scenarios demonstrating complete 802.1CB functionality on the LAN9692 board?
+
+Thank you in advance for your support.
+10:47 AM
+E
+Thank you for waiting.
+
+It seems that the LAN9692 document does not mention 802.1CB as feature. Though, I would suggest to create a technical support ticket instead so that our device specialist can answer more of your questions.
+
+Would that be great?
+Erwin
+10:51 AM
+Thank you for your reply.
+
+I understand that 802.1CB is not officially listed in the documentation, but I noticed that the 2025.06 VelocityDRIVE-SP version includes the YANG path /ieee802-dot1cb-stream-identification:stream-identity, along with detailed examples for Null, SMAC, and IP stream identification.
+
+Given this, I’d like to clarify:
+
+Does the current firmware already support stream identification features as defined in IEEE 802.1CB, and if so, does it also support frame replication and elimination (FRER)?
+
+Is there a plan to officially document or update the VelocityDRIVE-SP manual to reflect this feature (802.1CB), including usage and limitations?
+
+If it's better to raise this via a technical support ticket, I’m happy to do so. I just wanted to confirm the current implementation status and any upcoming documentation updates.
+
+Thanks again for your support.
+10:52 AM
+E
+I would highly suggest opening a ticket for this one Hyunwoo. By the way, since you are from Korea, you may contact your local office if you prefer.
+
+고객님의 모국어로 상담을 원하시면, 아래의 연락처로 한국 지사에 연락해 주시기 바랍니다:
+
+웹사이트: www.microchipkorea.com
+
+기술 지원: +82-80-270-7200
+
+판매 관련 문의 (예: Microchip Direct): +82-2-554-7200
+
+이해해 주셔서 감사드리며, 앞으로도 계속 도와드리겠습니다.
+Erwin
+10:53 AM
+ok...
+10:54 AM
+E
+Thank you Hyunwoo. If there are no more questions, please feel free to end our live chat session.
+Erwin
+10:55 AM
+Enter Message
+Type your message...
+End of Dialog
