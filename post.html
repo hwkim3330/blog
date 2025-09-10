@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post - HW Kim Tech Blog</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .post-content h1 {
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+        .post-content h2 {
+            color: var(--text-primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .post-content h3 {
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.4rem;
+        }
+        .post-content p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        .post-content pre {
+            background: var(--bg-alt);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .post-content code {
+            background: var(--bg-alt);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .post-content pre code {
+            background: none;
+            padding: 0;
+        }
+        .post-content ul, .post-content ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        .post-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        .post-content blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .post-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .post-content th, .post-content td {
+            border: 1px solid var(--border-color);
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .post-content th {
+            background: var(--bg-alt);
+            font-weight: 600;
+        }
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            transform: translateX(-4px);
+        }
+        .loading {
+            text-align: center;
+            padding: 4rem;
+            color: var(--text-muted);
+        }
+        .error {
+            text-align: center;
+            padding: 4rem;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">HW.Kim</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html#posts">Posts</a>
+                <a href="index.html#research">Research</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="index.html#about">About</a>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Content -->
+    <section class="section">
+        <div class="container">
+            <div class="post-content">
+                <a href="index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Posts
+                </a>
+                <div id="postContent" class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading post...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 HW Kim. All rights reserved.</p>
+            <p>Built with <span class="heart">❤️</span> and lots of ☕</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const icon = document.querySelector('.theme-toggle i');
+            icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const icon = document.querySelector('.theme-toggle i');
+            if (icon) {
+                icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+            
+            // Load post content
+            loadPost();
+        });
+
+        // Load post from URL parameter
+        async function loadPost() {
+            const params = new URLSearchParams(window.location.search);
+            const postPath = params.get('p');
+            
+            if (!postPath) {
+                document.getElementById('postContent').innerHTML = `
+                    <div class="error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>No post specified</p>
+                    </div>
+                `;
+                return;
+            }
+
+            try {
+                const response = await fetch(postPath);
+                if (!response.ok) {
+                    throw new Error('Post not found');
+                }
+                
+                const content = await response.text();
+                const isMarkdown = postPath.endsWith('.md');
+                
+                let html;
+                if (isMarkdown) {
+                    // Parse markdown
+                    html = marked.parse(content);
+                } else {
+                    // For log files, wrap in pre tag
+                    html = `<pre>${escapeHtml(content)}</pre>`;
+                }
+                
+                // Extract title from first h1 or filename
+                const titleMatch = content.match(/^#\s+(.+)$/m);
+                const title = titleMatch ? titleMatch[1] : postPath.split('/').pop().replace(/\.(md|log)$/, '');
+                
+                document.getElementById('postContent').innerHTML = `
+                    <h1>${title}</h1>
+                    <div class="post-meta">
+                        <span><i class="fas fa-file"></i> ${postPath}</span>
+                    </div>
+                    <div class="content">
+                        ${html}
+                    </div>
+                `;
+                
+                // Update page title
+                document.title = `${title} - HW Kim Tech Blog`;
+                
+            } catch (error) {
+                document.getElementById('postContent').innerHTML = `
+                    <div class="error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h2>Post not found</h2>
+                        <p>${error.message}</p>
+                        <p>Path: ${postPath}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+    </script>
+</body>
+</html>
